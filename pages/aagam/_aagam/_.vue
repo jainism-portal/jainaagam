@@ -6,11 +6,10 @@
       </li>
     </ol> -->
     <!-- {{ aagam }} -->
-    <div v-if="books && books.length > 0">
-      <div v-for="book in books" :key="book.book">
-        <h1>Book {{ book.book }}</h1>
-        Chapters:
-        <!-- <ol>
+    <div v-if="content_book">
+      <h1>Book {{ content_book.order.book.position }}</h1>
+      {{ `${content_book.children.type}s`.toUpperCase() }}:
+      <!-- <ol>
           <li v-for="chapter in book.chapters" :key="chapter.chapter_no">
             <nuxt-link
               :to="`/aagam/${$route.params.aagam}/book-${book.book}/chapter-${chapter.chapter_no}`"
@@ -19,19 +18,17 @@
             </nuxt-link>
           </li>
         </ol> -->
-        <ol>
-          <li
-            v-for="(chapter, i) in content_book.children.children"
-            :key="chapter"
+      <ol>
+        <li v-for="(child, i) in content_book.children.children" :key="child">
+          <nuxt-link
+            :to="`/aagam/${$route.params.aagam}/${content_book.type}-${
+              content_book.order.book.position
+            }/${content_book.children.type}-${i + 1}`"
           >
-            <nuxt-link
-              :to="`/aagam/${$route.params.aagam}/book-1/chapter-${i + 1}`"
-            >
-              {{ chapter }}
-            </nuxt-link>
-          </li>
-        </ol>
-      </div>
+            {{ child }}
+          </nuxt-link>
+        </li>
+      </ol>
     </div>
     <div v-if="content_chapter">
       <h1>
@@ -91,11 +88,13 @@ export default {
       }
     }
     // Aagam content book fetch
-    this.content_book = await this.$content("hi/aagam", { deep: true })
-      .where({ type: "book" })
-      .fetch();
+    if (this.$route.params.pathMatch === "book-1/") {
+      this.content_book = await this.$content("hi/aagam", { deep: true })
+        .where({ type: "book" })
+        .fetch();
 
-    this.content_book = this.content_book[0];
+      this.content_book = this.content_book[0];
+    }
 
     // Aagam content chapter fetch
 

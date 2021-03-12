@@ -10,7 +10,7 @@
       <div v-for="book in books" :key="book.book">
         <h1>Book {{ book.book }}</h1>
         Chapters:
-        <ol>
+        <!-- <ol>
           <li v-for="chapter in book.chapters" :key="chapter.chapter_no">
             <nuxt-link
               :to="`/aagam/${$route.params.aagam}/book-${book.book}/chapter-${chapter.chapter_no}`"
@@ -18,20 +18,36 @@
               {{ chapter.chapter_no }}. {{ chapter.chapter }}
             </nuxt-link>
           </li>
+        </ol> -->
+        <ol>
+          <li
+            v-for="(chapter, i) in content_book.children.children"
+            :key="chapter"
+          >
+            <nuxt-link
+              :to="`/aagam/${$route.params.aagam}/book-1/chapter-${i + 1}`"
+            >
+              {{ chapter }}
+            </nuxt-link>
+          </li>
         </ol>
       </div>
     </div>
-    <div v-if="aagam_content_chapter">
+    <div v-if="content_chapter">
       <h1>
-        Chapter {{ aagam_content_chapter.depth.chapter }} -
-        {{ aagam_content_chapter.title }} ({{ aagam_content_chapter.trans }})
+        Chapter {{ content_chapter.order.chapter.position }} -
+        {{ content_chapter.title }} ({{ content_chapter.trans }})
       </h1>
 
-      <div v-if="aagam_content_chapter">
-        <NuxtContent :document="aagam_content_chapter"></NuxtContent>
+      <div v-if="content_chapter">
+        <NuxtContent :document="content_chapter"></NuxtContent>
         <ol>
-          <li v-for="n in aagam_content_chapter.children.count" :key="n">
-            Lesson {{ n }}
+          <li v-for="n in content_chapter.children.count" :key="n">
+            <nuxt-link
+              :to="`/aagam/${content_chapter.parent.type}-${content_chapter.order.chapter}/chapter-1/lesson-${n}`"
+            >
+              Lesson {{ n }}
+            </nuxt-link>
           </li>
         </ol>
       </div>
@@ -48,7 +64,8 @@ export default {
       books: [],
       chapters: null,
       lessons: [],
-      aagam_content_chapter: null,
+      content_book: null,
+      content_chapter: null,
     };
   },
   async fetch() {
@@ -73,24 +90,30 @@ export default {
         });
       }
     }
+    // Aagam content book fetch
+    this.content_book = await this.$content("hi/aagam", { deep: true })
+      .where({ type: "book" })
+      .fetch();
+
+    this.content_book = this.content_book[0];
 
     // Aagam content chapter fetch
 
-    this.aagam_content_chapter = await this.$content("hi/aagam", { deep: true })
+    this.content_chapter = await this.$content("hi/aagam", { deep: true })
       .where({ type: "chapter" })
       .fetch();
 
-    this.aagam_content_chapter = this.aagam_content_chapter.filter((i) => {
+    this.content_chapter = this.content_chapter.filter((i) => {
       return (
-        `book-${i.depth.book}/chapter-${i.depth.chapter}` ===
+        `book-${i.order.book.position}/chapter-${i.order.chapter.position}` ===
           this.$route.params.pathMatch ||
-        `book-${i.depth.book}/chapter-${i.depth.chapter}/` ===
+        `book-${i.order.book.position}/chapter-${i.order.chapter.position}/` ===
           this.$route.params.pathMatch
       );
       // pathMatch:"book-1/chapter-2"
     });
 
-    this.aagam_content_chapter = this.aagam_content_chapter[0];
+    this.content_chapter = this.content_chapter[0];
   },
 };
 </script>

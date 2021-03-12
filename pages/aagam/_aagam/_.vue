@@ -102,6 +102,14 @@
     >
       Wrong URL. Check URL again or go Home.
     </div>
+    <Incomplete
+      :content_book="content_book"
+      :content_part="content_part"
+      :content_chapter="content_chapter"
+      :content_lesson="content_lesson"
+      :content_sutra="content_sutra"
+      :content_sutra_original="content_sutra_original"
+    ></Incomplete>
   </div>
 </template>
 

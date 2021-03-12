@@ -6,10 +6,16 @@ alt_trans:
 
 type: chapter
 
-depth:
-  aagam: 1
-  book: 1
-  chapter: 1
+order:
+  aagam: 
+    position: 1
+    depth: 1
+  book: 
+    position: 1
+    depth: 2
+  chapter:
+    position: 1
+    depth: 3
 
 parent:
   type: book

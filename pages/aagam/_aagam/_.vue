@@ -270,7 +270,16 @@ export default {
 </script>
 
 <style lang="postcss">
-/* .nuxt-content p {
-  @apply tw-p-2 tw-tracking-wide tw-text-lg;
-} */
+h1 {
+  @apply tw-py-2 tw-tracking-wide tw-text-3xl;
+}
+.nuxt-content h2 {
+  @apply tw-py-2 tw-tracking-wide tw-text-2xl;
+}
+.nuxt-content h3 {
+  @apply tw-py-2 tw-tracking-wide tw-text-xl;
+}
+.nuxt-content p {
+  @apply tw-py-2 tw-tracking-wide tw-text-lg;
+}
 </style>

@@ -22,7 +22,10 @@
       </div>
     </div>
     <div v-if="aagam_content_chapter">
-      <h1>Chapter {{ aagam_content_chapter.depth.chapter }}</h1>
+      <h1>
+        Chapter {{ aagam_content_chapter.depth.chapter }} -
+        {{ aagam_content_chapter.title }} ({{ aagam_content_chapter.trans }})
+      </h1>
 
       <div v-if="aagam_content_chapter">
         <NuxtContent :document="aagam_content_chapter"></NuxtContent>
@@ -71,7 +74,7 @@ export default {
       }
     }
 
-    // Aagam content fetch
+    // Aagam content chapter fetch
 
     this.aagam_content_chapter = await this.$content("hi/aagam", { deep: true })
       .where({ type: "chapter" })

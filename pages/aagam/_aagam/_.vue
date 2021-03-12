@@ -78,12 +78,14 @@
       <NuxtContent :document="content_lesson"></NuxtContent>
     </div>
 
-    <div v-if="content_sutra">
-      <h1>Sutra {{ content_sutra.order.lesson.position }}</h1>
-      <p>
+    <div>
+      <h1 v-if="content_sutra">
+        Sutra {{ content_sutra.order.lesson.position }}
+      </h1>
+      <p v-if="content_sutra_original">
         {{ content_sutra_original.sutra }}
       </p>
-      <NuxtContent :document="content_sutra"></NuxtContent>
+      <NuxtContent :document="content_sutra" v-if="content_sutra"></NuxtContent>
     </div>
 
     <div

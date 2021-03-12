@@ -25,11 +25,6 @@ parent:
 
 sutra: |
   सुय मे आउसं ! तेणं भगवया एवमक्खायं - इहमेगेसिं णो सण्णा भवइ । त जहा - पुरत्थिमाओ वा दिसाओ आगओ अहमंसि,  दाहिणाओ वा दिसाओ आगओ अहमंसि, पच्चत्थिमाओ वा दिसाओ  आगओ अहमंसि, उत्तराओ वा दिसाओ आगओ अहमंसि, उड्ढाओ वा दिसाओ आगओ अहमंसि, अहे दिसाओ वा आगओ अहमंसि, अण्णयरीओ दिसाओ वा अणुदिसाओ वा आगओ अहमंसि ।
-
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Suryaprajnapati_Sutra.jpg/440px-Suryaprajnapati_Sutra.jpg"/>
-
+  
   एवमेगेसिं णो णायं भवइ - अस्थि मे आया उववाइए, णत्थि मे आया उववाइए, के अहं आसी, के वा इओ चुओ इह पेच्चा भविस्सामि।
-
-  <check src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Suryaprajnapati_Sutra.jpg/440px-Suryaprajnapati_Sutra.jpg"></check>
-
 ---

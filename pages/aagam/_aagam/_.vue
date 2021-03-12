@@ -1,11 +1,5 @@
 <template>
   <div>
-    <!-- <ol>
-      <li v-for="aag in aagam" :key="aag.title">
-        {{ aag }}
-      </li>
-    </ol> -->
-    <!-- {{ aagam }} -->
     <div v-if="content_book">
       <h1>Book {{ content_book.order.book.position }}</h1>
       {{ `${content_book.children.type}s`.toUpperCase() }}:
@@ -117,11 +111,6 @@
 export default {
   data() {
     return {
-      aagams: [],
-      aagam: [],
-      books: [],
-      chapters: null,
-      lessons: [],
       content_book: null,
       content_part: null,
       content_chapter: null,
@@ -133,25 +122,6 @@ export default {
   async fetch() {
     let _ = require("lodash");
 
-    this.aagams = await this.$content("aagam-meta").fetch();
-
-    for (const aagamsall of this.aagams) {
-      this.aagam = aagamsall.aagams.filter((aagam) => {
-        return aagam.title == this.$route.params.aagam;
-      });
-    }
-
-    for (const aag of this.aagam) {
-      if (aag.books) {
-        this.books = aag.books.filter((book) => {
-          return (
-            `book-${book.book}` == this.$route.params.pathMatch ||
-            `book-${book.book}/` == this.$route.params.pathMatch
-          );
-          // pathMatch = "book-1/"
-        });
-      }
-    }
     // Aagam content book fetch
     if (
       new RegExp(/book-[0-9]+$/i).test(this.$route.fullPath) ||

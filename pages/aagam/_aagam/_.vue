@@ -80,7 +80,22 @@
 
     <div v-if="content_sutra">
       <h1>Sutra {{ content_sutra.order.lesson.position }}</h1>
+      <p>
+        {{ content_sutra_original.sutra }}
+      </p>
       <NuxtContent :document="content_sutra"></NuxtContent>
+    </div>
+
+    <div
+      v-if="
+        content_book === null &&
+        content_part === null &&
+        content_chapter === null &&
+        content_lesson === null &&
+        content_sutra === null
+      "
+    >
+      Wrong URL. Check URL again or go Home.
     </div>
   </div>
 </template>
@@ -99,6 +114,7 @@ export default {
       content_chapter: null,
       content_lesson: null,
       content_sutra: null,
+      content_sutra_original: null,
     };
   },
   async fetch() {
@@ -229,10 +245,30 @@ export default {
       });
 
       this.content_sutra = this.content_sutra[0];
+
+      this.content_sutra_original = await this.$content("aagam", { deep: true })
+        .where({ type: "sutra" })
+        .fetch();
+
+      this.content_sutra_original = this.content_sutra_original.filter((i) => {
+        return (
+          // "book-1/chapter-1/lesson-1/sutra-1"
+
+          `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}` ===
+            this.$route.params.pathMatch ||
+          `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}/` ===
+            this.$route.params.pathMatch
+        );
+      });
+
+      this.content_sutra_original = this.content_sutra_original[0];
     }
   },
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
+.nuxt-content p {
+  @apply tw-p-2 tw-tracking-wide tw-text-lg;
+}
 </style>

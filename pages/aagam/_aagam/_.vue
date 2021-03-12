@@ -58,9 +58,7 @@
 
       <ol>
         <li v-for="n in content_chapter.children.count" :key="n">
-          <nuxt-link
-            :to="`/aagam/${content_chapter.parent.type}-${content_chapter.order.chapter.position}/chapter-1/lesson-${n}`"
-          >
+          <nuxt-link :to="`${$route.fullPath}/lesson-${n}`">
             Lesson {{ n }}
           </nuxt-link>
         </li>
@@ -72,12 +70,17 @@
       {{ `${content_lesson.children.type}s`.toUpperCase() }}:
       <ol>
         <li v-for="n in content_lesson.children.count" :key="n">
-          <nuxt-link :to="`${$route.params.fullPath}/sutra-${n}`">
+          <nuxt-link :to="{ path: `${$route.fullPath}/sutra-${n}` }">
             Sutra {{ n }}
           </nuxt-link>
         </li>
       </ol>
       <NuxtContent :document="content_lesson"></NuxtContent>
+    </div>
+
+    <div v-if="content_sutra">
+      <h1>Sutra {{ content_sutra.order.lesson.position }}</h1>
+      <NuxtContent :document="content_sutra"></NuxtContent>
     </div>
   </div>
 </template>
@@ -193,21 +196,21 @@ export default {
 
     // Aagam content Lesson fetch
     if (
-      this.$route.params.pathMatch === "chapter-1/lesson-1" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-1/" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-2" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-2/" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-3" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-3/" ||
-      this.$route.params.pathMatch === "chapter-2/lesson-1/" ||
-      this.$route.params.pathMatch === "chapter-2/lesson-2" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-2/" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-3" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-3/" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-4" ||
-      this.$route.params.pathMatch === "chapter-1/lesson-4/" ||
-      this.$route.params.pathMatch === "chapter-2/lesson-2" ||
-      this.$route.params.pathMatch === "chapter-2/lesson-2/"
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-1" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-1/" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-2" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-2/" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-3" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-3/" ||
+      this.$route.params.pathMatch === "book-1/chapter-2/lesson-1/" ||
+      this.$route.params.pathMatch === "book-1/chapter-2/lesson-2" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-2/" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-3" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-3/" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-4" ||
+      this.$route.params.pathMatch === "book-1/chapter-1/lesson-4/" ||
+      this.$route.params.pathMatch === "book-1/chapter-2/lesson-2" ||
+      this.$route.params.pathMatch === "book-1/chapter-2/lesson-2/"
     ) {
       this.content_lesson = await this.$content("hi/aagam", { deep: true })
         .where({ type: "lesson" })
@@ -215,18 +218,42 @@ export default {
 
       this.content_lesson = this.content_lesson.filter((i) => {
         return (
-          // "chapter-1/lesson-1"
+          // "book-1/chapter-1/lesson-1"
 
-          `chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}` ===
+          `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}` ===
             this.$route.params.pathMatch ||
-          `chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}` ===
+          `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/` ===
             this.$route.params.pathMatch
         );
       });
 
       this.content_lesson = this.content_lesson[0];
     }
+
     // Aagam content Sutra fetch
+    let patt = new RegExp(/sutra-[0-9]+$/i);
+    let patt_slash = new RegExp(/sutra-[0-9]+\/$/i);
+    if (
+      patt.test(this.$route.fullPath) ||
+      patt_slash.test(this.$route.fullPath)
+    ) {
+      this.content_sutra = await this.$content("hi/aagam", { deep: true })
+        .where({ type: "sutra" })
+        .fetch();
+
+      this.content_sutra = this.content_sutra.filter((i) => {
+        return (
+          // "book-1/chapter-1/lesson-1/sutra-1"
+
+          `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}` ===
+            this.$route.params.pathMatch ||
+          `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}/` ===
+            this.$route.params.pathMatch
+        );
+      });
+
+      this.content_sutra = this.content_sutra[0];
+    }
   },
 };
 </script>

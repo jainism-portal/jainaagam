@@ -82,9 +82,9 @@
       <h1 v-if="content_sutra">
         Sutra {{ content_sutra.order.lesson.position }}
       </h1>
-      <p v-if="content_sutra_original">
-        {{ content_sutra_original.sutra }}
-      </p>
+      <div v-if="content_sutra_original">
+        <NuxtContent :document="content_sutra_original.sutra"></NuxtContent>
+      </div>
       <NuxtContent :document="content_sutra" v-if="content_sutra"></NuxtContent>
     </div>
 
@@ -270,7 +270,7 @@ export default {
 </script>
 
 <style lang="postcss">
-.nuxt-content p {
+/* .nuxt-content p {
   @apply tw-p-2 tw-tracking-wide tw-text-lg;
-}
+} */
 </style>

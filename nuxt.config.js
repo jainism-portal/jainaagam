@@ -44,6 +44,19 @@ export default {
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
     nestedProperties: ['depth.aagam', 'depth.chapter', 'depth.lesson', 'depth.sutra'],
+    extendParser: {
+      // https://github.com/nuxt/content/issues/432
+    }
+
+  },
+  hooks: {
+    'content:file:beforeInsert': async (document, database) => {
+      if (document.sutra) {
+        document.sutra = {
+          body: await database.markdown.generateBody(document.sutra),
+        };
+      }
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

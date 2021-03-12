@@ -15,6 +15,16 @@
     </div>
     <div v-else>
       <Incomplete
+        v-if="
+          !(
+            content_book ||
+            content_part ||
+            content_chapter ||
+            content_lesson ||
+            content_sutra ||
+            content_sutra_original
+          )
+        "
         :content_book="content_book"
         :content_part="content_part"
         :content_chapter="content_chapter"

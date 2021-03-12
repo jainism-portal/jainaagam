@@ -80,10 +80,13 @@
 
     <div>
       <h1 v-if="content_sutra">
-        Sutra {{ content_sutra.order.lesson.position }}
+        Sutra {{ content_sutra.order.sutra.position }}
+      </h1>
+      <h1 v-if="!content_sutra && content_sutra_original">
+        Sutra {{ content_sutra_original.order.sutra.position }}
       </h1>
       <div v-if="content_sutra_original">
-        <NuxtContent :document="content_sutra_original.sutra"></NuxtContent>
+        {{ content_sutra_original.sutra }}
       </div>
       <NuxtContent :document="content_sutra" v-if="content_sutra"></NuxtContent>
     </div>

@@ -87,11 +87,12 @@
 
     <div
       v-if="
-        content_book === null &&
-        content_part === null &&
-        content_chapter === null &&
-        content_lesson === null &&
-        content_sutra === null
+        (content_book === null &&
+          content_part === null &&
+          content_chapter === null &&
+          content_lesson === null &&
+          content_sutra === null) ||
+        $fetchState.error
       "
     >
       Wrong URL. Check URL again or go Home.

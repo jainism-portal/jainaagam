@@ -125,16 +125,8 @@ export default {
     }
     // Aagam content book fetch
     if (
-      this.$route.params.pathMatch === "book-1" ||
-      this.$route.params.pathMatch === "book-1/" ||
-      this.$route.params.pathMatch === "book-2" ||
-      this.$route.params.pathMatch === "book-2/" ||
-      this.$route.params.pathMatch === "book-3" ||
-      this.$route.params.pathMatch === "book-3/" ||
-      this.$route.params.pathMatch === "book-4" ||
-      this.$route.params.pathMatch === "book-4/" ||
-      this.$route.params.pathMatch === "book-5" ||
-      this.$route.params.pathMatch === "book-5/"
+      new RegExp(/book-[0-9]+$/i).test(this.$route.fullPath) ||
+      new RegExp(/book-[0-9]+\/$/i).test(this.$route.fullPath)
     ) {
       this.content_book = await this.$content("hi/aagam", { deep: true })
         .where({ type: "book" })
@@ -152,14 +144,8 @@ export default {
 
     // Aagam content Part fetch
     if (
-      this.$route.params.pathMatch === "book-2/part-1" ||
-      this.$route.params.pathMatch === "book-2/part-1/" ||
-      this.$route.params.pathMatch === "book-2/part-2" ||
-      this.$route.params.pathMatch === "book-2/part-2/" ||
-      this.$route.params.pathMatch === "book-2/part-3" ||
-      this.$route.params.pathMatch === "book-2/part-3/" ||
-      this.$route.params.pathMatch === "book-2/part-4" ||
-      this.$route.params.pathMatch === "book-2/part-4/"
+      new RegExp(/part-[0-9]+$/i).test(this.$route.fullPath) ||
+      new RegExp(/part-[0-9]+\/$/i).test(this.$route.fullPath)
     ) {
       this.content_part = await this.$content("hi/aagam", { deep: true })
         .where({ type: "part" })
@@ -178,39 +164,31 @@ export default {
     }
     // Aagam content chapter fetch
 
-    this.content_chapter = await this.$content("hi/aagam", { deep: true })
-      .where({ type: "chapter" })
-      .fetch();
+    if (
+      new RegExp(/chapter-[0-9]+$/i).test(this.$route.fullPath) ||
+      new RegExp(/chapter-[0-9]+\/$/i).test(this.$route.fullPath)
+    ) {
+      this.content_chapter = await this.$content("hi/aagam", { deep: true })
+        .where({ type: "chapter" })
+        .fetch();
 
-    this.content_chapter = this.content_chapter.filter((i) => {
-      return (
-        `book-${i.order.book.position}/chapter-${i.order.chapter.position}` ===
-          this.$route.params.pathMatch ||
-        `book-${i.order.book.position}/chapter-${i.order.chapter.position}/` ===
-          this.$route.params.pathMatch
-      );
-      // pathMatch:"book-1/chapter-2"
-    });
+      this.content_chapter = this.content_chapter.filter((i) => {
+        return (
+          `book-${i.order.book.position}/chapter-${i.order.chapter.position}` ===
+            this.$route.params.pathMatch ||
+          `book-${i.order.book.position}/chapter-${i.order.chapter.position}/` ===
+            this.$route.params.pathMatch
+        );
+        // pathMatch:"book-1/chapter-2"
+      });
 
-    this.content_chapter = this.content_chapter[0];
+      this.content_chapter = this.content_chapter[0];
+    }
 
     // Aagam content Lesson fetch
     if (
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-1" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-1/" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-2" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-2/" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-3" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-3/" ||
-      this.$route.params.pathMatch === "book-1/chapter-2/lesson-1/" ||
-      this.$route.params.pathMatch === "book-1/chapter-2/lesson-2" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-2/" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-3" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-3/" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-4" ||
-      this.$route.params.pathMatch === "book-1/chapter-1/lesson-4/" ||
-      this.$route.params.pathMatch === "book-1/chapter-2/lesson-2" ||
-      this.$route.params.pathMatch === "book-1/chapter-2/lesson-2/"
+      new RegExp(/lesson-[0-9]+$/i).test(this.$route.fullPath) ||
+      new RegExp(/lesson-[0-9]+\/$/i).test(this.$route.fullPath)
     ) {
       this.content_lesson = await this.$content("hi/aagam", { deep: true })
         .where({ type: "lesson" })
@@ -231,11 +209,9 @@ export default {
     }
 
     // Aagam content Sutra fetch
-    let patt = new RegExp(/sutra-[0-9]+$/i);
-    let patt_slash = new RegExp(/sutra-[0-9]+\/$/i);
     if (
-      patt.test(this.$route.fullPath) ||
-      patt_slash.test(this.$route.fullPath)
+      new RegExp(/sutra-[0-9]+$/i).test(this.$route.fullPath) ||
+      new RegExp(/sutra-[0-9]+\/$/i).test(this.$route.fullPath)
     ) {
       this.content_sutra = await this.$content("hi/aagam", { deep: true })
         .where({ type: "sutra" })

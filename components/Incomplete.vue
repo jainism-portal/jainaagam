@@ -9,7 +9,7 @@
         (content_sutra === null || content_sutra_original === null)
       "
     >
-      This Book is yet to be added.
+      <h1>This Book is yet to be added.</h1>
     </div>
     <div
       v-if="
@@ -20,7 +20,7 @@
         (content_sutra === null || content_sutra_original === null)
       "
     >
-      This Part is yet to be added.
+      <h1>This Part is yet to be added.</h1>
     </div>
     <div
       v-if="
@@ -31,7 +31,7 @@
         (content_sutra === null || content_sutra_original === null)
       "
     >
-      This Chapter is yet to be added.
+      <h1>This Chapter is yet to be added.</h1>
     </div>
     <div
       v-if="
@@ -42,7 +42,7 @@
         (content_sutra === null || content_sutra_original === null)
       "
     >
-      This Lesson is yet to be added.
+      <h1>This Lesson is yet to be added.</h1>
     </div>
     <div
       v-if="
@@ -53,7 +53,7 @@
         (content_sutra === undefined || content_sutra_original === undefined)
       "
     >
-      This Sutra is yet to be added.
+      <h1>This Sutra is yet to be added.</h1>
     </div>
   </div>
 </template>

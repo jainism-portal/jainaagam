@@ -50,13 +50,15 @@ export default {
 
   },
   hooks: {
-    'content:file:beforeInsert': async (document, database) => {
-      if (document.sutra) {
-        document.sutra = {
-          body: await database.markdown.generateBody(document.sutra),
-        };
-      }
-    },
+    // Due to this hook, sutra has got a body, which makes it parse markdown content even in yaml. But now we are unable to list down all the sutra in one place because Sutra is no longer a simple String. So, I am commenting this hook as of now.
+
+    // 'content:file:beforeInsert': async (document, database) => {
+    //   if (document.sutra) {
+    //     document.sutra = {
+    //       body: await database.markdown.generateBody(document.sutra),
+    //     };
+    //   }
+    // },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

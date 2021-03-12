@@ -1,92 +1,8 @@
 <template>
   <div>
-    <div v-if="content_book">
-      <h1>Book {{ content_book.order.book.position }}</h1>
-      {{ `${content_book.children.type}s`.toUpperCase() }}:
-      <!-- <ol>
-          <li v-for="chapter in book.chapters" :key="chapter.chapter_no">
-            <nuxt-link
-              :to="`/aagam/${$route.params.aagam}/book-${book.book}/chapter-${chapter.chapter_no}`"
-            >
-              {{ chapter.chapter_no }}. {{ chapter.chapter }}
-            </nuxt-link>
-          </li>
-        </ol> -->
-      <ol v-if="content_book.children.type === 'chapter'">
-        <li v-for="(child, i) in content_book.children.children" :key="child">
-          <nuxt-link
-            :to="`/aagam/${$route.params.aagam}/${content_book.type}-${
-              content_book.order.book.position
-            }/${content_book.children.type}-${i + 1}`"
-          >
-            {{ child }}
-          </nuxt-link>
-        </li>
-      </ol>
-      <ol v-if="content_book.children.type === 'part'">
-        <li v-for="n in content_book.children.count" :key="n">
-          <nuxt-link :to="`part-${n}`"> Part {{ n }} </nuxt-link>
-        </li>
-      </ol>
-      <NuxtContent :document="content_book"></NuxtContent>
-    </div>
-
-    <div v-if="content_part">
-      <h1>Part {{ content_part.order.part.position }}</h1>
-      {{ `${content_part.children.type}s`.toUpperCase() }}:
-      <ol>
-        <li v-for="(child, i) in content_part.children.children" :key="child">
-          <nuxt-link :to="`${content_part.children.type}-${i + 1}`">
-            {{ child }}
-          </nuxt-link>
-        </li>
-      </ol>
-      <NuxtContent :document="content_part"></NuxtContent>
-    </div>
-
-    <div v-if="content_chapter">
-      <h1>
-        Chapter {{ content_chapter.order.chapter.position }} -
-        {{ content_chapter.title }} ({{ content_chapter.trans }})
-      </h1>
-
-      <ol>
-        <li v-for="n in content_chapter.children.count" :key="n">
-          <nuxt-link :to="`${$route.fullPath}/lesson-${n}`">
-            Lesson {{ n }}
-          </nuxt-link>
-        </li>
-      </ol>
-      <NuxtContent :document="content_chapter"></NuxtContent>
-    </div>
-    <div v-if="content_lesson">
-      <h1>Lesson {{ content_lesson.order.lesson.position }}</h1>
-      {{ `${content_lesson.children.type}s`.toUpperCase() }}:
-      <ol>
-        <li v-for="n in content_lesson.children.count" :key="n">
-          <nuxt-link :to="{ path: `${$route.fullPath}/sutra-${n}` }">
-            Sutra {{ n }}
-          </nuxt-link>
-        </li>
-      </ol>
-      <NuxtContent :document="content_lesson"></NuxtContent>
-    </div>
-
-    <div>
-      <h1 v-if="content_sutra">
-        Sutra {{ content_sutra.order.sutra.position }}
-      </h1>
-      <h1 v-if="!content_sutra && content_sutra_original">
-        Sutra {{ content_sutra_original.order.sutra.position }}
-      </h1>
-      <div v-if="content_sutra_original">
-        {{ content_sutra_original.sutra }}
-      </div>
-      <NuxtContent :document="content_sutra" v-if="content_sutra"></NuxtContent>
-    </div>
-
+    <div v-if="$fetchState.pending">Fetching content... Wait a few seconds</div>
     <div
-      v-if="
+      v-else-if="
         (content_book === null &&
           content_part === null &&
           content_chapter === null &&
@@ -97,14 +13,103 @@
     >
       Wrong URL. Check URL again or go Home.
     </div>
-    <Incomplete
-      :content_book="content_book"
-      :content_part="content_part"
-      :content_chapter="content_chapter"
-      :content_lesson="content_lesson"
-      :content_sutra="content_sutra"
-      :content_sutra_original="content_sutra_original"
-    ></Incomplete>
+    <div v-else>
+      <Incomplete
+        :content_book="content_book"
+        :content_part="content_part"
+        :content_chapter="content_chapter"
+        :content_lesson="content_lesson"
+        :content_sutra="content_sutra"
+        :content_sutra_original="content_sutra_original"
+      ></Incomplete>
+      <article v-if="content_book">
+        <h1>Book {{ content_book.order.book.position }}</h1>
+        {{ `${content_book.children.type}s`.toUpperCase() }}:
+        <!-- <ol>
+          <li v-for="chapter in book.chapters" :key="chapter.chapter_no">
+            <nuxt-link
+              :to="`/aagam/${$route.params.aagam}/book-${book.book}/chapter-${chapter.chapter_no}`"
+            >
+              {{ chapter.chapter_no }}. {{ chapter.chapter }}
+            </nuxt-link>
+          </li>
+        </ol> -->
+        <ol v-if="content_book.children.type === 'chapter'">
+          <li v-for="(child, i) in content_book.children.children" :key="child">
+            <nuxt-link
+              :to="`/aagam/${$route.params.aagam}/${content_book.type}-${
+                content_book.order.book.position
+              }/${content_book.children.type}-${i + 1}`"
+            >
+              {{ child }}
+            </nuxt-link>
+          </li>
+        </ol>
+        <ol v-if="content_book.children.type === 'part'">
+          <li v-for="n in content_book.children.count" :key="n">
+            <nuxt-link :to="`part-${n}`"> Part {{ n }} </nuxt-link>
+          </li>
+        </ol>
+        <NuxtContent :document="content_book"></NuxtContent>
+      </article>
+
+      <article v-if="content_part">
+        <h1>Part {{ content_part.order.part.position }}</h1>
+        {{ `${content_part.children.type}s`.toUpperCase() }}:
+        <ol>
+          <li v-for="(child, i) in content_part.children.children" :key="child">
+            <nuxt-link :to="`${content_part.children.type}-${i + 1}`">
+              {{ child }}
+            </nuxt-link>
+          </li>
+        </ol>
+        <NuxtContent :document="content_part"></NuxtContent>
+      </article>
+
+      <article v-if="content_chapter">
+        <h1>
+          Chapter {{ content_chapter.order.chapter.position }} -
+          {{ content_chapter.title }} ({{ content_chapter.trans }})
+        </h1>
+
+        <ol>
+          <li v-for="n in content_chapter.children.count" :key="n">
+            <nuxt-link :to="`${$route.fullPath}/lesson-${n}`">
+              Lesson {{ n }}
+            </nuxt-link>
+          </li>
+        </ol>
+        <NuxtContent :document="content_chapter"></NuxtContent>
+      </article>
+      <article v-if="content_lesson">
+        <h1>Lesson {{ content_lesson.order.lesson.position }}</h1>
+        {{ `${content_lesson.children.type}s`.toUpperCase() }}:
+        <ol>
+          <li v-for="n in content_lesson.children.count" :key="n">
+            <nuxt-link :to="{ path: `${$route.fullPath}/sutra-${n}` }">
+              Sutra {{ n }}
+            </nuxt-link>
+          </li>
+        </ol>
+        <NuxtContent :document="content_lesson"></NuxtContent>
+      </article>
+
+      <article>
+        <h1 v-if="content_sutra">
+          Sutra {{ content_sutra.order.sutra.position }}
+        </h1>
+        <h1 v-if="!content_sutra && content_sutra_original">
+          Sutra {{ content_sutra_original.order.sutra.position }}
+        </h1>
+        <section v-if="content_sutra_original">
+          {{ content_sutra_original.sutra }}
+        </section>
+        <NuxtContent
+          :document="content_sutra"
+          v-if="content_sutra"
+        ></NuxtContent>
+      </article>
+    </div>
   </div>
 </template>
 

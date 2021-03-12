@@ -25,9 +25,6 @@ parent:
 
 ---
 
-## Sutra
-
-## Glossary
 ## Meaning
 
 ## Explanation

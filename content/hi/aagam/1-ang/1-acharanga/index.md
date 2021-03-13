@@ -3,7 +3,7 @@ title: आचारांग
 
 type: aagam
 
-category: अंग
+category: anga
 
 order:
   aagam: 

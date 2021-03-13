@@ -1,10 +1,14 @@
 <template>
   <div>
-    <NuxtContent :document="content_aagam[0]"></NuxtContent>
+    <NuxtContent :document="content_aagam"></NuxtContent>
     <h2>Books</h2>
-    <ol>
-      <li v-for="n in content_aagam[0].children.count" :key="n">
-        <nuxt-link :to="`${pathComputed}book-${n}`"> Book {{ n }} </nuxt-link>
+    <ol
+      v-if="
+        content_aagam && content_aagam.children && content_aagam.children.count
+      "
+    >
+      <li v-for="n in content_aagam.children.count" :key="n">
+        <nuxt-link :to="`${fullPath}book-${n}`"> Book {{ n }} </nuxt-link>
       </li>
     </ol>
   </div>
@@ -15,28 +19,25 @@ export default {
   data() {
     return {
       content_aagam: null,
+      fullPath: "",
       // aagams: [],
       // aagam: [],
       // books: [],
     };
   },
-  computed: {
-    pathComputed() {
-      let fullPath;
-      return (fullPath = this.$route.fullPath.endsWith("/")
-        ? this.$route.fullPath
-        : `${this.$route.fullPath}/`);
-    },
-  },
   async fetch() {
+    this.fullPath = this.$route.fullPath.endsWith("/")
+      ? this.$route.fullPath
+      : `${this.$route.fullPath}/`;
+
     this.content_aagam = await this.$content("hi/aagam", { deep: true })
-      .where({
-        $and: [
-          { type: "aagam" },
-          { dir: { $contains: this.$route.params.aagam } },
-        ],
-      })
+      .where(
+        { type: "aagam" },
+        { dir: { $contains: this.$route.params.aagam } }
+      )
       .fetch();
+
+    this.content_aagam = this.content_aagam[0];
 
     // this.aagams = await this.$content("aagam-meta")
     //   .where({ type: "all" })

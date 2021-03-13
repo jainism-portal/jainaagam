@@ -33,8 +33,15 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+
+  ],
+
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+    // https://go.nuxtjs.dev/content
+    '@nuxt/content',
     ['nuxt-i18n', {
-      locales: ['en', 'fr', 'es'],
+      locales: ['en', 'hi'],
       defaultLocale: 'en',
       vueI18n: {
         fallbackLocale: 'en',
@@ -42,21 +49,12 @@ export default {
           en: {
             welcome: 'Welcome'
           },
-          fr: {
-            welcome: 'Bienvenue'
+          hi: {
+            welcome: 'नमस्ते'
           },
-          es: {
-            welcome: 'Bienvenido'
-          }
         }
       }
     }]
-  ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/content
-    '@nuxt/content'
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content

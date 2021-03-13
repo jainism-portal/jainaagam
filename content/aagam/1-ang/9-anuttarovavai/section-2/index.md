@@ -1,5 +1,5 @@
 ---
-title: पढमो वग्गो
+title: बीओ वग्गो
 
 type: section
 
@@ -8,7 +8,7 @@ order:
     position: 9
     depth: 1
   section: 
-    position: 1
+    position: 2
     depth: 2
 
 parent:
@@ -16,8 +16,7 @@ parent:
 
 children:
   type: chapter
-  count: 10
+  count: 13
 
-end: पढमो वग्गो समत्तो
 ---
 

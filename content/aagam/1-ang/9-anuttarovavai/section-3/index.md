@@ -1,5 +1,5 @@
 ---
-title: पढमो वग्गो
+title: तइओ वग्गो
 
 type: section
 
@@ -8,7 +8,7 @@ order:
     position: 9
     depth: 1
   section: 
-    position: 1
+    position: 3
     depth: 2
 
 parent:
@@ -18,6 +18,5 @@ children:
   type: chapter
   count: 10
 
-end: पढमो वग्गो समत्तो
 ---
 

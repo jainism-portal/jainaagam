@@ -1,5 +1,5 @@
 ---
-title: पढमं अज्झयणं - जाली
+title: २-१० अज्झयणाणि - मयालिपभिइ
 
 type: chapter
 
@@ -11,7 +11,7 @@ order:
     position: 1
     depth: 2
   chapter: 
-    position: 1
+    position: 2-10
     depth: 3
 
 parent: 
@@ -19,5 +19,5 @@ parent:
 
 children:
   type: sutra
-  count: 6
+  count: 2
 ---

@@ -47,9 +47,7 @@
         <ol v-if="content_book.children.type === 'chapter'">
           <li v-for="(child, i) in content_book.children.children" :key="child">
             <nuxt-link
-              :to="`/aagam/${$route.params.aagam}/${content_book.type}-${
-                content_book.order.book.position
-              }/${content_book.children.type}-${i + 1}`"
+              :to="`${fullPath}${content_book.children.type}-${i + 1}`"
             >
               {{ child }}
             </nuxt-link>
@@ -57,7 +55,7 @@
         </ol>
         <ol v-if="content_book.children.type === 'part'">
           <li v-for="n in content_book.children.count" :key="n">
-            <nuxt-link :to="`part-${n}`"> Part {{ n }} </nuxt-link>
+            <nuxt-link :to="`${fullPath}part-${n}`"> Part {{ n }} </nuxt-link>
           </li>
         </ol>
         <NuxtContent :document="content_book"></NuxtContent>
@@ -68,7 +66,9 @@
         {{ `${content_part.children.type}s`.toUpperCase() }}:
         <ol>
           <li v-for="(child, i) in content_part.children.children" :key="child">
-            <nuxt-link :to="`${content_part.children.type}-${i + 1}`">
+            <nuxt-link
+              :to="`${fullPath}${content_part.children.type}-${i + 1}`"
+            >
               {{ child }}
             </nuxt-link>
           </li>
@@ -84,7 +84,7 @@
 
         <ol>
           <li v-for="n in content_chapter.children.count" :key="n">
-            <nuxt-link :to="`${$route.fullPath}/lesson-${n}`">
+            <nuxt-link :to="`${fullPath}lesson-${n}`">
               Lesson {{ n }}
             </nuxt-link>
           </li>
@@ -96,9 +96,7 @@
         {{ `${content_lesson.children.type}s`.toUpperCase() }}:
         <ol>
           <li v-for="n in content_lesson.children.count" :key="n">
-            <nuxt-link :to="{ path: `${$route.fullPath}/sutra-${n}` }">
-              Sutra {{ n }}
-            </nuxt-link>
+            <nuxt-link :to="`${fullPath}sutra-${n}`"> Sutra {{ n }} </nuxt-link>
           </li>
         </ol>
         <NuxtContent :document="content_lesson"></NuxtContent>
@@ -135,7 +133,15 @@ export default {
       content_lesson: null,
       content_sutra: null,
       content_sutra_original: null,
+      fullPath: "",
     };
+  },
+  computed: {
+    pathComputed() {
+      return (this.fullPath = this.$route.fullPath.endsWith("/")
+        ? this.$route.fullPath
+        : `${this.$route.fullPath}/`);
+    },
   },
   async fetch() {
     const _ = require("lodash");

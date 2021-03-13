@@ -1,5 +1,5 @@
 ---
-title: 
+title: पढमो उद्देसो
 
 type: lesson
 
@@ -19,4 +19,7 @@ parent:
 children:
   type: sutra
   count: 6
+
+start: 
+end: पढमो उद्देसो समत्तो ।
 ---

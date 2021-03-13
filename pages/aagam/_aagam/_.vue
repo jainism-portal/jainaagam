@@ -281,4 +281,10 @@ h3 {
 p {
   @apply tw-py-2 tw-tracking-wide tw-text-lg;
 }
+ol {
+  @apply tw-list-decimal tw-list-inside tw-py-2 tw-text-lg;
+}
+ul {
+  @apply tw-list-disc tw-list-inside tw-py-2 tw-text-lg;
+}
 </style>

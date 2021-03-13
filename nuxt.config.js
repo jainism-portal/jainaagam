@@ -32,7 +32,25 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    ['nuxt-i18n', {
+      locales: ['en', 'fr', 'es'],
+      defaultLocale: 'en',
+      vueI18n: {
+        fallbackLocale: 'en',
+        messages: {
+          en: {
+            welcome: 'Welcome'
+          },
+          fr: {
+            welcome: 'Bienvenue'
+          },
+          es: {
+            welcome: 'Bienvenido'
+          }
+        }
+      }
+    }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

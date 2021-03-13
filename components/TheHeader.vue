@@ -2,9 +2,11 @@
   <header
     class="tw-sticky tw-z-30 tw-top-0 tw-h-12 tw-flex tw-justify-evenly tw-items-center tw-bg-gradient-to-br tw-from-white tw-to-pink-50"
   >
-    <h1>
-      <nuxt-link to="/"> Jainism </nuxt-link>
-    </h1>
+    <div>
+      <nuxt-link to="/" class="tw-text-2xl tw-text-pink-800">
+        Jainism
+      </nuxt-link>
+    </div>
     <nav>
       <ul class="tw-list-none tw-py-0">
         <li>

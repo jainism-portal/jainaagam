@@ -1,5 +1,5 @@
 ---
-title: पहला उद्देशक
+title: तीसरा उद्देशक
 
 type: lesson
 
@@ -14,7 +14,7 @@ order:
     position: 1
     depth: 3
   lesson: 
-    position: 1
+    position: 3
     depth: 4
 
 parent: 
@@ -22,8 +22,6 @@ parent:
 
 children: 
   type: sutra
-  count: 6
+  count: 7
 
-start:
-end: पहला उद्देशक समाप्त।
 ---

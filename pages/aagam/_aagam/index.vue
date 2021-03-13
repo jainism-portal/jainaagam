@@ -15,7 +15,9 @@ export default {
     };
   },
   async fetch() {
-    this.aagams = await this.$content("aagam-meta").fetch();
+    this.aagams = await this.$content("aagam-meta")
+      .where({ type: "all" })
+      .fetch();
 
     // this.aagams_ind = this.aagams.filter((aagamall) => {
     //   for (const aagam of aagamall.aagams) {

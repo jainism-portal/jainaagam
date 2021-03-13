@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtContent :document="content_aagamindex[0]"></NuxtContent>
+    <NuxtContent :document="content_aagamindex"></NuxtContent>
 
     <h2>List of Jain Aagams</h2>
     <h3>Anga</h3>
@@ -96,20 +96,30 @@ export default {
       .where({ type: "aagam_index" })
       .fetch();
 
+    this.content_aagamindex = this.content_aagamindex[0];
+
     // List of all aagams
     this.aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
     this.anga = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.type === "anga";
+      return aagam.category === "anga";
     });
 
-    // this.upanga =
+    this.upanga = this.aagam_list.aagams.filter((aagam) => {
+      return aagam.category === "upanga";
+    });
 
-    // this.mool =
+    this.mool = this.aagam_list.aagams.filter((aagam) => {
+      return aagam.category === "mool";
+    });
 
-    // this.chhed
+    this.chhed = this.aagam_list.aagams.filter((aagam) => {
+      return aagam.category === "chhed";
+    });
 
-    // this.prakeerna =
+    this.prakeerna = this.aagam_list.aagams.filter((aagam) => {
+      return aagam.category === "prakeerna";
+    });
   },
 };
 </script>

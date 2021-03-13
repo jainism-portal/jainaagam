@@ -1,5 +1,5 @@
 ---
-title: समय
+title: प्रत्याख्यान-क्रिया
 
 type: chapter
 
@@ -8,17 +8,17 @@ order:
     position: 2
     depth: 1
   book: 
-    position: 1
+    position: 2
     depth: 2
   chapter:
-    position: 1
+    position: 4
     depth: 3
 
 parent:
   type: book
 
 children:
-  type: lesson
-  count: 4
+  type: sutra
+  count: 30
 
 ---

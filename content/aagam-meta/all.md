@@ -1,5 +1,6 @@
 ---
 type: all
+
 aagams:
   - sr: 1
     title: acharanga

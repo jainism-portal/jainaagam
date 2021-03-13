@@ -288,22 +288,5 @@ export default {
 </script>
 
 <style lang="postcss">
-h1 {
-  @apply tw-py-2 tw-tracking-wide tw-text-3xl;
-}
-h2 {
-  @apply tw-py-2 tw-tracking-wide tw-text-2xl tw-border-b tw-border-pink-300;
-}
-h3 {
-  @apply tw-py-2 tw-tracking-wide tw-text-xl tw-border-b tw-border-blue-300;
-}
-p {
-  @apply tw-py-2 tw-tracking-wide tw-text-lg;
-}
-ol {
-  @apply tw-list-decimal tw-list-inside tw-py-2 tw-text-lg;
-}
-ul {
-  @apply tw-list-disc tw-list-inside tw-py-2 tw-text-lg;
-}
+
 </style>

@@ -43,13 +43,16 @@ aagams:
     names:
       - sanskrit: उपासक-दशः
   - title: anottar
+    position: 8
     category: anga
     names:
       - sanskrit: अनोत्तर
-  - title: anottar-upapaatika
+  - title: anuttarovavai
+    position: 9
     category: anga
     names:
       - sanskrit: अनोत्तर-उपपातिका
+        trans: anottar-upapaatika
   - title: prashna-vyakaran
     category: anga
     names:

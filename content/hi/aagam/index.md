@@ -1,6 +1,8 @@
 ---
 title: जैन-आगम
 
+type: aagam_index
+
 children:
   type: aagam
   children: 

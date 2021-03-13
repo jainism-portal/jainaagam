@@ -1,8 +1,7 @@
 ---
-title: कुल 2
-trans: kul 2
+title: पुण्डरीक
 
-type: part
+type: chapter
 
 order:
   aagam: 
@@ -11,16 +10,15 @@ order:
   book: 
     position: 2
     depth: 2
-  part:
+  chapter:
     position: 1
     depth: 3
 
 parent:
-  type: aagam
+  type: book
 
 children:
-  type: chapter
-  count: 7     
-  children:
-    - abc
+  type: sutra
+  count: 67
+
 ---

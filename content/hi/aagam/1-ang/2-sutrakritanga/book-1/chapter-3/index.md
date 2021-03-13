@@ -1,5 +1,5 @@
 ---
-title: समय
+title: उपसर्ग-परिज्ञा
 
 type: chapter
 
@@ -10,8 +10,8 @@ order:
   book: 
     position: 1
     depth: 2
-  chapter:
-    position: 1
+  chapter: 
+    position: 3
     depth: 3
 
 parent:

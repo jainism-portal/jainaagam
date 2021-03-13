@@ -1,5 +1,5 @@
 ---
-title: समय
+title: मार्ग
 
 type: chapter
 
@@ -10,15 +10,15 @@ order:
   book: 
     position: 1
     depth: 2
-  chapter:
-    position: 1
+  chapter: 
+    position: 11
     depth: 3
 
 parent:
   type: book
 
 children:
-  type: lesson
-  count: 4
+  type: sutra
+  count: 10
 
 ---

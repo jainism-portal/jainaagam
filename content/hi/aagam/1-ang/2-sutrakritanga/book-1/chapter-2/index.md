@@ -1,5 +1,5 @@
 ---
-title: 
+title: वैतालीय
 
 type: chapter
 
@@ -19,6 +19,6 @@ parent:
 
 children:
   type: lesson
-  count: 9
+  count: 3
 
 ---

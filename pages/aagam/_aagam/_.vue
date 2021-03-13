@@ -33,7 +33,7 @@
         :content_sutra_original="content_sutra_original"
       ></Incomplete>
       <article v-if="content_book">
-        <h1>Book {{ content_book.order.book.position }}</h1>
+        <h1>Aagam Book {{ content_book.order.book.position }}</h1>
         {{ `${content_book.children.type}s`.toUpperCase() }}:
         <!-- <ol>
           <li v-for="chapter in book.chapters" :key="chapter.chapter_no">
@@ -64,7 +64,7 @@
       </article>
 
       <article v-if="content_part">
-        <h1>Part {{ content_part.order.part.position }}</h1>
+        <h1>Aagam Part {{ content_part.order.part.position }}</h1>
         {{ `${content_part.children.type}s`.toUpperCase() }}:
         <ol>
           <li v-for="(child, i) in content_part.children.children" :key="child">
@@ -78,7 +78,7 @@
 
       <article v-if="content_chapter">
         <h1>
-          Chapter {{ content_chapter.order.chapter.position }} -
+          Aagam Chapter {{ content_chapter.order.chapter.position }} -
           {{ content_chapter.title }} ({{ content_chapter.trans }})
         </h1>
 
@@ -92,7 +92,7 @@
         <NuxtContent :document="content_chapter"></NuxtContent>
       </article>
       <article v-if="content_lesson">
-        <h1>Lesson {{ content_lesson.order.lesson.position }}</h1>
+        <h1>Aagam Lesson {{ content_lesson.order.lesson.position }}</h1>
         {{ `${content_lesson.children.type}s`.toUpperCase() }}:
         <ol>
           <li v-for="n in content_lesson.children.count" :key="n">
@@ -106,10 +106,10 @@
 
       <article>
         <h1 v-if="content_sutra">
-          Sutra {{ content_sutra.order.sutra.position }}
+          Aagam Sutra {{ content_sutra.order.sutra.position }}
         </h1>
         <h1 v-if="!content_sutra && content_sutra_original">
-          Sutra {{ content_sutra_original.order.sutra.position }}
+          Aagam Sutra {{ content_sutra_original.order.sutra.position }}
         </h1>
         <section v-if="content_sutra_original">
           {{ content_sutra_original.sutra }}

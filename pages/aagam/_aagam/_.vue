@@ -136,23 +136,17 @@ export default {
       fullPath: "",
     };
   },
-  computed: {
-    pathComputed() {
-      return (this.fullPath = this.$route.fullPath.endsWith("/")
-        ? this.$route.fullPath
-        : `${this.$route.fullPath}/`);
-    },
-  },
   async fetch() {
     const _ = require("lodash");
+
+    this.fullPath = this.$route.fullPath.endsWith("/")
+      ? this.$route.fullPath
+      : `${this.$route.fullPath}/`;
 
     let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
     // Aagam content book fetch
-    if (
-      new RegExp(/book-[0-9]+$/i).test(this.$route.fullPath) ||
-      new RegExp(/book-[0-9]+\/$/i).test(this.$route.fullPath)
-    ) {
+    if (new RegExp(/book-[0-9]+\/$/i).test(this.fullPath)) {
       this.content_book = await this.$content("hi/aagam", { deep: true })
         .where({ type: "book" })
         .fetch();
@@ -175,10 +169,7 @@ export default {
     }
 
     // Aagam content Part fetch
-    if (
-      new RegExp(/part-[0-9]+$/i).test(this.$route.fullPath) ||
-      new RegExp(/part-[0-9]+\/$/i).test(this.$route.fullPath)
-    ) {
+    if (new RegExp(/part-[0-9]+\/$/i).test(this.fullPath)) {
       this.content_part = await this.$content("hi/aagam", { deep: true })
         .where({ type: "part" })
         .fetch();
@@ -201,10 +192,7 @@ export default {
     }
     // Aagam content chapter fetch
 
-    if (
-      new RegExp(/chapter-[0-9]+$/i).test(this.$route.fullPath) ||
-      new RegExp(/chapter-[0-9]+\/$/i).test(this.$route.fullPath)
-    ) {
+    if (new RegExp(/chapter-[0-9]+\/$/i).test(this.fullPath)) {
       this.content_chapter = await this.$content("hi/aagam", { deep: true })
         .where({ type: "chapter" })
         .fetch();
@@ -228,10 +216,7 @@ export default {
     }
 
     // Aagam content Lesson fetch
-    if (
-      new RegExp(/lesson-[0-9]+$/i).test(this.$route.fullPath) ||
-      new RegExp(/lesson-[0-9]+\/$/i).test(this.$route.fullPath)
-    ) {
+    if (new RegExp(/lesson-[0-9]+\/$/i).test(this.fullPath)) {
       this.content_lesson = await this.$content("hi/aagam", { deep: true })
         .where({ type: "lesson" })
         .fetch();
@@ -255,10 +240,7 @@ export default {
     }
 
     // Aagam content Sutra fetch
-    if (
-      new RegExp(/sutra-[0-9]+$/i).test(this.$route.fullPath) ||
-      new RegExp(/sutra-[0-9]+\/$/i).test(this.$route.fullPath)
-    ) {
+    if (new RegExp(/sutra-[0-9]+\/$/i).test(this.fullPath)) {
       this.content_sutra = await this.$content("hi/aagam", { deep: true })
         .where({ type: "sutra" })
         .fetch();

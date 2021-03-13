@@ -16,6 +16,7 @@
 
 <script>
 export default {
+  name: "aagamIndividual", // to avoid console error --> [Vue warn]: Invalid component name
   data() {
     return {
       content_aagam: null,

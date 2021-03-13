@@ -1,5 +1,5 @@
 ---
-title: पढमं अज्झयणं - जाली
+title: १-१३ अज्झयणाणि - दीहसेणाहि
 
 type: chapter
 
@@ -8,10 +8,10 @@ order:
     position: 9
     depth: 1
   section: 
-    position: 1
+    position: 2
     depth: 2
   chapter: 
-    position: 1
+    position: 1-13
     depth: 3
 
 parent: 
@@ -20,4 +20,6 @@ parent:
 children:
   type: sutra
   count: 6
+
+
 ---

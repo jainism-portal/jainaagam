@@ -45,7 +45,7 @@
           </li>
         </ol> -->
         <ol v-if="content_book.children.type === 'chapter'">
-          <li v-for="(child, i) in content_book.children.children" :key="child">
+          <li v-for="(child, i) in content_book.children.children" :key="i">
             <nuxt-link
               :to="`${fullPath}${content_book.children.type}-${i + 1}`"
             >
@@ -65,7 +65,7 @@
         <h1>Aagam Part {{ content_part.order.part.position }}</h1>
         {{ `${content_part.children.type}s`.toUpperCase() }}:
         <ol>
-          <li v-for="(child, i) in content_part.children.children" :key="child">
+          <li v-for="(child, i) in content_part.children.children" :key="i">
             <nuxt-link
               :to="`${fullPath}${content_part.children.type}-${i + 1}`"
             >

@@ -4,7 +4,7 @@
 
     <h2>List of Jain Aagams</h2>
     <h3>Anga</h3>
-    <ol>
+    <ol class="tw-list-inside">
       <li v-for="aagam in anga" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
@@ -17,7 +17,7 @@
       </li>
     </ol>
     <h3>Upanga</h3>
-    <ol>
+    <ol class="tw-list-inside">
       <li v-for="aagam in upanga" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
@@ -30,7 +30,7 @@
       </li>
     </ol>
     <h3>Mool</h3>
-    <ol>
+    <ol class="tw-list-inside">
       <li v-for="aagam in mool" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
@@ -43,7 +43,7 @@
       </li>
     </ol>
     <h3>Mool</h3>
-    <ol>
+    <ol class="tw-list-inside">
       <li v-for="aagam in chhed" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
@@ -56,7 +56,7 @@
       </li>
     </ol>
     <h3>Prakeerna</h3>
-    <ol>
+    <ol class="tw-list-inside">
       <li v-for="aagam in prakeerna" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}

@@ -13,26 +13,32 @@ aagams:
       - prakrit: आयारांग
         trans: ayaranga
   - title: sutrakritanga
+    position: 2
     type: anga
     names:
       - sanskrit: सूत्रकृतांग
   - title: sthananga
+    position: 3
     type: anga
     names:
       - sanskrit: स्थानांग
   - title: samvayanga
+    position: 4
     type: anga
     names:
       - sanskrit: समवायांग
   - title: bhagwati
+    position: 5
     type: anga
     names:
       - sanskrit: भगवती-(व्याख्या-प्रज्ञप्ति)
   - title: gyaatdharmakatha 
+    position: 6
     type: anga
     names:
       - sanskrit: ज्ञातधर्मकथा
   - title: upaasak-dasah
+    position: 7
     type: anga
     names:
       - sanskrit: उपासक-दशः

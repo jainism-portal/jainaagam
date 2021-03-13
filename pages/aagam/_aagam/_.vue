@@ -106,12 +106,14 @@
 
       <article>
         <h1 v-if="content_sutra">
-          Aagam Sutra {{ content_sutra.order.sutra.position }}
+          Aagam Sutra {{ content_sutra.order.sutra.position }} -
+          <span v-if="content_sutra.title">{{ content_sutra.title }}</span>
         </h1>
         <h1 v-if="!content_sutra && content_sutra_original">
           Aagam Sutra {{ content_sutra_original.order.sutra.position }}
         </h1>
         <section v-if="content_sutra_original">
+          <h2>Sutra</h2>
           <NuxtContent :document="content_sutra_original.sutra"></NuxtContent>
         </section>
         <NuxtContent
@@ -270,13 +272,13 @@ export default {
 h1 {
   @apply tw-py-2 tw-tracking-wide tw-text-3xl;
 }
-.nuxt-content h2 {
-  @apply tw-py-2 tw-tracking-wide tw-text-2xl;
+h2 {
+  @apply tw-py-2 tw-tracking-wide tw-text-2xl tw-border-b tw-border-pink-300;
 }
-.nuxt-content h3 {
-  @apply tw-py-2 tw-tracking-wide tw-text-xl;
+h3 {
+  @apply tw-py-2 tw-tracking-wide tw-text-xl tw-border-b tw-border-blue-300;
 }
-.nuxt-content p {
+p {
   @apply tw-py-2 tw-tracking-wide tw-text-lg;
 }
 </style>

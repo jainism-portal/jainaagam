@@ -17,6 +17,9 @@ parent:
 children:
   type: chapter
   count: 10
+  children:
+    - जाली
+    - मयालिपभिइ
 
 end: पढमो वग्गो समत्तो
 ---

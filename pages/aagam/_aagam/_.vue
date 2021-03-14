@@ -4,6 +4,7 @@
     <div
       v-else-if="
         (content_book === null &&
+          content_section === null &&
           content_part === null &&
           content_chapter === null &&
           content_lesson === null &&
@@ -94,7 +95,10 @@
       <article v-if="content_chapter">
         <h1>
           Aagam Chapter {{ content_chapter.order.chapter.position }} -
-          {{ content_chapter.title }} ({{ content_chapter.trans }})
+          {{ content_chapter.title }}
+          <span v-if="content_chapter.trans"
+            >({{ content_chapter.trans }})</span
+          >
         </h1>
 
         <ol v-if="content_chapter.children">
@@ -240,16 +244,26 @@ export default {
       this.content_chapter = this.content_chapter.filter((i) => {
         for (const aagam of aagam_list.aagams) {
           if (aagam.position === i.order.aagam.position) {
-            return (
-              this.$route.params.aagam === aagam.title &&
-              (`book-${i.order.book.position}/chapter-${i.order.chapter.position}` ===
-                this.$route.params.pathMatch ||
-                `book-${i.order.book.position}/chapter-${i.order.chapter.position}/` ===
-                  this.$route.params.pathMatch)
-            );
+            if (i.parent.type === "book") {
+              return (
+                this.$route.params.aagam === aagam.title &&
+                (`book-${i.order.book.position}/chapter-${i.order.chapter.position}` ===
+                  this.$route.params.pathMatch ||
+                  `book-${i.order.book.position}/chapter-${i.order.chapter.position}/` ===
+                    this.$route.params.pathMatch)
+              );
+            }
+            if (i.parent.type === "section") {
+              return (
+                this.$route.params.aagam === aagam.title &&
+                (`section-${i.order.section.position}/chapter-${i.order.chapter.position}` ===
+                  this.$route.params.pathMatch ||
+                  `section-${i.order.section.position}/chapter-${i.order.chapter.position}/` ===
+                    this.$route.params.pathMatch)
+              );
+            }
           }
         }
-        // pathMatch:"book-1/chapter-1"
       });
 
       this.content_chapter = this.content_chapter[0];

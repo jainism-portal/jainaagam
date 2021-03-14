@@ -7,7 +7,12 @@
       <nuxt-link :to="`${fullPath}toc`">
         See Table of Contents of this Aagam</nuxt-link
       >
-      <h2 class="tw-capitalize">{{ content_aagam.children.type }}s</h2>
+      <h2
+        class="tw-capitalize"
+        v-if="content_aagam.children && content_aagam.children.type"
+      >
+        {{ content_aagam.children.type }}s
+      </h2>
       <ol
         v-if="
           content_aagam &&
@@ -45,22 +50,24 @@ export default {
       ? this.$route.fullPath
       : `${this.$route.fullPath}/`;
 
-    let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
+    // let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
     this.content_aagam = await this.$content("hi/aagam", { deep: true })
-      .where(
-        { type: "aagam" }
-        // { dir: { $contains: this.$route.params.aagam } }
-      )
+      .where({
+        $and: [
+          { type: "aagam" },
+          { dir: { $regex: [this.$route.params.aagam + "$", "i"] } },
+        ],
+      })
       .fetch();
 
-    this.content_aagam = this.content_aagam.filter((i) => {
-      for (const aagam of aagam_list.aagams) {
-        if (aagam.position === i.order.aagam.position) {
-          return this.$route.params.aagam === aagam.title;
-        }
-      }
-    });
+    // this.content_aagam = this.content_aagam.filter((i) => {
+    //   for (const aagam of aagam_list.aagams) {
+    //     if (aagam.position === i.order.aagam.position) {
+    //       return this.$route.params.aagam === aagam.title;
+    //     }
+    //   }
+    // });
 
     this.content_aagam = this.content_aagam[0];
 

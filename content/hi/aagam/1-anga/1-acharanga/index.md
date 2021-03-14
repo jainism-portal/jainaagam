@@ -3,8 +3,6 @@ title: आचारांग
 
 type: aagam
 
-category: anga
-
 order:
   cat: anga
   aagam: 

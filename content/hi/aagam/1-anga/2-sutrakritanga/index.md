@@ -3,9 +3,9 @@ title: सूत्रकृतांग
 
 type: aagam
 
-category: अंग
 
 order:
+  cat: anga
   aagam: 
     position: 2
     depth: 1

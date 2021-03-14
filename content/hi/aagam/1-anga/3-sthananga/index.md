@@ -3,9 +3,9 @@ title: स्थानांग
 
 type: aagam
 
-category: अंग
 
 order:
+  cat: anga
   aagam: 
     position: 3
     depth: 1

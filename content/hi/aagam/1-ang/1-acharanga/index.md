@@ -6,6 +6,7 @@ type: aagam
 category: anga
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

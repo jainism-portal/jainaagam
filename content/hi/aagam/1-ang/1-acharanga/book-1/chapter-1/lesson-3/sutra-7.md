@@ -4,6 +4,7 @@ title: अपकाय की हिंसा का त्याग
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

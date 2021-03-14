@@ -4,6 +4,7 @@ title: कर्मबंधन के कारण
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

@@ -4,6 +4,7 @@ title: पहला उद्देशक
 type: lesson
 
 order:
+  cat: anga
   aagam:
     position: 2
     depth: 1

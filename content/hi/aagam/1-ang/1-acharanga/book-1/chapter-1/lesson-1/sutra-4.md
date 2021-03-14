@@ -4,6 +4,7 @@ title: क्रियाओं के परिणाम और उनके �
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

@@ -4,6 +4,7 @@ title: पृथ्वीकाय की हिंसा का हेतु
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

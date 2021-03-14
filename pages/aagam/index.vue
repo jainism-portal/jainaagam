@@ -55,9 +55,9 @@
         </nuxt-link>
       </li>
     </ol>
-    <h3>Prakeerna</h3>
+    <h3>prakirnaka</h3>
     <ol class="tw-list-inside">
-      <li v-for="aagam in prakeerna" :key="aagam.title">
+      <li v-for="aagam in prakirnaka" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
           <span v-if="aagam.names"
@@ -82,7 +82,7 @@ export default {
       upanga: [],
       mool: [],
       chhed: [],
-      prakeerna: [],
+      prakirnaka: [],
     };
   },
   async fetch() {
@@ -102,23 +102,23 @@ export default {
     this.aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
     this.anga = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.category === "anga";
+      return aagam.order.cat === "anga";
     });
 
     this.upanga = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.category === "upanga";
+      return aagam.order.cat === "upanga";
     });
 
     this.mool = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.category === "mool";
+      return aagam.order.cat === "mool";
     });
 
     this.chhed = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.category === "chhed";
+      return aagam.order.cat === "chhed";
     });
 
-    this.prakeerna = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.category === "prakeerna";
+    this.prakirnaka = this.aagam_list.aagams.filter((aagam) => {
+      return aagam.order.cat === "prakirnaka";
     });
   },
 };

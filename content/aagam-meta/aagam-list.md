@@ -80,6 +80,7 @@ aagams:
   - serial: 45
     title: anuyogadvara
     position: 2
+    cat: chulika
 
 ---
 

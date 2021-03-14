@@ -1,13 +1,12 @@
 ---
-title: कुल 2
-trans: kul 2
+title: सूत्रखंड 2
+trans: sutrakhand 2
 
 type: book
 
 order:
-  cat: anga
   aagam: 
-    position: 1
+    position: 11
     depth: 1
   book: 
     position: 2
@@ -17,6 +16,8 @@ parent:
   type: aagam
 
 children:
-  type: part
-  count: 4    
+  type: chapter
+  count: 9
+  children:
+    - abc
 ---

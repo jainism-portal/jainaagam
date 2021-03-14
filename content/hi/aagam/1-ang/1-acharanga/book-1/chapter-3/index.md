@@ -7,6 +7,7 @@ alt_trans:
 type: chapter
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

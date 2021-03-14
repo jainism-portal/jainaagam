@@ -4,6 +4,7 @@ title: अपकाय की हिंसा-संबंधी परिज्
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

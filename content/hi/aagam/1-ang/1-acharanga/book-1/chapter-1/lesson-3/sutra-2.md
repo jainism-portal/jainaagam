@@ -4,6 +4,7 @@ title: संयम के उत्साह कि सुरक्षा
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

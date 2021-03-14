@@ -4,6 +4,7 @@ title: तीसरा उद्देशक
 type: lesson
 
 order:
+  cat: anga
   aagam:
     position: 1
     depth: 1

@@ -4,6 +4,7 @@ title: हिंसा में अहिंसा की कल्पना �
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

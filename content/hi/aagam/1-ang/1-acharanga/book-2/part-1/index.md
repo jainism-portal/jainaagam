@@ -5,6 +5,7 @@ trans: kul 2
 type: part
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

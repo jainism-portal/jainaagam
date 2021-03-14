@@ -4,6 +4,7 @@ title: कर्म-जनक सत्य-संबंधी क्रिया
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

@@ -4,6 +4,7 @@ title: अपकायिक जीवों कि सजीवता
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

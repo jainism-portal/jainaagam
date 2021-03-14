@@ -4,6 +4,7 @@ title: आत्म-अस्तित्व का बोध
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

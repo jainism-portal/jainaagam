@@ -4,6 +4,7 @@ title: पृथ्वीकाय की सजीवता
 type: sutra
 
 order:
+  cat: anga
   aagam: 
     position: 1
     depth: 1

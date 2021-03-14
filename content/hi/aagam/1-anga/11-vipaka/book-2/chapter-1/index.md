@@ -12,7 +12,7 @@ order:
     position: 2
     depth: 2
   chapter: 
-    position: 2
+    position: 1
     depth: 3
 
 parent:

@@ -2,10 +2,31 @@
   <div>
     <NuxtContent :document="content_aagamindex"></NuxtContent>
 
-    <h2>List of Jain Aagams</h2>
-    <h3>Anga</h3>
+    <h2>List of 45 Jain Aagams</h2>
+    <div>
+      <span v-for="(l, i) in aagam_list.aagams" :key="i"> {{ l.title }}, </span>
+      <br />
+      {{ Object.keys(list) }}
+      {{ Object.values(list) }}
+    </div>
+    <div>
+      <div v-for="item in Object.keys(list)" :key="item">
+        <h3>{{ item }}</h3>
+        <div
+          v-for="(items, i) in Object.values([list[item]])"
+          :key="(items, i)"
+        >
+          <ol class="tw-list-inside">
+            <li v-for="item in items" :key="item.title">
+              {{ item.title }}
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <h3>anga</h3>
     <ol class="tw-list-inside">
-      <li v-for="aagam in anga" :key="aagam.title">
+      <li v-for="aagam in list.anga" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
           <span v-if="aagam.names"
@@ -16,9 +37,9 @@
         </nuxt-link>
       </li>
     </ol>
-    <h3>Upanga</h3>
+    <h3>upanga</h3>
     <ol class="tw-list-inside">
-      <li v-for="aagam in upanga" :key="aagam.title">
+      <li v-for="aagam in list.upanga" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
           <span v-if="aagam.names"
@@ -29,9 +50,9 @@
         </nuxt-link>
       </li>
     </ol>
-    <h3>Mool</h3>
+    <h3>mool</h3>
     <ol class="tw-list-inside">
-      <li v-for="aagam in mool" :key="aagam.title">
+      <li v-for="aagam in list.mool" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
           <span v-if="aagam.names"
@@ -42,9 +63,9 @@
         </nuxt-link>
       </li>
     </ol>
-    <h3>Mool</h3>
+    <h3>chhed</h3>
     <ol class="tw-list-inside">
-      <li v-for="aagam in chhed" :key="aagam.title">
+      <li v-for="aagam in list.chhed" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
           <span v-if="aagam.names"
@@ -57,7 +78,20 @@
     </ol>
     <h3>prakirnaka</h3>
     <ol class="tw-list-inside">
-      <li v-for="aagam in prakirnaka" :key="aagam.title">
+      <li v-for="aagam in list.prakirnaka" :key="aagam.title">
+        <nuxt-link :to="`/aagam/${aagam.title}`">
+          {{ aagam.title }}
+          <span v-if="aagam.names"
+            ><span v-for="(name, i) in aagam.names" :key="i"
+              ><span v-if="name.sanskrit">({{ name.sanskrit }})</span></span
+            ></span
+          >
+        </nuxt-link>
+      </li>
+    </ol>
+    <h3>chulika</h3>
+    <ol class="tw-list-inside">
+      <li v-for="aagam in list.chulika" :key="aagam.title">
         <nuxt-link :to="`/aagam/${aagam.title}`">
           {{ aagam.title }}
           <span v-if="aagam.names"
@@ -78,15 +112,18 @@ export default {
       // aagams: [],
       aagam_list: null,
       content_aagamindex: null,
-      anga: [],
-      upanga: [],
-      mool: [],
-      chhed: [],
-      prakirnaka: [],
+      // anga: [],
+      // upanga: [],
+      // mool: [],
+      // chhed: [],
+      // prakirnaka: [],
+      // chulika: [],
+      list: [],
     };
   },
   async fetch() {
-    // const _ = require("lodash");
+    const _ = require("lodash");
+
     // this.aagams = await this.$content("hi/aagam", { deep: true })
     //   .where({ type: "aagam" })
     //   .fetch();
@@ -101,24 +138,32 @@ export default {
     // List of all aagams
     this.aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
-    this.anga = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.order.cat === "anga";
-    });
+    // this.anga = this.aagam_list.aagams.filter((i) => {
+    //   return i.cat === "anga";
+    // });
 
-    this.upanga = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.order.cat === "upanga";
-    });
+    // this.upanga = this.aagam_list.aagams.filter((i) => {
+    //   return i.cat === "upanga";
+    // });
 
-    this.mool = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.order.cat === "mool";
-    });
+    // this.mool = this.aagam_list.aagams.filter((i) => {
+    //   return i.cat === "mool";
+    // });
 
-    this.chhed = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.order.cat === "chhed";
-    });
+    // this.chhed = this.aagam_list.aagams.filter((i) => {
+    //   return i.cat === "chhed";
+    // });
 
-    this.prakirnaka = this.aagam_list.aagams.filter((aagam) => {
-      return aagam.order.cat === "prakirnaka";
+    // this.prakirnaka = this.aagam_list.aagams.filter((i) => {
+    //   return i.cat === "prakirnaka";
+    // });
+
+    // this.chulika = this.aagam_list.aagams.filter((i) => {
+    //   return i.cat === "chulika";
+    // });
+
+    this.list = _.groupBy(this.aagam_list.aagams, (i) => {
+      return i.cat;
     });
   },
 };

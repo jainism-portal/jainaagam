@@ -11,7 +11,7 @@ order:
     position: 2
     depth: 2
   chapter:
-    position: 1-13
+    position: 1
     depth: 3
   sutra: 
     position: 1

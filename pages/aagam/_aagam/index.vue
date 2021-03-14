@@ -3,7 +3,7 @@
     <NuxtContent :document="content_aagam"></NuxtContent>
     <!-- {{ content_aagam }} -->
     <section v-if="content_aagam">
-      <h2>Books</h2>
+      <h2 class="tw-capitalize">{{ content_aagam.children.type }}s</h2>
       <ol
         v-if="
           content_aagam &&
@@ -12,7 +12,9 @@
         "
       >
         <li v-for="n in content_aagam.children.count" :key="n">
-          <nuxt-link :to="`${fullPath}book-${n}`"> Book {{ n }} </nuxt-link>
+          <nuxt-link :to="`${fullPath}${content_aagam.children.type}-${n}`">
+            {{ content_aagam.children.type }} {{ n }}
+          </nuxt-link>
         </li>
       </ol>
     </section>

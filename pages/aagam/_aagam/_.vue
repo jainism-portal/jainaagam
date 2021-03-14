@@ -61,10 +61,25 @@
         <NuxtContent :document="content_book"></NuxtContent>
       </article>
 
+      <article v-if="content_section">
+        <h1>Aagam Section {{ content_section.order.section.position }}</h1>
+        {{ `${content_section.children.type}s`.toUpperCase() }}:
+        <ol v-if="content_section.children.children">
+          <li v-for="(child, i) in content_section.children.children" :key="i">
+            <nuxt-link
+              :to="`${fullPath}${content_section.children.type}-${i + 1}`"
+            >
+              {{ child }}
+            </nuxt-link>
+          </li>
+        </ol>
+        <NuxtContent :document="content_section"></NuxtContent>
+      </article>
+
       <article v-if="content_part">
         <h1>Aagam Part {{ content_part.order.part.position }}</h1>
         {{ `${content_part.children.type}s`.toUpperCase() }}:
-        <ol>
+        <ol v-if="content_part.children.children">
           <li v-for="(child, i) in content_part.children.children" :key="i">
             <nuxt-link
               :to="`${fullPath}${content_part.children.type}-${i + 1}`"
@@ -82,7 +97,7 @@
           {{ content_chapter.title }} ({{ content_chapter.trans }})
         </h1>
 
-        <ol>
+        <ol v-if="content_chapter.children">
           <li v-for="n in content_chapter.children.count" :key="n">
             <nuxt-link :to="`${fullPath}lesson-${n}`">
               Lesson {{ n }}
@@ -128,6 +143,7 @@ export default {
   data() {
     return {
       content_book: null,
+      content_section: null,
       content_part: null,
       content_chapter: null,
       content_lesson: null,
@@ -168,6 +184,29 @@ export default {
       this.content_book = this.content_book[0];
     }
 
+    // Aagam content Section fetch
+    if (new RegExp(/section-[0-9]+\/$/i).test(this.fullPath)) {
+      this.content_section = await this.$content("hi/aagam", { deep: true })
+        .where({ type: "section" })
+        .fetch();
+
+      this.content_section = this.content_section.filter((i) => {
+        for (const aagam of aagam_list.aagams) {
+          if (aagam.position === i.order.aagam.position) {
+            return (
+              this.$route.params.aagam === aagam.title &&
+              (`section-${i.order.section.position}` ===
+                this.$route.params.pathMatch ||
+                `section-${i.order.section.position}/` ===
+                  this.$route.params.pathMatch)
+            );
+          }
+        }
+      });
+
+      this.content_section = this.content_section[0];
+    }
+
     // Aagam content Part fetch
     if (new RegExp(/part-[0-9]+\/$/i).test(this.fullPath)) {
       this.content_part = await this.$content("hi/aagam", { deep: true })
@@ -190,6 +229,7 @@ export default {
 
       this.content_part = this.content_part[0];
     }
+
     // Aagam content chapter fetch
 
     if (new RegExp(/chapter-[0-9]+\/$/i).test(this.fullPath)) {
@@ -288,5 +328,4 @@ export default {
 </script>
 
 <style lang="postcss">
-
 </style>

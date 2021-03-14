@@ -103,13 +103,14 @@
 
         <ol v-if="content_chapter.children">
           <li v-for="n in content_chapter.children.count" :key="n">
-            <nuxt-link :to="`${fullPath}lesson-${n}`">
-              Lesson {{ n }}
+            <nuxt-link :to="`${fullPath}${content_chapter.children.type}-${n}`">
+              {{ content_chapter.children.type }} {{ n }}
             </nuxt-link>
           </li>
         </ol>
         <NuxtContent :document="content_chapter"></NuxtContent>
       </article>
+
       <article v-if="content_lesson">
         <h1>Aagam Lesson {{ content_lesson.order.lesson.position }}</h1>
         {{ `${content_lesson.children.type}s`.toUpperCase() }}:
@@ -154,6 +155,7 @@ export default {
       content_sutra: null,
       content_sutra_original: null,
       fullPath: "",
+      pathMatch: "",
     };
   },
   async fetch() {
@@ -162,6 +164,10 @@ export default {
     this.fullPath = this.$route.fullPath.endsWith("/")
       ? this.$route.fullPath
       : `${this.$route.fullPath}/`;
+
+    this.pathMatch = this.$route.params.pathMatch.endsWith("/")
+      ? this.$route.params.pathMatch
+      : `${this.$route.params.pathMatch}/`;
 
     let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
@@ -174,12 +180,10 @@ export default {
       this.content_book = this.content_book.filter((i) => {
         for (const aagam of aagam_list.aagams) {
           if (aagam.position === i.order.aagam.position) {
+            console.log(this.pathMatch);
             return (
               this.$route.params.aagam === aagam.title &&
-              (`book-${i.order.book.position}` ===
-                this.$route.params.pathMatch ||
-                `book-${i.order.book.position}/` ===
-                  this.$route.params.pathMatch)
+              `book-${i.order.book.position}/` === this.pathMatch
             );
           }
         }
@@ -199,10 +203,7 @@ export default {
           if (aagam.position === i.order.aagam.position) {
             return (
               this.$route.params.aagam === aagam.title &&
-              (`section-${i.order.section.position}` ===
-                this.$route.params.pathMatch ||
-                `section-${i.order.section.position}/` ===
-                  this.$route.params.pathMatch)
+              `section-${i.order.section.position}/` === this.pathMatch
             );
           }
         }
@@ -247,19 +248,15 @@ export default {
             if (i.parent.type === "book") {
               return (
                 this.$route.params.aagam === aagam.title &&
-                (`book-${i.order.book.position}/chapter-${i.order.chapter.position}` ===
-                  this.$route.params.pathMatch ||
-                  `book-${i.order.book.position}/chapter-${i.order.chapter.position}/` ===
-                    this.$route.params.pathMatch)
+                `book-${i.order.book.position}/chapter-${i.order.chapter.position}/` ===
+                  this.pathMatch
               );
             }
             if (i.parent.type === "section") {
               return (
                 this.$route.params.aagam === aagam.title &&
-                (`section-${i.order.section.position}/chapter-${i.order.chapter.position}` ===
-                  this.$route.params.pathMatch ||
-                  `section-${i.order.section.position}/chapter-${i.order.chapter.position}/` ===
-                    this.$route.params.pathMatch)
+                `section-${i.order.section.position}/chapter-${i.order.chapter.position}/` ===
+                  this.pathMatch
               );
             }
           }
@@ -281,10 +278,9 @@ export default {
             return (
               this.$route.params.aagam === aagam.title &&
               // "book-1/chapter-1/lesson-1"
-              (`book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}` ===
-                this.$route.params.pathMatch ||
-                `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/` ===
-                  this.$route.params.pathMatch)
+
+              `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/` ===
+                this.pathMatch
             );
           }
         }
@@ -302,14 +298,28 @@ export default {
       this.content_sutra = this.content_sutra.filter((i) => {
         for (const aagam of aagam_list.aagams) {
           if (aagam.position === i.order.aagam.position) {
-            return (
-              // "book-1/chapter-1/lesson-1/sutra-1"
-              this.$route.params.aagam === aagam.title &&
-              (`book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}` ===
-                this.$route.params.pathMatch ||
+            if (
+              i.order &&
+              i.order.book &&
+              i.order.chapter &&
+              i.order.lesson &&
+              i.order.sutra
+            ) {
+              return (
+                // "book-1/chapter-1/lesson-1/sutra-1"
+                this.$route.params.aagam === aagam.title &&
                 `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}/` ===
-                  this.$route.params.pathMatch)
-            );
+                  this.pathMatch
+              );
+            }
+            if (i.order && i.order.section) {
+              return (
+                // "section-1/chapter-1/sutra-1"
+                this.$route.params.aagam === aagam.title &&
+                `section-${i.order.section.position}/chapter-${i.order.chapter.position}/sutra-${i.order.sutra.position}/` ===
+                  this.pathMatch
+              );
+            }
           }
         }
       });

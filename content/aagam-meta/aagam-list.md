@@ -54,14 +54,19 @@ aagams:
       - sanskrit: अनोत्तर-उपपातिका
         trans: anottar-upapaatika
   - title: prashna-vyakaran
+    position: 10
     category: anga
     names:
       - sanskrit: प्रश्न-व्याकरण
-  - title: vipaak 
+  - title: vipaka
+    
     category: anga
+    position: 11 
+
     names:
       - sanskrit: विपाक
   - title: aupapaatik
+    position: 11
     category: upanga
     names:
       - sanskrit: औपपातिक

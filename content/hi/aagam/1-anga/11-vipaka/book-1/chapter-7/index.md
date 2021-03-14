@@ -1,5 +1,5 @@
 ---
-title: सुवासवकुमार
+title: ऊँबरदत्त
 
 type: chapter
 
@@ -9,10 +9,10 @@ order:
     position: 11
     depth: 1
   book: 
-    position: 2
+    position: 1
     depth: 2
   chapter: 
-    position: 3
+    position: 7
     depth: 3
 
 parent:

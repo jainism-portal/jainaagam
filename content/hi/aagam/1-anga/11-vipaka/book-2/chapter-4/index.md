@@ -1,5 +1,5 @@
 ---
-title: सुवासवकुमार
+title: सुजातकुमार
 
 type: chapter
 
@@ -12,7 +12,7 @@ order:
     position: 2
     depth: 2
   chapter: 
-    position: 3
+    position: 4
     depth: 3
 
 parent:

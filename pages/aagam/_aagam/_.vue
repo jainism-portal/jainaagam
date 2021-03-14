@@ -124,8 +124,8 @@
 
       <article>
         <h1 v-if="content_sutra">
-          Aagam Sutra {{ content_sutra.order.sutra.position }} -
-          <span v-if="content_sutra.title">{{ content_sutra.title }}</span>
+          Aagam Sutra {{ content_sutra.order.sutra.position }}
+          <span v-if="content_sutra.title"> - {{ content_sutra.title }}</span>
         </h1>
         <h1 v-if="!content_sutra && content_sutra_original">
           Aagam Sutra {{ content_sutra_original.order.sutra.position }}
@@ -180,7 +180,6 @@ export default {
       this.content_book = this.content_book.filter((i) => {
         for (const aagam of aagam_list.aagams) {
           if (aagam.position === i.order.aagam.position) {
-            console.log(this.pathMatch);
             return (
               this.$route.params.aagam === aagam.title &&
               `book-${i.order.book.position}/` === this.pathMatch
@@ -323,7 +322,6 @@ export default {
           }
         }
       });
-
       this.content_sutra = this.content_sutra[0];
 
       this.content_sutra_original = await this.$content("aagam", { deep: true })
@@ -333,14 +331,29 @@ export default {
       this.content_sutra_original = this.content_sutra_original.filter((i) => {
         for (const aagam of aagam_list.aagams) {
           if (aagam.position === i.order.aagam.position) {
-            return (
-              // "book-1/chapter-1/lesson-1/sutra-1"
-              this.$route.params.aagam === aagam.title &&
-              (`book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}` ===
-                this.$route.params.pathMatch ||
+            if (
+              i.order &&
+              i.order.book &&
+              i.order.chapter &&
+              i.order.lesson &&
+              i.order.sutra
+            ) {
+              return (
+                // "book-1/chapter-1/lesson-1/sutra-1"
+                this.$route.params.aagam === aagam.title &&
                 `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}/` ===
-                  this.$route.params.pathMatch)
-            );
+                  this.pathMatch
+              );
+            }
+
+            if (i.order && i.order.section) {
+              return (
+                // "section-1/chapter-1/sutra-1"
+                this.$route.params.aagam === aagam.title &&
+                `section-${i.order.section.position}/chapter-${i.order.chapter.position}/sutra-${i.order.sutra.position}/` ===
+                  this.pathMatch
+              );
+            }
           }
         }
       });

@@ -70,6 +70,9 @@ aagams:
     category: upanga
     names:
       - sanskrit: औपपातिक
+  - title: uttaradhyayan
+    cat: mool
+    position: 43
 
 ---
 

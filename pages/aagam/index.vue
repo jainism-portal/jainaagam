@@ -4,12 +4,6 @@
 
     <h2>List of 45 Jain Aagams</h2>
     <div>
-      <span v-for="(l, i) in aagam_list.aagams" :key="i"> {{ l.title }}, </span>
-      <br />
-      {{ Object.keys(list) }}
-      {{ Object.values(list) }}
-    </div>
-    <div>
       <div v-for="item in Object.keys(list)" :key="item">
         <h3>{{ item }}</h3>
         <div
@@ -18,90 +12,21 @@
         >
           <ol class="tw-list-inside">
             <li v-for="item in items" :key="item.title">
-              {{ item.title }}
+              <nuxt-link :to="`/aagam/${item.title}`">
+                {{ item.title }}
+                <span v-if="item.names"
+                  ><span v-for="(name, i) in item.names" :key="i"
+                    ><span v-if="name.sanskrit"
+                      >({{ name.sanskrit }})</span
+                    ></span
+                  ></span
+                >
+              </nuxt-link>
             </li>
           </ol>
         </div>
       </div>
     </div>
-    <h3>anga</h3>
-    <ol class="tw-list-inside">
-      <li v-for="aagam in list.anga" :key="aagam.title">
-        <nuxt-link :to="`/aagam/${aagam.title}`">
-          {{ aagam.title }}
-          <span v-if="aagam.names"
-            ><span v-for="(name, i) in aagam.names" :key="i"
-              ><span v-if="name.sanskrit">({{ name.sanskrit }})</span></span
-            ></span
-          >
-        </nuxt-link>
-      </li>
-    </ol>
-    <h3>upanga</h3>
-    <ol class="tw-list-inside">
-      <li v-for="aagam in list.upanga" :key="aagam.title">
-        <nuxt-link :to="`/aagam/${aagam.title}`">
-          {{ aagam.title }}
-          <span v-if="aagam.names"
-            ><span v-for="(name, i) in aagam.names" :key="i"
-              ><span v-if="name.sanskrit">({{ name.sanskrit }})</span></span
-            ></span
-          >
-        </nuxt-link>
-      </li>
-    </ol>
-    <h3>mool</h3>
-    <ol class="tw-list-inside">
-      <li v-for="aagam in list.mool" :key="aagam.title">
-        <nuxt-link :to="`/aagam/${aagam.title}`">
-          {{ aagam.title }}
-          <span v-if="aagam.names"
-            ><span v-for="(name, i) in aagam.names" :key="i"
-              ><span v-if="name.sanskrit">({{ name.sanskrit }})</span></span
-            ></span
-          >
-        </nuxt-link>
-      </li>
-    </ol>
-    <h3>chhed</h3>
-    <ol class="tw-list-inside">
-      <li v-for="aagam in list.chhed" :key="aagam.title">
-        <nuxt-link :to="`/aagam/${aagam.title}`">
-          {{ aagam.title }}
-          <span v-if="aagam.names"
-            ><span v-for="(name, i) in aagam.names" :key="i"
-              ><span v-if="name.sanskrit">({{ name.sanskrit }})</span></span
-            ></span
-          >
-        </nuxt-link>
-      </li>
-    </ol>
-    <h3>prakirnaka</h3>
-    <ol class="tw-list-inside">
-      <li v-for="aagam in list.prakirnaka" :key="aagam.title">
-        <nuxt-link :to="`/aagam/${aagam.title}`">
-          {{ aagam.title }}
-          <span v-if="aagam.names"
-            ><span v-for="(name, i) in aagam.names" :key="i"
-              ><span v-if="name.sanskrit">({{ name.sanskrit }})</span></span
-            ></span
-          >
-        </nuxt-link>
-      </li>
-    </ol>
-    <h3>chulika</h3>
-    <ol class="tw-list-inside">
-      <li v-for="aagam in list.chulika" :key="aagam.title">
-        <nuxt-link :to="`/aagam/${aagam.title}`">
-          {{ aagam.title }}
-          <span v-if="aagam.names"
-            ><span v-for="(name, i) in aagam.names" :key="i"
-              ><span v-if="name.sanskrit">({{ name.sanskrit }})</span></span
-            ></span
-          >
-        </nuxt-link>
-      </li>
-    </ol>
   </div>
 </template>
 

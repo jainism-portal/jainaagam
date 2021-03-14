@@ -4,9 +4,10 @@ title:
 type: aagam_list
 
 aagams:
-  - title: acharanga
+  - serial: 1
+    title: acharanga
     position: 1
-    category: anga
+    cat: anga
     names:
       - sanskrit: आचारांग
         trans: acharanga
@@ -14,65 +15,71 @@ aagams:
         trans: ayaranga
   - title: sutrakritanga
     position: 2
-    category: anga
+    cat: anga
     names:
       - sanskrit: सूत्रकृतांग
   - title: sthananga
     position: 3
-    category: anga
+    cat: anga
     names:
       - sanskrit: स्थानांग
   - title: samvayanga
     position: 4
-    category: anga
+    cat: anga
     names:
       - sanskrit: समवायांग
   - title: bhagwati
     position: 5
-    category: anga
+    cat: anga
     names:
       - sanskrit: भगवती-(व्याख्या-प्रज्ञप्ति)
   - title: gyaatdharmakatha 
     position: 6
-    category: anga
+    cat: anga
     names:
       - sanskrit: ज्ञातधर्मकथा
   - title: upaasak-dasah
     position: 7
-    category: anga
+    cat: anga
     names:
       - sanskrit: उपासक-दशः
   - title: anottar
     position: 8
-    category: anga
+    cat: anga
     names:
       - sanskrit: अनोत्तर
   - title: anuttarovavai
     position: 9
-    category: anga
+    cat: anga
     names:
       - sanskrit: अनोत्तर-उपपातिका
         trans: anottar-upapaatika
   - title: prashna-vyakaran
     position: 10
-    category: anga
+    cat: anga
     names:
       - sanskrit: प्रश्न-व्याकरण
   - title: vipaka
-    
-    category: anga
+    cat: anga
     position: 11 
-
     names:
       - sanskrit: विपाक
   - title: aupapaatik
     position: 11
-    category: upanga
+    cat: upanga
     names:
       - sanskrit: औपपातिक
-  - title: uttaradhyayan
+  - serial: 43
+    title: uttaradhyayan
     cat: mool
-    position: 43
+    position: 4
+  - serial: 44
+    title: nandi
+    cat: chulika
+    position: 1
+  - serial: 45
+    title: anuyogadvara
+    position: 2
 
 ---
 

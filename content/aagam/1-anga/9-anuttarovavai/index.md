@@ -1,9 +1,9 @@
 ---
 title: अणुत्तरोववाइ
 
-category: anga
 
 order:
+  cat: anga
   aagam: 
     position: 9
     depth: 1

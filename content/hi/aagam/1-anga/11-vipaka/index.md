@@ -3,8 +3,6 @@ title: विपाक
 
 type: aagam
 
-category: anga
-
 order:
   cat: anga
   aagam: 

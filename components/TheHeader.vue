@@ -8,9 +8,14 @@
       </nuxt-link>
     </div>
     <nav>
-      <ul class="tw-list-none tw-py-0">
+      <ul class="tw-flex tw-list-none tw-py-0">
         <li>
           <nuxt-link to="/aagam"> Aagam </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/prakritdictionary/word">
+            Prakrit Dictionary
+          </nuxt-link>
         </li>
       </ul>
     </nav>

@@ -2,13 +2,11 @@
   <div>
     <NuxtContent :document="content_aagam"></NuxtContent>
     <!-- {{ content_aagam }} -->
-    <section>
+    <section v-if="content_aagam">
       <h2></h2>
       <nuxt-link :to="`${fullPath}toc`">
         See Table of Contents of this Aagam</nuxt-link
       >
-    </section>
-    <section v-if="content_aagam">
       <h2 class="tw-capitalize">{{ content_aagam.children.type }}s</h2>
       <ol
         v-if="

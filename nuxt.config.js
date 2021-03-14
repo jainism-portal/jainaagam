@@ -40,21 +40,21 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    ['nuxt-i18n', {
-      locales: ['en', 'hi'],
-      defaultLocale: 'en',
-      vueI18n: {
-        fallbackLocale: 'en',
-        messages: {
-          en: {
-            welcome: 'Welcome'
-          },
-          hi: {
-            welcome: 'नमस्ते'
-          },
-        }
-      }
-    }]
+    // ['nuxt-i18n', {
+    //   locales: ['en', 'hi'],
+    //   defaultLocale: 'en',
+    //   vueI18n: {
+    //     fallbackLocale: 'en',
+    //     messages: {
+    //       en: {
+    //         welcome: 'Welcome'
+    //       },
+    //       hi: {
+    //         welcome: 'नमस्ते'
+    //       },
+    //     }
+    //   }
+    // }]
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content

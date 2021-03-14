@@ -1,6 +1,20 @@
 ---
 title:
 
+type: book
+
+order:
+  cat: mool
+  aagam: 
+    position: 1
+    depth: 1
+  book: 
+    position: 1
+    depth: 2
+
+parent:
+  type: aagam
+
 children:
   type: chapter
   count: 20
@@ -25,3 +39,5 @@ children:
     - संजयीय
     - मृगापुत्रीय
     - महानिर्ग्रंथीय
+
+---

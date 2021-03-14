@@ -11,7 +11,7 @@ order:
     position: 1
     depth: 2
   chapter: 
-    position: 2-10
+    position: 2
     depth: 3
 
 parent: 

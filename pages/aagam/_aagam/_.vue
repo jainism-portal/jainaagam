@@ -123,6 +123,22 @@
       </article>
 
       <article>
+        <div v-if="content_sutra && content_sutra.order">
+          <p
+            v-for="items in Object.entries(content_sutra.order)"
+            :key="items"
+            class="tw-inline"
+          >
+            <span v-for="item in items" :key="item">
+              <!-- <span v-for="item"></span> -->
+              <span v-if="typeof item === 'string' && item != 'cat'"
+                >{{ item }}-</span
+              ><span v-if="typeof item === 'object'"
+                >{{ item.position }} →
+              </span>
+            </span>
+          </p>
+        </div>
         <h1 v-if="content_sutra">
           Aagam Sutra {{ content_sutra.order.sutra.position }}
           <span v-if="content_sutra.title"> - {{ content_sutra.title }}</span>
@@ -130,6 +146,7 @@
         <h1 v-if="!content_sutra && content_sutra_original">
           Aagam Sutra {{ content_sutra_original.order.sutra.position }}
         </h1>
+
         <section v-if="content_sutra_original">
           <h2>Sutra</h2>
           <NuxtContent :document="content_sutra_original.sutra"></NuxtContent>
@@ -346,7 +363,12 @@ export default {
               );
             }
 
-            if (i.order && i.order.section) {
+            if (
+              i.order &&
+              i.order.section &&
+              i.order.chapter &&
+              i.order.sutra
+            ) {
               return (
                 // "section-1/chapter-1/sutra-1"
                 this.$route.params.aagam === aagam.title &&

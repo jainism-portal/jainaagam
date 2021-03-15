@@ -28,3 +28,5 @@ children:
 start:
 end: पहला उद्देशक समाप्त।
 ---
+
+<children :children="children"></children>

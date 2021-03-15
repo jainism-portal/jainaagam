@@ -50,3 +50,5 @@ children:
 ---
 
 पहली बुक एबीसी के बारे में है...
+
+<children :children="children"></children>

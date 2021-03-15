@@ -13,7 +13,8 @@
     "@nuxt/content": "^1.11.1",
     "core-js": "^3.8.3",
     "lodash": "^4.17.21",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "remark-toc": "^7.2.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^3.4.3",

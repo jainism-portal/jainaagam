@@ -1,6 +1,6 @@
 <template>
   <header
-    class="tw-sticky tw-z-30 tw-top-0 tw-h-12 tw-flex tw-justify-evenly tw-items-center tw-bg-gradient-to-br tw-from-white tw-to-pink-50"
+    class="tw-sticky tw-z-30 tw-top-0 tw-flex tw-justify-evenly tw-items-center tw-bg-gradient-to-br tw-from-white tw-to-pink-50"
   >
     <div>
       <nuxt-link to="/" class="tw-text-2xl tw-text-pink-800">

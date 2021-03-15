@@ -17,7 +17,6 @@ export default {
     };
   },
   async fetch() {
-    console.log(this.$route);
     this.fullPath = this.$route.fullPath.endsWith("/")
       ? this.$route.fullPath
       : `${this.$route.fullPath}/`;

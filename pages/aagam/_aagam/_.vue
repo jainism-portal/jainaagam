@@ -36,6 +36,7 @@
       <article v-if="content_book">
         <h1>Aagam Book {{ content_book.order.book.position }}</h1>
         {{ `${content_book.children.type}s`.toUpperCase() }}:
+        <NuxtContent :document="content_book"></NuxtContent>
         <!-- <ol>
           <li v-for="chapter in book.chapters" :key="chapter.chapter_no">
             <nuxt-link
@@ -45,7 +46,7 @@
             </nuxt-link>
           </li>
         </ol> -->
-        <ol v-if="content_book.children.type === 'chapter'">
+        <!-- <ol v-if="content_book.children.type === 'chapter'">
           <li v-for="(child, i) in content_book.children.children" :key="i">
             <nuxt-link
               :to="`${fullPath}${content_book.children.type}-${i + 1}`"
@@ -58,14 +59,14 @@
           <li v-for="n in content_book.children.count" :key="n">
             <nuxt-link :to="`${fullPath}part-${n}`"> Part {{ n }} </nuxt-link>
           </li>
-        </ol>
-        <NuxtContent :document="content_book"></NuxtContent>
+        </ol> -->
       </article>
 
       <article v-if="content_section">
         <h1>Aagam Section {{ content_section.order.section.position }}</h1>
         {{ `${content_section.children.type}s`.toUpperCase() }}:
-        <ol v-if="content_section.children.children">
+        <NuxtContent :document="content_section"></NuxtContent>
+        <!-- <ol v-if="content_section.children.children">
           <li v-for="(child, i) in content_section.children.children" :key="i">
             <nuxt-link
               :to="`${fullPath}${content_section.children.type}-${i + 1}`"
@@ -73,14 +74,14 @@
               {{ child }}
             </nuxt-link>
           </li>
-        </ol>
-        <NuxtContent :document="content_section"></NuxtContent>
+        </ol> -->
       </article>
 
       <article v-if="content_part">
         <h1>Aagam Part {{ content_part.order.part.position }}</h1>
         {{ `${content_part.children.type}s`.toUpperCase() }}:
-        <ol v-if="content_part.children.children">
+        <NuxtContent :document="content_part"></NuxtContent>
+        <!-- <ol v-if="content_part.children.children">
           <li v-for="(child, i) in content_part.children.children" :key="i">
             <nuxt-link
               :to="`${fullPath}${content_part.children.type}-${i + 1}`"
@@ -88,8 +89,7 @@
               {{ child }}
             </nuxt-link>
           </li>
-        </ol>
-        <NuxtContent :document="content_part"></NuxtContent>
+        </ol> -->
       </article>
 
       <article v-if="content_chapter">
@@ -100,26 +100,26 @@
             >({{ content_chapter.trans }})</span
           >
         </h1>
+        <NuxtContent :document="content_chapter"></NuxtContent>
 
-        <ol v-if="content_chapter.children">
+        <!-- <ol v-if="content_chapter.children">
           <li v-for="n in content_chapter.children.count" :key="n">
             <nuxt-link :to="`${fullPath}${content_chapter.children.type}-${n}`">
               {{ content_chapter.children.type }} {{ n }}
             </nuxt-link>
           </li>
-        </ol>
-        <NuxtContent :document="content_chapter"></NuxtContent>
+        </ol> -->
       </article>
 
       <article v-if="content_lesson">
         <h1>Aagam Lesson {{ content_lesson.order.lesson.position }}</h1>
         {{ `${content_lesson.children.type}s`.toUpperCase() }}:
-        <ol>
+        <NuxtContent :document="content_lesson"></NuxtContent>
+        <!-- <ol>
           <li v-for="n in content_lesson.children.count" :key="n">
             <nuxt-link :to="`${fullPath}sutra-${n}`"> Sutra {{ n }} </nuxt-link>
           </li>
-        </ol>
-        <NuxtContent :document="content_lesson"></NuxtContent>
+        </ol> -->
       </article>
 
       <article>

@@ -62,9 +62,14 @@ export default {
     nestedProperties: ['aagam.title', 'order.cat', 'order.aagam', 'order.aagam.position', 'order.book', 'order.book.position', 'order.section', 'order.section.position', 'order.part', 'order.part.position', 'order.chapter', 'order.chapter.position', 'order.lesson', 'order.lesson.position', 'order.sutra', 'order.sutra.position', 'parent.type', 'children.type', 'children.count', 'children.children'],
     extendParser: {
       // https://github.com/nuxt/content/issues/432
-    }
-
+    },
+    markdown: {
+      remarkPlugins: [
+        ['remark-toc', { ordered: true }]
+      ],
+    },
   },
+
   hooks: {
     // Due to this hook, sutra has got a body, which makes it parse markdown content even in yaml.
 

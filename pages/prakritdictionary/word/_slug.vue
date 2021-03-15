@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nuxt-link to="/prakritdictionary/word">Go back to All words</nuxt-link>
     <h1>
       {{ word.slug }}
     </h1>

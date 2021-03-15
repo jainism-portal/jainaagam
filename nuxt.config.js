@@ -65,7 +65,8 @@ export default {
     },
     markdown: {
       remarkPlugins: [
-        ['remark-toc', { ordered: true }]
+        ['remark-toc', { ordered: true }],
+        ['remark-emoji', { emoticon: true }]
       ],
     },
   },

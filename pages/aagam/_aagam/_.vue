@@ -125,11 +125,11 @@
       <article>
         <div v-if="content_sutra && content_sutra.order">
           <p
-            v-for="items in Object.entries(content_sutra.order)"
-            :key="items"
+            v-for="(items, i) in Object.entries(content_sutra.order)"
+            :key="i"
             class="tw-inline"
           >
-            <span v-for="item in items" :key="item">
+            <span v-for="(item, i2) in items" :key="i2">
               <!-- <span v-for="item"></span> -->
               <span v-if="typeof item === 'string' && item != 'cat'"
                 >{{ item }}-</span

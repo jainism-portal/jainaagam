@@ -1,5 +1,5 @@
 ---
-title: पढमं अज्झयणं - जाली
+title: जालिकुमार
 
 type: chapter
 
@@ -21,3 +21,7 @@ children:
   type: sutra
   count: 6
 ---
+
+
+
+<children :children="children"></children>

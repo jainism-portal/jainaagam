@@ -1,11 +1,20 @@
 <template>
-  <ol>
-    <li v-for="n in children.count" :key="n" class="tw-capitalize">
-      <nuxt-link :to="`${fullPath}${children.type}-${n}`">
-        {{ children.type }} {{ n }}
-      </nuxt-link>
-    </li>
-  </ol>
+  <div>
+    <ol v-if="children.children">
+      <li v-for="(child, i) in children.children" :key="child">
+        <nuxt-link :to="`${fullPath}${children.type}-${i + 1}`">
+          {{ child }}
+        </nuxt-link>
+      </li>
+    </ol>
+    <ol v-else>
+      <li v-for="n in children.count" :key="n" class="tw-capitalize">
+        <nuxt-link :to="`${fullPath}${children.type}-${n}`">
+          {{ children.type }} {{ n }}
+        </nuxt-link>
+      </li>
+    </ol>
+  </div>
 </template>
 
 <script>

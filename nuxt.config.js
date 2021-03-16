@@ -66,8 +66,14 @@ export default {
     markdown: {
       remarkPlugins: [
         ['remark-toc', { ordered: true }],
-        ['remark-emoji', { emoticon: true }]
+        ['remark-emoji', { emoticon: false }],
+        ['remark-directive'],
       ],
+      // rehypePlugins: [
+      //   ['rehype-document'],
+      //   ['rehype-format'],
+      //   ['rehype-stringify'],
+      // ]
     },
   },
 

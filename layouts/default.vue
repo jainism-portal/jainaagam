@@ -2,7 +2,7 @@
   <div>
     <TheHeader style="height: 10vh"></TheHeader>
     <Nuxt
-      class="tw-mx-auto tw-py-4 tw-max-w-4xl content-area"
+      class="tw-max-w-6xl tw-mx-auto tw-py-4 content-area"
       keep-alive
       :keep-alive-props="{ max: 10 }"
     ></Nuxt>

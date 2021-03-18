@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.11.1",
+    "@silvenon/remark-smartypants": "^1.0.0",
     "core-js": "^3.8.3",
     "lodash": "^4.17.21",
     "nuxt": "^2.14.12",
+    "remark-breaks": "^2.0.1",
     "remark-directive": "^1.0.1",
-    "remark-emoji": "^2.1.0",
+    "remark-textr": "^4.0.0",
     "remark-toc": "^7.2.0"
   },
   "devDependencies": {

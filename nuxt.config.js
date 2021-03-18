@@ -1,3 +1,18 @@
+function textrCustom(input) {
+  return input
+    // S to avagrah in Devanagari
+    .replace(/(?<=\p{sc=Deva})S(?=\p{sc=Deva})/gu, 'ऽ')
+
+  // Commented these as installed @silvenon/remark-smartypants
+  // //  3 dots to ellipses
+  // .replace(/\.{3}/gim, '…')
+  // // 3 dashes to emdash
+  // .replace(/\-{3}/gim, '—')
+  // // 2 dashes to endash
+  // .replace(/\-{2}/gim, '–')
+
+}
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -65,26 +80,23 @@ export default {
     },
     markdown: {
       remarkPlugins: [
-        ['remark-toc', { ordered: true }],
-        ['remark-emoji', { emoticon: false }],
+        ['remark-breaks'],
         ['remark-directive'],
-      ],
-      // rehypePlugins: [
-      //   ['rehype-document'],
-      //   ['rehype-format'],
-      //   ['rehype-stringify'],
-      // ]
+        ['~/plugins/remark/directive-custom.js'],
+        ['@silvenon/remark-smartypants', { dashes: 'oldschool' }],
+        ['remark-textr', { plugins: [textrCustom] }],
+        ['~/plugins/remark/contributors.js'],
+      ]
     },
   },
 
   hooks: {
-    // Due to this hook, sutra has got a body, which makes it parse markdown content even in yaml.
-
     'content:file:beforeInsert': async (document, database) => {
       if (document.sutra) {
         document.sutra = {
           body: await database.markdown.generateBody(document.sutra),
         };
+        // Now sutra has got a body, which makes it parse markdown content even in yaml.
       }
     },
   },

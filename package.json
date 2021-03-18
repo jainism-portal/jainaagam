@@ -17,8 +17,7 @@
     "nuxt": "^2.14.12",
     "remark-breaks": "^2.0.1",
     "remark-directive": "^1.0.1",
-    "remark-textr": "^4.0.0",
-    "remark-toc": "^7.2.0"
+    "remark-textr": "^4.0.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^3.4.3",

@@ -125,7 +125,7 @@ export default {
     };
   },
   async fetch() {
-    const _ = require("lodash");
+    // const _ = require("lodash");
 
     this.routePath = this.$route.path.endsWith("/")
       ? this.$route.path
@@ -135,29 +135,26 @@ export default {
       ? this.$route.params.pathMatch
       : `${this.$route.params.pathMatch}/`;
 
-    let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
+    // let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
     // Aagam content book fetch
     if (new RegExp(/book-[0-9]+\/$/i).test(this.routePath)) {
       this.content_book = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
-            { dir: { $contains: this.$route.params.aagam } },
-            { type: "book" },
+            { path: { $contains: this.$route.params.aagam } },
+            {
+              path: {
+                $regex: [
+                  this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
+                  "gim",
+                ],
+              },
+            },
           ],
         })
+        .sortBy("slug")
         .fetch();
-
-      this.content_book = this.content_book.filter((i) => {
-        for (const aagam of aagam_list.aagams) {
-          if (aagam.position === i.order.aagam.position) {
-            return (
-              this.$route.params.aagam === aagam.title &&
-              `book-${i.order.book.position}/` === this.pathMatch
-            );
-          }
-        }
-      });
 
       this.content_book = this.content_book[0];
     }
@@ -167,22 +164,19 @@ export default {
       this.content_section = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
-            { dir: { $contains: this.$route.params.aagam } },
-            { type: "section" },
+            { path: { $contains: this.$route.params.aagam } },
+            {
+              path: {
+                $regex: [
+                  this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
+                  "gim",
+                ],
+              },
+            },
           ],
         })
+        .sortBy("slug")
         .fetch();
-
-      this.content_section = this.content_section.filter((i) => {
-        for (const aagam of aagam_list.aagams) {
-          if (aagam.position === i.order.aagam.position) {
-            return (
-              this.$route.params.aagam === aagam.title &&
-              `section-${i.order.section.position}/` === this.pathMatch
-            );
-          }
-        }
-      });
 
       this.content_section = this.content_section[0];
     }
@@ -192,25 +186,19 @@ export default {
       this.content_part = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
-            { dir: { $contains: this.$route.params.aagam } },
-            { type: "part" },
+            { path: { $contains: this.$route.params.aagam } },
+            {
+              path: {
+                $regex: [
+                  this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
+                  "gim",
+                ],
+              },
+            },
           ],
         })
+        .sortBy("slug")
         .fetch();
-
-      this.content_part = this.content_part.filter((i) => {
-        for (const aagam of aagam_list.aagams) {
-          if (aagam.position === i.order.aagam.position) {
-            return (
-              this.$route.params.aagam === aagam.title &&
-              (`book-${i.order.book.position}/part-${i.order.part.position}` ===
-                this.$route.params.pathMatch ||
-                `book-${i.order.book.position}/part-${i.order.part.position}/` ===
-                  this.$route.params.pathMatch)
-            );
-          }
-        }
-      });
 
       this.content_part = this.content_part[0];
     }
@@ -221,47 +209,7 @@ export default {
       this.content_chapter = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
-            { type: "chapter" },
-            { dir: { $contains: this.$route.params.aagam } },
-          ],
-        })
-        .fetch();
-
-      this.content_chapter = this.content_chapter.filter((i) => {
-        for (const aagam of aagam_list.aagams) {
-          if (aagam.position === i.order.aagam.position) {
-            if (i.parent.type === "book") {
-              return (
-                this.$route.params.aagam === aagam.title &&
-                `book-${i.order.book.position}/chapter-${i.order.chapter.position}/` ===
-                  this.pathMatch
-              );
-            }
-            if (i.parent.type === "section") {
-              return (
-                this.$route.params.aagam === aagam.title &&
-                `section-${i.order.section.position}/chapter-${i.order.chapter.position}/` ===
-                  this.pathMatch
-              );
-            }
-          }
-        }
-      });
-
-      this.content_chapter = this.content_chapter[0];
-    }
-
-    // Aagam content Lesson fetch
-    if (new RegExp(/lesson-[0-9]+\/$/i).test(this.routePath)) {
-      // To find lesson position (even double digit)
-      let postPositionNumber = this.pathMatch.match(/[0-9]+(?=\/$)/gim)[0]
-        .length;
-
-      this.content_lesson = await this.$content("hi/aagam", { deep: true })
-        .where({
-          $and: [
             { path: { $contains: this.$route.params.aagam } },
-            // { type: "lesson" },
             {
               path: {
                 $regex: [
@@ -270,67 +218,32 @@ export default {
                 ],
               },
             },
-            // {
-            //   "order.lesson.position":
-            //     Number(postPositionNumber) === 2
-            //       ? Number(
-            //           this.pathMatch.slice(
-            //             this.pathMatch.length - (postPositionNumber + 1),
-            //             this.pathMatch.length - (postPositionNumber - 1)
-            //           )
-            //         )
-            //       : Number(
-            //           this.pathMatch.slice(
-            //             this.pathMatch.length - (postPositionNumber + 1),
-            //             this.pathMatch.length - 1
-            //           )
-            //         ),
-            // },
-            //
-            // { path: { $regex: /(?<=-)[0-9]$/gim } },
           ],
         })
         .sortBy("slug")
         .fetch();
 
-      // this.pathMatch --> "book-1/chapter-1/lesson-1/"
-      // path --> "/hi/aagam/1-anga/1-acharanga/book-1/chapter-1/lesson-1/sutra-1"
+      this.content_chapter = this.content_chapter[0];
+    }
 
-      // console.log(this.pathMatch.slice(0, this.pathMatch.length - 1));
-      // book-1/chapter-1/lesson-1
-
-      // let abc =
-      //   Number(postPositionNumber) === 2
-      //     ? Number(
-      //         this.pathMatch.slice(
-      //           this.pathMatch.length - (postPositionNumber + 1),
-      //           this.pathMatch.length - (postPositionNumber - 1)
-      //         )
-      //       )
-      //     : Number(
-      //         this.pathMatch.slice(
-      //           this.pathMatch.length - (postPositionNumber + 1),
-      //           this.pathMatch.length - 1
-      //         )
-      //       );
-      // console.log(abc);
-      //
-      // console.log(this.content_lesson.length, this.content_lesson);
-
-      // Due to regex in query, no need of this below filter now:
-      // this.content_lesson = this.content_lesson.filter((i) => {
-      //   for (const aagam of aagam_list.aagams) {
-      //     if (aagam.position === i.order.aagam.position) {
-      //       return (
-      //         this.$route.params.aagam === aagam.title &&
-      //         // "book-1/chapter-1/lesson-1"
-
-      //         `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/` ===
-      //           this.pathMatch
-      //       );
-      //     }
-      //   }
-      // });
+    // Aagam content Lesson fetch
+    if (new RegExp(/lesson-[0-9]+\/$/i).test(this.routePath)) {
+      this.content_lesson = await this.$content("hi/aagam", { deep: true })
+        .where({
+          $and: [
+            { path: { $contains: this.$route.params.aagam } },
+            {
+              path: {
+                $regex: [
+                  this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
+                  "gim",
+                ],
+              },
+            },
+          ],
+        })
+        .sortBy("slug")
+        .fetch();
 
       this.content_lesson = this.content_lesson[0];
     }
@@ -340,85 +253,40 @@ export default {
       this.content_sutra = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
-            { dir: { $contains: this.$route.params.aagam } },
-            { type: "sutra" },
+            { path: { $contains: this.$route.params.aagam } },
+            {
+              path: {
+                $regex: [
+                  this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
+                  "gim",
+                ],
+              },
+            },
           ],
         })
+        .sortBy("slug")
         .fetch();
 
-      this.content_sutra = this.content_sutra.filter((i) => {
-        for (const aagam of aagam_list.aagams) {
-          if (aagam.position === i.order.aagam.position) {
-            if (
-              i.order &&
-              i.order.book &&
-              i.order.chapter &&
-              i.order.lesson &&
-              i.order.sutra
-            ) {
-              return (
-                // "book-1/chapter-1/lesson-1/sutra-1"
-                this.$route.params.aagam === aagam.title &&
-                `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}/` ===
-                  this.pathMatch
-              );
-            }
-            if (i.order && i.order.section) {
-              return (
-                // "section-1/chapter-1/sutra-1"
-                this.$route.params.aagam === aagam.title &&
-                `section-${i.order.section.position}/chapter-${i.order.chapter.position}/sutra-${i.order.sutra.position}/` ===
-                  this.pathMatch
-              );
-            }
-          }
-        }
-      });
       this.content_sutra = this.content_sutra[0];
 
-      this.content_sutra_original = await this.$content("aagam", { deep: true })
+      this.content_sutra_original = await this.$content("hi/aagam", {
+        deep: true,
+      })
         .where({
           $and: [
-            { dir: { $contains: this.$route.params.aagam } },
-            { type: "sutra" },
+            { path: { $contains: this.$route.params.aagam } },
+            {
+              path: {
+                $regex: [
+                  this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
+                  "gim",
+                ],
+              },
+            },
           ],
         })
+        .sortBy("slug")
         .fetch();
-
-      this.content_sutra_original = this.content_sutra_original.filter((i) => {
-        for (const aagam of aagam_list.aagams) {
-          if (aagam.position === i.order.aagam.position) {
-            if (
-              i.order &&
-              i.order.book &&
-              i.order.chapter &&
-              i.order.lesson &&
-              i.order.sutra
-            ) {
-              return (
-                // "book-1/chapter-1/lesson-1/sutra-1"
-                this.$route.params.aagam === aagam.title &&
-                `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/sutra-${i.order.sutra.position}/` ===
-                  this.pathMatch
-              );
-            }
-
-            if (
-              i.order &&
-              i.order.section &&
-              i.order.chapter &&
-              i.order.sutra
-            ) {
-              return (
-                // "section-1/chapter-1/sutra-1"
-                this.$route.params.aagam === aagam.title &&
-                `section-${i.order.section.position}/chapter-${i.order.chapter.position}/sutra-${i.order.sutra.position}/` ===
-                  this.pathMatch
-              );
-            }
-          }
-        }
-      });
 
       this.content_sutra_original = this.content_sutra_original[0];
     }

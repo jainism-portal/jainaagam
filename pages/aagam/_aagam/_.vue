@@ -142,8 +142,8 @@ export default {
       this.content_book = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
+            { dir: { $contains: this.$route.params.aagam } },
             { type: "book" },
-            { dir: { $regex: [this.$route.params.aagam, "g"] } },
           ],
         })
         .fetch();
@@ -167,8 +167,8 @@ export default {
       this.content_section = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
+            { dir: { $contains: this.$route.params.aagam } },
             { type: "section" },
-            { dir: { $regex: [this.$route.params.aagam, "g"] } },
           ],
         })
         .fetch();
@@ -192,8 +192,8 @@ export default {
       this.content_part = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
+            { dir: { $contains: this.$route.params.aagam } },
             { type: "part" },
-            { dir: { $regex: [this.$route.params.aagam, "g"] } },
           ],
         })
         .fetch();
@@ -222,7 +222,7 @@ export default {
         .where({
           $and: [
             { type: "chapter" },
-            { dir: { $regex: [this.$route.params.aagam, "g"] } },
+            { dir: { $contains: this.$route.params.aagam } },
           ],
         })
         .fetch();
@@ -256,11 +256,18 @@ export default {
       this.content_lesson = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
+            { path: { $contains: this.$route.params.aagam } },
             { type: "lesson" },
-            { dir: { $regex: [this.$route.params.aagam, "g"] } },
+
+            // { path: { $regex: /(?<=-)[0-9]$/gim } },
           ],
         })
+        .sortBy("slug")
         .fetch();
+
+      console.log(this.pathMatch.charAt(this.pathMatch.length - 2));
+      console.log(this.content_lesson.length, this.content_lesson);
+      // console.log(this.$data);
 
       this.content_lesson = this.content_lesson.filter((i) => {
         for (const aagam of aagam_list.aagams) {
@@ -284,8 +291,8 @@ export default {
       this.content_sutra = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
+            { dir: { $contains: this.$route.params.aagam } },
             { type: "sutra" },
-            { dir: { $regex: [this.$route.params.aagam, "g"] } },
           ],
         })
         .fetch();
@@ -323,8 +330,8 @@ export default {
       this.content_sutra_original = await this.$content("aagam", { deep: true })
         .where({
           $and: [
+            { dir: { $contains: this.$route.params.aagam } },
             { type: "sutra" },
-            { dir: { $regex: [this.$route.params.aagam, "g"] } },
           ],
         })
         .fetch();

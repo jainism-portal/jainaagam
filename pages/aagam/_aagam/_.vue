@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
     <div v-if="$fetchState.pending">Fetching content... Wait a few seconds</div>
     <div
       v-else-if="
@@ -14,7 +14,7 @@
     >
       Wrong URL. Check URL again or go Home.
     </div>
-    <div v-else>
+    <div v-else class="tw-mx-2 sm:tw-mx-0">
       <Incomplete
         v-if="
           !(
@@ -33,31 +33,23 @@
         :content_sutra="content_sutra"
         :content_sutra_original="content_sutra_original"
       ></Incomplete>
+
       <article v-if="content_book">
         <h1>Aagam Book {{ content_book.order.book.position }}</h1>
         {{ `${content_book.children.type}s`.toUpperCase() }}:
-        <NuxtContent
-          class="tw-prose lg:tw-prose-lg"
-          :document="content_book"
-        ></NuxtContent>
+        <NuxtContent :document="content_book"></NuxtContent>
       </article>
 
       <article v-if="content_section">
         <h1>Aagam Section {{ content_section.order.section.position }}</h1>
         {{ `${content_section.children.type}s`.toUpperCase() }}:
-        <NuxtContent
-          class="tw-prose lg:tw-prose-lg"
-          :document="content_section"
-        ></NuxtContent>
+        <NuxtContent :document="content_section"></NuxtContent>
       </article>
 
       <article v-if="content_part">
         <h1>Aagam Part {{ content_part.order.part.position }}</h1>
         {{ `${content_part.children.type}s`.toUpperCase() }}:
-        <NuxtContent
-          class="tw-prose lg:tw-prose-lg"
-          :document="content_part"
-        ></NuxtContent>
+        <NuxtContent :document="content_part"></NuxtContent>
       </article>
 
       <article v-if="content_chapter">
@@ -68,23 +60,20 @@
             >({{ content_chapter.trans }})</span
           >
         </h1>
-        <NuxtContent
-          class="tw-prose lg:tw-prose-lg"
-          :document="content_chapter"
-        ></NuxtContent>
+        <NuxtContent :document="content_chapter"></NuxtContent>
       </article>
 
       <article v-if="content_lesson">
         <h1>Aagam Lesson {{ content_lesson.order.lesson.position }}</h1>
         {{ `${content_lesson.children.type}s`.toUpperCase() }}:
-        <NuxtContent
-          class="tw-prose lg:tw-prose-lg"
-          :document="content_lesson"
-        ></NuxtContent>
+        <NuxtContent :document="content_lesson"></NuxtContent>
       </article>
 
       <article>
-        <div v-if="content_sutra && content_sutra.order">
+        <div
+          v-if="content_sutra && content_sutra.order"
+          class="tw-text-center tw-my-2 md:tw-my-4"
+        >
           <p
             v-for="(items, i) in Object.entries(content_sutra.order)"
             :key="i"
@@ -109,13 +98,9 @@
 
         <section v-if="content_sutra_original">
           <h2>Sutra</h2>
-          <NuxtContent
-            class="tw-prose lg:tw-prose-lg"
-            :document="content_sutra_original.sutra"
-          ></NuxtContent>
+          <NuxtContent :document="content_sutra_original.sutra"></NuxtContent>
         </section>
         <NuxtContent
-          class="tw-prose lg:tw-prose-lg"
           :document="content_sutra"
           v-if="content_sutra"
         ></NuxtContent>
@@ -351,4 +336,19 @@ export default {
 </script>
 
 <style lang="postcss">
+.nuxt-content p,
+a,
+ul,
+ol,
+li,
+blockquote {
+  @apply tw-my-3 !important;
+}
+
+.nuxt-content h1,
+h2,
+h3,
+h4 {
+  @apply tw-my-4 !important;
+}
 </style>

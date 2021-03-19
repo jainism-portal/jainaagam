@@ -253,35 +253,84 @@ export default {
 
     // Aagam content Lesson fetch
     if (new RegExp(/lesson-[0-9]+\/$/i).test(this.routePath)) {
+      // To find lesson position (even double digit)
+      let postPositionNumber = this.pathMatch.match(/[0-9]+(?=\/$)/gim)[0]
+        .length;
+
       this.content_lesson = await this.$content("hi/aagam", { deep: true })
         .where({
           $and: [
             { path: { $contains: this.$route.params.aagam } },
-            { type: "lesson" },
-
+            // { type: "lesson" },
+            {
+              path: {
+                $regex: [
+                  this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
+                  "gim",
+                ],
+              },
+            },
+            // {
+            //   "order.lesson.position":
+            //     Number(postPositionNumber) === 2
+            //       ? Number(
+            //           this.pathMatch.slice(
+            //             this.pathMatch.length - (postPositionNumber + 1),
+            //             this.pathMatch.length - (postPositionNumber - 1)
+            //           )
+            //         )
+            //       : Number(
+            //           this.pathMatch.slice(
+            //             this.pathMatch.length - (postPositionNumber + 1),
+            //             this.pathMatch.length - 1
+            //           )
+            //         ),
+            // },
+            //
             // { path: { $regex: /(?<=-)[0-9]$/gim } },
           ],
         })
         .sortBy("slug")
         .fetch();
 
-      console.log(this.pathMatch.charAt(this.pathMatch.length - 2));
-      console.log(this.content_lesson.length, this.content_lesson);
-      // console.log(this.$data);
+      // this.pathMatch --> "book-1/chapter-1/lesson-1/"
+      // path --> "/hi/aagam/1-anga/1-acharanga/book-1/chapter-1/lesson-1/sutra-1"
 
-      this.content_lesson = this.content_lesson.filter((i) => {
-        for (const aagam of aagam_list.aagams) {
-          if (aagam.position === i.order.aagam.position) {
-            return (
-              this.$route.params.aagam === aagam.title &&
-              // "book-1/chapter-1/lesson-1"
+      // console.log(this.pathMatch.slice(0, this.pathMatch.length - 1));
+      // book-1/chapter-1/lesson-1
 
-              `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/` ===
-                this.pathMatch
-            );
-          }
-        }
-      });
+      // let abc =
+      //   Number(postPositionNumber) === 2
+      //     ? Number(
+      //         this.pathMatch.slice(
+      //           this.pathMatch.length - (postPositionNumber + 1),
+      //           this.pathMatch.length - (postPositionNumber - 1)
+      //         )
+      //       )
+      //     : Number(
+      //         this.pathMatch.slice(
+      //           this.pathMatch.length - (postPositionNumber + 1),
+      //           this.pathMatch.length - 1
+      //         )
+      //       );
+      // console.log(abc);
+      //
+      // console.log(this.content_lesson.length, this.content_lesson);
+
+      // Due to regex in query, no need of this below filter now:
+      // this.content_lesson = this.content_lesson.filter((i) => {
+      //   for (const aagam of aagam_list.aagams) {
+      //     if (aagam.position === i.order.aagam.position) {
+      //       return (
+      //         this.$route.params.aagam === aagam.title &&
+      //         // "book-1/chapter-1/lesson-1"
+
+      //         `book-${i.order.book.position}/chapter-${i.order.chapter.position}/lesson-${i.order.lesson.position}/` ===
+      //           this.pathMatch
+      //       );
+      //     }
+      //   }
+      // });
 
       this.content_lesson = this.content_lesson[0];
     }

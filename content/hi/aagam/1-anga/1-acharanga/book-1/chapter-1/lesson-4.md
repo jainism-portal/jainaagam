@@ -1,4 +1,29 @@
 ---
+title: चौथा उद्देशक
+
+type: lesson
+
+order:
+  cat: anga
+  aagam:
+    position: 1
+    depth: 1
+  book:
+    position: 1
+    depth: 2
+  chapter:
+    position: 1
+    depth: 3
+  lesson: 
+    position: 4
+    depth: 4
+
+parent: 
+  type: chapter
+
+children: 
+  type: sutra
+  count: 7
 
 ---
 

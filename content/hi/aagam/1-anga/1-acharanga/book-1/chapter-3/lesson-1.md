@@ -1,5 +1,5 @@
 ---
-title: पहला उद्देशक
+title: पहला उद्देशक (adhyay 3)
 
 type: lesson
 

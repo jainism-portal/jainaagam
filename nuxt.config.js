@@ -1,17 +1,17 @@
-function textrCustom(input) {
-  return input
-    // S to avagrah in Devanagari
-    .replace(/(?<=\p{sc=Deva})S(?=\p{sc=Deva})/gu, 'ऽ')
+// function textrCustom(input) {
+//   return input
+//   // S to avagrah in Devanagari
+//   // .replace(/(?<=\p{sc=Deva})S(?=\p{sc=Deva})/gu, 'ऽ')
 
-  // Commented these as installed @silvenon/remark-smartypants
-  // //  3 dots to ellipses
-  // .replace(/\.{3}/gim, '…')
-  // // 3 dashes to emdash
-  // .replace(/\-{3}/gim, '—')
-  // // 2 dashes to endash
-  // .replace(/\-{2}/gim, '–')
+//   // Commented these as installed @silvenon/remark-smartypants
+//   // //  3 dots to ellipses
+//   // .replace(/\.{3}/gim, '…')
+//   // // 3 dashes to emdash
+//   // .replace(/\-{3}/gim, '—')
+//   // // 2 dashes to endash
+//   // .replace(/\-{2}/gim, '–')
 
-}
+// }
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -84,13 +84,22 @@ export default {
         ['remark-directive'],
         ['~/plugins/remark/directive-custom.js'],
         ['@silvenon/remark-smartypants', { dashes: 'oldschool' }],
-        ['remark-textr', { plugins: [textrCustom] }],
+        // ['remark-textr', { plugins: [textrCustom] }],
         ['~/plugins/remark/contributors.js'],
       ]
     },
   },
 
   hooks: {
+    'content:file:beforeParse': (file) => {
+      if (file.extension !== '.md') {
+        return
+      }
+      else {
+        file.data = file.data.replace(/(?<=\p{sc=Deva})S(?=\p{sc=Deva})/gu, 'ऽ')
+        // S to avagrah in Devanagari
+      }
+    },
     'content:file:beforeInsert': async (document, database) => {
       if (document.sutra) {
         document.sutra = {

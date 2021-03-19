@@ -8,10 +8,7 @@
       `tw-border-${color}-500`,
     ]"
   >
-    <p
-      class="tw-pt-2 tw-pb-2 tw-text-lg tw-font-medium"
-      v-html="title ? title : `Tip`"
-    ></p>
+    <p class="tw-font-medium tw-my-2" v-html="title ? title : `Tip`"></p>
     <slot></slot>
   </div>
 </template>

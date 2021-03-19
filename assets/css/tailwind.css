@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   h1 {
   @apply tw-pt-2 tw-tracking-wide tw-text-3xl;
 }
@@ -33,4 +33,4 @@ ul ul {
 blockquote {
   @apply tw-px-2 tw-border tw-border-gray-500 tw-rounded-md tw-text-lg tw-text-gray-700;
 }
-}
+} */

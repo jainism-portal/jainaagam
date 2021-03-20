@@ -56,6 +56,12 @@
               - {{ content_sutra_original.title }}</span
             >
           </h1>
+          <a
+            :href="`https://github.com/madrecha/jainaagam/tree/main/content${content_everyAagamFile.path}${content_everyAagamFile.extension}`"
+            target="_blank"
+          >
+            Edit on Github
+          </a>
           <div v-if="content_sutra_original">
             <h2>Sutra</h2>
             <NuxtContent :document="content_sutra_original.sutra"></NuxtContent>

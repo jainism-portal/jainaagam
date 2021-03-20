@@ -6,7 +6,7 @@
         <ol>
           <li v-for="n in aagam.children.count" :key="n">
             {{ aagam.children.type }} {{ n }}
-            
+
             <div v-for="(book, i) in books" :key="i">
               <ol>
                 <li v-for="n in book.children.count" :key="n">
@@ -70,7 +70,7 @@ export default {
         $and: [
           { type: "aagam" },
           // { "order.aagam.position": aagam.position }
-          { dir: { $regex: [this.$route.params.aagam + "$", "i"] } },
+          { path: { $regex: [this.$route.params.aagam + "$", "i"] } },
           // "/hi/aagam/1-anga/1-acharanga"
         ],
       })

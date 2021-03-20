@@ -1,6 +1,6 @@
 <template>
   <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
-    <nuxt-link to="/aagam/acharanga"
+    <nuxt-link :to="`/aagam/${$route.params.aagam}`"
       >Back to
       <span class="tw-capitalize">{{ $route.params.aagam }}</span>
       Aagam</nuxt-link

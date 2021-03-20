@@ -1,6 +1,6 @@
 <template>
   <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
-    <nuxt-link to="/aagam/acharanga">Back to all Aagams</nuxt-link>
+    <nuxt-link to="/aagam/">Back to all Aagams</nuxt-link>
     <div v-if="content_aagam">
       <h1>
         Jain Aagam

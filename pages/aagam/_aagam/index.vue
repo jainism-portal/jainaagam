@@ -8,6 +8,12 @@
           - {{ content_aagam.title }} सूत्र</span
         >
       </h1>
+      <a
+        :href="`https://github.com/madrecha/jainaagam/tree/main/content${content_aagam.path}${content_aagam.extension}`"
+        target="_blank"
+      >
+        Edit on Github
+      </a>
       <nuxt-link :to="`${$route.params.aagam}/table-of-contents`"
         >TOC</nuxt-link
       >

@@ -2,31 +2,13 @@
   <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
     <div v-if="$fetchState.pending">Fetching content... Wait a few seconds</div>
     <div v-else-if="$fetchState.error">
-      <!-- (content_book === null &&
-          content_section === null &&
-          content_part === null &&
-          content_chapter === null &&
-          content_lesson === null &&
-          content_sutra === null) || -->
+      <!-- (content_everyAagamFile === null && content_sutra_original === null) || -->
       Wrong URL. Check URL again or go Home.
     </div>
     <div v-else class="tw-mx-2 sm:tw-mx-0">
       <!-- <Incomplete
-        v-if="
-          !(
-            content_book ||
-            content_part ||
-            content_chapter ||
-            content_lesson ||
-            content_sutra ||
-            content_sutra_original
-          )
-        "
-        :content_book="content_book"
-        :content_part="content_part"
-        :content_chapter="content_chapter"
-        :content_lesson="content_lesson"
-        :content_sutra="content_sutra"
+        v-if="!(content_everyAagamFile || content_sutra_original)"
+        :content_sutra="content_everyAagamFile"
         :content_sutra_original="content_sutra_original"
       ></Incomplete> -->
 
@@ -71,14 +53,6 @@
           <NuxtContent :document="content_everyAagamFile"></NuxtContent>
         </section>
       </article>
-
-      <!-- <h1 v-if="content_sutra">
-          Aagam Sutra {{ content_sutra.order.sutra.position }}
-          <span v-if="content_sutra.title"> - {{ content_sutra.title }}</span>
-        </h1>
-        <h1 v-if="!content_sutra && content_sutra_original">
-          Aagam Sutra {{ content_sutra_original.order.sutra.position }}
-        </h1> -->
     </div>
   </div>
 </template>

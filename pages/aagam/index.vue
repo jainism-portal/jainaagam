@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tw-prose lg:tw-prose-lg tw-prose-green tw-max-w-none">
     <NuxtContent :document="content_aagamindex"></NuxtContent>
 
     <h2>List of 45 Jain Aagams</h2>

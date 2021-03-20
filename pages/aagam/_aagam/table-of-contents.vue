@@ -1,8 +1,11 @@
 <template>
-  <div class="tw-prose lg:tw-prose-lg tw-max-w-none">
+  <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
     <nuxt-link to="/aagam/acharanga">Back to Aagam</nuxt-link>
     <!-- <NuxtContent :document="toc"></NuxtContent> -->
     <!-- {{ everything }} -->
+    <h1 class="tw-capitalize">
+      {{ $route.params.aagam }} Sutra - Table of Contents
+    </h1>
     <ol>
       <li v-for="(bookitem, i) in books" :key="i">
         <nuxt-link
@@ -16,20 +19,23 @@
         </nuxt-link>
         <ul>
           <li v-for="(chapteritem, i) in chapters" :key="i">
-            <div
+            <details
               v-if="
                 chapteritem.order.book.position === bookitem.order.book.position
               "
             >
-              <nuxt-link
-                v-if="chapteritem.order.chapter.position"
-                :to="`book-${bookitem.order.book.position}/chapter-${chapteritem.order.chapter.position}`"
-              >
-                Chapter
-                <span v-if="chapteritem.order.chapter.position">{{
-                  chapteritem.order.chapter.position
-                }}</span>
-              </nuxt-link>
+              <summary>
+                <nuxt-link
+                  v-if="chapteritem.order.chapter.position"
+                  :to="`book-${bookitem.order.book.position}/chapter-${chapteritem.order.chapter.position}`"
+                >
+                  Chapter
+                  <span v-if="chapteritem.order.chapter.position">{{
+                    chapteritem.order.chapter.position
+                  }}</span>
+                </nuxt-link>
+              </summary>
+
               <ol>
                 <li v-for="(lessonitem, i) in lessons" :key="i">
                   <div
@@ -70,7 +76,7 @@
                   </div>
                 </li>
               </ol>
-            </div>
+            </details>
           </li>
           <li v-for="(partitem, i) in parts" :key="i">
             <div

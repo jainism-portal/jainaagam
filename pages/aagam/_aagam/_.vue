@@ -35,37 +35,46 @@
       ></Incomplete>
 
       <article v-if="content_book">
-        <h1>Aagam Book {{ content_book.order.book.position }}</h1>
-        {{ `${content_book.children.type}s`.toUpperCase() }}:
+        <h1>
+          Jain Aagam Book {{ content_book.order.book.position }}
+          <span v-if="content_book.title"> - {{ content_book.title }}</span>
+        </h1>
         <NuxtContent :document="content_book"></NuxtContent>
       </article>
 
       <article v-if="content_section">
-        <h1>Aagam Section {{ content_section.order.section.position }}</h1>
-        {{ `${content_section.children.type}s`.toUpperCase() }}:
+        <h1>
+          Jain Aagam Section {{ content_section.order.section.position }}
+          <span v-if="content_section.title">
+            - {{ content_section.title }}</span
+          >
+        </h1>
         <NuxtContent :document="content_section"></NuxtContent>
       </article>
 
       <article v-if="content_part">
-        <h1>Aagam Part {{ content_part.order.part.position }}</h1>
-        {{ `${content_part.children.type}s`.toUpperCase() }}:
+        <h1>
+          Jain Aagam Part {{ content_part.order.part.position }}
+          <span v-if="content_part.title"> - {{ content_part.title }}</span>
+        </h1>
         <NuxtContent :document="content_part"></NuxtContent>
       </article>
 
       <article v-if="content_chapter">
         <h1>
-          Aagam Chapter {{ content_chapter.order.chapter.position }} -
-          {{ content_chapter.title }}
-          <span v-if="content_chapter.trans"
-            >({{ content_chapter.trans }})</span
+          Jain Aagam Chapter {{ content_chapter.order.chapter.position }}
+          <span v-if="content_chapter.title">
+            - {{ content_chapter.title }}</span
           >
         </h1>
         <NuxtContent :document="content_chapter"></NuxtContent>
       </article>
 
       <article v-if="content_lesson">
-        <h1>Aagam Lesson {{ content_lesson.order.lesson.position }}</h1>
-        {{ `${content_lesson.children.type}s`.toUpperCase() }}:
+        <h1>
+          Jain Aagam Lesson {{ content_lesson.order.lesson.position }}
+          <span v-if="content_lesson.title"> - {{ content_lesson.title }}</span>
+        </h1>
         <NuxtContent :document="content_lesson"></NuxtContent>
       </article>
 

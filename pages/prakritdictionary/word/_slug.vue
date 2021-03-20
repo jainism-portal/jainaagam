@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
     <nuxt-link to="/prakritdictionary/word">Go back to All words</nuxt-link>
     <h1>
       {{ word.slug }}

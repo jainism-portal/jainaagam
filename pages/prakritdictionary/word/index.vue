@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
     <h1>Prakrit words</h1>
     <h2>List</h2>
     <ol>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
+  <div>
     <div v-if="$fetchState.pending">Fetching content... Wait a few seconds</div>
     <div v-else-if="$fetchState.error">
       <!-- (content_everyAagamFile === null && content_sutra_original === null) || -->
@@ -13,45 +13,57 @@
       ></Incomplete> -->
 
       <article class="">
-        <div
+        <header
           v-if="content_everyAagamFile && content_everyAagamFile.order"
-          class="tw-bg-white tw-sticky tw-top-14 tw-z-20 tw-border-b tw-border-gray-300 tw-text-center tw-pb-1 tw-mt-2 tw-mb-2 md:tw-mt-0 md:tw-mb-4"
+          class="tw-bg-white tw-sticky tw-top-14 tw-z-20 tw-border-b tw-border-gray-300 tw-text-center tw-pt-1 tw-pb-2 tw-mb-2 md:tw-mt-0 md:tw-mb-4"
         >
-          <p
-            v-for="(items, i) in Object.entries(content_everyAagamFile.order)"
-            :key="i"
-            class="tw-inline"
-          >
-            <span v-for="(item, i2) in items" :key="i2">
-              <span v-if="typeof item === 'string' && item != 'cat'"
-                >{{ item }}-</span
-              ><span v-if="typeof item === 'object'"
-                >{{ item.position }} →
+          <nav class="tw-flex tw-flex-wrap tw-justify-center tw-items-center">
+            <p class="tw-inline tw-mr-2">
+              <nuxt-link
+                :to="`/aagam/${$route.params.aagam}/table-of-contents`"
+                class="tw-text-pink-600 tw-underline tw-font-medium tw-capitalize"
+                >{{ $route.params.aagam }} Aagam Index</nuxt-link
+              >
+              |
+            </p>
+            <p
+              v-for="(items, i) in Object.entries(content_everyAagamFile.order)"
+              :key="i"
+              class="tw-inline"
+            >
+              <span v-for="(item, i2) in items" :key="i2">
+                <span v-if="typeof item === 'string' && item != 'cat'"
+                  >{{ item }}-</span
+                ><span v-if="typeof item === 'object'"
+                  >{{ item.position }} →
+                </span>
               </span>
-            </span>
-          </p>
-        </div>
-        <h1 v-if="content_everyAagamFile">
-          Jain Aagam {{ content_everyAagamFile.type }}
-          <!-- {{ content_everyAagamFile.order[content_everyAagamFile.type].position }} -->
-          <span v-if="content_everyAagamFile.title">
-            - {{ content_everyAagamFile.title }}</span
-          >
-        </h1>
-        <h1 v-if="!content_everyAagamFile && content_sutra_original">
-          Jain Aagam {{ content_sutra_original.type }}
-          <!-- {{ content_sutra_original.order[content_sutra_original.type].position }} -->
-          <span v-if="content_sutra_original.title">
-            - {{ content_sutra_original.title }}</span
-          >
-        </h1>
-        <div v-if="content_sutra_original">
-          <h2>Sutra</h2>
-          <NuxtContent :document="content_sutra_original.sutra"></NuxtContent>
-        </div>
-        <section v-if="content_everyAagamFile">
-          <NuxtContent :document="content_everyAagamFile"></NuxtContent>
-        </section>
+            </p>
+          </nav>
+        </header>
+        <main class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
+          <h1 v-if="content_everyAagamFile">
+            Jain Aagam {{ content_everyAagamFile.type }}
+            <!-- {{ content_everyAagamFile.order[content_everyAagamFile.type].position }} -->
+            <span v-if="content_everyAagamFile.title">
+              - {{ content_everyAagamFile.title }}</span
+            >
+          </h1>
+          <h1 v-if="!content_everyAagamFile && content_sutra_original">
+            Jain Aagam {{ content_sutra_original.type }}
+            <!-- {{ content_sutra_original.order[content_sutra_original.type].position }} -->
+            <span v-if="content_sutra_original.title">
+              - {{ content_sutra_original.title }}</span
+            >
+          </h1>
+          <div v-if="content_sutra_original">
+            <h2>Sutra</h2>
+            <NuxtContent :document="content_sutra_original.sutra"></NuxtContent>
+          </div>
+          <section v-if="content_everyAagamFile">
+            <NuxtContent :document="content_everyAagamFile"></NuxtContent>
+          </section>
+        </main>
       </article>
     </div>
   </div>

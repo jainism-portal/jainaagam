@@ -7,6 +7,9 @@
           - {{ content_aagam.title }} सूत्र</span
         >
       </h1>
+      <nuxt-link :to="`${$route.params.aagam}/table-of-contents`"
+        >TOC</nuxt-link
+      >
       <NuxtContent :document="content_aagam"></NuxtContent>
     </div>
 

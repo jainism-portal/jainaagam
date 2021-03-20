@@ -1,6 +1,10 @@
 <template>
   <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
-    <nuxt-link to="/aagam/acharanga">Back to Aagam</nuxt-link>
+    <nuxt-link to="/aagam/acharanga"
+      >Back to
+      <span class="tw-capitalize">{{ $route.params.aagam }}</span>
+      Aagam</nuxt-link
+    >
     <!-- <NuxtContent :document="toc"></NuxtContent> -->
     <!-- {{ everything }} -->
     <h1 class="tw-capitalize">
@@ -165,6 +169,7 @@
 
 <script>
 export default {
+  scrollToTop: false,
   data() {
     return {
       everything: null,

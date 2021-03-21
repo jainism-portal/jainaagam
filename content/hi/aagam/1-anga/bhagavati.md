@@ -1,20 +1,20 @@
 ---
-title: आचारांग
+title: भगवती
 
 type: aagam
 
 order:
   cat: anga
   aagam: 
-    position: 1
+    position: 5
     depth: 1
 
 children:
   type: book
-  count: 2
+  count: 5
 
 ---
 
-## आचारांग सूत्र का अर्थ
+## भगवती सूत्र का अर्थ
 
 <children :children="children"></children>

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <TheHeader style="height: 10vh"></TheHeader>
+    <TheHeader class="tw-h-[10vh]"></TheHeader>
     <Nuxt
       class="tw-max-w-6xl tw-mx-auto tw-py-4 content-area"
       keep-alive
       :keep-alive-props="{ max: 10 }"
     ></Nuxt>
-    <TheFooter style="height: 10vh"></TheFooter>
+    <TheFooter class="tw-h-[10vh]"></TheFooter>
   </div>
 </template>
 

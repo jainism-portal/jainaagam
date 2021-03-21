@@ -4,7 +4,7 @@ title: श्रुतज्ञान
 type: episode
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position : 1
     depth: 1

@@ -1,15 +1,15 @@
 ---
-title: श्रोता और परिषह
+title: अवधिज्ञान
 
 type: episode
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position : 1
     depth: 1
   episode:
-    position: 2
+    position: 4
     depth: 2
 
 parent:

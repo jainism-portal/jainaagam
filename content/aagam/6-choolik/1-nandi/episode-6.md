@@ -1,15 +1,15 @@
 ---
-title: स्तुतिगाथाएं
+title: केवलज्ञान
 
 type: episode
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position : 1
     depth: 1
   episode:
-    position: 1
+    position: 6
     depth: 2
 
 parent:

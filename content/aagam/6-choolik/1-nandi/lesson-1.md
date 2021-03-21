@@ -2,7 +2,7 @@
 title:
 
 order:
-  cat: chulika
+  cat: choolik
   aagam:
     position: 1
     depth: 1

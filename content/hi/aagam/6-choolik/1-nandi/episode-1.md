@@ -1,15 +1,15 @@
 ---
-title: अवधिज्ञान
+title: स्तुतिगाथाएं
 
 type: episode
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position : 1
     depth: 1
   episode:
-    position: 4
+    position: 1
     depth: 2
 
 parent:

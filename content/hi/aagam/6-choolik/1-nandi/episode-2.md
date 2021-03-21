@@ -1,15 +1,15 @@
 ---
-title: ज्ञान के भेद-प्रभेद
+title: श्रोता और परिषह
 
 type: episode
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position : 1
     depth: 1
   episode:
-    position: 3
+    position: 2
     depth: 2
 
 parent:

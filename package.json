@@ -10,21 +10,19 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/content": "^1.11.1",
+    "@nuxt/content": "^1.14.0",
     "@silvenon/remark-smartypants": "^1.0.0",
     "@tailwindcss/typography": "^0.4.0",
-    "core-js": "^3.8.3",
+    "core-js": "^3.9.1",
     "lodash": "^4.17.21",
-    "nuxt": "^2.14.12",
+    "nuxt": "^2.15.3",
     "remark-breaks": "^2.0.1",
     "remark-directive": "^1.0.1",
     "remark-textr": "^4.0.0"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^3.4.3",
-    "@tailwindcss/postcss7-compat": "^2.0.3",
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+    "@nuxtjs/tailwindcss": "^4.0.1",
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.8"
   }
 }

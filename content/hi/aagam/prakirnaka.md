@@ -1,12 +1,13 @@
 ---
 title: प्रकीर्णक
 
-type: aagam
+type: cat
 
 order:
   cat: prakirnaka
-  aagam: 
-    position: 1
-    depth: 1
+
+children:
+  type: aagam
+  count: 10
 
 ---

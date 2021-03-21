@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-prose lg:tw-prose-lg tw-prose-green tw-max-w-none">
+  <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
     <h1>Jain Aagam</h1>
     <NuxtContent :document="content_aagamindex"></NuxtContent>
   </div>

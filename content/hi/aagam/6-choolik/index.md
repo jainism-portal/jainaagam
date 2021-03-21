@@ -1,13 +1,14 @@
 ---
-title: नंदी
+title: चूलिक
 
 type: aagam
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position: 1
     depth: 1
 
 
 ---
+

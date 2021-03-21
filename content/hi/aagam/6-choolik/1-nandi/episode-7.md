@@ -1,15 +1,15 @@
 ---
-title: द्वादशांग परिचय (12 अंग आगमों का परिचय)
+title: मतिज्ञान
 
 type: episode
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position : 1
     depth: 1
   episode:
-    position: 9
+    position: 7
     depth: 2
 
 parent:

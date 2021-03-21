@@ -1,15 +1,15 @@
 ---
-title: केवलज्ञान
+title: द्वादशांग परिचय (12 अंग आगमों का परिचय)
 
 type: episode
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position : 1
     depth: 1
   episode:
-    position: 6
+    position: 9
     depth: 2
 
 parent:

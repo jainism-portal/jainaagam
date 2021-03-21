@@ -4,7 +4,7 @@ title: अनुयोगद्वार
 type: aagam
 
 order:
-  cat: chulika
+  cat: choolik
   aagam: 
     position: 1
     depth: 1

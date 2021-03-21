@@ -59,22 +59,36 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    // ['nuxt-i18n', {
-    //   locales: ['en', 'hi'],
-    //   defaultLocale: 'en',
-    //   vueI18n: {
-    //     fallbackLocale: 'en',
-    //     messages: {
-    //       en: {
-    //         welcome: 'Welcome'
-    //       },
-    //       hi: {
-    //         welcome: 'नमस्ते'
-    //       },
-    //     }
-    //   }
-    // }]
+    'nuxt-i18n'
   ],
+
+  i18n: {
+    locales: [{
+      code: 'en',
+      iso: 'en-US',
+      name: 'English (US)',
+    }, {
+      code: 'hi',
+      iso: 'hi-IN',
+      name: 'हिन्दी',
+    }, {
+      code: 'mr',
+      iso: 'mr-IN',
+      name: 'मराठी',
+    }],
+    defaultLocale: 'hi',
+    strategy: 'prefix',
+    // noPrefixDefaultLocale: true,
+    vueI18nLoader: true,
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: require('./locales/en-us.js'),
+        hi: require('./locales/hi-in.js'),
+      },
+
+    }
+  },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {

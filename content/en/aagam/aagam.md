@@ -10,14 +10,29 @@ children:
 
 ## Introduction
 
-Jain Aagam are the supreme religious scriptures of Jainism. वे लगभग 2000-2500 वर्ष पूर्व संकलित किए गए थे।
+Jain Aagam are the supreme religious scriptures of Jainism. They were compiled around 2000-2500 years ago. 
 
-## 45 जैन आगमों की सूची
+## List of 45 Jain Aagam
 
-### आचारांग (11)
+### Limb (Anga) (11)
+
+
+<ul class="tw-flex tw-flex-wrap">
+  <li class="tw-mr-4"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
+  <li class="tw-"><nuxt-link to="aagam/sutrakritanga">Sutrakritanga</nuxt-link></li>
+  <!-- <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
+  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
+  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
+  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
+  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
+  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li> -->
+
+<ul>
+
+<!-- 
 
 :::ul{class="tw-flex tw-flex-wrap"}
-::li[[आचारांग (आयारांग)](/aagam/acharanga)]{class="tw-mr-4"}
+::li[[Code of conduct (आयारांग)](/en/aagam/acharanga)]{class="tw-mr-4"}
 ::li[[सूत्रकृतांग](/aagam/sutrakritanga)]{class="tw-mr-4"}
 ::li[[स्थानांग](/aagam/sthananga)]{class="tw-mr-4"}
 ::li[[समवायांग](/aagam/samavayanga)]{class="tw-mr-4"}
@@ -29,10 +44,10 @@ Jain Aagam are the supreme religious scriptures of Jainism. वे लगभग 
 ::li[प्रश्न-व्याकरण]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
 ::li[12th lost forever - so not counted in 45 aagam]{class="tw-mr-4"}
-:::
+::: -->
 
-### उपांग (12)
-:::ul{class="tw-flex tw-flex-wrap"}
+### Sub-Limb (Upanga) (12)
+<!-- :::ul{class="tw-flex tw-flex-wrap"}
 ::li[औपपातिक]{class="tw-mr-4"}
 ::li[राजप्रश्नीय]{class="tw-mr-4"}
 ::li[जीवाभिगम]{class="tw-mr-4"}
@@ -45,9 +60,29 @@ Jain Aagam are the supreme religious scriptures of Jainism. वे लगभग 
 ::li[name to be added]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
-:::
+::: -->
 
-### छेड (6)
+### Chhed (6)
+<!-- :::ul{class="tw-flex tw-flex-wrap"}
+::li[name to be added]{class="tw-mr-4"}
+::li[name to be added]{class="tw-mr-4"}
+::li[name to be added]{class="tw-mr-4"}
+::li[name to be added]{class="tw-mr-4"}
+::li[name to be added]{class="tw-mr-4"}
+::li[name to be added]{class="tw-mr-4"}
+::: -->
+
+### Mool (4)
+
+<!-- :::ul{class="tw-flex tw-flex-wrap"}
+::li[name to be added]{class="tw-mr-4"}
+::li[name to be added]{class="tw-mr-4"}
+::li[name to be added]{class="tw-mr-4"}
+::li[name to be added]{class="tw-mr-4"}
+::: -->
+
+### Miscellaneous (10)
+
 :::ul{class="tw-flex tw-flex-wrap"}
 ::li[name to be added]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
@@ -55,26 +90,6 @@ Jain Aagam are the supreme religious scriptures of Jainism. वे लगभग 
 ::li[name to be added]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
-:::
-
-### मूल (4)
-
-:::ul{class="tw-flex tw-flex-wrap"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-:::
-
-### प्रकीर्णक (10)
-
-:::ul{class="tw-flex tw-flex-wrap"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
@@ -82,7 +97,7 @@ Jain Aagam are the supreme religious scriptures of Jainism. वे लगभग 
 :::
 
 
-### चूलिक (2)
+### Chulika (2)
 
-1. [नंदी](/aagam/nandi)
-2. अनुयोगद्वार
+<!-- 1. [नंदी](/aagam/nandi)
+2. अनुयोगद्वार -->

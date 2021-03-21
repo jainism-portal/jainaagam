@@ -2,7 +2,7 @@
 title: अंग
 trans: anga
 
-type: aagam_cat
+type: cat
 
 order:
   cat: anga

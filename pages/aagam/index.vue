@@ -13,11 +13,23 @@ export default {
     };
   },
   async fetch() {
-    this.content_aagamindex = await this.$content("hi", { deep: true })
+    this.content_aagamindex = await this.$content(
+      `${this.$i18n.locale}/aagam`,
+      { deep: true }
+    )
       .where({ type: "aagam_index" })
       .fetch();
 
     this.content_aagamindex = this.content_aagamindex[0];
   },
+  // methods: {
+  //   /**
+  //    * Called when a language button is clicked
+  //    * Changes the i18n context variable's locale to the one selected
+  //    */
+  //   changeLanguage(lang) {
+  //     this.$i18n.locale = lang;
+  //   },
+  // },
 };
 </script>

@@ -71,12 +71,8 @@ export default {
       code: 'hi',
       iso: 'hi-IN',
       name: 'हिन्दी',
-    }, {
-      code: 'mr',
-      iso: 'mr-IN',
-      name: 'मराठी',
     }],
-    defaultLocale: 'hi',
+    defaultLocale: 'en',
     strategy: 'prefix',
     // noPrefixDefaultLocale: true,
     vueI18nLoader: true,

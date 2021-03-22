@@ -1,50 +1,10 @@
 <template>
-  <div>
-    <div
-      v-if="
-        content_book === undefined &&
-        content_part === null &&
-        content_chapter === null &&
-        content_lesson === null &&
-        (content_sutra === null || content_sutra_original === null)
-      "
-    >
-      <h1>This Book is yet to be added.</h1>
+  <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
+    <div>
+      <!-- v-if="content_everyAagamFile === null || content_sutra_original === null" -->
+      <h1>This is yet to be added.</h1>
     </div>
-    <div
-      v-if="
-        content_book === null &&
-        content_part === undefined &&
-        content_chapter === null &&
-        content_lesson === null &&
-        (content_sutra === null || content_sutra_original === null)
-      "
-    >
-      <h1>This Part is yet to be added.</h1>
-    </div>
-    <div
-      v-if="
-        content_book === null &&
-        content_part === null &&
-        content_chapter === undefined &&
-        content_lesson === null &&
-        (content_sutra === null || content_sutra_original === null)
-      "
-    >
-      <h1>This Chapter is yet to be added.</h1>
-    </div>
-    <div
-      v-if="
-        content_book === null &&
-        content_part === null &&
-        content_chapter === null &&
-        content_lesson === undefined &&
-        (content_sutra === null || content_sutra_original === null)
-      "
-    >
-      <h1>This Lesson is yet to be added.</h1>
-    </div>
-    <div
+    <!-- <div
       v-if="
         content_book === null &&
         content_part === null &&
@@ -54,18 +14,14 @@
       "
     >
       <h1>This Sutra is yet to be added.</h1>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    content_book: null,
-    content_part: null,
-    content_chapter: null,
-    content_lesson: null,
-    content_sutra: undefined,
+    content_everyAagamFile: null,
     content_sutra_original: undefined,
   },
 };

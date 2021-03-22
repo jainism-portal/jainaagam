@@ -6,7 +6,18 @@
       Wrong URL. Check URL again or go Home.
     </div>
     <div v-else class="tw-mx-2 sm:tw-mx-0">
-      <div v-if="content_everyAagamFile || content_sutra_original">
+      <div
+        v-if="
+          !content_everyAagamFile ||
+          (!content_everyAagamFile && !content_sutra_original)
+        "
+      >
+        <Incomplete
+          :content_everyAagamFile="content_everyAagamFile"
+          :content_sutra_original="content_sutra_original"
+        ></Incomplete>
+      </div>
+      <div v-else>
         <article class="">
           <header
             v-if="content_everyAagamFile && content_everyAagamFile.order"
@@ -70,12 +81,6 @@
             </section>
           </main>
         </article>
-      </div>
-      <div v-else>
-        <Incomplete
-          :content_everyAagamFile="content_everyAagamFile"
-          :content_sutra_original="content_sutra_original"
-        ></Incomplete>
       </div>
     </div>
   </div>

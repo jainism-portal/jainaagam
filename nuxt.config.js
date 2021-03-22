@@ -135,5 +135,12 @@ export default {
       font: ({ isDev }) => isDev ? '[path][name].[ext]' : 'fonts/[name].[contenthash:7].[ext]',
       video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[name].[contenthash:7].[ext]'
     },
+  },
+
+  generate: {
+    // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-generate#fallback
+    fallback: '404.html'
   }
+
+
 }

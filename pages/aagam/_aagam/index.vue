@@ -1,9 +1,9 @@
 <template>
   <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
-    <nuxt-link to="/aagam/">Back to all Aagams</nuxt-link>
+    <nuxt-link :to="`/${$i18n.locale}/aagam`">Back to all Aagams</nuxt-link>
     <div v-if="content_aagam">
       <h1>
-        Jain Aagam
+        {{ $t("jain") }} {{ $t("aagam") }}
         <span v-if="content_aagam.title">
           - {{ content_aagam.title }} सूत्र</span
         >
@@ -45,7 +45,9 @@ export default {
       ? this.$route.path
       : `${this.$route.path}/`;
 
-    this.content_aagam = await this.$content("hi/aagam", { deep: true })
+    this.content_aagam = await this.$content(`${this.$i18n.locale}/aagam`, {
+      deep: true,
+    })
       .where({
         $and: [
           { type: "aagam" },

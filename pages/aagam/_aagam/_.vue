@@ -6,11 +6,11 @@
       Wrong URL. Check URL again or go Home.
     </div>
     <div v-else class="tw-mx-2 sm:tw-mx-0">
-      <!-- <Incomplete
+      <Incomplete
         v-if="!(content_everyAagamFile || content_sutra_original)"
         :content_sutra="content_everyAagamFile"
         :content_sutra_original="content_sutra_original"
-      ></Incomplete> -->
+      ></Incomplete>
 
       <article class="">
         <header
@@ -20,7 +20,7 @@
           <nav class="tw-flex tw-flex-wrap tw-justify-center tw-items-center">
             <p class="tw-inline tw-mr-2">
               <nuxt-link
-                :to="`/aagam/${$route.params.aagam}/table-of-contents`"
+                :to="`/${$i18n.locale}/aagam/${$route.params.aagam}/table-of-contents`"
                 class="tw-text-pink-600 tw-underline tw-font-medium tw-capitalize"
                 >{{ $route.params.aagam }} Aagam Index</nuxt-link
               >
@@ -43,15 +43,13 @@
         </header>
         <main class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
           <h1 v-if="content_everyAagamFile">
-            Jain Aagam {{ content_everyAagamFile.type }}
-            <!-- {{ content_everyAagamFile.order[content_everyAagamFile.type].position }} -->
+            {{ $t("jain") }} {{ $t("aagam") }} {{ content_everyAagamFile.type }}
             <span v-if="content_everyAagamFile.title">
               - {{ content_everyAagamFile.title }}</span
             >
           </h1>
           <h1 v-if="!content_everyAagamFile && content_sutra_original">
-            Jain Aagam {{ content_sutra_original.type }}
-            <!-- {{ content_sutra_original.order[content_sutra_original.type].position }} -->
+            {{ $t("jain") }} {{ $t("aagam") }} {{ content_sutra_original.type }}
             <span v-if="content_sutra_original.title">
               - {{ content_sutra_original.title }}</span
             >
@@ -105,9 +103,12 @@ export default {
     // let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
     // Aagam content everything
-    this.content_everyAagamFile = await this.$content("hi/aagam", {
-      deep: true,
-    })
+    this.content_everyAagamFile = await this.$content(
+      `${this.$i18n.locale}/aagam`,
+      {
+        deep: true,
+      }
+    )
       .where({
         $and: [
           { path: { $contains: this.$route.params.aagam } },

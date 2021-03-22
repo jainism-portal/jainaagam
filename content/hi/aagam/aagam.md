@@ -30,15 +30,15 @@ children:
 ### आचारांग (11)
 
 :::ul{class="tw-flex tw-flex-wrap"}
-::li[[आचारांग (आयारांग)](/aagam/acharanga)]{class="tw-mr-4"}
-::li[[सूत्रकृतांग](/aagam/sutrakritanga)]{class="tw-mr-4"}
-::li[[स्थानांग](/aagam/sthananga)]{class="tw-mr-4"}
-::li[[समवायांग](/aagam/samavayanga)]{class="tw-mr-4"}
+::li[[आचारांग (आयारांग)](/hi/aagam/acharanga)]{class="tw-mr-4"}
+::li[[सूत्रकृतांग](/hi/aagam/sutrakritanga)]{class="tw-mr-4"}
+::li[[स्थानांग](/hi/aagam/sthananga)]{class="tw-mr-4"}
+::li[[समवायांग](/hi/aagam/samavayanga)]{class="tw-mr-4"}
 ::li[भगवती-(व्याख्या-प्रज्ञप्ति)]{class="tw-mr-4"}
 ::li[ज्ञातधर्मकथा]{class="tw-mr-4"}
 ::li[उपासक-दशः]{class="tw-mr-4"}
 ::li[अनोत्तर]{class="tw-mr-4"}
-::li[[अनोत्तर-उपपातिका](/aagam/anuttarovavai)]{class="tw-mr-4"}
+::li[[अनोत्तर-उपपातिका](/hi/aagam/anuttarovavai)]{class="tw-mr-4"}
 ::li[प्रश्न-व्याकरण]{class="tw-mr-4"}
 ::li[name to be added]{class="tw-mr-4"}
 ::li[12th lost forever - so not counted in 45 aagam]{class="tw-mr-4"}
@@ -97,5 +97,5 @@ children:
 
 ### चूलिक (2)
 
-1. [नंदी](/aagam/nandi)
+1. [नंदी](/hi/aagam/nandi)
 2. अनुयोगद्वार

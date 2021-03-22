@@ -72,12 +72,12 @@ export default {
       iso: 'hi-IN',
       name: 'हिन्दी',
     }],
-    defaultLocale: 'en',
-    strategy: 'prefix',
+    defaultLocale: 'hi',
+    strategy: 'prefix_and_default',
     // noPrefixDefaultLocale: true,
     vueI18nLoader: true,
     vueI18n: {
-      fallbackLocale: 'en',
+      fallbackLocale: 'hi',
       messages: {
         en: require('./locales/en-us.js'),
         hi: require('./locales/hi-in.js'),

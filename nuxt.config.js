@@ -66,18 +66,18 @@ export default {
     locales: [{
       code: 'en',
       iso: 'en-US',
-      name: 'English (US)',
+      name: 'English',
     }, {
       code: 'hi',
       iso: 'hi-IN',
       name: 'हिन्दी',
     }],
-    defaultLocale: 'hi',
+    defaultLocale: 'en',
     strategy: 'prefix_and_default',
     // noPrefixDefaultLocale: true,
     vueI18nLoader: true,
     vueI18n: {
-      fallbackLocale: 'hi',
+      fallbackLocale: 'en',
       messages: {
         en: require('./locales/en-us.js'),
         hi: require('./locales/hi-in.js'),
@@ -100,7 +100,10 @@ export default {
         ['@silvenon/remark-smartypants', { dashes: 'oldschool' }],
         // ['remark-textr', { plugins: [textrCustom] }],
         ['~/plugins/remark/contributors.js'],
-      ]
+      ],
+      prism: {
+        theme: '~/assets/css/prism-ghcolors.css'
+      }
     },
   },
 
@@ -112,6 +115,12 @@ export default {
       else {
         file.data = file.data.replace(/(?<=\p{sc=Deva})S(?=\p{sc=Deva})/gu, 'ऽ')
         // S to avagrah in Devanagari
+
+        if (file.path.match(/\\content\\hi\\/gi)) {
+          // only on Hindi locale
+          file.data = file.data.replace("## Meaning", "## अर्थ")
+          file.data = file.data.replace("## Explanation", "## विवेचन")
+        }
       }
     },
     'content:file:beforeInsert': async (document, database) => {

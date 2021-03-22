@@ -37,3 +37,7 @@ children:
     - गाथा
 
 ---
+
+## Meaning
+
+<children :children="children"></children>

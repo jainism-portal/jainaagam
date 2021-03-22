@@ -1,5 +1,5 @@
 ---
-title: वीर्य
+title: Time
 
 type: chapter
 
@@ -12,14 +12,14 @@ order:
     position: 1
     depth: 2
   chapter: 
-    position: 7
+    position: 2
     depth: 3
 
 parent:
   type: book
 
 children:
-  type: sutra
-  count: 10
+  type: lesson
+  count: 3
 
 ---

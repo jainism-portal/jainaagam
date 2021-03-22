@@ -2,14 +2,14 @@
   <div>
     <ol v-if="children.children">
       <li v-for="(child, i) in children.children" :key="child">
-        <nuxt-link :to="`${fullPath}${children.type}-${i + 1}`">
+        <nuxt-link :to="`${routePath}${children.type}-${i + 1}`">
           {{ child }}
         </nuxt-link>
       </li>
     </ol>
     <ol v-else>
       <li v-for="n in children.count" :key="n" class="tw-capitalize">
-        <nuxt-link :to="`${fullPath}${children.type}-${n}`">
+        <nuxt-link :to="`${routePath}${children.type}-${n}`">
           {{ children.type }} {{ n }}
         </nuxt-link>
       </li>
@@ -22,13 +22,13 @@ export default {
   props: { children: Object },
   data() {
     return {
-      fullPath: "",
+      routePath: "",
     };
   },
   async fetch() {
-    this.fullPath = this.$route.fullPath.endsWith("/")
-      ? this.$route.fullPath
-      : `${this.$route.fullPath}/`;
+    this.routePath = this.$route.path.endsWith("/")
+      ? this.$route.path
+      : `${this.$route.path}/`;
   },
 };
 </script>

@@ -1,4 +1,6 @@
 module.exports = {
   "name": "मानस",
-  "surname": "मादरेचा"
+  "surname": "मादरेचा",
+  "aagam": "आगम",
+  "jain": "जैन"
 }

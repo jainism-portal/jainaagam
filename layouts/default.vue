@@ -1,13 +1,22 @@
 <template>
-  <div class="tw-bg-gray-100">
-    <TheHeader class="tw-h-[10vh]"></TheHeader>
-    <Nuxt
-      class="tw-mx-4 tw-p-4 content-area"
-      keep-alive
-      :keep-alive-props="{ max: 10 }"
-    ></Nuxt>
-    <TheFooter class="tw-h-[10vh]"></TheFooter>
-  </div>
+  <v-app>
+    <div class="">
+      <!-- <v-header></v-header> -->
+      <TheHeader class="tw-h-[10vh]"></TheHeader>
+      <v-main>
+
+        <Nuxt
+          class=""
+          keep-alive
+          :keep-alive-props="{ max: 10 }"
+        ></Nuxt>
+      </v-main>
+      <v-footer>
+
+        <TheFooter class="tw-h-[10vh]"></TheFooter>
+      </v-footer>
+    </div>
+  </v-app>
 </template>
 
 <style lang="postcss" scoped>

@@ -1,7 +1,7 @@
 <template>
-  <div class="tw-prose lg:tw-prose-lg tw-prose-pink tw-max-w-none">
-    <h1>Jain Aagam</h1>
-    <NuxtContent :document="content_aagamindex"></NuxtContent>
+  <div class="nuxt-content">
+    <h1 class="tw-text-3xl">Jain Aagam</h1>
+    <NuxtContent :document="post"></NuxtContent>
   </div>
 </template>
 
@@ -9,19 +9,17 @@
 export default {
   data() {
     return {
-      content_aagamindex: null,
+      posts: [],
+      post: null
     };
   },
   async fetch() {
-    this.content_aagamindex = await this.$content(
-      `${this.$i18n.locale}/aagam`,
-      { deep: true }
-    )
+    this.posts = await this.$content(`${this.$i18n.locale}`)
       .where({ type: "aagam_index" })
       .fetch();
 
-    this.content_aagamindex = this.content_aagamindex[0];
-  },
+    this.post = this.posts[0];
+  }
   // methods: {
   //   /**
   //    * Called when a language button is clicked

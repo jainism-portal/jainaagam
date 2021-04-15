@@ -1,0 +1,134 @@
+%margin-shared
+  @apply tw-my-3
+
+.nuxt-content
+  h2
+    @extend %margin-shared
+    @apply tw-text-pink-800 tw-text-xl sm:tw-text-3xl tw-bg-gradient-to-r tw-from-white tw-to-red-50 tw-rounded-md tw-py-1 lg:tw--ml-2 tw-pl-3 tw-shadow-md
+
+  h3
+    @extend %margin-shared
+    @apply tw-text-blue-900 tw-font-medium tw-text-lg sm:tw-text-2xl tw-pb-1 tw-border-b-2 tw-border-gray-300
+
+  h4
+    @extend %margin-shared
+    @apply tw-text-green-700 tw-font-medium tw-text-lg sm:tw-text-2xl tw-pb-1 tw-border-b-2 tw-border-gray-300
+
+  p
+    @apply tw-text-gray-800 sm:tw-text-lg tw-text-justify sm:tw-leading-relaxed
+    &:not([class*="vs-alert"])
+      // @extend %margin-shared
+      @apply tw-my-4
+
+  a
+    @apply tw-border-b-2 tw-py-1 tw-border-pink-500 hover:tw-border-blue-400 hover:tw-bg-blue-50
+
+  ul
+    // &:not([class*="slick"])
+    @extend %margin-shared
+    @apply tw-list-disc tw-pl-6 tw-list-outside
+
+  // ul[class*="hooper"]
+  //   @apply tw-pl-0 tw-list-none
+
+  ol
+    // &:not([class*="slick"])
+    @extend %margin-shared
+    @apply tw-list-decimal tw-pl-6 tw-list-outside
+
+  li
+    @apply sm:tw-text-lg tw-text-gray-800 sm:tw-leading-relaxed
+    @apply tw-my-1.5
+
+  ul li ul li:first-child
+    @apply tw--mt-2
+
+  ol li ul li:first-child
+    @apply tw--mt-2
+
+  ul li ol li:first-child
+    @apply tw--mt-2
+
+  ol li ol li:first-child
+    @apply tw--mt-2
+
+  // ul > li > ul > li
+  // list-style-type: circle
+
+  ul > li > ul
+    list-style-type: disc
+
+  // ul > li > ol
+  //   list-style-type: lower-roman
+
+  ol > li > ul
+    list-style-type: disc
+
+  // ol > li > ol
+  //   list-style-type: lower-roman
+
+  ul > li > ul > li > ul
+    list-style-type: circle
+
+  ol > li > ul > li > ul
+    list-style-type: circle
+
+  ul > li > ol > li > ul
+    list-style-type: circle
+
+  ul > li > ul > li > ul
+    list-style-type: circle
+
+  ul > li > ul > li > ol
+    list-style-type: lower-alpha
+
+  ol > li > ul > li > ol
+    list-style-type: lower-alpha
+
+  ul > li > ol > li > ol
+    list-style-type: lower-alpha
+
+  ul > li > ul > li > ol
+    list-style-type: lower-alpha
+
+  img
+    @apply tw-mt-6 tw-mx-auto tw-rounded-md
+
+  blockquote
+    @extend %margin-shared
+    @apply tw-border-l-4 tw-border-gray-300
+    @apply tw-px-2 tw-py-1
+
+    p
+      @apply tw--my-3 tw-text-gray-500
+
+    cite
+      @apply tw-text-pink-800 tw-italic
+
+  hr
+    @apply tw-my-4 tw-border-2 tw-bg-gray-500
+
+  u
+    @apply tw-no-underline tw-border-b-2 tw-py-0.5 tw-border-gray-500
+
+  mark
+    @apply tw-p-0.5
+
+  table
+    &:not([class*="vgt"])
+      @extend %margin-shared
+      @apply tw-border-collapse tw-border tw-border-gray-500
+
+  // thead
+  //   @apply tw-sticky tw-top-6 tw-z-30
+
+  th
+    // &:not([class*="vgt"])
+    @apply tw-border tw-border-gray-600
+    @apply tw-p-2
+    @apply tw-bg-yellow-50
+
+  td
+    // &:not([class*="vgt"])
+    @apply tw-border tw-border-gray-500
+    @apply tw-p-2

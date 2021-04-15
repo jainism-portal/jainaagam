@@ -1,17 +1,20 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
-      - master
+  # push:
+  #   branches:
+  #     - main
+  #     - master
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - master
+  watch:
+    types: [started] # https://dev.to/s_abderemane/manual-trigger-with-github-actions-279e
 
 jobs:
-  ci:
+  build: // originally, ci instead of build.
+    if: github.actor == github.event.repository.owner.login 
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -41,4 +44,14 @@ jobs:
 
       # - name: Run linter 👀
       #   run: npm run lint
+
+      - name: Generate
+        run: npm run generate
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 

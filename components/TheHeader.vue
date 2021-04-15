@@ -1,9 +1,10 @@
 <template>
-  <header
-    class="tw-sticky tw-z-30 tw-top-0 tw-flex tw-justify-evenly tw-items-center tw-bg-gradient-to-br tw-from-white tw-to-pink-50 tw-flex"
-  >
+  <header class="tw-sticky tw-z-30 tw-top-0 tw-flex tw-justify-evenly tw-items-center tw-bg-gradient-to-br tw-from-white tw-to-pink-50">
     <div>
-      <nuxt-link :to="`/${$i18n.locale}`" class="tw-text-2xl tw-text-pink-800">
+      <nuxt-link
+        :to="`/${$i18n.locale}`"
+        class="tw-text-2xl tw-text-pink-800"
+      >
         Jainism
       </nuxt-link>
     </div>

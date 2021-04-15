@@ -13,7 +13,7 @@ on:
     types: [started] # https://dev.to/s_abderemane/manual-trigger-with-github-actions-279e
 
 jobs:
-  build: // originally, ci instead of build.
+  build: # originally, ci instead of build.
     if: github.actor == github.event.repository.owner.login 
     runs-on: ${{ matrix.os }}
 

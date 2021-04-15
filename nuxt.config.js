@@ -150,6 +150,10 @@ export default {
       }
     },
     'content:file:beforeInsert': async (document, database) => {
+      if (document.extension === '.md') {
+        const { time } = require('reading-time')(document.text)
+        document.readingTime = time;
+      }
       if (document.sutra) {
         document.sutra = {
           body: await database.markdown.generateBody(document.sutra),

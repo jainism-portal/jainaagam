@@ -55,6 +55,14 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // Image
+    '@nuxt/image',
+    // https://github.com/avil13/vue-sweetalert2
+    'vue-sweetalert2/nuxt',
+    // https://github.com/rigor789/vue-scrollTo
+    'vue-scrollto/nuxt',
+    // https://vuetifyjs.com/en/getting-started/installation/#nuxt-install
+    '@nuxtjs/vuetify',
 
   ],
 
@@ -112,6 +120,17 @@ export default {
         theme: '~/assets/css/prism-ghcolors.css'
       }
     },
+    liveEdit: false,
+    // fullTextSearchFields: ['title', 'description', 'text', 'slug']
+  },
+
+  vuetify: {
+    // customVariables: ['~/assets/variables.scss'], // vuetify var styles.
+    optionsPath: '~/plugins/vuetify.options.js', // vuetify option like theme.
+    // defaultAssets: {
+    //   font: false, icons: true
+    // },
+    treeShake: process.env.NODE_ENV === 'production'
   },
 
   hooks: {

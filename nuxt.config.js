@@ -34,8 +34,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: ["~/assets/css/all.sass",],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/vue-scrollactive.js',
@@ -103,6 +102,7 @@ export default {
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
+    tocDepth: 4,
     nestedProperties: ['aagam.title', 'order.cat', 'order.aagam', 'order.aagam.position', 'order.book', 'order.book.position', 'order.section', 'order.section.position', 'order.part', 'order.part.position', 'order.chapter', 'order.chapter.position', 'order.lesson', 'order.lesson.position', 'order.sutra', 'order.sutra.position', 'parent.type', 'children.type', 'children.count', 'children.children'],
     extendParser: {
       // https://github.com/nuxt/content/issues/432
@@ -177,8 +177,24 @@ export default {
   },
 
   generate: {
+    exclude: [//
+    ],
     // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-generate#fallback
-    fallback: '404.html'
+    fallback: '404.html',
+    cache: {
+      ignore: [
+        '.nuxt', // buildDir
+        'static', // dir.static
+        'dist', // generate.dir
+        'node_modules',
+        '.**/*',
+        '.*',
+        'README.md',
+        'archivecode', // archive folder
+        // 'content-draft', // content draft folder
+        'firebase.json' // firebase file (including redirects)
+      ]
+    }
   }
 
 

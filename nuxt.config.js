@@ -38,7 +38,14 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
+  plugins: ['~/plugins/vue-scrollactive.js',
+    { src: '~/plugins/vue-dragscroll.js', ssr: false },
+    { src: '~/plugins/vue-pdf-app.js' },
+    { src: '~/plugins/vue-good-table', ssr: false },
+    '~/plugins/vue-tooltip.js',
+    '~/plugins/directives',
+    // https://github.com/devstark-com/vue-google-charts
+    '~/plugins/vue-google-charts.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

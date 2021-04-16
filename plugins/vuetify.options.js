@@ -14,5 +14,8 @@ export default {
   },
   icons: {
     iconfont: 'mdi'
+  },
+  font: {
+    family: 'sans-serif'
   }
 }

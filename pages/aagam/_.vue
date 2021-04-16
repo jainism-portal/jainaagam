@@ -399,21 +399,3 @@ export default {
   /* transform: translateX(-10%); */
 }
 </style>
-
-<style lang="postcss">
-.nuxt-content p,
-a,
-ul,
-ol,
-li,
-blockquote {
-  @apply tw-my-3 !important;
-}
-
-.nuxt-content h1,
-h2,
-h3,
-h4 {
-  @apply tw-my-4 !important;
-}
-</style>

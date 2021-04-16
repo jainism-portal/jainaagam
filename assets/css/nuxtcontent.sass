@@ -18,7 +18,7 @@
     @apply tw-text-gray-800 sm:tw-text-lg tw-text-justify sm:tw-leading-relaxed
     &:not([class*="vs-alert"])
       // @extend %margin-shared
-      @apply tw-my-4
+      @apply tw-my-3 md:tw-my-4
 
   a
     @apply tw-border-b-2 tw-py-1 tw-border-pink-500 hover:tw-border-blue-400 hover:tw-bg-blue-50
@@ -38,7 +38,7 @@
 
   li
     @apply sm:tw-text-lg tw-text-gray-800 sm:tw-leading-relaxed
-    @apply tw-my-1.5
+    @apply tw-my-0.5 md:tw-my-1.5
 
   ul li ul li:first-child
     @apply tw--mt-2
@@ -90,6 +90,18 @@
 
   ul > li > ul > li > ol
     list-style-type: lower-alpha
+
+  div.flex-grandchild > ol
+    @apply tw-flex tw-flex-wrap
+
+    &>li
+      @apply tw-mx-4
+
+  div.flex-grandchild > ul
+    @apply tw-flex tw-flex-wrap
+
+    &>li
+      @apply tw-mx-4
 
   img
     @apply tw-mt-6 tw-mx-auto tw-rounded-md

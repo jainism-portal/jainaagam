@@ -1,5 +1,5 @@
 <template>
-  <div class="tw--mt-3">
+  <div>
     <v-breadcrumbs
       large
       :items="breadcrumbs"

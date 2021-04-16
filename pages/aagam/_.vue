@@ -288,7 +288,7 @@ export default {
     // let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
     // CURRENT POST
-    this.posts = await this.$content(`${this.$i18n.locale}/aagam`, {
+    this.posts = await this.$content(`${this.$i18n.locale}`, {
       deep: true
     })
       .where({
@@ -328,40 +328,41 @@ export default {
         .fetch();
 
       this.sutraOriginal = this.sutrasOriginals[0];
+    }
 
-      // CHILDREN
-      this.children = await this.$content(`${this.$i18n.locale}/aagam`, {
-        deep: true
+    // CHILDREN
+    this.children = await this.$content(`${this.$i18n.locale}`, {
+      deep: true
+    })
+      .without(["body", "toc"])
+      .where({
+        $and: [{ dir: this.post.path }]
       })
-        .without(["body", "toc"])
-        .where({ $and: [{ dir: this.post.path }, { show: { $ne: false } }] })
-        .sortBy("position", "asc")
-        .sortBy("slug", "asc")
-        .fetch();
+      .sortBy("position", "asc")
+      .sortBy("slug", "asc")
+      .fetch();
 
-      // SIBLINGS
-      [
-        this.prevs,
-        this.nexts
-      ] = await this.$content(`${this.$i18n.locale}/aagam`, { deep: true })
-        .without(["body", "toc"])
-        .where({ $and: [{ dir: this.post.dir }, { show: { $ne: false } }] })
-        // .where({ index: !true })
-        .sortBy("position", "asc")
-        .sortBy("slug", "asc")
-        .surround(this.post.path)
-        .fetch();
+    // SIBLINGS ( PREV-NEXT )
+    [this.prevs, this.nexts] = await this.$content(`${this.$i18n.locale}`, {
+      deep: true
+    })
+      .without(["body", "toc"])
+      .where({ $and: [{ dir: this.post.dir }] })
+      // .where({ index: !true })
+      .sortBy("position", "asc")
+      .sortBy("slug", "asc")
+      .surround(this.post.path)
+      .fetch();
 
-      // TABLE OF CONTENTS
-      if (this.post.tocLevel === 4) {
-        return (this.headings = this.post.toc);
-      } else {
-        this.headings = this.post.toc.filter(heading => {
-          return (
-            heading.depth === 1 || heading.depth === 2 || heading.depth === 3
-          );
-        });
-      }
+    // TABLE OF CONTENTS
+    if (this.post.tocLevel === 4) {
+      return (this.headings = this.post.toc);
+    } else {
+      this.headings = this.post.toc.filter(heading => {
+        return (
+          heading.depth === 1 || heading.depth === 2 || heading.depth === 3
+        );
+      });
     }
   }
 };

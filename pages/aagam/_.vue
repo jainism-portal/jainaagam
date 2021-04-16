@@ -20,12 +20,12 @@
         class="md:tw-flex md:tw-flex-row-reverse"
       >
         <article :class="showToc ? 'md:tw-w-[70%]' : 'tw-w-full'">
-          <ScrollIndicator class="tw-top-0"></ScrollIndicator>
-          <!-- <header
+          <header class="tw-mx-2">
+            <!-- <header
             v-if="post && post.order"
             class="tw-bg-white tw-sticky tw-top-14 tw-z-20 tw-border-b tw-border-gray-300 tw-text-center tw-pt-1 tw-pb-2 tw-mb-2 md:tw-mt-0 md:tw-mb-4"
           > -->
-          <!-- <nav class="tw-flex tw-flex-wrap tw-justify-center tw-items-center">
+            <!-- <nav class="tw-flex tw-flex-wrap tw-justify-center tw-items-center">
               <p class="tw-inline tw-mr-2">
                 <nuxt-link
                   :to="`/${$i18n.locale}/aagam/${$route.params.aagam}/table-of-contents`"
@@ -49,23 +49,25 @@
                 </span>
               </p>
             </nav> -->
-          <!-- </header> -->
-          <div class="tw-flex tw-flex-wrap tw-justify-start tw-items-center tw-bg-white">
-            <Breadcrumbs
-              :fullPathMatch="fullPathMatch"
-              v-if="fullPathMatch"
-            >
-            </Breadcrumbs>
-          </div>
-          <button
-            class="tw-fixed tw-z-40 tw-bottom-4 md:tw-bottom-auto md:tw-top-14 tw-right-2 tw-rounded-2xl tw-text-2xl tw-w-10 tw-h-10 md:tw-w-12 md:tw-h-12 tw-font-2xl tw-bg-gradient-to-bl tw-from-white tw-to-blue-200 tw-shadow-md focus:tw-outline-none focus:tw-ring focus:tw-ring-blue-300"
-            @click.stop="showToc = !showToc"
-          >{{ showToc ? "❌" : "🧾" }}</button>
+            <!-- </header> -->
+            <div class="tw-flex tw-flex-wrap tw-justify-start tw-items-center tw-bg-white">
+              <Breadcrumbs
+                :fullPathMatch="fullPathMatch"
+                v-if="fullPathMatch"
+              >
+              </Breadcrumbs>
+            </div>
+            <button
+              class="tw-fixed tw-z-40 tw-bottom-4 md:tw-bottom-auto md:tw-top-14 tw-right-2 tw-rounded-2xl tw-text-2xl tw-w-10 tw-h-10 md:tw-w-12 md:tw-h-12 tw-font-2xl tw-bg-gradient-to-bl tw-from-white tw-to-blue-200 tw-shadow-md focus:tw-outline-none focus:tw-ring focus:tw-ring-blue-300"
+              @click.stop="showToc = !showToc"
+            >{{ showToc ? "❌" : "🧾" }}</button>
+          </header>
+
           <main
-            class="nuxt-content tw-mx-2"
+            class="tw-mx-2"
             :class="showToc ? 'md:tw-mx-8' : 'md:tw-mx-16'"
           >
-            <center>
+            <center class="nuxt-content">
               <h1
                 v-if="post"
                 class="tw-text-3xl"
@@ -82,15 +84,16 @@
                   - {{ sutraOg.title }}</span>
               </h1>
             </center>
-            <a
-              :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
-              target="_blank"
-              class="tw-text-sm"
-            >
-              Edit on Github
-            </a>
+              <a
+                :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
+                target="_blank"
+                class="tw-text-sm"
+              >
+                Edit on Github
+              </a>
+            </center>
 
-            <section>
+            <section class="nuxt-content ">
               <h2>Siblings</h2>
               <div class="tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
                 <nuxt-link
@@ -106,7 +109,10 @@
               </div>
             </section>
 
-            <section v-if="children && children.length > 0">
+            <section
+              v-if="children && children.length > 0"
+              class="nuxt-content "
+            >
               <h2
                 @click="showChildren = !showChildren"
                 class="tw-cursor-pointer"
@@ -122,6 +128,7 @@
                 >
                   <nuxt-link
                     :to="`${child.path}`"
+                    class="!tw-p-0.5"
                     :class="{'tw-bg-green-100 tw-p-1 tw-text-green-800': child.done}"
                   >
                     <span class="tw-text-sm md:tw-text-base">{{ child.title ? child.title : child.slug }}</span>
@@ -133,12 +140,20 @@
                 </li>
               </ol>
             </section>
-            <div v-if="sutraOg">
-              <h2>Sutra</h2>
-              <NuxtContent :document="sutraOg.sutra"></NuxtContent>
-            </div>
-            <section v-if="post">
-              <NuxtContent :document="post"></NuxtContent>
+            <section class="tw-border-t tw-border-gray-600 tw-my-4">
+              <section
+                v-if="sutraOriginal"
+                class="nuxt-content"
+              >
+                <h2>Sutra</h2>
+                <NuxtContent :document="sutraOriginal.sutra"></NuxtContent>
+              </section>
+              <section
+                v-if="post"
+                class="nuxt-content"
+              >
+                <NuxtContent :document="post"></NuxtContent>
+              </section>
             </section>
           </main>
         </article>

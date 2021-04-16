@@ -90,7 +90,6 @@
                 <span v-if="sutraOg.title">
                   - {{ sutraOg.title }}</span>
               </h1>
-            </center>
               <a
                 :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
                 target="_blank"
@@ -105,12 +104,12 @@
               <div class="tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
                 <nuxt-link
                   :to="prevs.path"
-                  v-if="this.prevs"
+                  v-if="prevs"
                   class="tw-mx-2"
                 ><b class="tw-bg-yellow-100 tw-p-1">Prev</b> 👈🏻 {{prevs.path}}</nuxt-link>
                 <nuxt-link
                   :to="nexts.path"
-                  v-if="this.nexts"
+                  v-if="nexts"
                   class="tw-mx-2"
                 ><b class="tw-bg-indigo-100 tw-p-1">Next</b> 👉🏻 {{nexts.path}}</nuxt-link>
               </div>
@@ -138,11 +137,13 @@
                     class="!tw-p-0.5"
                     :class="{'tw-bg-green-100 tw-p-1 tw-text-green-800': child.done}"
                   >
-                    <span class="tw-text-sm md:tw-text-base">{{ child.title ? child.title : child.slug }}</span>
+                    <span class="tw-text-sm md:tw-text-lg tw-capitalize">{{ child.title ? `${child.slug} - ${child.title}` : child.slug }}</span>
                   </nuxt-link>
                   <ReadingTime
+                    class="tw-text-sm"
                     :post="child"
                     :showWords="true"
+                    :showTime="false"
                   ></ReadingTime>
                 </li>
               </ol>
@@ -182,7 +183,6 @@
               <p>{{ showToc == true ? "👆🏻" : "👇🏻" }}</p>
             </header>
             <scrollactive
-              v-dragscroll
               active-class="active-scroll"
               :offset="60"
               :clickToScroll="true"
@@ -252,8 +252,8 @@ export default {
       // POSTS
       posts: [],
       post: null,
-      sutrasOg: [],
-      sutraOg: null,
+      sutrasOriginals: [],
+      sutraOriginal: null,
 
       // ROUTING
       routePath: "",

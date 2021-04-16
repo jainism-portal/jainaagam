@@ -1,9 +1,16 @@
 <template>
   <div>
     <div v-if="$fetchState.pending">Fetching content... Wait a few seconds</div>
-    <div v-else-if="$fetchState.error">
-      <!-- (post === null && sutraOg === null) || -->
-      Wrong URL. Check URL again or go Home.
+    <div
+      v-else-if="$fetchState.error"
+      class="nuxt-content tw-m-8 tw-p-8"
+    >
+      <!-- (post === null && sutraOriginal === null) || -->
+      <center>
+
+        <h1 class="tw-text-3xl">404 error. Page not found.</h1>
+        Wrong URL. Check URL again or choose different language or go <nuxt-link to="/">Home</nuxt-link>.
+      </center>
     </div>
     <div v-else>
       <main v-if="

@@ -5,7 +5,7 @@
         :to="`/${$i18n.locale}`"
         class="tw-text-2xl tw-text-pink-800"
       >
-        Jainism
+        Jain Aagam
       </nuxt-link>
     </div>
     <nav>
@@ -15,11 +15,11 @@
             {{ $t("aagam") }}
           </nuxt-link>
         </li>
-        <li>
+        <!-- <li>
           <nuxt-link to="/prakritdictionary/word">
             Prakrit Dictionary
           </nuxt-link>
-        </li>
+        </li> -->
       </ul>
     </nav>
     <div>

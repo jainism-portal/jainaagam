@@ -159,6 +159,7 @@ export default {
           body: await database.markdown.generateBody(document.sutra),
         };
         // Now sutra has got a body, which makes it parse markdown content even in yaml.
+        // https://github.com/nuxt/content/issues/628
       }
     },
   },

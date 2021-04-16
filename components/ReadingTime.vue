@@ -1,15 +1,9 @@
 <template>
-  <div class="tw-inline">
-    <span
-      class="tw-font-bold tw-text-green-800"
-      v-if="showTime"
-    >{{
+  <div class="tw-inline tw-font-bold tw-text-green-800">
+    <span v-if="showTime">{{
       (time * 1.2).toFixed(0)
     }} min </span>
-    <span
-      class="tw-font-bold tw-text-green-800"
-      v-if="showWords"
-    >- {{(time * 200).toFixed(0)}} words </span>
+    <span v-if="showWords">- {{(time * 200).toFixed(0)}} words </span>
   </div>
 </template>
 

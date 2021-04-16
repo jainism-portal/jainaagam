@@ -346,7 +346,7 @@ export default {
     })
       .without(["body", "toc"])
       .where({
-        $and: [{ dir: this.post.path }]
+        $and: [{ dir: this.post.path }, { show: { $ne: false } }]
       })
       .sortBy("position", "asc")
       .sortBy("slug", "asc")
@@ -357,7 +357,7 @@ export default {
       deep: true
     })
       .without(["body", "toc"])
-      .where({ $and: [{ dir: this.post.dir }] })
+      .where({ $and: [{ dir: this.post.dir }, { show: { $ne: false } }] })
       // .where({ index: !true })
       .sortBy("position", "asc")
       .sortBy("slug", "asc")

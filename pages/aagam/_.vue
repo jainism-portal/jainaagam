@@ -156,6 +156,9 @@
               </section>
             </section>
           </main>
+          <footer class="nuxt-content">
+            Post footer. Author. Comments. Related. Share.
+          </footer>
         </article>
         <aside :class="showToc ? 'tw-w-[30%]' : 'md:tw-w-0'">
           <div class="tw-fixed md:tw-sticky tw-top-11 md:tw-top-0 tw-z-30 tw-rounded-2xl tw-shadow-md tw-bg-gradient-to-br tw-from-white tw-via-white tw-to-blue-50">

@@ -2,7 +2,9 @@
   <v-app>
     <div class="">
       <!-- <v-header></v-header> -->
+      <ScrollIndicator class="tw-top-0"></ScrollIndicator>
       <TheHeader class="tw-h-[10vh]"></TheHeader>
+
       <v-main>
 
         <Nuxt

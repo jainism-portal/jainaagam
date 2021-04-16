@@ -1,5 +1,6 @@
 ---
 title: अणुत्तरोववाइ
+position: 
 
 type: aagam
 

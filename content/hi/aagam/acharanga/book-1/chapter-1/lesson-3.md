@@ -1,6 +1,6 @@
 ---
 title: तीसरा उद्देशक
-
+position: 3
 type: lesson
 
 order:

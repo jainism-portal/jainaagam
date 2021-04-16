@@ -1,5 +1,6 @@
 ---
 title: स्थानांग
+position: 1.3
 
 type: aagam
 

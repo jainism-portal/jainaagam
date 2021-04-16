@@ -1,9 +1,15 @@
 <template>
-  <div
-    class="tw-w-full tw-h-2 tw-bg-gray-200 tw-sticky tw-z-30 tw-flex tw-justify-between"
-  >
-    <div id="myBar" class="tw-h-2 tw-bg-pink-700" style="width: 0%"></div>
-    <small v-if="scrolled" class="tw-text-xs" style="margin-top: -0.2rem">{{
+  <div class="tw-w-full tw-h-2 tw-bg-gray-200 tw-sticky tw-z-40 tw-flex tw-justify-between">
+    <div
+      id="myBar"
+      class="tw-h-2 tw-bg-pink-700"
+      style="width: 0%"
+    ></div>
+    <small
+      v-if="scrolled"
+      class="tw-text-xs"
+      style="margin-top: -0.2rem"
+    >{{
       scrolled.toFixed(2)
     }}</small>
   </div>
@@ -13,7 +19,7 @@
 export default {
   data() {
     return {
-      scrolled: null,
+      scrolled: null
     };
   },
   mounted() {
@@ -33,7 +39,7 @@ export default {
       //   console.log(`Height hai --> ${height}`);
       this.scrolled = (winScroll / height) * 100;
       document.getElementById("myBar").style.width = this.scrolled + "%";
-    },
-  },
+    }
+  }
 };
 </script>

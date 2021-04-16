@@ -1,5 +1,5 @@
 ---
-
+show: false
 ---
 
 Total Āgamas number 45 (94, if other works like Kalpasūtra, etc., are included) which are as follows:

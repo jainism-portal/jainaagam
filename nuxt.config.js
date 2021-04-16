@@ -87,7 +87,7 @@ export default {
       name: 'हिन्दी',
     }],
     defaultLocale: 'en',
-    strategy: 'prefix_and_default',
+    strategy: 'prefix',
     // noPrefixDefaultLocale: true,
     vueI18nLoader: true,
     vueI18n: {

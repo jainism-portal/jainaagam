@@ -1,7 +1,9 @@
 ---
 title: क्रियाओं के परिणाम और उनके कारण
-
+position: 4
 type: sutra
+
+show: false
 
 order:
   cat: anga

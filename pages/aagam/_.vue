@@ -80,7 +80,6 @@
                 class="tw-text-3xl"
               >
                 {{ $t("jain") }} {{ $t("aagam") }}
-                {{ post.type }}
                 <span v-if="post.title">
                   - {{ post.title }}</span>
               </h1>
@@ -95,7 +94,7 @@
                 target="_blank"
                 class="tw-text-sm"
               >
-                Edit on Github
+                Contribute/Edit on GitHub
               </a>
             </center>
 

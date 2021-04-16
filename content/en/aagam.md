@@ -16,88 +16,91 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 
 ### Limb (Anga) (11)
 
+<div class="flex-grandchild">
 
-<ul class="tw-flex tw-flex-wrap">
-  <li class="tw-mr-4"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
-  <li class="tw-"><nuxt-link to="aagam/sutrakritanga">Sutrakritanga</nuxt-link></li>
-  <!-- <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
-  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
-  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
-  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
-  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li>
-  <li class="tw-"><nuxt-link to="aagam/acharanga">Code of Conduct</nuxt-link></li> -->
+1. [Code of Conduct (आयारांग)](/aagam/acharanga)
+2. [Sutrakritanga](/aagam/sutrakritanga)
+   
+<!-- 3. [स्थानांग](/aagam/sthananga)
+4. [समवायांग](/aagam/samavayanga)
+5. [भगवती-(व्याख्या-प्रज्ञप्ति)]
+6. [ज्ञातधर्मकथा]
+7. [उपासक-दशः]
+8. [अनोत्तर]
+9.  [[अनोत्तर-उपपातिका](/aagam/anuttarovavai)]
+10. [प्रश्न-व्याकरण]
+11. 
+12. [12th lost forever - so not counted in 45 aagam -->
 
-<ul>
-
-<!-- 
-
-:::ul{class="tw-flex tw-flex-wrap"}
-::li[[Code of conduct (आयारांग)](/en/aagam/acharanga)]{class="tw-mr-4"}
-::li[[सूत्रकृतांग](/aagam/sutrakritanga)]{class="tw-mr-4"}
-::li[[स्थानांग](/aagam/sthananga)]{class="tw-mr-4"}
-::li[[समवायांग](/aagam/samavayanga)]{class="tw-mr-4"}
-::li[भगवती-(व्याख्या-प्रज्ञप्ति)]{class="tw-mr-4"}
-::li[ज्ञातधर्मकथा]{class="tw-mr-4"}
-::li[उपासक-दशः]{class="tw-mr-4"}
-::li[अनोत्तर]{class="tw-mr-4"}
-::li[[अनोत्तर-उपपातिका](/aagam/anuttarovavai)]{class="tw-mr-4"}
-::li[प्रश्न-व्याकरण]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[12th lost forever - so not counted in 45 aagam]{class="tw-mr-4"}
-::: -->
+</div>
 
 ### Sub-Limb (Upanga) (12)
-<!-- :::ul{class="tw-flex tw-flex-wrap"}
-::li[औपपातिक]{class="tw-mr-4"}
-::li[राजप्रश्नीय]{class="tw-mr-4"}
-::li[जीवाभिगम]{class="tw-mr-4"}
-::li[प्रज्ञापना]{class="tw-mr-4"}
-::li[सूर्य प्रज्ञप्ति]{class="tw-mr-4"}
-::li[जंबू प्रज्ञप्ति]{class="tw-mr-4"}
-::li[चंद्र प्रज्ञप्ति]{class="tw-mr-4"}
-::li[नर्कावलिका]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::: -->
+
+<div class="flex-grandchild">
+
+1. Aupapatika
+2. Rājapraśnīya
+3. Jīvājīvābhigama
+4. Prajñāpana
+5. Sūryaprajñapti
+6. Jambūdvīpaprajñapti
+7. Candraprajñapti
+8. Nirayārvalī
+9. Kalpāvatamsikāh
+10. Puspikāh
+11. Puspacūlikāh
+12. Vrasnidaśāh
+
+</div>
 
 ### Chhed (6)
-<!-- :::ul{class="tw-flex tw-flex-wrap"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::: -->
+
+<div class="flex-grandchild">
+
+1. Ācāradaśāh
+2. Brhatkalpa
+3. Vyavahāra
+4. Nishitha
+5. Mahāniśītha
+6. Jītakalpa
+Kalpa Sūtra
+
+</div>
 
 ### Mool (4)
 
-<!-- :::ul{class="tw-flex tw-flex-wrap"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::: -->
+<div class="flex-grandchild">
+
+1. Daśavaikālika
+2. Uttaradhyayana
+3. Āvaśyaka
+4. Pindaniryukyti
+
+</div>
 
 ### Miscellaneous (10)
 
-:::ul{class="tw-flex tw-flex-wrap"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-::li[name to be added]{class="tw-mr-4"}
-:::
+<div class="flex-grandchild">
+
+1. Catuhśarana
+2. Āturapratyākhyanā
+3. Bhaktaparijñā
+4. Samstāraka
+5. Tandulavaicarika
+6. Candravedhyāka
+7. Devendrastava
+8. Ganividyā
+9. Mahāpratyākhyanā
+10. Vīrastava
+
+</div>
 
 
 ### Chulika (2)
 
-<!-- 1. [नंदी](/aagam/nandi)
-2. अनुयोगद्वार -->
+<div class="flex-grandchild">
+
+1. नंदी
+2. अनुयोगद्वार
+
+</div>

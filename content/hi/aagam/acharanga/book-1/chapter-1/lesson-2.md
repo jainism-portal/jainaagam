@@ -1,6 +1,6 @@
 ---
 title: दूसरा उद्देशक
-
+position: 2
 type: lesson
 
 order:

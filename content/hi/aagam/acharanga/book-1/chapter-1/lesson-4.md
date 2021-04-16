@@ -1,6 +1,6 @@
 ---
 title: चौथा उद्देशक
-
+position: 4
 type: lesson
 
 order:

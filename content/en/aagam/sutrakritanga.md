@@ -1,13 +1,9 @@
 ---
-title: Code of Conduct
-
+title: Heretical systems and views
+position: 2
 type: aagam
 
-order:
-  cat: anga
-  aagam: 
-    position: 1
-    depth: 1
+cat: anga
 
 children:
   type: book
@@ -15,6 +11,3 @@ children:
 
 ---
 
-## Meaning
-
-<children :children="children"></children>

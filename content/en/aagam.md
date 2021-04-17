@@ -16,11 +16,18 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 
 ### Limb (Anga) (11)
 
-<div class="flex-grandchild">
-
-1. [Code of Conduct (आयारांग)](/en/aagam/acharanga)
-2. [Sutrakritanga](/en/aagam/sutrakritanga)
-3.  [Question and Grammar](/en/aagam/prashnavyakaran)
+1. [Code of Conduct (_Ācāranga_)](/en/aagam/acharanga)
+2. [Heretical systems and views (_Sūtrakṛtāṅga_)](/en/aagam/sutrakritanga)
+3. Places (_Sthānāṅga_)
+4. Rising numerical groups (_Samavāyāṅga_)
+5. Exposition of explanations / The Holy One (_Vyākhyā-prajñapti_ or _Bhagavatī_)
+6. Parables and religious stories (_Jñāta-dharmakathānga_)
+7. Ten chapters (_Upāsaka-daśāḥ_)
+8. Ten chapters on those who put an end to rebirth (_Antakṛd-daśāḥ_)
+9. Ten chapters on those who were reborn in the uppermost heavens (_Anuttaropapātika-daśāḥ_)
+10. [Questions and Explanations (_prashnavyakaran_)](/en/aagam/prashnavyakaran)
+11. Bad or good results of deeds performed (_Vipākaśruta_)
+12. lost
    
 <!-- 3. [स्थानांग](/aagam/sthananga)
 2. [समवायांग](/aagam/samavayanga)
@@ -31,8 +38,6 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 7.  [[अनोत्तर-उपपातिका](/aagam/anuttarovavai)]
 8.  
 9.  [12th lost forever - so not counted in 45 aagam -->
-
-</div>
 
 ### Sub-Limb (Upanga) (12)
 

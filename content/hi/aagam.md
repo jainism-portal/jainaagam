@@ -40,7 +40,7 @@ children:
 7. उपासक-दशः
 8. अनोत्तर
 9. [अनोत्तर-उपपातिका](/hi/aagam/anuttarovavai)
-10. प्रश्न-व्याकरण
+10. [प्रश्न-व्याकरण](/hi/aagam/prashnavyakaran)
 11. abc
 12. 12th lost forever - so not counted in 45 aagam
 

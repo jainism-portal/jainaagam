@@ -153,7 +153,7 @@
                 class="nuxt-content"
               >
                 <h2>Sutra</h2>
-                <NuxtContent :document="sutraOriginal.sutra"></NuxtContent>
+                <NuxtContent :document="sutraOriginal"></NuxtContent>
               </section>
               <section
                 v-if="post"

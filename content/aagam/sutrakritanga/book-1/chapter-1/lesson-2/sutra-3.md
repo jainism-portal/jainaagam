@@ -1,30 +1,12 @@
 ---
 title: 
-
+position: 3
 type: sutra
-
-order:
-  aagam: 
-    position: 2
-    depth: 1
-  book: 
-    position: 1
-    depth: 2
-  chapter: 
-    position: 1
-    depth: 3
-  lesson: 
-    position: 2
-    depth: 4
-  sutra: 
-    position: 3
-    depth: 5
 
 parent:
   type: lesson
 
 ---
 
-## Meaning
-
-## Explanation
+ण सयं कडं ण अण्णेहिं, वेदयंति पुढो जिया ।
+संगइयं तं तहा तेसिं, इहमेगेसिंमाहियं ॥

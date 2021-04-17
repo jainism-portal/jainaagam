@@ -1,30 +1,12 @@
 ---
 title: 
-
+position: 1
 type: sutra
-
-order:
-  aagam: 
-    position: 2
-    depth: 1
-  book: 
-    position: 1
-    depth: 2
-  chapter: 
-    position: 1
-    depth: 3
-  lesson: 
-    position: 2
-    depth: 4
-  sutra: 
-    position: 1
-    depth: 5
 
 parent:
   type: lesson
 
 ---
 
-## Meaning
-
-## Explanation
+आघायं पुण एगेसिं, उववण्णा पुढो जिया ।
+वेदयंति सुहं दुक्खं, अदुवा लुप्पंति ठाणओ ॥

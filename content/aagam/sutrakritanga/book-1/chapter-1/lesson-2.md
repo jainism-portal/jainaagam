@@ -1,28 +1,14 @@
 ---
 title: बीओ उद्देसो
-
+position: 2
 type: lesson
-
-order:
-  aagam:
-    position: 2
-    depth: 1
-  book:
-    position: 1
-    depth: 2
-  chapter:
-    position: 1
-    depth: 3
-  lesson: 
-    position: 2
-    depth: 4
 
 parent: 
   type: chapter
 
 children: 
   type: sutra
-  count: 6
+  count: 32
 ---
 
 आघायं पुण एगेसिं, उववण्णा पुढो जिया ।
@@ -58,8 +44,7 @@ children:
 धम्मपण्णवणा जा सा, तं तु संकंति मूढगा ।
 आरंभाइं ण संकंति, अवियत्ता अकोविया ॥
 
-------------
-
+12
 सव्वप्पगं विउक्कस्सं, सव्वं णूमं विहूणिया ।
 अप्पत्तियं अकम्मंसे, एयमट्ठं मिगे चुए ॥
 

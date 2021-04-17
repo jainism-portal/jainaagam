@@ -153,17 +153,32 @@
                 class="nuxt-content"
               >
                 <h2>Sutra</h2>
-                <NuxtContent :document="sutraOriginal"></NuxtContent>
+                <nuxt-content :document="sutraOriginal"></nuxt-content>
               </section>
               <section
                 v-if="post"
                 class="nuxt-content"
               >
-                <NuxtContent :document="post"></NuxtContent>
+                <section
+                  v-if="post.body.children.length == 0"
+                  class="tw-text-center"
+                >
+                  <h2>Work in Progress</h2>
+                  <div class="tw-bg-yellow-50 tw-p-3 tw-shadow-xl">
+                    <p>😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its children, or If you are interested, <u>you may even contribute here.</u> 💛 </p>
+                    <p>This is an Open source project, so you can easily <a
+                        :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
+                        target="_blank"
+                      >
+                        Contribute on GitHub
+                      </a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can contact <a href="mailto:madrechamanas@gmail.com">Manas Madrecha</a>. Thank you. Jai Jindendra. 🙏🏻</p>
+                  </div>
+                </section>
+                <nuxt-content :document="post"></nuxt-content>
               </section>
             </section>
           </main>
-          <footer class="nuxt-content">
+          <footer class="nuxt-content tw-my-4">
             Post footer. Author. Comments. Related. Share.
           </footer>
         </article>

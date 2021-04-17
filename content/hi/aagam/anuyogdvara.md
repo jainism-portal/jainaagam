@@ -1,13 +1,8 @@
 ---
 title: अनुयोगद्वार
-
+position: 6.2
 type: aagam
 
-order:
-  cat: choolik
-  aagam: 
-    position: 1
-    depth: 1
-
+cat: choolik
 
 ---

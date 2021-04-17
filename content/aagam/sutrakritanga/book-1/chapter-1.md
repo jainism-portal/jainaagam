@@ -1,5 +1,5 @@
 ---
-title: समय
+title: पढमं अज्झयणं - समय
 position: 1
 
 type: chapter

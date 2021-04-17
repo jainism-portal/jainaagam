@@ -1,5 +1,5 @@
 ---
-title: वैतालीय
+title: वेयालीयं
 position: 2
 
 type: chapter

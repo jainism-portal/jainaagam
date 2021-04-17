@@ -1,30 +1,13 @@
 ---
 title: पहला उद्देशक
-
+position: 1
 type: lesson
 
-order:
-  cat: anga
-  aagam:
-    position: 2
-    depth: 1
-  book:
-    position: 1
-    depth: 2
-  chapter:
-    position: 1
-    depth: 3
-  lesson: 
-    position: 1
-    depth: 4
-
-parent: 
+parent:
   type: chapter
 
-children: 
+children:
   type: sutra
-  count: 6
+  count: 27
 
-start:
-end: पहला उद्देशक समाप्त।
 ---

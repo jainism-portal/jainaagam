@@ -1,25 +1,13 @@
 ---
-title: Time
-
+title: समय
+position: 1
 type: chapter
-
-order:
-  cat: anga
-  aagam: 
-    position: 2
-    depth: 1
-  book: 
-    position: 1
-    depth: 2
-  chapter: 
-    position: 2
-    depth: 3
 
 parent:
   type: book
 
 children:
   type: lesson
-  count: 3
+  count: 4
 
 ---

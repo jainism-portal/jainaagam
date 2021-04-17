@@ -18,19 +18,19 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 
 <div class="flex-grandchild">
 
-1. [Code of Conduct (आयारांग)](/aagam/acharanga)
-2. [Sutrakritanga](/aagam/sutrakritanga)
+1. [Code of Conduct (आयारांग)](/en/aagam/acharanga)
+2. [Sutrakritanga](/en/aagam/sutrakritanga)
+3.  [Question and Grammar](/en/aagam/prashnavyakaran)
    
 <!-- 3. [स्थानांग](/aagam/sthananga)
-4. [समवायांग](/aagam/samavayanga)
-5. [भगवती-(व्याख्या-प्रज्ञप्ति)]
-6. [ज्ञातधर्मकथा]
-7. [उपासक-दशः]
-8. [अनोत्तर]
-9.  [[अनोत्तर-उपपातिका](/aagam/anuttarovavai)]
-10. [प्रश्न-व्याकरण]
-11. 
-12. [12th lost forever - so not counted in 45 aagam -->
+2. [समवायांग](/aagam/samavayanga)
+3. [भगवती-(व्याख्या-प्रज्ञप्ति)]
+4. [ज्ञातधर्मकथा]
+5. [उपासक-दशः]
+6. [अनोत्तर]
+7.  [[अनोत्तर-उपपातिका](/aagam/anuttarovavai)]
+8.  
+9.  [12th lost forever - so not counted in 45 aagam -->
 
 </div>
 

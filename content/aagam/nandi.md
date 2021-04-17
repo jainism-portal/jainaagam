@@ -3,6 +3,8 @@ title: नंदी
 
 type: aagam
 
+cat: choolik
+
 order:
   cat: choolik
   aagam: 

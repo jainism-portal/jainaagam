@@ -1,20 +1,20 @@
 name: ci
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  #     - master
-  # pull_request:
-  #   branches:
-  #     - main
-  #     - master
-  watch:
-    types: [started] # https://dev.to/s_abderemane/manual-trigger-with-github-actions-279e
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  # watch:
+    # types: [started] # https://dev.to/s_abderemane/manual-trigger-with-github-actions-279e
 
 jobs:
   build: # originally, ci instead of build.
-    if: github.actor == github.event.repository.owner.login 
+    # if: github.actor == github.event.repository.owner.login 
     runs-on: ${{ matrix.os }}
 
     strategy:

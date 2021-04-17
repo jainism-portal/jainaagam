@@ -8,6 +8,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "onlydeploy": "firebase deploy --only hosting:jainism",
     "deploy": "npm run generate && firebase deploy --only hosting:jainism"
   },
   "dependencies": {

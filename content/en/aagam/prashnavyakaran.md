@@ -1,5 +1,5 @@
 ---
-title: प्रश्नव्याकरण
+title: Questions and Explanations
 position: 1.10
 type: aagam
 

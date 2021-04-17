@@ -1,20 +1,12 @@
 ---
 title: Code of Conduct
-
+position: 1
 type: aagam
 
-order:
-  cat: anga
-  aagam: 
-    position: 1
-    depth: 1
+cat: anga
 
 children:
   type: book
   count: 2
 
 ---
-
-## Meaning
-
-<children :children="children"></children>

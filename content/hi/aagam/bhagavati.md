@@ -1,14 +1,9 @@
 ---
 title: भगवती
 position: 1.5
-
 type: aagam
 
-order:
-  cat: anga
-  aagam: 
-    position: 5
-    depth: 1
+cat: anga
 
 children:
   type: book
@@ -16,6 +11,3 @@ children:
 
 ---
 
-## भगवती सूत्र का अर्थ
-
-<children :children="children"></children>

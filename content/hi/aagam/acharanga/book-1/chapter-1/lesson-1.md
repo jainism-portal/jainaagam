@@ -3,21 +3,6 @@ title: पहला उद्देशक
 position: 1
 type: lesson
 
-order:
-  cat: anga
-  aagam:
-    position: 1
-    depth: 1
-  book:
-    position: 1
-    depth: 2
-  chapter:
-    position: 1
-    depth: 3
-  lesson: 
-    position: 1
-    depth: 4
-
 parent: 
   type: chapter
 
@@ -28,5 +13,3 @@ children:
 start:
 end: पहला उद्देशक समाप्त।
 ---
-
-<children :children="children"></children>

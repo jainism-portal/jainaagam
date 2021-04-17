@@ -1,17 +1,8 @@
 ---
-title: कुल 1
-trans: kul 1
-
+title:
+position: 1
 type: book
 
-order:
-  cat: anga
-  aagam: 
-    position: 1
-    depth: 1
-  book: 
-    position: 1
-    depth: 2
 
 parent:
   type: aagam
@@ -48,7 +39,3 @@ children:
     # - vimoksha
     # - updhaan-shrut
 ---
-
-पहली बुक एबीसी के बारे में है...
-
-<children :children="children"></children>

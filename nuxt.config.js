@@ -37,14 +37,12 @@ export default {
   css: ["~/assets/css/all.sass",],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/vue-scrollactive.js',
+  plugins: [
+    '~/plugins/vue-scrollactive.js',
     { src: '~/plugins/vue-dragscroll.js', ssr: false },
-    { src: '~/plugins/vue-pdf-app.js' },
-    { src: '~/plugins/vue-good-table', ssr: false },
     '~/plugins/vue-tooltip.js',
     '~/plugins/directives',
-    // https://github.com/devstark-com/vue-google-charts
-    '~/plugins/vue-google-charts.js',
+    '~/plugins/vue-google-charts.js', // https://github.com/devstark-com/vue-google-charts
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,16 +50,11 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    // Image
     '@nuxt/image',
-    // https://github.com/avil13/vue-sweetalert2
-    'vue-sweetalert2/nuxt',
-    // https://github.com/rigor789/vue-scrollTo
-    'vue-scrollto/nuxt',
-    // https://vuetifyjs.com/en/getting-started/installation/#nuxt-install
-    '@nuxtjs/vuetify',
+    'vue-scrollto/nuxt', // https://github.com/rigor789/vue-scrollTo
+    '@nuxtjs/vuetify', // https://vuetifyjs.com/en/getting-started/installation/#nuxt-install
+    "@nuxtjs/svg"
 
   ],
 
@@ -110,11 +103,11 @@ export default {
     markdown: {
       remarkPlugins: [
         ['remark-breaks'],
-        ['remark-directive'],
-        ['~/plugins/remark/directive-custom.js'],
+        // ['remark-directive'],
+        // ['~/plugins/remark/directive-custom.js'],
         ['@silvenon/remark-smartypants', { dashes: 'oldschool' }],
         // ['remark-textr', { plugins: [textrCustom] }],
-        ['~/plugins/remark/contributors.js'],
+        // ['~/plugins/remark/contributors.js'],
       ],
       prism: {
         theme: '~/assets/css/prism-ghcolors.css'

@@ -106,7 +106,7 @@ export default {
         // ['~/plugins/remark/contributors.js'],
       ],
       prism: {
-        theme: '~/assets/css/prism-ghcolors.css'
+        theme: '~/assets/css/themes/prism-ghcolors.css'
       }
     },
     liveEdit: false,

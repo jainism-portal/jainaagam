@@ -14,6 +14,10 @@
 // }
 
 export default {
+  ignore: [
+    'prakritdictionary',
+  ],
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 

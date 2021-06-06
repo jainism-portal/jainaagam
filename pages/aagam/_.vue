@@ -97,7 +97,14 @@
                 <span v-if="sutraOriginal.title">
                   - {{ sutraOriginal.title }}</span>
               </h1>
-            </center>
+              <div
+                class="tw-mt-3 tw-text-gray-600"
+                v-if="$route.params.pathMatch"
+              >
+                <nuxt-link :to="`/${$i18n.locale}/aagam/${AagamName}/index/`">View {{AagamName}} Aagam's Index
+                </nuxt-link>
+              </div>
+            </header>
 
             <section
               v-if="children && children.length > 0"
@@ -291,6 +298,17 @@ export default {
       showFixedTOC: true,
       headings: []
     };
+  },
+  computed: {
+    AagamName() {
+      // Add a Trailing Slash because, for e.g., on http://localhost:3000/en/aagam/acharanga/ page, the pathMatch is "acharanga" (not "acharanga/")
+      const pathMatch = this.$route.params.pathMatch.endsWith("/")
+        ? this.$route.params.pathMatch
+        : `${this.$route.params.pathMatch}/`;
+      const indexOfFirstSlash = pathMatch.indexOf(`/`);
+      // Return only the "acharanga" part of the string.
+      return pathMatch.slice(0, indexOfFirstSlash);
+    }
   },
   async fetch() {
     // let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();

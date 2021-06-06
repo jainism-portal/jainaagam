@@ -59,8 +59,8 @@
             <!-- </header> -->
             <div class="tw-flex tw-flex-wrap tw-justify-start tw-items-center tw-bg-white">
               <Breadcrumbs
-                :fullPathMatch="fullPathMatch"
-                v-if="fullPathMatch"
+                :fullPathMatch="$route.fullPath"
+                v-if="$route.fullPath"
               >
               </Breadcrumbs>
             </div>
@@ -269,11 +269,6 @@ export default {
       sutrasOriginals: [],
       sutraOriginal: null,
 
-      // ROUTING
-      routePath: "",
-      pathMatch: "",
-      fullPathMatch: "",
-
       // CHILDREN
       children: null,
       showChildren: true,
@@ -295,33 +290,20 @@ export default {
     };
   },
   async fetch() {
-    // const _ = require("lodash");
-
-    this.routePath = this.$route.path.endsWith("/")
-      ? this.$route.path
-      : `${this.$route.path}/`;
-
-    this.pathMatch = this.$route.params.pathMatch.endsWith("/")
-      ? this.$route.params.pathMatch
-      : `${this.$route.params.pathMatch}/`;
-
-    this.fullPathMatch = this.$route.fullPath.endsWith("/")
-      ? this.$route.fullPath
-      : `${this.$route.fullPath}/`;
-
     // let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
 
     // CURRENT POST
-    this.posts = await this.$content(`${this.$i18n.locale}`, {
+    this.posts = await this.$content(this.$i18n.locale, {
       deep: true
     })
       .where({
-        path: {
-          $regex: [
-            this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
-            "gim"
-          ]
-        }
+        path: this.$route.path
+        // path: {
+        //   $regex: [
+        //     this.$route.path.slice(0, this.$route.path.length - 1) + "$",
+        //     "gim"
+        //   ]
+        // }
       })
       .sortBy("position")
       .sortBy("slug")

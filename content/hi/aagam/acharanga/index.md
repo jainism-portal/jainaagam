@@ -1,9 +1,12 @@
 ---
-
+# show: false
 type: toc
+position: 0
 ---
 
-<ol>
+<aagam-index></aagam-index>
+
+<!-- <ol>
   <li>
   <nuxt-link to="/aagam/acharanga/book-1">Book 1</nuxt-link>
     <ol>
@@ -38,4 +41,4 @@ type: toc
             1. [Sutra 5](/aagam/acharanga/book-1/chapter-2/lesson-1/sutra-5)
             1. [Sutra 6](/aagam/acharanga/book-1/chapter-2/lesson-1/sutra-6)
     1. Chapter 3
-2. Book 2
+2. Book 2 -->

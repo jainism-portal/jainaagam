@@ -1,5 +1,5 @@
 <template>
-  <div class="nuxt-content tw-mx-4 md:tw-mx-16">
+  <div class="tw-mt-3 nuxt-content tw-mx-4 md:tw-mx-16">
     <center>
       <h1 class="tw-text-3xl">Jain Aagam</h1>
     </center>

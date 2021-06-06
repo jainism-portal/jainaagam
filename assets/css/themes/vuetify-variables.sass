@@ -1,0 +1,11 @@
+// https://vuetifyjs.com/en/api/vuetify/#sass-variables
+$color-pack: false // https://vuetifyjs.com/en/styles/colors/#sass-color-pack
+
+$body-font-family: 'Open Sans', sans-serif !default
+
+$grid-breakpoints: ('xs': 0, 'sm': 640px, 'md': 768px, 'lg': 1024px - 16px, 'xl': 1280px - 16px)
+
+@import '~vuetify/src/styles/styles.sass'
+
+@each $name, $value in $utilities
+  $utilities: map-merge($utilities, ($name: false))

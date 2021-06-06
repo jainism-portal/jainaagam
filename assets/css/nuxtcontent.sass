@@ -1,27 +1,28 @@
 %margin-shared
-  @apply tw-my-3
+  @apply tw-my-6
 
 .nuxt-content
   h2
     @extend %margin-shared
-    @apply tw-text-pink-800 tw-text-xl md:tw-text-3xl tw-bg-gradient-to-r tw-from-white tw-to-red-50 tw-rounded-md tw-py-1 lg:tw--ml-2 tw-pl-3 tw-shadow-md
+    @apply tw-text-pink-800 tw-text-xl md:tw-text-3xl tw-bg-gradient-to-r tw-from-white tw-to-red-50 tw-rounded-md tw-py-1
 
   h3
     @extend %margin-shared
-    @apply tw-text-blue-900 tw-font-medium tw-text-lg md:tw-text-2xl tw-pb-1 tw-border-b-2 tw-border-gray-300
+    @apply tw-text-gray-700 tw-text-lg md:tw-text-2xl tw-pb-1 tw-border-b-2 tw-border-gray-200
 
   h4
     @extend %margin-shared
-    @apply tw-text-green-700 tw-font-medium tw-text-lg md:tw-text-2xl tw-pb-1 tw-border-b-2 tw-border-gray-300
+    @apply tw-text-green-700 tw-text-lg md:tw-text-2xl tw-pb-1 tw-border-b-2 tw-border-gray-200
 
   p
     @apply tw-text-gray-800 md:tw-text-lg md:tw-leading-relaxed
     &:not([class*="vs-alert"])
-      // @extend %margin-shared
-      @apply tw-my-3 md:tw-my-4
+      @extend %margin-shared
+      @apply md:tw-my-4
 
   a
-    @apply tw-border-b-2 tw-py-1 tw-border-pink-500 hover:tw-border-blue-400 hover:tw-bg-blue-50
+    color: $color-link
+    @apply hover:tw-bg-blue-50 hover:tw-text-blue-800 tw-inline-block tw-px-0.5
 
   ul
     // &:not([class*="slick"])

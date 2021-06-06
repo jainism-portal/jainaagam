@@ -34,7 +34,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["~/assets/css/all.sass",],
+  css: ["~/assets/css/themes/vuetify-override.sass",],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -114,11 +114,8 @@ export default {
   },
 
   vuetify: {
-    // customVariables: ['~/assets/variables.scss'], // vuetify var styles.
-    optionsPath: '~/plugins/vuetify.options.js', // vuetify option like theme.
-    // defaultAssets: {
-    //   font: false, icons: true
-    // },
+    customVariables: ['~/assets/css/themes/vuetify-variables.sass'],
+    optionsPath: '~/plugins/vuetify.js',
     treeShake: process.env.NODE_ENV === 'production'
   },
 

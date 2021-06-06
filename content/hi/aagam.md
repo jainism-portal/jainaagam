@@ -31,16 +31,16 @@ children:
 
 <div class="flex-grandchild">
 
-1. [आचारांग (आयारांग)](/hi/aagam/acharanga)
-2. [सूत्रकृतांग](/hi/aagam/sutrakritanga)
-3. [स्थानांग](/hi/aagam/sthananga)
-4. [समवायांग](/hi/aagam/samavayanga)
+1. [आचारांग (आयारांग)](/hi/aagam/acharanga/)
+2. [सूत्रकृतांग](/hi/aagam/sutrakritanga/)
+3. [स्थानांग](/hi/aagam/sthananga/)
+4. [समवायांग](/hi/aagam/samavayanga/)
 5. भगवती-(व्याख्या-प्रज्ञप्ति)
 6. ज्ञातधर्मकथा
 7. उपासक-दशः
 8. अनोत्तर
-9. [अनोत्तर-उपपातिका](/hi/aagam/anuttarovavai)
-10. [प्रश्न-व्याकरण](/hi/aagam/prashnavyakaran)
+9. [अनोत्तर-उपपातिका](/hi/aagam/anuttarovavai/)
+10. [प्रश्न-व्याकरण](/hi/aagam/prashnavyakaran/)
 11. abc
 12. 12th lost forever - so not counted in 45 aagam
 
@@ -108,7 +108,7 @@ Kalpa Sūtra
 
 <div class="flex-grandchild">
 
-1. [नंदी](/hi/aagam/nandi)
+1. [नंदी](/hi/aagam/nandi/)
 2. अनुयोगद्वार
 
 </div>

@@ -146,6 +146,9 @@ export default {
       if (document.extension === '.md') {
         const { time } = require('reading-time')(document.text)
         document.readingTime = time;
+
+        document.dir = document.dir.endsWith('/') ? document.dir : document.dir + '/';
+        document.path = document.path.endsWith('/') ? document.path : document.path + '/';
       }
       if (document.sutra) {
         document.sutra = {
@@ -189,7 +192,8 @@ export default {
         'firebase.json' // firebase file (including redirects)
       ]
     }
-  }
+  },
 
+  router: { trailingSlash: true },
 
 }

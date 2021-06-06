@@ -9,8 +9,8 @@
             They were compiled over two thousand years ago in North India.</p>
         </center>
         <section class="tw-flex tw-justify-center">
-          <button class="tw-text-white tw-bg-pink-500 tw-py-2 px-6 focus:tw-outline-none hover:tw-bg-pink-600 tw-rounded tw-text-lg">
-            <nuxt-link :to="`/${$i18n.locale}/aagam`">
+          <button class="tw-text-white tw-bg-pink-500 tw-py-2 tw-px-6 focus:tw-outline-none hover:tw-bg-pink-600 tw-rounded tw-text-lg">
+            <nuxt-link :to="localePath(`/aagam`)">
               {{ $t("aagam") }}
             </nuxt-link>
           </button>

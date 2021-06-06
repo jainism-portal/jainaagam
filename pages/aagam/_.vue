@@ -1,31 +1,28 @@
 <template>
   <div>
-    <div v-if="$fetchState.pending">Fetching content... Wait a few seconds</div>
+    <div
+      v-if="$fetchState.pending"
+      class="tw-my-48 tw-text-xl tw-text-blue-800 tw-bg-pink-50 tw-p-4 tw-text-center tw-font-medium"
+    >
+      Fetching... 💖 Wait for a few seconds 😊
+
+    </div>
     <div
       v-else-if="$fetchState.error"
-      class="nuxt-content tw-m-8 tw-p-8"
+      class="nuxt-content tw-my-48 tw-text-xl tw-text-blue-800 tw-bg-pink-50 tw-p-4 tw-text-center tw-font-medium"
     >
       <!-- (post === null && sutraOriginal === null) || -->
-      <center>
-
-        <h1 class="tw-text-3xl">404 error. Page not found.</h1>
-        Wrong URL. Check URL again or choose different language or go <nuxt-link to="/">Home</nuxt-link>.
-      </center>
+      <h1 class="tw-text-3xl">404 error. Page not found.</h1>
+      <ol class="tw-mt-3">
+        <li>Check URL again</li>
+        <li>This page is not yet available in {{$i18n.localeProperties.name}} language. Choose different language. OR</li>
+        <li>Go <nuxt-link :to="localePath(`/`)">Home</nuxt-link>
+        </li>
+      </ol>
     </div>
     <div v-else>
-      <main v-if="
-          !post ||
-          (!post && !sutraOriginal)
-        ">
-        <Incomplete
-          :post="post"
-          :sutraOg="sutraOg"
-        ></Incomplete>
-      </main>
-      <main
-        v-else
-        class="md:tw-flex md:tw-flex-row-reverse"
-      >
+
+      <main class="md:tw-flex md:tw-flex-row-reverse">
         <article :class="showToc ? 'md:tw-w-[70%]' : 'tw-w-full'">
           <header class="tw-mx-2">
             <!-- <header
@@ -70,7 +67,18 @@
             >{{ showToc ? "❌" : "🧾" }}</button>
           </header>
 
+          <main v-if="
+          !post ||
+          (!post && !sutraOriginal)
+        ">
+            <Incomplete
+              :post="post"
+              :sutraOg="sutraOriginal"
+            ></Incomplete>
+          </main>
+
           <main
+            v-else
             class="tw-mx-2"
             :class="showToc ? 'md:tw-mx-8' : 'md:tw-mx-16'"
           >
@@ -83,36 +91,13 @@
                 <span v-if="post.title">
                   - {{ post.title }}</span>
               </h1>
-              <h1 v-if="!post && sutraOg">
+              <h1 v-if="!post && sutraOriginal">
                 {{ $t("jain") }} {{ $t("aagam") }}
-                {{ sutraOg.type }}
-                <span v-if="sutraOg.title">
-                  - {{ sutraOg.title }}</span>
+                {{ sutraOriginal.type }}
+                <span v-if="sutraOriginal.title">
+                  - {{ sutraOriginal.title }}</span>
               </h1>
-              <a
-                :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
-                target="_blank"
-                class="tw-text-sm"
-              >
-                Contribute/Edit on GitHub
-              </a>
             </center>
-
-            <section class="nuxt-content ">
-              <h2>Siblings</h2>
-              <div class="tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
-                <nuxt-link
-                  :to="prevs.path"
-                  v-if="prevs"
-                  class="tw-mx-2"
-                ><b class="tw-bg-yellow-100 tw-p-1">Prev</b> 👈🏻 {{prevs.path}}</nuxt-link>
-                <nuxt-link
-                  :to="nexts.path"
-                  v-if="nexts"
-                  class="tw-mx-2"
-                ><b class="tw-bg-indigo-100 tw-p-1">Next</b> 👉🏻 {{nexts.path}}</nuxt-link>
-              </div>
-            </section>
 
             <section
               v-if="children && children.length > 0"
@@ -121,7 +106,7 @@
               <h2
                 @click="showChildren = !showChildren"
                 class="tw-cursor-pointer"
-              >Children</h2>
+              >Contents</h2>
               <ol
                 v-show="showChildren"
                 class="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 gap-4"
@@ -138,12 +123,12 @@
                   >
                     <span class="tw-text-sm md:tw-text-lg tw-capitalize">{{ child.title ? `${child.slug} - ${child.title}` : child.slug }}</span>
                   </nuxt-link>
-                  <ReadingTime
+                  <!-- <ReadingTime
                     class="tw-text-sm"
                     :post="child"
                     :showWords="true"
                     :showTime="false"
-                  ></ReadingTime>
+                  ></ReadingTime> -->
                 </li>
               </ol>
             </section>
@@ -159,13 +144,10 @@
                 v-if="post"
                 class="nuxt-content"
               >
-                <section
-                  v-if="post.body.children.length == 0"
-                  class="tw-text-center"
-                >
+                <section v-if="post.body.children.length == 0">
                   <h2>Work in Progress</h2>
                   <div class="tw-bg-yellow-50 tw-p-3 tw-shadow-xl">
-                    <p>😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its children, or If you are interested, <u>you may even contribute here.</u> 💛 </p>
+                    <p>😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its children, or If you are interested, you may even contribute here. 💛 </p>
                     <p>This is an Open source project, so you can easily <a
                         :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
                         target="_blank"
@@ -179,6 +161,26 @@
             </section>
           </main>
           <footer class="nuxt-content tw-my-4">
+            <section class="tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
+              <nuxt-link
+                :to="localePath(prevs.path)"
+                v-if="prevs"
+                class="tw-mx-2"
+              >Prev 👈🏻 {{prevs.path}}</nuxt-link>
+              <nuxt-link
+                :to="localePath(nexts.path)"
+                v-if="nexts"
+                class="tw-mx-2"
+              >Next 👉🏻 {{nexts.path}}</nuxt-link>
+            </section>
+            <a
+              :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
+              target="_blank"
+              class="tw-text-sm"
+              v-if="post"
+            >
+              Contribute/Edit on GitHub
+            </a>
             Post footer. Author. Comments. Related. Share.
           </footer>
         </article>
@@ -254,12 +256,13 @@
 
 <script>
 import Breadcrumbs from "~/components/Breadcrumbs.vue";
-import PdfTest from "~/components/PdfTest.vue";
+import AagamIndex from "~/components/templates/AagamIndex.vue";
 
 export default {
+  name: "AagamVuePage",
   components: {
     Breadcrumbs,
-    PdfTest
+    AagamIndex
   },
   data() {
     return {
@@ -312,21 +315,18 @@ export default {
     this.post = this.posts[0];
 
     // SUTRA ORIGINAL TO BE SHOWN ONLY ON SUTRA PAGE
-    if (new RegExp(/sutra-[0-9]+\/$/i).test(this.routePath)) {
+    if (new RegExp(/sutra-[0-9]+\/$/i).test(this.$route.path)) {
+      const nestedPathArray = this.$route.path.split("/");
+      const locale = nestedPathArray[1]; // 0 is empty string; so 1 is locale
+      const localeCharactersCount = locale.length;
+
       this.sutrasOriginals = await this.$content("aagam", {
         deep: true
       })
         .where({
           $and: [
             { type: "sutra" },
-            {
-              path: {
-                $regex: [
-                  this.pathMatch.slice(0, this.pathMatch.length - 1) + "$",
-                  "gim"
-                ]
-              }
-            }
+            { path: this.$route.path.slice(1 + localeCharactersCount) }
           ]
         })
         .sortBy("position")
@@ -337,68 +337,75 @@ export default {
     }
 
     // CHILDREN
-    this.children = await this.$content(`${this.$i18n.locale}`, {
-      deep: true
-    })
-      .without(["body", "toc"])
-      .where({
-        $and: [{ dir: this.post.path }, { show: { $ne: false } }]
+    if (this.post) {
+      this.children = await this.$content(`${this.$i18n.locale}`, {
+        deep: true
       })
-      .sortBy("position", "asc")
-      .sortBy("slug", "asc")
-      .fetch();
+        .without(["body", "toc"])
+        .where({
+          $and: [{ dir: this.post.path }, { show: { $ne: false } }]
+        })
+        .sortBy("position", "asc")
+        .sortBy("slug", "asc")
+        .fetch();
+    }
 
     // SIBLINGS ( PREV-NEXT )
-    [this.prevs, this.nexts] = await this.$content(`${this.$i18n.locale}`, {
-      deep: true
-    })
-      .without(["body", "toc"])
-      .where({ $and: [{ dir: this.post.dir }, { show: { $ne: false } }] })
-      // .where({ index: !true })
-      .sortBy("position", "asc")
-      .sortBy("slug", "asc")
-      .surround(this.post.path)
-      .fetch();
+    if (this.post) {
+      [this.prevs, this.nexts] = await this.$content(`${this.$i18n.locale}`, {
+        deep: true
+      })
+        .without(["body", "toc"])
+        .where({ $and: [{ dir: this.post.dir }, { show: { $ne: false } }] })
+        // .where({ index: !true })
+        .sortBy("position", "asc")
+        .sortBy("slug", "asc")
+        .surround(this.post.path)
+        .fetch();
+    }
 
     // TABLE OF CONTENTS
-    if (this.post.tocLevel === 4) {
-      return (this.headings = this.post.toc);
-    } else {
-      this.headings = this.post.toc.filter(heading => {
-        return (
-          heading.depth === 1 || heading.depth === 2 || heading.depth === 3
-        );
-      });
+    if (this.post) {
+      if (this.post.tocLevel === 4) {
+        return (this.headings = this.post.toc);
+      } else {
+        this.headings = this.post.toc.filter(heading => {
+          return (
+            heading.depth === 1 || heading.depth === 2 || heading.depth === 3
+          );
+        });
+      }
     }
   }
 };
 </script>
 
-<style lang="postcss" scoped>
-.active-scroll {
-  @apply tw-text-lg tw-text-gray-900 hover:tw-shadow-md hover:tw-bg-white tw-bg-white tw-font-bold;
-}
-.toc_aside {
+<style lang="sass" scoped>
+.active-scroll
+  @apply tw-text-lg tw-text-gray-900 hover:tw-shadow-md hover:tw-bg-white tw-bg-white tw-font-bold
+
+.toc_aside
   /* @apply tw-top-32 tw-bottom-16; */
   /* @apply tw-transition-transform; */
-  transform: translateX(calc(100%));
-  transition-property: transform;
-  transition-duration: 500ms;
-}
+  transform: translateX(calc(100%))
+  transition-property: transform
+  transition-duration: 500ms
 
-.toc_aside-open {
-  transform: translateX(0%);
-}
+.toc_aside-open
+  transform: translateX(0%)
 
-.toc_aside-button {
-  /* @apply tw-fixed tw-top-2; */
-  transform: translate(86%, 60px);
-  /* transform: translate(80%); */
-  transition-property: transform;
-  transition-duration: 500ms;
-}
-.toc_aside-button-open {
-  transform: translate(-12%, 80px);
-  /* transform: translateX(-10%); */
-}
+.toc_aside-button
+  /* @apply tw-fixed tw-top-2 */
+  transform: translate(86%, 60px)
+  /* transform: translate(80%) */
+  transition-property: transform
+  transition-duration: 500ms
+
+.toc_aside-button-open
+  transform: translate(-12%, 80px)
+  /* transform: translateX(-10%) */
+
+</style>
+
+<style lang="sass" src="~/assets/css/all.sass" scoped>
 </style>

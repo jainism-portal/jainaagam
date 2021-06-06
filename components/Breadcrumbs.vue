@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-breadcrumbs
-      large
+      :large="$vuetify.breakpoint.mdAndUp ? true : false"
       :items="breadcrumbs"
-      divider="👉🏻"
+      divider="→"
       class="tw-text-pink-800 tw-capitalize"
     >
     </v-breadcrumbs>

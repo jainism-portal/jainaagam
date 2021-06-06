@@ -24,7 +24,7 @@
 
       <main class="md:tw-flex md:tw-flex-row-reverse">
         <article :class="showToc ? 'md:tw-w-[70%]' : 'tw-w-full'">
-          <header class="tw-mx-2">
+          <nav class="tw-mx-2">
             <!-- <header
             v-if="post && post.order"
             class="tw-bg-white tw-sticky tw-top-14 tw-z-20 tw-border-b tw-border-gray-300 tw-text-center tw-pt-1 tw-pb-2 tw-mb-2 md:tw-mt-0 md:tw-mb-4"
@@ -61,11 +61,11 @@
               >
               </Breadcrumbs>
             </div>
-            <button
+            <!-- <button
               class="tw-fixed tw-z-40 tw-bottom-4 md:tw-bottom-auto md:tw-top-14 tw-right-2 tw-rounded-2xl tw-text-2xl tw-w-10 tw-h-10 md:tw-w-12 md:tw-h-12 tw-font-2xl tw-bg-gradient-to-bl tw-from-white tw-to-blue-200 tw-shadow-md focus:tw-outline-none focus:tw-ring focus:tw-ring-blue-300"
               @click.stop="showToc = !showToc"
-            >{{ showToc ? "❌" : "🧾" }}</button>
-          </header>
+            >{{ showToc ? "❌" : "🧾" }}</button> -->
+          </nav>
 
           <main v-if="
           !post ||
@@ -82,12 +82,17 @@
             class="tw-mx-2"
             :class="showToc ? 'md:tw-mx-8' : 'md:tw-mx-16'"
           >
-            <center class="nuxt-content">
+            <header class="tw-text-center">
               <h1
                 v-if="post"
                 class="tw-text-3xl"
               >
-                {{ $t("jain") }} {{ $t("aagam") }}
+                {{ $t("jain") }} {{ $t("aagam") }} <span
+                  v-if="post.type"
+                  class="tw-capitalize"
+                >
+                  - {{ post.type }}</span> <span v-if="post.position">
+                  {{ post.position }}</span>
                 <span v-if="post.title">
                   - {{ post.title }}</span>
               </h1>
@@ -116,17 +121,15 @@
               >Contents</h2>
               <ol
                 v-show="showChildren"
-                class="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 gap-4"
+                class="!tw-list-none tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-2"
               >
                 <li
                   v-for="(child, i) in children"
                   :key="i"
-                  class="tw-m-4"
                 >
                   <nuxt-link
                     :to="`${child.path}`"
-                    class="!tw-p-0.5"
-                    :class="{'tw-bg-green-100 tw-p-1 tw-text-green-800': child.done}"
+                    class="tw-p-1"
                   >
                     <span class="tw-text-sm md:tw-text-lg tw-capitalize">{{ child.title ? `${child.slug} - ${child.title}` : child.slug }}</span>
                   </nuxt-link>
@@ -148,50 +151,58 @@
                 <nuxt-content :document="sutraOriginal"></nuxt-content>
               </section>
               <section
-                v-if="post"
-                class="nuxt-content"
+                v-if="post.body.children.length == 0"
+                class="nuxt-content tw-mt-3"
               >
-                <section v-if="post.body.children.length == 0">
-                  <h2>Work in Progress</h2>
-                  <div class="tw-bg-yellow-50 tw-p-3 tw-shadow-xl">
-                    <p>😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its children, or If you are interested, you may even contribute here. 💛 </p>
-                    <p>This is an Open source project, so you can easily <a
-                        :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
-                        target="_blank"
-                      >
-                        Contribute on GitHub
-                      </a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can contact <a href="mailto:madrechamanas@gmail.com">Manas Madrecha</a>. Thank you. Jai Jindendra. 🙏🏻</p>
-                  </div>
-                </section>
-                <nuxt-content :document="post"></nuxt-content>
+                <div class="tw-bg-yellow-50 tw-p-4 tw-text-gray-600 !tw-text-base">
+                  <div>😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its <b>Contents</b>. </div>
+                  <div class="tw-mt-3">This is an Open source project, so you too can easily <a
+                      :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
+                      target="_blank"
+                    >
+                      Contribute on GitHub
+                    </a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can contact <a href="mailto:madrechamanas@gmail.com">Manas Madrecha</a>. Thank you. Jai Jindendra. 🙏🏻</div>
+                </div>
               </section>
+
+              <nuxt-content
+                v-else
+                :document="post"
+                class="tw-mt-3"
+              ></nuxt-content>
+
             </section>
           </main>
-          <footer class="nuxt-content tw-my-4">
-            <section class="tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
+          <footer class="nuxt-content tw-m-4 tw-border-t tw-border-gray-600">
+            <section class="tw-mt-3 tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
               <nuxt-link
                 :to="localePath(prevs.path)"
                 v-if="prevs"
                 class="tw-mx-2"
-              >Prev 👈🏻 {{prevs.path}}</nuxt-link>
+              >Prev 👈🏻 {{prevs.slug}}</nuxt-link>
               <nuxt-link
                 :to="localePath(nexts.path)"
                 v-if="nexts"
                 class="tw-mx-2"
-              >Next 👉🏻 {{nexts.path}}</nuxt-link>
+              >Next 👉🏻 {{nexts.slug}}</nuxt-link>
             </section>
-            <a
-              :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path}${post.extension}`"
-              target="_blank"
-              class="tw-text-sm"
-              v-if="post"
-            >
-              Contribute/Edit on GitHub
-            </a>
-            Post footer. Author. Comments. Related. Share.
+
+            <div class="tw-text-center tw-bg-green-50 tw-mt-3 tw-p-3">
+              <a
+                :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
+                target="_blank"
+                class="tw-block tw-text-sm"
+                v-if="post"
+              >
+                Contribute/Edit on GitHub
+              </a>
+              <div class="tw-text-sm tw-text-gray-500">
+                Post footer. Author. Comments. Related. Share.
+              </div>
+            </div>
           </footer>
         </article>
-        <aside :class="showToc ? 'tw-w-[30%]' : 'md:tw-w-0'">
+        <!-- <aside :class="showToc ? 'tw-w-[30%]' : 'md:tw-w-0'">
           <div class="tw-fixed md:tw-sticky tw-top-11 md:tw-top-0 tw-z-30 tw-rounded-2xl tw-shadow-md tw-bg-gradient-to-br tw-from-white tw-via-white tw-to-blue-50">
             <header
               id="heading-toc"
@@ -254,7 +265,7 @@
               </ul>
             </scrollactive>
           </div>
-        </aside>
+        </aside> -->
       </main>
       <GoTop></GoTop>
     </div>

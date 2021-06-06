@@ -28,25 +28,7 @@
       <div class="tw-mt-6 tw-mx-3 tw-text-gray-600">
         <language-input></language-input>
       </div>
-      <!-- <ul class="nav tw-flex tw-flex-col tw-my-2 !tw-px-1">
-        <li
-          v-for="menu in menus"
-          :key="menu.text"
-          :class="`hover:${menu.bgcolor}`"
-        >
-          <nuxt-link
-            exact
-            :to="localePath(menu.link)"
-            class="tw-block tw-p-4 !tw-text-gray-500"
-          >
-            <v-icon
-              left
-              :large="$vuetify.breakpoint.mdAndUp"
-              :class="menu.iconColor"
-            >{{ menu.icon }}</v-icon>{{ menu.text }}
-          </nuxt-link>
-        </li>
-      </ul> -->
+
       <template #append>
         <footer class="tw-p-2">
           &copy; CA Manas Madrecha
@@ -98,25 +80,6 @@
             class="tw-inline-block tw-p-2 !tw-text-pink-700 tw-font-semibold tw-text-xl md:tw-text-2xl tw-transform hover:tw--skew-x-6 tw-transition-transform"
           >{{$t("jain")}} {{$t("aagam")}}</nuxt-link>
         </div>
-
-        <!-- <div
-          class="tw-w-[10%] tw-mx-2"
-          v-if="$vuetify.breakpoint.smAndDown"
-        >
-          <v-icon
-            role="search"
-            class="!tw-text-blue-800"
-            @click="toggleSearch = true"
-          >{{mdiMagnify}}</v-icon>
-        </div>
-
-        <div
-          class="tw-w-[60%] tw-mx-2"
-          v-if="$vuetify.breakpoint.mdAndUp"
-        >
-          <search-words-full width="tw-w-full"></search-words-full>
-        </div> -->
-
       </div>
     </v-app-bar>
   </div>

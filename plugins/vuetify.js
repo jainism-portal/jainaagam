@@ -1,5 +1,3 @@
-// vuetify.options.js
-
 // import colors from 'vuetify/es5/util/colors'
 
 export default {
@@ -16,6 +14,6 @@ export default {
     iconfont: 'mdi'
   },
   font: {
-    family: 'sans-serif'
+    family: "'Open Sans', sans-serif"
   }
 }

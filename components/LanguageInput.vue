@@ -1,5 +1,5 @@
 <template>
-  <div class="lang-dropdown">
+  <div>
     <!-- <select v-model="$i18n.locale">
       <option v-for="lang in $i18n.locales" :key="lang.code" :value="lang.code">
         {{ lang.name }}
@@ -10,8 +10,9 @@
       v-for="locale in availableLocales"
       :key="locale.code"
       :to="switchLocalePath(locale.code)"
+      class="tw-inline-block tw-p-1"
     >
-      Change to {{ locale.name }}
+      <v-icon class="!tw-text-gray-600">mdi mdi-translate</v-icon> Read in {{locale.name }}
     </nuxt-link>
   </div>
 </template>

@@ -42,7 +42,7 @@
 
 // import "~/assets/css/utils.sass";
 
-import "vue-pdf-app/dist/icons/main.css";
+// import "vue-pdf-app/dist/icons/main.css";
 
 export default {
   props: { pdf: { type: String }, h: { type: String, default: "tw-h-[80vh]" } },

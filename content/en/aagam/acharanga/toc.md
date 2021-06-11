@@ -5,4 +5,4 @@ type: toc
 position: 0
 ---
 
-<aagam-index></aagam-index>
+<aagam-toc></aagam-toc>

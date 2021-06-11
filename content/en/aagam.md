@@ -1,5 +1,9 @@
 ---
-title: Jain Aagam (english)
+title: Jain Aagam in English with meaning
+
+seo:
+  title: Jain Aagam in English with meaning
+  description: All 45 Jain Aagam explained with English meaning and translation. Read Jainism supreme scriptures and religious literature for free.
 
 type: aagam_index
 
@@ -16,8 +20,8 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 
 ### Limb (Anga) (11)
 
-1. [Code of Conduct (_Ācāranga_)](/en/aagam/acharanga/)
-2. [Heretical systems and views (_Sūtrakṛtāṅga_)](/en/aagam/sutrakritanga/)
+1. [Code of Conduct (_Ācāranga_)](/aagam/acharanga)
+2. [Heretical systems and views (_Sūtrakṛtāṅga_)](/aagam/sutrakritanga)
 3. Places (_Sthānāṅga_)
 4. Rising numerical groups (_Samavāyāṅga_)
 5. Exposition of explanations / The Holy One (_Vyākhyā-prajñapti_ or _Bhagavatī_)
@@ -25,19 +29,19 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 7. Ten chapters (_Upāsaka-daśāḥ_)
 8. Ten chapters on those who put an end to rebirth (_Antakṛd-daśāḥ_)
 9. Ten chapters on those who were reborn in the uppermost heavens (_Anuttaropapātika-daśāḥ_)
-10. [Questions and Explanations (_prashnavyakaran_)](/en/aagam/prashnavyakaran/)
+10. [Questions and Explanations (_prashnavyakaran_)](/aagam/prashnavyakaran)
 11. Bad or good results of deeds performed (_Vipākaśruta_)
 12. lost
    
-<!-- 3. [स्थानांग](/en/aagam/sthananga/)
-2. [समवायांग](/en/aagam/samavayanga/)
-3. [भगवती-(व्याख्या-प्रज्ञप्ति)]
-4. [ज्ञातधर्मकथा]
-5. [उपासक-दशः]
-6. [अनोत्तर]
-7.  [[अनोत्तर-उपपातिका](/en/aagam/anuttarovavai/)]
-8.  
-9.  [12th lost forever - so not counted in 45 aagam -->
+<!-- 3. [स्थानांग](/aagam/sthananga)
+1. [समवायांग](/aagam/samavayanga)
+2. [भगवती-(व्याख्या-प्रज्ञप्ति)]
+3. [ज्ञातधर्मकथा]
+4. [उपासक-दशः]
+5. [अनोत्तर]
+6.  [[अनोत्तर-उपपातिका](/aagam/anuttarovavai)]
+7.  
+8.  [12th lost forever - so not counted in 45 aagam -->
 
 ### Sub-Limb (Upanga) (12)
 

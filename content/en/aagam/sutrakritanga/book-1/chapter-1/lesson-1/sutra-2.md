@@ -1,7 +1,8 @@
 ---
 title: 
-position: 2
+
 type: sutra
+position: 2
 
 parent:
   type: lesson

@@ -1,7 +1,8 @@
 ---
 title: पहला उद्देशक
-position: 1
+
 type: lesson
+position: 1
 
 parent: 
   type: chapter

@@ -1,5 +1,5 @@
 ---
-title: पहला उद्देशक
+title:
 position: 1
 type: lesson
 

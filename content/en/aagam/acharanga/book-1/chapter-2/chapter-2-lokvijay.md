@@ -1,8 +1,8 @@
 ---
-title: लोक विजय
-trans: lok-vijay
+title: Lok Vijay
 
 type: chapter
+position: 2
 
 order:
   aagam: 

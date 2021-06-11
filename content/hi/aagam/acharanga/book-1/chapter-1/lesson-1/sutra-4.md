@@ -2,6 +2,7 @@
 title: कर्म-जनक सत्य-संबंधी क्रियाएं
 
 type: sutra
+position: 4
 
 order:
   cat: anga

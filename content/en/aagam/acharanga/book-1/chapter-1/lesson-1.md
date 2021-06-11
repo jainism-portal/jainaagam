@@ -1,7 +1,8 @@
 ---
-title: lesson-1
+title:
 
 type: lesson
+position: 1
 
 order:
   aagam:

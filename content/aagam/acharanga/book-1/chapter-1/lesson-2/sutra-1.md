@@ -1,23 +1,11 @@
 ---
-title: dukhi-praani
+title: 
 
-depth:
-  aagam: acharang
-  book: 1
-  chapter: 1
-  lesson: 2
-  sutra: 1
+type: sutra
+position: 1
 
+parent:
+  type: lesson
 ---
 
-## Sutra
-
-## Glossary
-
-## Meaning
-
-### English
-
-### Hindi
-
-## Explanation
+अट्टे लोए परिजुण्णे दुस्संबोहे  अविजाणए । अस्सिं लोए पव्वहिए तत्थ तत्थ पुढो पास आउरा परितावेंति । 

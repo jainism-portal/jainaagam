@@ -1,7 +1,8 @@
 ---
 title:
-position: 2
+
 type: book
+position: 2
 
 parent:
   type: aagam

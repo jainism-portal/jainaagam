@@ -5,6 +5,7 @@ alt_trans:
   - shastra-parigna
 
 type: chapter
+position: 3
 
 order:
   cat: anga

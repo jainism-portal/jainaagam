@@ -1,10 +1,9 @@
 ---
-title: 
-position: 4
+title:
 
 type: sutra
+position: 3
 
 parent:
   type: lesson
-
 ---

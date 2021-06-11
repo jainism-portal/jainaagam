@@ -1,8 +1,8 @@
 ---
-title: कुल 1
-trans: kul 1
+title:
 
 type: book
+position: 1
 
 order:
   aagam: 

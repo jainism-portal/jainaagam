@@ -1,8 +1,8 @@
 ---
-title: कुल 2
-trans: kul 2
+title:
 
 type: part
+position: 1
 
 order:
   aagam: 

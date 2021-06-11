@@ -2,6 +2,7 @@
 title: आत्मबोध का उपसंहार
 
 type: sutra
+position: 6
 
 order:
   cat: anga

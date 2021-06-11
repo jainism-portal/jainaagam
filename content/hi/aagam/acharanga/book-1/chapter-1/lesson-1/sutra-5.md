@@ -2,6 +2,7 @@
 title: कर्मबंधन के कारण
 
 type: sutra
+position: 5
 
 order:
   cat: anga

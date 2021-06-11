@@ -25,7 +25,18 @@ export default {
       .fetch();
 
     this.post = this.posts[0];
-  }
+  },
+  computed: {
+    seoTitle() {
+      if (this.post && this.post.seo) {
+        return this.post.seo.title;
+      } else return this.post.title;
+    },
+    seoDescription() {
+      if (this.post && this.post.seo) {
+        return this.post.seo.description;
+      } else return this.post.description;
+    }
   // methods: {
   //   /**
   //    * Called when a language button is clicked
@@ -35,6 +46,31 @@ export default {
   //     this.$i18n.locale = lang;
   //   },
   // },
+  head() {
+    if (this.post) {
+      return {
+        title: this.seoTitle,
+        // titleTemplate: null,
+        meta: [
+          {
+            hid: `description`,
+            name: `description`,
+            content: this.seoDescription
+          },
+          {
+            hid: "og:title",
+            property: "og:title",
+            content: this.seoTitle
+          },
+          {
+            hid: `og:description`,
+            name: `og:description`,
+            content: this.seoDescription
+          }
+        ]
+      };
+    }
+  }
 };
 </script>
 

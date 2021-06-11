@@ -311,6 +311,24 @@ export default {
     };
   },
   computed: {
+    seoTitle() {
+      if (this.$route?.params?.pathMatch) {
+        let changeCase = require("change-case");
+        let pathContents = `${changeCase.sentenceCase(
+          this.$route.params.pathMatch
+        )}`;
+
+        pathContents = pathContents
+          .replace(/toc/, this.$t("contents.toc"))
+          .replace(/appendix/, this.$t("contents.appendix"))
+          .replace(/book/, this.$t("contents.book"))
+          .replace(/chapter/, this.$t("contents.chapter"))
+          .replace(/episode/, this.$t("contents.episode"))
+          .replace(/lesson/, this.$t("contents.lesson"))
+          .replace(/sutra/, this.$t("contents.sutra"));
+        return `${this.$t("basic.jain_aagam")} - ${pathContents}`;
+      }
+    },
     AagamName() {
       // Add a Trailing Slash because, for e.g., on http://localhost:3000/en/aagam/acharanga/ page, the pathMatch is "acharanga" (not "acharanga/")
       const pathMatch = this.$route.params.pathMatch.endsWith("/")
@@ -423,6 +441,30 @@ export default {
 .toc_aside-open
   transform: translateX(0%)
 
+  },
+  head() {
+    if (this.post && this.$route) {
+      return {
+        title: this.seoTitle,
+        meta: [
+          // {
+          //   hid: `description`,
+          //   name: `description`,
+          //   content: this.seoDescription
+          // },
+          {
+            hid: "og:title",
+            property: "og:title",
+            content: this.seoTitle
+          }
+          // {
+          //   hid: `og:description`,
+          //   name: `og:description`,
+          //   content: this.seoDescription
+          // }
+        ]
+      };
+    }
 .toc_aside-button
   /* @apply tw-fixed tw-top-2 */
   transform: translate(86%, 60px)

@@ -340,19 +340,24 @@ export default {
     }
   },
   async fetch() {
-    // let aagam_list = await this.$content("aagam-meta", "aagam-list").fetch();
+    const ROUTE_PATH = this.$route.path.startsWith(`/aagam`)
+      ? `/en${this.$route.path}`
+      : this.$route.path;
+
+    const ROUTE_PATH_WITH_SLASH = ROUTE_PATH.endsWith(`/`)
+      ? ROUTE_PATH
+      : `${ROUTE_PATH}/`;
 
     // CURRENT POST
     this.posts = await this.$content(this.$i18n.locale, {
       deep: true
     })
       .where({
-        path: this.$route.path
+        path: ROUTE_PATH.endsWith(`/`)
+          ? ROUTE_PATH.slice(0, ROUTE_PATH.length - 1)
+          : ROUTE_PATH
         // path: {
-        //   $regex: [
-        //     this.$route.path.slice(0, this.$route.path.length - 1) + "$",
-        //     "gim"
-        //   ]
+        //   $regex: [this.$route.path.slice(0, this.$route.path.length - 1) + "$","gim"]
         // }
       })
       .sortBy("position")
@@ -362,10 +367,9 @@ export default {
     this.post = this.posts[0];
 
     // SUTRA ORIGINAL TO BE SHOWN ONLY ON SUTRA PAGE
-    if (new RegExp(/sutra-[0-9]+\/$/i).test(this.$route.path)) {
-      const nestedPathArray = this.$route.path.split("/");
-      const locale = nestedPathArray[1]; // 0 is empty string; so 1 is locale
-      const localeCharactersCount = locale.length;
+    if (new RegExp(/sutra-[0-9]+\/$/i).test(ROUTE_PATH_WITH_SLASH)) {
+      const locale = ROUTE_PATH_WITH_SLASH.split("/")[1]; // 0 is empty string; so 1 is locale
+      const localeCharactersCount = locale.length; // usually it will be 2, e.g. en, hi, gu
 
       this.sutrasOriginals = await this.$content("aagam", {
         deep: true
@@ -373,7 +377,11 @@ export default {
         .where({
           $and: [
             { type: "sutra" },
-            { path: this.$route.path.slice(1 + localeCharactersCount) }
+            {
+              path: ROUTE_PATH_WITH_SLASH.slice(
+                1 + localeCharactersCount
+              ).slice(0, -1) // remove the trailing slash
+            }
           ]
         })
         .sortBy("position")

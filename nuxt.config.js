@@ -102,26 +102,41 @@ export default {
   ],
 
   i18n: {
+    baseUrl: 'https://aagam.jainism.info',
     locales: [{
       code: 'en',
-      iso: 'en-US',
+      iso: 'en',
       name: 'English',
+      file: 'en.js'
     }, {
       code: 'hi',
-      iso: 'hi-IN',
+      iso: 'hi',
       name: 'हिन्दी',
+      file: 'hi.js'
     }],
     defaultLocale: 'en',
-    strategy: 'prefix',
+    strategy: 'prefix_except_default',
     // noPrefixDefaultLocale: true,
+    lazy: true,
+    langDir: 'i18n/',
+    detectBrowserLanguage: {
+      alwaysRedirect: false,
+      fallbackLocale: 'en',
+      onlyOnRoot: true,
+      useCookie: true,
+      cookieCrossOrigin: false,
+      cookieDomain: null,
+      cookieKey: 'i18n_redirected',
+      cookieSecure: false
+    },
+    seo: false,
     vueI18nLoader: true,
     vueI18n: {
       fallbackLocale: 'en',
       messages: {
-        en: require('./locales/en-us.js'),
-        hi: require('./locales/hi-in.js'),
+        en: require('./i18n/en.js').default,
+        hi: require('./i18n/hi.js'),
       },
-
     }
   },
 
@@ -176,8 +191,16 @@ export default {
         const { time } = require('reading-time')(document.text)
         document.readingTime = time;
 
-        document.dir = document.dir.endsWith('/') ? document.dir : document.dir + '/';
-        document.path = document.path.endsWith('/') ? document.path : document.path + '/';
+        const { dir, path, slug } = document
+
+        const regexp = new RegExp(`^/(en|hi|gu)`, 'gi')
+        const _dir = dir.replace(regexp, '')
+        const _slug = slug.replace(/^index/, '')
+        document.to = `${_dir}/${_slug}`
+
+        // dir = dir.endsWith('/') ? dir : dir + '/';
+        // path = path.endsWith('/') ? path : path + '/';
+
       }
       if (document.sutra) {
         document.sutra = {
@@ -223,6 +246,6 @@ export default {
     }
   },
 
-  router: { trailingSlash: true },
+  // router: { trailingSlash: true },
 
 }

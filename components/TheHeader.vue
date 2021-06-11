@@ -6,52 +6,52 @@
       class="!tw-z-50"
       clipped
     >
-      <template #prepend>
-        <v-card v-if="$vuetify.breakpoint.smAndDown">
-          <v-card-title>
-            <nuxt-link
-              :to="localePath('/')"
-              class="!tw-text-pink-600"
-            >
-              <v-icon
-                left
-                class="!tw-text-pink-600"
-              >{{mdiHome}}</v-icon>
+      <div class="tw-h-full tw-flex tw-flex-col md:tw-flex-none">
+        <div class="md:tw-hidden tw-h-[10%] tw-mt-3 tw-pb-2 tw-border-b tw-border-gray-300 tw-flex tw-justify-center tw-items-center">
+          <nuxt-link
+            :to="localePath('/')"
+            class="tw-inline-block tw-text-xl !tw-text-pink-600"
+          >
+            ꣽ {{$t("basic.jain_aagam")}}
+          </nuxt-link>
+        </div>
 
-              {{$t("jain")}} {{$t("aagam")}}
+        <div class="tw-h-[70%] md:tw-h-full tw-p-3 tw-text-gray-600 tw-overflow-y-auto">
+          <language-input></language-input>
+        </div>
 
-            </nuxt-link>
-          </v-card-title>
-        </v-card>
-      </template>
-
-      <div class="tw-mt-6 tw-mx-3 tw-text-gray-600">
-        <language-input></language-input>
-      </div>
-
-      <template #append>
-        <footer class="tw-p-2">
-          &copy; CA Manas Madrecha
-        </footer>
-        <div class="tw-flex tw-mx-2">
-          <!-- v-if="$vuetify.breakpoint.smAndDown" -->
+        <footer class="tw-h-auto tw-p-2 tw-border-t tw-border-gray-300">
           <a
-            v-for="social in socials"
-            :key="social.link"
-            :href="social.link"
+            href="https://github.com/jainism-portal/jainaagam"
             target="_blank"
             rel="noopener noreferrer"
-            class="tw-block tw-p-2 tw-rounded-xl hover:tw-shadow"
-            :class="`hover:tw-bg-${social.color}-50`"
-            :title="social.linkTitle"
+            title="Jain Aagam Github repository"
+            class="tw-inline-block tw-p-1"
           >
-            <v-icon
-              :role="social.iconRole"
-              :class="`!tw-text-${social.color}-600`"
-            >{{social.icon}}</v-icon>
+            <v-icon class="!tw-text-gray-600">mdi mdi-star</v-icon> <span class="tw-text-linkblue hover:tw-underline"> Star us on Github</span>
+            <v-icon small>mdi mdi-open-in-new</v-icon>
           </a>
-        </div>
-      </template>
+          <p class="tw-p-1">&copy; {{ $t("author.default") }}</p>
+          <div class="tw-flex tw-flex-wrap">
+            <a
+              v-for="social in socials"
+              :key="social.link"
+              :href="social.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="tw-inline-block tw-p-1 tw-rounded-xl hover:tw-shadow"
+              :class="`hover:tw-bg-${social.color}-50`"
+              :title="social.linkTitle"
+            >
+              <v-icon
+                :role="social.iconRole"
+                :class="`!tw-text-${social.color}-600`"
+              >mdi {{social.icon}}</v-icon>
+            </a>
+          </div>
+        </footer>
+
+      </div>
     </v-navigation-drawer>
 
     <v-app-bar
@@ -71,15 +71,13 @@
         role="menu"
         @click.stop="toggleMenu = !toggleMenu"
         class="!tw-text-gray-500 tw-mx-2 tw-transform hover:tw-scale-125 tw-transition-transform"
-      >{{mdiMenu}}</v-icon>
+      >mdi mdi-menu</v-icon>
 
       <div class="tw-w-full tw-flex tw-justify-between tw-items-center">
-        <div class="tw-mx-2">
-          <nuxt-link
-            :to="localePath('/')"
-            class="tw-inline-block tw-p-2 !tw-text-pink-700 tw-font-semibold tw-text-xl md:tw-text-2xl tw-transform hover:tw--skew-x-6 tw-transition-transform"
-          >{{$t("jain")}} {{$t("aagam")}}</nuxt-link>
-        </div>
+        <nuxt-link
+          :to="localePath('/')"
+          class="tw-inline-block tw-mx-2 tw-p-2 !tw-text-pink-700 tw-font-semibold tw-text-xl md:tw-text-2xl tw-transform hover:tw--skew-x-6 tw-transition-transform"
+        >{{$t("basic.jain_aagam")}}</nuxt-link>
       </div>
     </v-app-bar>
   </div>
@@ -88,47 +86,31 @@
 <script>
 import LanguageInput from "~/components/LanguageInput";
 
-import {
-  mdiMenu,
-  mdiHome,
-  mdiMagnify,
-  // mdiBookEditOutline,
-  // mdiSortAlphabeticalVariant,
-  // mdiTagMultiple,
-  // mdiPackage,
-  mdiGithub,
-  mdiInstagram,
-  mdiLinkedin
-} from "@mdi/js";
-
 export default {
   components: { LanguageInput },
   data() {
     return {
-      mdiMenu,
-      mdiHome,
-      mdiMagnify,
-      toggleMenu: true,
+      toggleMenu: this.$vuetify.breakpoint.mdAndUp,
       toggleSearch: false,
       socials: [
         {
-          link: `https://github.com/jainism-portal/jainaagam`,
-          linkTitle: `Jain Aagam Github repository`,
-          icon: mdiGithub,
+          link: `https://github.com/ManasMadrecha`,
+          linkTitle: `Manas Madrecha Github`,
+          icon: `mdi-github`,
           iconRole: `Github`,
           color: `gray`
         },
         {
           link: `https://instagram.com/ManasMadrecha`,
           linkTitle: `Manas Madrecha Instagram follow`,
-          icon: mdiInstagram,
+          icon: `mdi-instagram`,
           iconRole: `Instagram`,
           color: `pink`
         },
         {
           link: `https://www.linkedin.com/in/manasmadrecha/`,
           linkTitle: `Manas Madrecha LinkedIn connect`,
-          icon: mdiLinkedin,
+          icon: `mdi-linkedin`,
           iconRole: `LinkedIn`,
           color: `blue`
         }

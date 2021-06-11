@@ -1,46 +1,72 @@
+<i18n lang="yaml">
+  en:
+    wip:
+      h2: What is Jain Aagam project?
+      para1: Jain Aagam project is an Open Source project by CA Manas Madrecha based in Mumbai to consolidate all the 45 Jain Aagam with their millions of aphormisms (sutra), along with meaning and explanation.
+      para2: You are more than welcome to contribute to this voluminous Jain Aagam venture on Github 
+      para3: Currently, there are Jain websites that serve only PDFs of Jain Aagam, but there is no website that provides searchable and indexable contents of Jain Aagam, that too in multiple languages. We aim to be the first. 
+  hi:
+    wip:
+      h2: जैन आगम परियोजना क्या है?
+      para1: जैन आगम परियोजना CA मानस मादरेचा (मुंबई में स्थित) द्वारा एक ओपन-सोर्स प्रोजेक्ट है, जिसमें सभी 45 जैन आगमों को उनके लाखों सूत्र के साथ अर्थ और स्पष्टीकरण सहित समेकित किया जाएगा।
+      para2: Github पर इस विशाल जैन आगम उद्यम में योगदान करने के लिए आपका स्वागत है।
+      para3: वर्तमान में, ऐसी जैन वेबसाइटें हैं जो केवल जैन आगम की PDF प्रस्तुत करती हैं, लेकिन ऐसी कोई वेबसाइट नहीं है जो जैन आगम की खोज योग्य और अनुक्रमित सामग्री प्रदान करती है, वह भी कई भाषाओं में। हम पहले बनने का लक्ष्य रखते हैं।
+</i18n>
+
 <template>
-  <div class="tw-text-base md:tw-text-lg ">
-    <div class="tw-max-w-screen-lg tw-mx-auto md:tw-flex">
-      <section class="tw-px-4 tw-mt-8">
-        <center>
-          <h1 class="tw-text-3xl md:tw-text-5xl tw-my-4 tw-font-medium tw-text-gray-900">Jain Aagam
-          </h1>
-          <p class="tw-mb-8 tw-leading-relaxed tw-text-gray-600 ">Jain Aagam are Jainism's supreme religious scriptures that deal with metaphysics, soul, life advice, and spiritualism.<br>
-            They were compiled over two thousand years ago in North India.</p>
-        </center>
-        <section class="tw-flex tw-justify-center">
-          <button class="tw-text-white tw-bg-pink-500 tw-py-2 tw-px-6 focus:tw-outline-none hover:tw-bg-pink-600 tw-rounded tw-text-lg">
-            <nuxt-link :to="localePath(`/aagam`)">
-              {{ $t("aagam") }}
-            </nuxt-link>
-          </button>
-          <button class="tw-ml-4 tw-text-gray-700 tw-bg-gray-200 tw-py-2 tw-px-6 focus:tw-outline-none hover:tw-bg-gray-400 tw-rounded tw-text-lg"><a
-              href="https://github.com/jainism-portal/jainaagam"
-              target="_blank"
-              rel="noopener noreferrer"
+  <div>
+    <section class="tw-mb-6 custom-min-height tw-flex tw-justify-center tw-items-center tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-pink-50">
+      <div class="tw-max-w-screen-lg tw-mx-auto">
+        <div class="tw-mx-4">
+          <header class="tw-text-center tw-flex tw-flex-col tw-justify-evenly tw-gap-2">
+
+            <p class="tw-inline-block tw-text-5xl md:tw-text-7xl tw-text-yellow-700">ꣽ</p>
+
+            <h1 class="tw-mt-3 md:tw-mt-6 tw-text-5xl md:tw-text-7xl tw-font-medium tw-text-pink-700">{{$t("basic.jain_aagam")}}
+            </h1>
+            <p class="tw-mt-3 md:tw-mt-6 tw-text-xl md:tw-text-2xl tw-max-w-screen-md tw-mx-auto tw-leading-relaxed tw-text-gray-600 ">{{$t("pages.home.header.description")}}
+            </p>
+          </header>
+          <div class="tw-mt-6 tw-flex tw-justify-center tw-items-center ">
+            <nuxt-link
+              :to="localePath(`/aagam`)"
+              class="tw-inline-block tw-text-xl md:tw-text-2xl tw-py-4 tw-px-4 md:tw-px-6 tw-shadow-lg !tw-text-linkblue tw-border tw-border-blue-200 tw-bg-gradient-to-br tw-from-white tw-via-white tw-to-blue-50 hover:tw-border-blue-600 hover:tw-bg-gradient-to-tl hover:tw-scale-105 md:hover:tw-scale-110 focus:tw-scale-100 hover:tw-shadow-xl tw-transform-gpu tw-transition-all tw-rounded tw-duration-150 tw-ease-in-out"
             >
-              GitHub
-            </a>
-          </button>
-        </section>
-      </section>
-      <section class="tw-mt-8 tw-w-3/4 tw-mx-auto tw-flex tw-justify-center tw-items-center nuxt-content">
-        <center class="tw-bg-yellow-50 tw-p-4 tw-shadow-xl tw-rounded-2xl">
-          <p class="tw-font-medium">This is a Work in Progress project. </p>
-          <p>You are more than welcome to contribute to this humungous venture. </p>
-          <p>Here, we aim to consolidate all the Jain Aagam with their millions of aphormisms (sutra), along with meaning and explanation on Internet.</p>
-          <p>Currently, there are Jain websites that serve only PDFs of Jain Aagam, but there is no website that provides searchable and indexable contents of Jain Aagam, that too in multiple languages. We aim to be the first among them.</p>
-        </center>
-      </section>
-    </div>
-    <section>
-      .
+              Read {{ $t("basic.jain_aagam") }} books online
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="tw-mb-6 tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-yellow-50">
+      <div class="tw-max-w-screen-lg tw-mx-auto">
+        <div class="tw-mx-4 tw-border-t tw-border-b tw-border-yellow-300 tw-px-2 tw-py-8 md:tw-px-4">
+          <h2 class="tw-text-2xl tw-text-pink-900">{{$t("wip.h2")}}</h2>
+          <div class="tw-text-lg tw-mt-3">
+            <p class="tw-mt-3">{{$t("wip.para1")}}</p>
+            <p class="tw-mt-3">{{$t("wip.para2")}}</p>
+            <p class="tw-mt-3">
+              <a
+                href="https://github.com/jainism-portal/jainaagam"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Jain Aagam Github repository"
+              >
+                <v-icon class="!tw-text-gray-600">mdi mdi-star</v-icon> <span class="tw-text-linkblue hover:tw-underline"> {{$t("basic.jain_aagam")}} Github</span>
+                <v-icon small>mdi mdi-open-in-new</v-icon>
+              </a>
+            </p>
+            <p class="tw-mt-3">{{$t("wip.para3")}} </p>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
 export default {
+  name: "HomePage",
   head() {
     return {
       title: `Jain Aagam`
@@ -48,3 +74,12 @@ export default {
   }
 };
 </script>
+
+<style lang="sass" scoped>
+.custom-min-height
+  min-height: calc( 100vh - 64px )
+
+@media (max-width: 640px)
+  .custom-min-height
+    min-height: calc( 70vh )
+</style>

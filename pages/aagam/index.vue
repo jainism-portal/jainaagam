@@ -1,11 +1,22 @@
 <template>
-  <div class="tw-mt-3 nuxt-content tw-mx-4 md:tw-mx-16">
-    <center>
-      <h1 class="tw-text-3xl">Jain Aagam</h1>
-    </center>
-    <div v-if="post">
+  <div
+    class=""
+    v-if="post"
+  >
+    <Breadcrumbs
+      v-if="$route.path"
+      :path="$route.path.endsWith(`/`) ? $route.path : `${$route.path}/`"
+    >
+    </Breadcrumbs>
+    <header class="tw-text-center">
+      <h1 class="tw-px-2 md:tw-px-4 tw-text-xl md:tw-text-3xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2">{{post.title}}</h1>
+    </header>
+    <main
+      v-if="post"
+      class="tw-my-4 tw-mx-4"
+    >
       <NuxtContent :document="post"></NuxtContent>
-    </div>
+    </main>
   </div>
 </template>
 

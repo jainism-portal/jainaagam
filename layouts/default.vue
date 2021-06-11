@@ -9,6 +9,7 @@
       ></Nuxt>
     </v-main>
     <the-footer></the-footer>
+    <GoTop></GoTop>
   </v-app>
 </template>
 

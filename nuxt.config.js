@@ -27,27 +27,45 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'jain-aagam',
-    htmlAttrs: {
-      lang: 'en'
-    },
+    // htmlAttrs: {
+    //   lang: 'en'
+    // },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      {
+        hid: "og:site_name",
+        property: "og:site_name",
+        content: "Jain Aagam"
+      },
+      { hid: "og:type", property: "og:type", content: "website" },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // https://csswizardry.com/2020/05/the-fastest-google-fonts/
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true },
+      { rel: "preconnect", href: "https://www.google-analytics.com" },
       {
-        rel: "preload", as: "style", href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
+      },
+      // https://csswizardry.com/2020/05/the-fastest-google-fonts/
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: true
+      },
+      {
+        rel: "preload",
+        as: "style",
+        href:
+          "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap",
-        media: "print", onload: "this.media='all'"
-      }
+        href:
+          "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap",
+        media: "print",
+        onload: "this.media='all'"
+      },
     ]
   },
 

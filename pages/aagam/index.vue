@@ -21,7 +21,11 @@ export default {
   async fetch() {
     this.posts = await this.$content(this.$i18n.locale, { deep: true })
       // .where({ type: "aagam_index" })
-      .where({ path: this.$route.path })
+      .where({
+        path: this.$route.path.startsWith(`/aagam`)
+          ? `/en${this.$route.path}`
+          : this.$route.path
+      })
       .fetch();
 
     this.post = this.posts[0];
@@ -37,15 +41,7 @@ export default {
         return this.post.seo.description;
       } else return this.post.description;
     }
-  // methods: {
-  //   /**
-  //    * Called when a language button is clicked
-  //    * Changes the i18n context variable's locale to the one selected
-  //    */
-  //   changeLanguage(lang) {
-  //     this.$i18n.locale = lang;
-  //   },
-  // },
+  },
   head() {
     if (this.post) {
       return {

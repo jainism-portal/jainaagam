@@ -1,6 +1,6 @@
 ---
 title: आचारांग
-position: 1.1
+position: 1.01
 type: aagam
 
 cat: anga

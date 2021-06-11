@@ -1,12 +1,8 @@
 ---
-title: dukhi-praani
+title: Dukhi Praani
 
-depth:
-  aagam: acharang
-  book: 1
-  chapter: 1
-  lesson: 2
-  sutra: 1
+type: sutra
+position: 1
 
 ---
 
@@ -15,9 +11,5 @@ depth:
 ## Glossary
 
 ## Meaning
-
-### English
-
-### Hindi
 
 ## Explanation

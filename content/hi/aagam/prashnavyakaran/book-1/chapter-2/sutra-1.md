@@ -1,7 +1,8 @@
 ---
 title: 
-position: 1
+
 type: sutra
+position: 1
 
 parent:
   type: chapter

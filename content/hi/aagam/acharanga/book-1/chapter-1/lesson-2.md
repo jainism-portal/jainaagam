@@ -1,7 +1,8 @@
 ---
 title: दूसरा उद्देशक
-position: 2
+
 type: lesson
+position: 2
 
 order:
   cat: anga
@@ -26,5 +27,3 @@ children:
   count: 6
 
 ---
-
-dusra

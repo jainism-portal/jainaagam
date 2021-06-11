@@ -3,6 +3,7 @@ title: कुल 2
 trans: kul 2
 
 type: book
+position: 2
 
 order:
   cat: anga

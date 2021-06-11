@@ -1,7 +1,8 @@
 ---
 title: शस्त्र परिज्ञा
-position: 1
+
 type: chapter
+position: 1
 
 parent:
   type: book

@@ -1,6 +1,6 @@
 ---
 title:
-position: 2
+position: 1
 type: lesson
 
 parent:

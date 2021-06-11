@@ -1,21 +1,8 @@
 ---
-title: तइओ उद्देसओ —
+title: तइओ उद्देसओ
 
 type: lesson
-
-order:
-  cat: anga
-  aagam: 
-    position: 1
-  book: 
-    position: 1
-    depth: 2
-  chapter: 
-    position: 1
-    depth: 2
-  lesson: 
-    position: 3
-    depth: 3
+position: 3
   
 parent:
   type: chapter
@@ -30,8 +17,6 @@ start: तइओ उद्देसओ
 end: सत्थपरिण्णाए तइओ उद्देसओ समत्तो ।
  
 --- 
-
-## तइओ उद्देसओ 
 
 ## 1 
 

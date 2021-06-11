@@ -2,6 +2,7 @@
 title:
 
 type: book
+position: 1
 
 parent:
   type: aagam

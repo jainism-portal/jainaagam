@@ -2,6 +2,7 @@
 title: आत्म-अस्तित्व का बोध
 
 type: sutra
+position: 2
 
 order:
   cat: anga

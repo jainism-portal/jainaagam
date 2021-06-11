@@ -1,5 +1,5 @@
 ---
-title: दूसरा उद्देशक
+title:
 position: 2
 type: lesson
 

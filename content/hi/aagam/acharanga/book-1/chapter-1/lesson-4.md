@@ -1,7 +1,8 @@
 ---
 title: चौथा उद्देशक
-position: 4
+
 type: lesson
+position: 4
 
 order:
   cat: anga

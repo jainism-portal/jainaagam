@@ -1,7 +1,8 @@
 ---
 title: तीसरा उद्देशक
-position: 3
+
 type: lesson
+position: 3
 
 order:
   cat: anga

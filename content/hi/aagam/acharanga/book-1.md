@@ -1,7 +1,8 @@
 ---
 title:
-position: 1
+
 type: book
+position: 1
 
 
 parent:

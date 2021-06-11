@@ -2,23 +2,7 @@
 title: 
 
 type: sutra
-
-order:
-  aagam: 
-    position: 1
-    depth: 1
-  book: 
-    position: 1
-    depth: 2
-  chapter: 
-    position: 1
-    depth: 3
-  lesson: 
-    position: 1
-    depth: 4
-  sutra: 
-    position: 6
-    depth: 5
+position: 6
 
 parent:
   type: lesson
@@ -27,5 +11,6 @@ parent:
 
 ## Meaning
 
+About this the Revered One has taught the truth (comprehension and renunciation). For the sake of the splendour, honour, and glory of this life, for the sake of birth, death, and final liberation, for the removal of pain, all these causes of sin are at work, which are to be comprehended and renounced in this world. 
 
 ## Explanation

@@ -3,6 +3,7 @@ title: लोक विजय
 trans: lok-vijay
 
 type: chapter
+position: 2
 
 order:
   cat: anga

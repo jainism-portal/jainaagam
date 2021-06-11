@@ -1,7 +1,8 @@
 ---
 title: Code of Conduct
-position: 1
+
 type: aagam
+position: 1
 
 cat: anga
 
@@ -10,3 +11,5 @@ children:
   count: 2
 
 ---
+
+## Acharanga Sutra

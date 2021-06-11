@@ -150,6 +150,7 @@ export default {
     markdown: {
       remarkPlugins: [
         ['remark-breaks'],
+        ['remark-autolink-headings', { behavior: 'append' }],
         // ['remark-directive'],
         // ['~/plugins/remark/directive-custom.js'],
         ['@silvenon/remark-smartypants', { dashes: 'oldschool' }],

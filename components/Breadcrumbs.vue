@@ -1,45 +1,36 @@
 <template>
-  <div>
+  <nav class="">
     <v-breadcrumbs
       :large="$vuetify.breakpoint.mdAndUp ? true : false"
       :items="breadcrumbs"
-      divider="→"
-      class="tw-text-pink-800 tw-capitalize"
+      class="tw-text-linkblue tw-capitalize"
     >
+      <template v-slot:divider>
+        <v-icon class="!tw-text-gray-600">mdi-arrow-right</v-icon>
+      </template>
     </v-breadcrumbs>
-  </div>
+  </nav>
 </template>
 
 <script>
-// import _ from "lodash";
-
 export default {
-  props: { pathMatch: String, fullPathMatch: String, post: { type: Object } },
+  props: { pathMatch: String, path: String, post: { type: Object } },
   data() {
     return {
       urls: [],
       titles: [],
       breadcrumbs: []
-      // breadcrumbsTrial: [
-      //   { text: "magazines", to: "/magazines/", exact: true },
-      //   { text: "vision", to: "/magazines/vision/", exact: true }
-      // ]
     };
   },
   async fetch() {
-    // // let full = "/hi/aagam/acharanga/book-1/chapter-1/lesson-1/sutra-1/";
+    // "/hi/aagam/acharanga/book-1/chapter-1/lesson-1/sutra-1/"
 
-    // // let fullarray = full.split("/");
-    // fullarray.shift(); // first item is empty string, so remove
-    // fullarray.shift(); // second item is locale, so remove
-    // fullarray.pop(); // last item is empty string, so remove
-    // // console.log("FULLARRay after SHIFT 👉🏻" + fullarray);
-
-    this.titles = this.fullPathMatch.split("/");
+    this.titles = this.path.split("/");
     this.titles.shift(); // first item is empty string, so remove
-    this.titles.shift(); // second item is locale, so remove
-    this.titles.pop(); // last item is empty string, so remove
-    // console.log("Titles after POP 👉🏻" + this.titles);
+    if (this.$i18n.locale !== "en") {
+      this.titles.shift(); // second item is locale for non-English paths, so remove
+    }
+    this.titles.pop(); // last item is trailing slash, so remove
 
     this.urls = [...this.titles]; // Create new array of URLs
 
@@ -49,17 +40,35 @@ export default {
 
     this.urls.forEach((url, i) => {
       if (i === 0) {
-        this.urls[0] = `/${this.$i18n.locale}/${this.urls[0]}/`;
+        this.urls[0] = `/${this.urls[0]}`;
       } else {
-        this.urls[i] = `${this.urls[i - 1]}${this.urls[i]}/`;
+        this.urls[i] = `${this.urls[i - 1]}/${this.urls[i]}`;
       }
     });
+
+    ///////////////////
+    // TODO
+    if (this.$i18n.locale === "hi") {
+      //   this.titles.map(title => {
+      //     title
+      //       .replace(/toc/, this.$t("contents.toc"))
+      //       .replace(/appendix/, this.$t("contents.appendix"))
+      //       .replace(/book/, this.$t("contents.book"))
+      //       .replace(/chapter/, this.$t("contents.chapter"))
+      //       .replace(/episode/, this.$t("contents.episode"))
+      //       .replace(/lesson/, this.$t("contents.lesson"))
+      //       .replace(/part/, this.$t("contents.part"))
+      //       .replace(/sutra/, this.$t("contents.sutra"));
+      //   });
+      this.titles.splice(0, 1, "आगम");
+    }
+    ////////////////////
 
     // Now let's merge the two Arrays titles and urls into specific Array of Objects format required by Vuetify
 
     this.titles.forEach((item, i) => {
       this.breadcrumbs[i] = [
-        { text: this.titles[i], to: this.urls[i], exact: true }
+        { text: this.titles[i], to: this.localePath(this.urls[i]), exact: true }
       ];
     });
     this.breadcrumbs.unshift([

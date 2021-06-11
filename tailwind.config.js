@@ -18,6 +18,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'linkblue': '#2952a3', // hsl(220, 60%, 40%)
         'facebook': '#3b5999',
         'twitter': '#55acee',
         'linkedin': '#0077B5',

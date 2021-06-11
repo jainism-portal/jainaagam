@@ -5,7 +5,25 @@ $body-font-family: 'Open Sans', sans-serif !default
 
 $grid-breakpoints: ('xs': 0, 'sm': 640px, 'md': 768px, 'lg': 1024px - 16px, 'xl': 1280px - 16px)
 
+// Tabs
+$tab-disabled-opacity: .4 !default
+$tab-font-size: unset
+$tab-font-weight: unset
+$tabs-bar-height: 40px !default
+
+$tabs-item-letter-spacing: unset
+
+// Tooltip
+
+$tooltip-transition-enter-duration: 75ms !default
+
 @import '~vuetify/src/styles/styles.sass'
+
+.v-application p
+  margin-bottom: unset
+
+.v-application a
+  color: unset
 
 @each $name, $value in $utilities
   $utilities: map-merge($utilities, ($name: false))

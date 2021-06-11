@@ -9,200 +9,180 @@
     </div>
     <div
       v-else-if="$fetchState.error"
-      class="nuxt-content tw-my-48 tw-text-xl tw-text-blue-800 tw-bg-pink-50 tw-p-4 tw-text-center tw-font-medium"
+      class="nuxt-content tw-my-48 tw-text-xl tw-p-4"
     >
       <!-- (post === null && sutraOriginal === null) || -->
-      <h1 class="tw-text-3xl">404 error. Page not found.</h1>
+      <h1 class="tw-text-3xl tw-bg-pink-50 tw-text-center tw-text-blue-900 tw-font-medium">404 error. Page not found.</h1>
       <ol class="tw-mt-3">
         <li>Check URL again</li>
         <li>This page is not yet available in {{$i18n.localeProperties.name}} language. Choose different language. OR</li>
-        <li>Go <nuxt-link :to="localePath(`/`)">Home</nuxt-link>
+        <li>Go <nuxt-link :to="localePath(`/`)">Home</nuxt-link> to navigate to the Aagam of your choice.
         </li>
       </ol>
     </div>
-    <div v-else>
-
-      <main class="md:tw-flex md:tw-flex-row-reverse">
-        <article :class="showToc ? 'md:tw-w-[70%]' : 'tw-w-full'">
-          <nav class="tw-mx-2">
-            <!-- <header
-            v-if="post && post.order"
-            class="tw-bg-white tw-sticky tw-top-14 tw-z-20 tw-border-b tw-border-gray-300 tw-text-center tw-pt-1 tw-pb-2 tw-mb-2 md:tw-mt-0 md:tw-mb-4"
-          > -->
-            <!-- <nav class="tw-flex tw-flex-wrap tw-justify-center tw-items-center">
-              <p class="tw-inline tw-mr-2">
-                <nuxt-link
-                  :to="`/${$i18n.locale}/aagam/${$route.params.aagam}/table-of-contents`"
-                  class="tw-text-pink-600 tw-underline tw-font-medium tw-capitalize"
-                >{{ $route.params.aagam }} Aagam TOC</nuxt-link>
-                |
-              </p>
-              <p
-                v-for="(items, i) in Object.entries(
-                  post.order
-                )"
-                :key="i"
-                class="tw-inline"
-              >
-                <span
-                  v-for="(item, i2) in items"
-                  :key="i2"
-                >
-                  <span v-if="typeof item === 'string' && item != 'cat'">{{ item }}-</span><span v-if="typeof item === 'object'">{{ item.position }} →
-                  </span>
-                </span>
-              </p>
-            </nav> -->
-            <!-- </header> -->
-            <div class="tw-flex tw-flex-wrap tw-justify-start tw-items-center tw-bg-white">
-              <Breadcrumbs
-                :fullPathMatch="$route.fullPath"
-                v-if="$route.fullPath"
-              >
-              </Breadcrumbs>
-            </div>
-            <!-- <button
+    <div
+      v-else
+      class="md:tw-flex md:tw-flex-row-reverse"
+    >
+      <article :class="showToc ? 'md:tw-w-[70%]' : 'tw-w-full'">
+        <Breadcrumbs
+          v-if="$route.path"
+          :path="$route.path.endsWith(`/`) ? $route.path : `${$route.path}/`"
+        >
+        </Breadcrumbs>
+        <!-- <button
               class="tw-fixed tw-z-40 tw-bottom-4 md:tw-bottom-auto md:tw-top-14 tw-right-2 tw-rounded-2xl tw-text-2xl tw-w-10 tw-h-10 md:tw-w-12 md:tw-h-12 tw-font-2xl tw-bg-gradient-to-bl tw-from-white tw-to-blue-200 tw-shadow-md focus:tw-outline-none focus:tw-ring focus:tw-ring-blue-300"
               @click.stop="showToc = !showToc"
             >{{ showToc ? "❌" : "🧾" }}</button> -->
-          </nav>
 
-          <main v-if="
+        <header class="tw-text-center">
+          <h1
+            v-if="
           !post ||
           (!post && !sutraOriginal)
-        ">
-            <Incomplete
-              :post="post"
-              :sutraOg="sutraOriginal"
-            ></Incomplete>
-          </main>
-
-          <main
-            v-else
-            class="tw-mx-2"
-            :class="showToc ? 'md:tw-mx-8' : 'md:tw-mx-16'"
+        "
+            class="tw-px-2 md:tw-px-4 tw-text-xl md:tw-text-3xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
           >
-            <header class="tw-text-center">
-              <h1
-                v-if="post"
-                class="tw-text-3xl"
-              >
-                {{ $t("jain") }} {{ $t("aagam") }} <span
-                  v-if="post.type"
-                  class="tw-capitalize"
-                >
-                  - {{ post.type }}</span> <span v-if="post.position">
-                  {{ post.position }}</span>
-                <span v-if="post.title">
-                  - {{ post.title }}</span>
-              </h1>
-              <h1 v-if="!post && sutraOriginal">
-                {{ $t("jain") }} {{ $t("aagam") }}
-                {{ sutraOriginal.type }}
-                <span v-if="sutraOriginal.title">
-                  - {{ sutraOriginal.title }}</span>
-              </h1>
-              <div
-                class="tw-mt-3 tw-text-gray-600"
-                v-if="$route.params.pathMatch"
-              >
-                <nuxt-link :to="`/${$i18n.locale}/aagam/${AagamName}/index/`">View {{AagamName}} Aagam's Index
-                </nuxt-link>
-              </div>
-            </header>
+            {{seoTitle}}
 
-            <section
-              v-if="children && children.length > 0"
-              class="nuxt-content "
+          </h1>
+          <h1
+            v-if="post"
+            class="tw-px-2 md:tw-px-4 tw-text-xl md:tw-text-3xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+          >
+            {{seoTitle}}
+            <span v-if="post.title">
+              - {{ post.title }}</span>
+          </h1>
+          <h1
+            v-if="!post && sutraOriginal"
+            class="tw-px-2 md:tw-px-4 tw-text-xl md:tw-text-3xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+          >
+            {{seoTitle}}
+            <span v-if="sutraOriginal.title">
+              - {{ sutraOriginal.title }}</span>
+          </h1>
+          <nuxt-link
+            :to="localePath(`/aagam/${AagamName}/toc`)"
+            class="tw-inline-block tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-purple-700 tw-border tw-border-purple-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
+          >View
+            <span class="tw-capitalize">{{AagamName}} </span>
+            Aagam's
+            <span>Table of Contents</span>
+          </nuxt-link>
+        </header>
+
+        <main
+          v-if="
+          !post ||
+          (!post && !sutraOriginal)"
+          class="tw-border-t tw-border-gray-500 tw-m-4"
+        >
+          <Incomplete
+            :post="post"
+            :sutraOg="sutraOriginal"
+          ></Incomplete>
+        </main>
+
+        <main
+          v-else
+          class="tw-my-4 tw-mx-4"
+        >
+
+          <section
+            v-if="children && children.length > 0"
+            class="nuxt-content "
+          >
+            <h2
+              @click="showChildren = !showChildren"
+              class="tw-cursor-pointer tw-px-4"
+            >Contents</h2>
+            <ol
+              v-show="showChildren"
+              class="!tw-list-none tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-2"
             >
-              <h2
-                @click="showChildren = !showChildren"
-                class="tw-cursor-pointer"
-              >Contents</h2>
-              <ol
-                v-show="showChildren"
-                class="!tw-list-none tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-2"
+              <li
+                v-for="child in children"
+                :key="child.path"
               >
-                <li
-                  v-for="(child, i) in children"
-                  :key="i"
+                <nuxt-link
+                  :to="localePath(child.to)"
+                  class="tw-p-1 tw-text-sm md:tw-text-lg"
                 >
-                  <nuxt-link
-                    :to="`${child.path}`"
-                    class="tw-p-1"
+                  <span v-if="child.title">
+                    <span class="tw-capitalize">{{child.slug}}</span>
+                    - <span>{{child.title}}</span>
+                  </span>
+                  <span
+                    v-else
+                    class="tw-capitalize"
                   >
-                    <span class="tw-text-sm md:tw-text-lg tw-capitalize">{{ child.title ? `${child.slug} - ${child.title}` : child.slug }}</span>
-                  </nuxt-link>
-                  <!-- <ReadingTime
-                    class="tw-text-sm"
-                    :post="child"
-                    :showWords="true"
-                    :showTime="false"
-                  ></ReadingTime> -->
-                </li>
-              </ol>
-            </section>
-            <section class="tw-border-t tw-border-gray-600 tw-my-4">
-              <section
-                v-if="sutraOriginal"
-                class="nuxt-content"
-              >
-                <h2>Sutra</h2>
-                <nuxt-content :document="sutraOriginal"></nuxt-content>
-              </section>
-              <section
-                v-if="post.body.children.length == 0"
-                class="nuxt-content tw-mt-3"
-              >
-                <div class="tw-bg-yellow-50 tw-p-4 tw-text-gray-600 !tw-text-base">
-                  <div>😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its <b>Contents</b>. </div>
-                  <div class="tw-mt-3">This is an Open source project, so you too can easily <a
-                      :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
-                      target="_blank"
-                    >
-                      Contribute on GitHub
-                    </a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can contact <a href="mailto:madrechamanas@gmail.com">Manas Madrecha</a>. Thank you. Jai Jindendra. 🙏🏻</div>
-                </div>
-              </section>
+                    {{child.slug}}
+                  </span>
+                </nuxt-link>
+                <!-- <ReadingTime class="tw-text-sm" :post="child" :showWords="true"   :showTime="false"></ReadingTime> -->
+              </li>
+            </ol>
+          </section>
 
-              <nuxt-content
-                v-else
-                :document="post"
-                class="tw-mt-3"
-              ></nuxt-content>
-
-            </section>
-          </main>
-          <footer class="nuxt-content tw-m-4 tw-border-t tw-border-gray-600">
-            <section class="tw-mt-3 tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
-              <nuxt-link
-                :to="localePath(prevs.path)"
-                v-if="prevs"
-                class="tw-mx-2"
-              >Prev 👈🏻 {{prevs.slug}}</nuxt-link>
-              <nuxt-link
-                :to="localePath(nexts.path)"
-                v-if="nexts"
-                class="tw-mx-2"
-              >Next 👉🏻 {{nexts.slug}}</nuxt-link>
-            </section>
-
-            <div class="tw-text-center tw-bg-green-50 tw-mt-3 tw-p-3">
-              <a
-                :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
-                target="_blank"
-                class="tw-block tw-text-sm"
-                v-if="post"
-              >
-                Contribute/Edit on GitHub
-              </a>
-              <div class="tw-text-sm tw-text-gray-500">
-                Post footer. Author. Comments. Related. Share.
-              </div>
+          <section v-if="post">
+            <nuxt-content
+              :document="post"
+              class="tw-mt-3"
+            ></nuxt-content>
+          </section>
+          <section
+            v-if="sutraOriginal"
+            class="nuxt-content"
+          >
+            <h2 class="">{{$t("pages.sutra.main.sutra.heading")}}</h2>
+            <sutra :sutraOriginal="sutraOriginal"></sutra>
+          </section>
+          <section
+            v-if="post.body.children.length == 0"
+            class="nuxt-content tw-mt-3"
+          >
+            <div class="tw-bg-yellow-50 tw-p-4 tw-text-gray-600 !tw-text-base">
+              <div>😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its <b>Contents</b>. </div>
+              <div class="tw-mt-3">This is an Open source project, so you too can easily <a
+                  :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
+                  target="_blank"
+                >
+                  Contribute on GitHub
+                </a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can contact <a href="mailto:madrechamanas@gmail.com">Manas Madrecha</a>. Thank you. Jai Jindendra. 🙏🏻</div>
             </div>
-          </footer>
-        </article>
-        <!-- <aside :class="showToc ? 'tw-w-[30%]' : 'md:tw-w-0'">
+          </section>
+        </main>
+        <footer class="nuxt-content tw-m-4 tw-border-t tw-border-gray-600">
+          <section class="tw-mt-3 tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
+            <nuxt-link
+              :to="localePath(prevs.to)"
+              v-if="prevs"
+              class="tw-mx-2 tw-text-center tw-capitalize"
+            >Prev 👈🏻 {{prevs.slug}}</nuxt-link>
+            <nuxt-link
+              :to="localePath(nexts.to)"
+              v-if="nexts"
+              class="tw-mx-2 tw-text-center tw-capitalize"
+            >Next 👉🏻 {{nexts.slug}}</nuxt-link>
+          </section>
+
+          <div class="tw-text-center tw-bg-green-50 tw-mt-3 tw-p-3">
+            <a
+              :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
+              target="_blank"
+              class="tw-block tw-text-sm"
+              v-if="post"
+            >
+              Contribute/Edit on GitHub
+            </a>
+            <div class="tw-text-sm tw-text-gray-500">
+              Post footer. Author. Comments. Related. Share.
+            </div>
+          </div>
+        </footer>
+      </article>
+      <!-- <aside :class="showToc ? 'tw-w-[30%]' : 'md:tw-w-0'">
           <div class="tw-fixed md:tw-sticky tw-top-11 md:tw-top-0 tw-z-30 tw-rounded-2xl tw-shadow-md tw-bg-gradient-to-br tw-from-white tw-via-white tw-to-blue-50">
             <header
               id="heading-toc"
@@ -266,21 +246,27 @@
             </scrollactive>
           </div>
         </aside> -->
-      </main>
-      <GoTop></GoTop>
     </div>
   </div>
 </template>
 
 <script>
 import Breadcrumbs from "~/components/Breadcrumbs.vue";
-import AagamIndex from "~/components/templates/AagamIndex.vue";
+import AagamTOC from "~/components/templates/AagamTOC.vue";
+
+import Sutra from "~/components/templates/Sutra.vue";
+
+import SutraMeaning from "~/components/templates/SutraMeaning.vue";
+import SutraExplanation from "~/components/templates/SutraExplanation.vue";
 
 export default {
-  name: "AagamVuePage",
+  name: "AagamDynamicPage",
   components: {
     Breadcrumbs,
-    AagamIndex
+    "aagam-toc": AagamTOC,
+    Sutra,
+    SutraMeaning,
+    SutraExplanation
   },
   data() {
     return {
@@ -330,13 +316,15 @@ export default {
       }
     },
     AagamName() {
-      // Add a Trailing Slash because, for e.g., on http://localhost:3000/en/aagam/acharanga/ page, the pathMatch is "acharanga" (not "acharanga/")
-      const pathMatch = this.$route.params.pathMatch.endsWith("/")
-        ? this.$route.params.pathMatch
-        : `${this.$route.params.pathMatch}/`;
-      const indexOfFirstSlash = pathMatch.indexOf(`/`);
-      // Return only the "acharanga" part of the string.
-      return pathMatch.slice(0, indexOfFirstSlash);
+      if (this.$route?.params?.pathMatch) {
+        // Add a Trailing Slash because, for e.g., on http://localhost:3000/en/aagam/acharanga/ page, the pathMatch is "acharanga" (not "acharanga/")
+        const pathMatch = this.$route.params.pathMatch.endsWith("/")
+          ? this.$route.params.pathMatch
+          : `${this.$route.params.pathMatch}/`;
+        const indexOfFirstSlash = pathMatch.indexOf(`/`);
+        // Return only the "acharanga" part of the string.
+        return pathMatch.slice(0, indexOfFirstSlash);
+      }
     }
   },
   async fetch() {
@@ -431,24 +419,6 @@ export default {
         });
       }
     }
-  }
-};
-</script>
-
-<style lang="sass" scoped>
-.active-scroll
-  @apply tw-text-lg tw-text-gray-900 hover:tw-shadow-md hover:tw-bg-white tw-bg-white tw-font-bold
-
-.toc_aside
-  /* @apply tw-top-32 tw-bottom-16; */
-  /* @apply tw-transition-transform; */
-  transform: translateX(calc(100%))
-  transition-property: transform
-  transition-duration: 500ms
-
-.toc_aside-open
-  transform: translateX(0%)
-
   },
   head() {
     if (this.post && this.$route) {
@@ -473,6 +443,24 @@ export default {
         ]
       };
     }
+  }
+};
+</script>
+
+<style lang="sass" scoped>
+.active-scroll
+  @apply tw-text-lg tw-text-gray-900 hover:tw-shadow-md hover:tw-bg-white tw-bg-white tw-font-bold
+
+.toc_aside
+  /* @apply tw-top-32 tw-bottom-16; */
+  /* @apply tw-transition-transform; */
+  transform: translateX(calc(100%))
+  transition-property: transform
+  transition-duration: 500ms
+
+.toc_aside-open
+  transform: translateX(0%)
+
 .toc_aside-button
   /* @apply tw-fixed tw-top-2 */
   transform: translate(86%, 60px)

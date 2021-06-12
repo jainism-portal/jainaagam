@@ -6,7 +6,7 @@
       class="tw-text-linkblue tw-capitalize"
     >
       <template v-slot:divider>
-        <v-icon class="!tw-text-gray-600">mdi-arrow-right</v-icon>
+        <v-icon class="!tw-text-gray-300">mdi-arrow-right</v-icon>
       </template>
     </v-breadcrumbs>
   </nav>
@@ -68,7 +68,11 @@ export default {
 
     this.titles.forEach((item, i) => {
       this.breadcrumbs[i] = [
-        { text: this.titles[i], to: this.localePath(this.urls[i]), exact: true }
+        {
+          text: this.titles[i].replace(/-/g, " "),
+          to: this.localePath(this.urls[i]),
+          exact: true
+        }
       ];
     });
     this.breadcrumbs.unshift([

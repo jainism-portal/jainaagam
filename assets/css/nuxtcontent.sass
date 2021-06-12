@@ -1,8 +1,8 @@
 %margin-shared
-  @apply tw-my-6
+  @apply tw-my-3 md:tw-my-6
 
 .nuxt-content
-  @apply tw-text-gray-600
+  @apply tw-text-gray-600 tw-text-lg md:tw-text-xl
   h2
     @extend %margin-shared
     @apply tw-text-pink-800 tw-text-xl md:tw-text-3xl tw-bg-gradient-to-r tw-from-white tw-to-red-50 tw-rounded-md tw-py-1
@@ -16,7 +16,7 @@
     @apply tw-text-green-700 tw-text-lg md:tw-text-2xl tw-pb-1 tw-border-b-2 tw-border-gray-200
 
   p
-    @apply tw-text-gray-800 md:tw-text-lg md:tw-leading-relaxed
+    @apply tw-text-gray-800 md:tw-leading-relaxed
     &:not([class*="vs-alert"])
       @extend %margin-shared
       @apply md:tw-my-4
@@ -38,7 +38,7 @@
     @apply tw-list-decimal tw-pl-6 tw-list-outside
 
   li
-    @apply md:tw-text-lg tw-text-gray-800 md:tw-leading-relaxed
+    @apply tw-text-gray-800 md:tw-leading-relaxed
     @apply tw-my-0.5 md:tw-my-1.5
 
   ul li ul li:first-child
@@ -123,6 +123,9 @@
 
   mark
     @apply tw-p-0.5
+
+  summary
+    @extend %margin-shared
 
   table
     &:not([class*="vgt"])

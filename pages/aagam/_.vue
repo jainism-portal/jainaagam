@@ -41,14 +41,14 @@
           !post ||
           (!post && !sutraOriginal)
         "
-            class="tw-px-2 md:tw-px-4 tw-text-xl md:tw-text-3xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+            class="tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
           >
             {{seoTitle}}
 
           </h1>
           <h1
             v-if="post"
-            class="tw-px-2 md:tw-px-4 tw-text-xl md:tw-text-3xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+            class="tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
           >
             {{seoTitle}}
             <span v-if="post.title">
@@ -56,7 +56,7 @@
           </h1>
           <h1
             v-if="!post && sutraOriginal"
-            class="tw-px-2 md:tw-px-4 tw-text-xl md:tw-text-3xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+            class="tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
           >
             {{seoTitle}}
             <span v-if="sutraOriginal.title">
@@ -421,27 +421,27 @@ export default {
     }
   },
   head() {
-    if (this.post && this.$route) {
-      return {
-        title: this.seoTitle,
-        meta: [
-          // {
-          //   hid: `description`,
-          //   name: `description`,
-          //   content: this.seoDescription
-          // },
-          {
-            hid: "og:title",
-            property: "og:title",
-            content: this.seoTitle
-          }
-          // {
-          //   hid: `og:description`,
-          //   name: `og:description`,
-          //   content: this.seoDescription
-          // }
-        ]
-      };
+    // if (this.post && this.$route) {
+    return {
+      title: this.seoTitle,
+      meta: [
+        // {
+        //   hid: `description`,
+        //   name: `description`,
+        //   content: this.seoDescription
+        // },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.seoTitle
+        }
+        // {
+        //   hid: `og:description`,
+        //   name: `og:description`,
+        //   content: this.seoDescription
+        // }
+      ]
+    };
     }
   }
 };

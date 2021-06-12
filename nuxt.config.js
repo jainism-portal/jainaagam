@@ -155,12 +155,12 @@ export default {
       let postsHI = await $content('hi', { deep: true }).without("body").sortBy("path").fetch();
       for (const post of postsEN) {
         routes.push({
-          url: `${post.to}`,
+          url: `${post.to}/`,
           changefreq: 'daily',
           lastmod: post.updatedAt,
           // https://github.com/nuxt-community/sitemap-module/issues/122
           links: ['en', 'hi', 'x-default'].map(lang => {
-            let url = lang === 'en' || lang === 'x-default' ? `${post.to}` : `/${lang}${post.to}`
+            let url = lang === 'en' || lang === 'x-default' ? `${post.to}/` : `/${lang}${post.to}/`
             return {
               lang: lang,
               url: url
@@ -170,11 +170,11 @@ export default {
       }
       for (const post of postsHI) {
         routes.push({
-          url: `/hi/${post.to}`,
+          url: `/hi/${post.to}/`,
           changefreq: 'daily',
           lastmod: post.updatedAt,
           links: ['en', 'hi', 'x-default'].map(lang => {
-            let url = lang === 'en' || lang === 'x-default' ? `${post.to}` : `/${lang}${post.to}`
+            let url = lang === 'en' || lang === 'x-default' ? `${post.to}/` : `/${lang}${post.to}/`
             return {
               lang: lang,
               url: url
@@ -186,8 +186,24 @@ export default {
     },
     filter({ routes }) {
       return routes.map((route) => {
-        route.url = `${route.url}/`// Add a trailing slash
-        return route
+        route.url = route.url.endsWith(`/`) ? route.url : `${route.url}/` // Slash
+
+        if (!route.name) return route
+        const page = route.name.split('__')[0]
+        return {
+          url: route.url,
+          links: route.links.map(linkObj => {
+            linkObj.url = linkObj.url.endsWith(`/`) ? linkObj.url : `${linkObj.url}/`
+            return linkObj
+          })
+            // https://github.com/nuxt-community/sitemap-module/issues/122#issuecomment-659377003
+            .concat([
+              {
+                lang: 'x-default',
+                url: page === 'index' ? '/' : `${page}/`
+              }
+            ])
+        }
       })
     }
   },

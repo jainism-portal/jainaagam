@@ -89,40 +89,30 @@
           class="tw-my-4 tw-mx-4"
         >
 
-          <section
-            v-if="children && children.length > 0"
-            class="nuxt-content "
-          >
-            <h2
-              @click="showChildren = !showChildren"
-              class="tw-cursor-pointer tw-px-4"
-            >Contents</h2>
-            <ol
-              v-show="showChildren"
-              class="!tw-list-none tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-2"
-            >
-              <li
-                v-for="child in children"
-                :key="child.path"
-              >
-                <nuxt-link
-                  :to="localePath(child.to)"
-                  class="tw-p-1 tw-text-sm md:tw-text-lg"
+          <section v-if="children && children.length > 0">
+            <header class="nuxt-content ">
+              <h2 class="tw-cursor-pointer">{{$t("pages.all.children.heading")}}</h2>
+            </header>
+            <component :is="  children.length > 10 ? 'details' : 'div'">
+              <summary
+                v-if="children.length > 10"
+                class="tw-my-3 md:tw-my-6 tw-pl-2 md:tw-pl-4 tw-py-2 tw-cursor-pointer hover:tw-shadow-md tw-rounded hover:tw-bg-gradient-to-b hover:tw-from-white hover:tw-to-pink-50 tw-text-pink-800"
+              >{{$t("pages.all.children.summary")}}</summary>
+              <ol class="tw-list-decimal tw-list-inside">
+                <li
+                  v-for="child in children"
+                  :key="child.path"
                 >
-                  <span v-if="child.title">
-                    <span class="tw-capitalize">{{child.slug}}</span>
-                    - <span>{{child.title}}</span>
-                  </span>
-                  <span
-                    v-else
-                    class="tw-capitalize"
+                  <nuxt-link
+                    :to="localePath(child.to)"
+                    class="custom-first-letter-capitalize tw-inline-block tw-p-1 !tw-text-linkblue hover:tw-underline"
                   >
-                    {{child.slug}}
-                  </span>
-                </nuxt-link>
-                <!-- <ReadingTime class="tw-text-sm" :post="child" :showWords="true"   :showTime="false"></ReadingTime> -->
-              </li>
-            </ol>
+                    {{child.title ? translateSlug(child.slug).replace(/-/g, " ") + ' 👉🏻 ' + child.title : translateSlug(child.slug).replace(/-/g, " ")}}
+                  </nuxt-link>
+                  <!-- <ReadingTime class="tw-text-sm" :post="child" :showWords="true"   :showTime="false"></ReadingTime> -->
+                </li>
+              </ol>
+            </component>
           </section>
 
           <section v-if="post">
@@ -278,7 +268,6 @@ export default {
 
       // CHILDREN
       children: null,
-      showChildren: true,
 
       // SIBLINGS
       prevs: null,
@@ -304,14 +293,8 @@ export default {
           this.$route.params.pathMatch
         )}`;
 
-        pathContents = pathContents
-          .replace(/toc/, this.$t("contents.toc"))
-          .replace(/appendix/, this.$t("contents.appendix"))
-          .replace(/book/, this.$t("contents.book"))
-          .replace(/chapter/, this.$t("contents.chapter"))
-          .replace(/episode/, this.$t("contents.episode"))
-          .replace(/lesson/, this.$t("contents.lesson"))
-          .replace(/sutra/, this.$t("contents.sutra"));
+        pathContents = this.translateSlug(pathContents);
+
         return `${this.$t("basic.jain_aagam")} - ${pathContents}`;
       }
     },
@@ -325,6 +308,18 @@ export default {
         // Return only the "acharanga" part of the string.
         return pathMatch.slice(0, indexOfFirstSlash);
       }
+    }
+  },
+  methods: {
+    translateSlug(text) {
+      return text
+        .replace(/toc/, this.$t("contents.toc"))
+        .replace(/appendix/, this.$t("contents.appendix"))
+        .replace(/book/, this.$t("contents.book"))
+        .replace(/chapter/, this.$t("contents.chapter"))
+        .replace(/episode/, this.$t("contents.episode"))
+        .replace(/lesson/, this.$t("contents.lesson"))
+        .replace(/sutra/, this.$t("contents.sutra"));
     }
   },
   async fetch() {
@@ -442,7 +437,7 @@ export default {
         // }
       ]
     };
-    }
+    // }
   }
 };
 </script>
@@ -475,4 +470,10 @@ export default {
 </style>
 
 <style lang="sass" src="~/assets/css/all.sass" scoped>
+</style>
+
+<style lang="sass" scoped>
+.custom-first-letter-capitalize
+  &::first-letter
+    @apply tw-uppercase
 </style>

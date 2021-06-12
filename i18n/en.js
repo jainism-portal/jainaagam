@@ -23,6 +23,12 @@ export default {
     footer: {},
   },
   pages: {
+    all: {
+      children: {
+        heading: "Jain Aagam Contents",
+        summary: "View Contents",
+      }
+    },
     home: {
       header: {
         description: "Jain Aagam are Jainism's supreme religious scriptures that deal with metaphysics, liberation of soul, and spiritual advice on how to lead a non-violent life."

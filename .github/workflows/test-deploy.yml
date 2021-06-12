@@ -1,4 +1,4 @@
-name: Generate and Firebase Deploy
+name: Generate and Firebase Test Deploy
 
 on: [workflow_dispatch]
   # push:

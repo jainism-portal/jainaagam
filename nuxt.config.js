@@ -98,7 +98,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/sitemap'
   ],
 
   i18n: {
@@ -137,6 +138,28 @@ export default {
         en: require('./i18n/en.js').default,
         hi: require('./i18n/hi.js'),
       },
+    }
+  },
+
+  sitemap: {
+    hostname: 'https://aagam.jainism.info',
+    i18n: true,
+    gzip: true,
+    exclude: [
+      '/prakritdictionary',
+    ],
+    routes: async () => {
+      let routes = [];
+      const { $content } = require('@nuxt/content')
+      let postsEN = await $content('en', { deep: true }).without("body").sortBy("path").fetch();
+      let postsHI = await $content('hi', { deep: true }).without("body").sortBy("path").fetch();
+      for (const post of postsEN) {
+        routes.push({ url: `${post.to}/`, changefreq: 'daily', lastmod: post.updatedAt });
+      }
+      for (const post of postsHI) {
+        routes.push({ url: `/hi/${post.to}/`, changefreq: 'daily', lastmod: post.updatedAt });
+      }
+      return routes;
     }
   },
 

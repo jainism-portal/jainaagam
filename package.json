@@ -19,7 +19,6 @@
     "nuxt-i18n": "^6.21.1"
   },
   "devDependencies": {
-    "@mdi/font": "^5.9.55",
     "@nuxt/image": "^0.4.14",
     "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^4.1.3",

@@ -17,10 +17,10 @@ export default {
     //   anchor: '#fff',
     // }
   },
-  icons: {
-    iconfont: 'mdi'
-  },
-  font: {
-    family: "'Open Sans', sans-serif"
-  }
+  // icons: {
+  //   iconfont: 'mdi'
+  // },
+  // font: {
+  //   family: "'Open Sans', sans-serif"
+  // }
 }

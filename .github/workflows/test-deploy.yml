@@ -1,0 +1,58 @@
+name: Generate and Firebase Deploy
+
+on: [workflow_dispatch]
+  # push:
+  #   branches:
+  #     - main
+  #     - master
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - master
+  # watch:
+    # types: [started] # https://dev.to/s_abderemane/manual-trigger-with-github-actions-279e
+  
+
+jobs:
+  build: # originally, ci instead of build.
+    # if: github.actor == github.event.repository.owner.login 
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Cache node_modules 📦
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies 👨🏻‍💻
+        run: npm ci
+
+      # - name: Run linter 👀
+      #   run: npm run lint
+
+      - name: Generate
+        run: npm run generate
+
+      - name: Deploy to Firebase Test Website
+        uses: w9jds/firebase-action@master
+        with:
+          args: hosting:channel:deploy test
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+

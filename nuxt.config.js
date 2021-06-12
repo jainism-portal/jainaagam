@@ -154,12 +154,41 @@ export default {
       let postsEN = await $content('en', { deep: true }).without("body").sortBy("path").fetch();
       let postsHI = await $content('hi', { deep: true }).without("body").sortBy("path").fetch();
       for (const post of postsEN) {
-        routes.push({ url: `${post.to}/`, changefreq: 'daily', lastmod: post.updatedAt });
+        routes.push({
+          url: `${post.to}`,
+          changefreq: 'daily',
+          lastmod: post.updatedAt,
+          // https://github.com/nuxt-community/sitemap-module/issues/122
+          links: ['en', 'hi', 'x-default'].map(lang => {
+            let url = lang === 'en' || lang === 'x-default' ? `${post.to}` : `/${lang}${post.to}`
+            return {
+              lang: lang,
+              url: url
+            }
+          })
+        });
       }
       for (const post of postsHI) {
-        routes.push({ url: `/hi/${post.to}/`, changefreq: 'daily', lastmod: post.updatedAt });
+        routes.push({
+          url: `/hi/${post.to}`,
+          changefreq: 'daily',
+          lastmod: post.updatedAt,
+          links: ['en', 'hi', 'x-default'].map(lang => {
+            let url = lang === 'en' || lang === 'x-default' ? `${post.to}` : `/${lang}${post.to}`
+            return {
+              lang: lang,
+              url: url
+            }
+          })
+        });
       }
       return routes;
+    },
+    filter({ routes }) {
+      return routes.map((route) => {
+        route.url = `${route.url}/`// Add a trailing slash
+        return route
+      })
     }
   },
 

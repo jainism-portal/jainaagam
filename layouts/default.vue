@@ -1,5 +1,5 @@
 <template>
-  <v-app class="tw-text-base md:tw-text-lg">
+  <v-app class="tw-text-base md:tw-text-xl">
     <!-- <ScrollIndicator class="tw-top-0"></ScrollIndicator> -->
     <the-header></the-header>
     <v-main class="!tw-min-h-screen">
@@ -81,7 +81,26 @@ export default {
         },
         ...i18nHead.meta
       ],
-      link: [...i18nHead.link]
+      link: [
+        // https://csswizardry.com/2020/05/the-fastest-google-fonts/
+        {
+          rel: "preload",
+          as: "style",
+          // href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+          href:
+            "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        },
+        {
+          rel: "stylesheet",
+          // href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap",
+          href:
+            "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap",
+          media: "print",
+          onload: "this.media='all'"
+        },
+        ,
+        ...i18nHead.link
+      ]
     };
   }
 };

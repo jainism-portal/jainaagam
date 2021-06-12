@@ -7,10 +7,9 @@
     <v-tab
       data-tab
       active-class="tw-bg-gradient-to-t tw-from-white tw-via-white tw-to-yellow-50 !tw-text-yellow-900"
-      class="!tw-text-base md:!tw-text-lg !tw-capitalize tw-flex tw-flex-wrap tw-flex-col sm:tw-flex-row sm:tw-gap-2"
     >
-      <span>{{$t("pages.sutra.main.sutra.tabs.name")}}</span>
-      <span class="tw-text-xs md:tw-text-sm">({{$t("pages.sutra.main.sutra.tabs.original")}})</span>
+      <!-- <span>{{$t("pages.sutra.main.sutra.tabs.name")}}</span> -->
+      <span class="tw-capitalize">{{$t("pages.sutra.main.sutra.tabs.original")}}</span>
     </v-tab>
     <v-tabs-slider class="tw-bg-gradient-to-br tw-from-white tw-to-yellow-400"></v-tabs-slider>
     <v-tab-item
@@ -26,10 +25,9 @@
     <v-tab
       data-tab
       active-class="tw-bg-gradient-to-t tw-from-white tw-via-white tw-to-yellow-50 !tw-text-yellow-900"
-      class="!tw-text-base md:!tw-text-lg !tw-capitalize tw-flex tw-flex-wrap tw-flex-col sm:tw-flex-row sm:tw-gap-2"
     >
-      <span>{{$t("pages.sutra.main.sutra.tabs.name")}}</span>
-      <span class="tw-text-xs md:tw-text-sm">({{$t("pages.sutra.main.sutra.tabs.transliteration")}})</span>
+      <!-- <span>{{$t("pages.sutra.main.sutra.tabs.name")}}</span> -->
+      <span class="tw-capitalize">{{$t("pages.sutra.main.sutra.tabs.transliteration")}}</span>
     </v-tab>
     <v-tab-item
       lang="pkr-Latn"

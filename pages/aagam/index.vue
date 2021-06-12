@@ -9,7 +9,7 @@
     >
     </Breadcrumbs>
     <header class="tw-text-center">
-      <h1 class="tw-px-2 md:tw-px-4 tw-text-xl md:tw-text-3xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2">{{post.title}}</h1>
+      <h1 class="tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2">{{post.title}}</h1>
     </header>
     <main
       v-if="post"

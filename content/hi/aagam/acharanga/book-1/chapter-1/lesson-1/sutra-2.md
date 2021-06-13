@@ -4,30 +4,12 @@ title: आत्म-अस्तित्व का बोध
 type: sutra
 position: 2
 
-order:
-  cat: anga
-  aagam: 
-    position: 1
-    depth: 1
-  book: 
-    position: 1
-    depth: 2
-  chapter: 
-    position: 1
-    depth: 3
-  lesson: 
-    position: 1
-    depth: 4
-  sutra: 
-    position: 2
-    depth: 5
-
 parent:
   type: lesson
 
 ---
 
-## Meaning
+<sutra-meaning>
 
 कोई प्राणी अपनी स्वमति से, अर्थात पूर्वजन्म की स्मृति होने पर स्व-बुद्धि से अथवा तीर्थंकर आदि प्रत्यक्षज्ञानियों के वचन से अथवा विशिष्ट श्रुतज्ञानियों के निकट से उपदेश सुनकर जान लेता है कि - 
 
@@ -54,4 +36,4 @@ parent:
 
 **गमनागमन करनेवाली नित्य परिणामी आत्मा को जो जान लेता है, वह आत्मवादी, लोकवादी, कर्मवादी तथा क्रियावादी होता है।** -->
 
-## Explanation
+</sutra-meaning>

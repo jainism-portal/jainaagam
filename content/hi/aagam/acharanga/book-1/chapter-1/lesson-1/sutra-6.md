@@ -4,30 +4,13 @@ title: आत्मबोध का उपसंहार
 type: sutra
 position: 6
 
-order:
-  cat: anga
-  aagam: 
-    position: 1
-    depth: 1
-  book: 
-    position: 1
-    depth: 2
-  chapter: 
-    position: 1
-    depth: 3
-  lesson: 
-    position: 1
-    depth: 4
-  sutra: 
-    position: 6
-    depth: 5
-
 parent:
   type: lesson
 
 ---
 
-## Meaning
+<sutra-meaning>
+
 (कर्मबंध के कारणों के विषय में) भगवान ने परिज्ञा-विवेक का उपदेश दिया है। **मानव इन 6 कारणों से हिंसा करता है:**
 1. स्वयं के वर्तमान जीवन के लिए
 2. प्रशंसा या यश के लिए
@@ -40,4 +23,4 @@ parent:
 
 ऐसा मैं कहता हूँ। (अर्थात, ऐसा भगवान महावीर ने कहा है।)
 
-## Explanation
+</sutra-meaning>

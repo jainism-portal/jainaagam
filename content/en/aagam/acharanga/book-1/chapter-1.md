@@ -13,17 +13,24 @@ children:
 
 ---
 
-'शस्त्र' का अर्थ है हिंसा का साधन। जो विनाशकारी है, वह उसके लिए एक हथियार है। 
-**जस्स विणासकारण त तस्स सत्थं भण्णइ।** - [N.C.U.1, अभिज्ञान राजेंद्र कोश भा। ૭ पी। २१]
+## Shastra Parigya meaning
 
-चाकू, तलवार भौतिक हथियार हैं और राग-द्रेश आदि मूल्य हथियार हैं। राग-द्वेष आत्म गुणों को मारता है, इसलिए राग-द्वेष आत्मा के लिए एक हथियार है।
+'**Shastra**' means an instrument of violence. What is destructive is a weapon for him.
 
-पारिजात का अर्थ है ज्ञान। अनुभूति दो प्रकार की होती है- (१) अनुभूति का अर्थ जानना है और (२) अस्वीकृति का अर्थ है त्याग। आयुध का सरल अर्थ हिंसा की प्रकृति को जानना और उसका त्याग करना है।
+**जस्स विणासकारण त तस्स सत्थं भण्णइ।** - [N.C.U.1, अभिज्ञान राजेंद्र कोश भा. 7 P. 21]
 
-हिंसा के त्याग को अहिंसा कहा जाता है, अहिंसा का मुख्य आधार आत्मा है। आत्मा के ज्ञान के बाद ही अहिंसा में विश्वास मजबूत होता है और अहिंसा का सही तरीके से अभ्यास किया जा सकता है।
+Knives, swords are material-based weapons and anger and hatred etc. are value-based weapons. Greed and aversion kill the qualities of the self, so anger and aversion are weapons for the soul.
 
-पहले उद्देश्य के पहले सूत्र में आत्मसंज्ञा-आत्मबोध की चर्चा करते हुए, यह कहा जाता है कि किसी मनुष्य को स्वयं द्वारा तो किसी अन्य को उपदेश सुनके या शास्त्रों का अध्ययन आदि करके आत्मबोध होता है। आत्मबोध होने के बाद, आत्मा के अस्तित्व में विश्वास होता है, जिससे मनुष्य आत्मवादी बनता है। केवल एक आत्मवादी अहिंसा का पालन कर सकता है। 
+**Parijya** means knowledge. There are two types of cognition:
+1. cognition means knowing and 
+2. rejection means renunciation. 
+
+The simple meaning of **Ayudha** is to know the nature of violence and to renounce it.
+
+The renunciation of violence is called non-violence, the main basis of non-violence is the soul. The belief in non-violence is strengthened only after the knowledge of the soul and non-violence can be practiced properly.
+
+In the first sutra of the first lesson, referring to self-realization, it is said that a person attains self-realization either by himself or by listening to someone else's teachings or by studying scriptures etc. After self-realization, there is a belief in the existence of the soul, which makes man subjective. Only a self-realist can practice non-violence.
 
 ## Conclusion
 
-इस प्रकार आत्मा के अस्तित्व पर चर्चा के बाद, हिंसा-अहिंसा पर चर्चा की हुई है। हिंसा के कारणों की एक जीवंत तस्वीर, चक्रों की प्रकृति, छह कायों की उपलब्धि, हिंसा से आत्मा का पछतावा, कर्मबन्ध का सिद्धांत और इससे छुटकारा पाने के लिए शिक्षा, आदि पहले अध्ययन के सात उद्देश्यों में पाए जाते हैं।
+Thus after the discussion on the existence of the soul, violence-non-violence is discussed. A vivid picture of the causes of violence, the nature of the chakras, the attainment of the six bodies, the repentance of the soul from violence, the theory of karma and the education to get rid of it, etc. are found in the first seven lessons of the study.

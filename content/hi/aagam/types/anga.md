@@ -1,12 +1,9 @@
 ---
-title: उपांग
-trans: anga
-
-position: 2
-show: false
+title: अंग
 
 type: cat
+position: 1
 
-order:
-  cat: anga
+show: false
 ---
+

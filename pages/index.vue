@@ -67,9 +67,44 @@
 <script>
 export default {
   name: "HomePage",
+  methods: {
+    addSlash(text) {
+      return text.endsWith(`/`) ? text : `${text}/`;
+    }
+  },
   head() {
+    let website = `https://aagam.jainism.info`;
+
+    let defaultAlt = this.$route.path.startsWith("/hi")
+      ? `${website}${this.$route.path.slice(3)}`
+      : `${website}${this.$route.path}`;
     return {
-      title: `Jain Aagam`
+      link: [
+        {
+          rel: "alternate",
+          href: this.addSlash(defaultAlt),
+          hreflang: "en"
+        },
+        {
+          rel: "alternate",
+          href: this.addSlash(defaultAlt),
+          hreflang: "x-default"
+        },
+        {
+          rel: "alternate",
+          href: this.addSlash(
+            this.$route.path.startsWith("/hi")
+              ? `${website}${this.$route.path}`
+              : `${website}/hi${this.$route.path}`
+          ),
+          hreflang: "hi"
+        },
+        {
+          rel: "canonical",
+          href: this.addSlash(`${website}${this.$route.path}`),
+          hreflang: this.$i18n.locale
+        }
+      ]
     };
   }
 };

@@ -11,12 +11,12 @@
     <header class="tw-text-center">
       <h1 class="tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2">{{post.title}}</h1>
     </header>
-    <main
+    <section
       v-if="post"
       class="tw-my-4 tw-mx-4"
     >
       <NuxtContent :document="post"></NuxtContent>
-    </main>
+    </section>
   </div>
 </template>
 

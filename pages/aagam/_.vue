@@ -12,67 +12,66 @@
       class="nuxt-content tw-my-48 tw-text-xl tw-p-4"
     >
       <!-- (post === null && sutraOriginal === null) || -->
-      <h1 class="tw-text-3xl tw-bg-pink-50 tw-text-center tw-text-blue-900 tw-font-medium">404 error. Page not found.</h1>
+      <h1 class="tw-text-3xl tw-bg-pink-50 tw-text-center tw-text-blue-900 tw-font-medium tw-p-4">404 error. Page not found.</h1>
       <ol class="tw-mt-3">
         <li>Check URL again</li>
         <li>This page is not yet available in {{$i18n.localeProperties.name}} language. Choose different language. OR</li>
-        <li>Go <nuxt-link :to="localePath(`/`)">Home</nuxt-link> to navigate to the Aagam of your choice.
+        <li>Go <nuxt-link
+            :to="localePath(`/`)"
+            class="tw-text-linkblue hover:tw-underline"
+          >Home</nuxt-link> to navigate to the Aagam of your choice.
         </li>
       </ol>
     </div>
-    <div
-      v-else
-      class="md:tw-flex md:tw-flex-row-reverse"
-    >
-      <article :class="showToc ? 'md:tw-w-[70%]' : 'tw-w-full'">
-        <Breadcrumbs
-          v-if="$route.path"
-          :path="$route.path.endsWith(`/`) ? $route.path : `${$route.path}/`"
-        >
-        </Breadcrumbs>
-        <!-- <button
+    <div v-else>
+      <Breadcrumbs
+        v-if="$route.path"
+        :path="$route.path.endsWith(`/`) ? $route.path : `${$route.path}/`"
+      >
+      </Breadcrumbs>
+      <!-- <button
               class="tw-fixed tw-z-40 tw-bottom-4 md:tw-bottom-auto md:tw-top-14 tw-right-2 tw-rounded-2xl tw-text-2xl tw-w-10 tw-h-10 md:tw-w-12 md:tw-h-12 tw-font-2xl tw-bg-gradient-to-bl tw-from-white tw-to-blue-200 tw-shadow-md focus:tw-outline-none focus:tw-ring focus:tw-ring-blue-300"
               @click.stop="showToc = !showToc"
             >{{ showToc ? "❌" : "🧾" }}</button> -->
-
-        <header class="tw-text-center">
-          <h1
-            v-if="
+      <article :class="showToc ? 'md:tw-w-[70%]' : 'tw-w-full'">
+        <h1
+          v-if="
           !post ||
           (!post && !sutraOriginal)
         "
-            class="tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
-          >
-            {{seoTitle}}
+          class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+        >
+          {{seoTitle}}
 
-          </h1>
-          <h1
-            v-if="post"
-            class="tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
-          >
-            {{seoTitle}}
-            <span v-if="post.title">
-              - {{ post.title }}</span>
-          </h1>
-          <h1
-            v-if="!post && sutraOriginal"
-            class="tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
-          >
-            {{seoTitle}}
-            <span v-if="sutraOriginal.title">
-              - {{ sutraOriginal.title }}</span>
-          </h1>
+        </h1>
+        <h1
+          v-if="post"
+          class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+        >
+          {{seoTitle}}
+          <span v-if="post.title">
+            - {{ post.title }}</span>
+        </h1>
+        <h1
+          v-if="!post && sutraOriginal"
+          class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+        >
+          {{seoTitle}}
+          <span v-if="sutraOriginal.title">
+            - {{ sutraOriginal.title }}</span>
+        </h1>
+        <div class="tw-flex tw-justify-center tw-items-center">
           <nuxt-link
             :to="localePath(`/aagam/${AagamName}/toc`)"
-            class="tw-inline-block tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-purple-700 tw-border tw-border-purple-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
+            class="tw-inline-block tw-text-center tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-purple-700 tw-border tw-border-purple-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
           >View
             <span class="tw-capitalize">{{AagamName}} </span>
             Aagam's
             <span>Table of Contents</span>
           </nuxt-link>
-        </header>
+        </div>
 
-        <main
+        <div
           v-if="
           !post ||
           (!post && !sutraOriginal)"
@@ -82,9 +81,9 @@
             :post="post"
             :sutraOg="sutraOriginal"
           ></Incomplete>
-        </main>
+        </div>
 
-        <main
+        <div
           v-else
           class="tw-my-4 tw-mx-4"
         >
@@ -115,12 +114,11 @@
             </component>
           </section>
 
-          <section v-if="post">
-            <nuxt-content
-              :document="post"
-              class="tw-mt-3"
-            ></nuxt-content>
-          </section>
+          <nuxt-content
+            v-if="post"
+            :document="post"
+            class="tw-mt-3"
+          ></nuxt-content>
           <section
             v-if="sutraOriginal"
             class="nuxt-content"
@@ -132,19 +130,21 @@
             v-if="post.body.children.length == 0"
             class="nuxt-content tw-mt-3"
           >
-            <div class="tw-bg-yellow-50 tw-p-4 tw-text-gray-600 !tw-text-base">
-              <div>😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its <b>Contents</b>. </div>
-              <div class="tw-mt-3">This is an Open source project, so you too can easily <a
-                  :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
-                  target="_blank"
-                >
-                  Contribute on GitHub
-                </a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can contact <a href="mailto:madrechamanas@gmail.com">Manas Madrecha</a>. Thank you. Jai Jindendra. 🙏🏻</div>
-            </div>
+            <h2>Contribute</h2>
+            <p class="tw-bg-yellow-50 tw-p-3">😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its <b>Contents</b>. </p>
+            <p>This is an Open source project, so you too can easily <a
+                :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
+                target="_blank"
+                class="!tw-text-linkblue hover:tw-underline"
+              >
+                Contribute by translating Jain Aagam</a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can <a
+                href="mailto:madrechamanas@gmail.com"
+                class="!tw-text-linkblue hover:tw-underline"
+              >email Manas Madrecha</a>. Thank you. Jai Jindendra. 🙏🏻</p>
           </section>
-        </main>
+        </div>
         <footer class="nuxt-content tw-m-4 tw-border-t tw-border-gray-600">
-          <section class="tw-mt-3 tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
+          <div class="tw-text-linkblue tw-mt-3 tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
             <nuxt-link
               :to="localePath(prevs.to)"
               v-if="prevs"
@@ -155,13 +155,13 @@
               v-if="nexts"
               class="tw-mx-2 tw-text-center tw-capitalize"
             >Next 👉🏻 {{nexts.slug}}</nuxt-link>
-          </section>
+          </div>
 
           <div class="tw-text-center tw-bg-green-50 tw-mt-3 tw-p-3">
             <a
               :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
               target="_blank"
-              class="tw-block tw-text-sm"
+              class="!tw-text-linkblue tw-block tw-text-sm"
               v-if="post"
             >
               Contribute/Edit on GitHub

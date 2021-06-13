@@ -1,6 +1,6 @@
 <template>
   <!-- NOTE: The groupedChildren starts from 3 -->
-  <nav>
+  <div>
     <div
       v-if="$fetchState.pending"
       class="tw-my-48 tw-text-xl tw-text-blue-800 tw-bg-pink-50 tw-p-4 tw-text-center tw-font-medium"
@@ -11,31 +11,33 @@
       v-else
       class="tw-mt-3 tw-text-gray-600"
     >
-      <section v-if="children">
-        <h2 class="tw-capitalize tw-text-xl md:tw-text-2xl tw-text-center tw-p-2 tw-text-pink-900">{{AagamName}} Sutra contents</h2>
+      <nav v-if="children">
+        <header>
+          <h2 class="tw-capitalize tw-text-xl md:tw-text-2xl tw-text-center tw-p-2 tw-text-pink-900">{{AagamName}} Sutra contents</h2>
 
-        <div class="tw-text-center">{{children.length}} contents</div>
-        <div class="tw-mt-3 tw-flex tw-flex-wrap tw-justify-center tw-gap-4">
-          <v-btn
-            @click="closeAll"
-            class="!tw-bg-blue-50"
-          >Close All</v-btn>
-          <v-tooltip
-            bottom
-            open-on-focus
-          >
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                v-bind="attrs"
-                v-on="on"
-                @click="openAll"
-                class="!tw-bg-pink-50"
-              >Open All
-              </v-btn>
-            </template>
-            <span>Careful: Opening all {{children.length}} contents may be huge</span>
-          </v-tooltip>
-        </div>
+          <p class="tw-text-center">{{children.length}} contents</p>
+          <div class="tw-mt-3 tw-flex tw-flex-wrap tw-justify-center tw-gap-4">
+            <v-btn
+              @click="closeAll"
+              class="!tw-bg-blue-50"
+            >Close All</v-btn>
+            <v-tooltip
+              bottom
+              open-on-focus
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  v-bind="attrs"
+                  v-on="on"
+                  @click="openAll"
+                  class="!tw-bg-pink-50"
+                >Open All
+                </v-btn>
+              </template>
+              <span>Careful: Opening all {{children.length}} contents may be huge</span>
+            </v-tooltip>
+          </div>
+        </header>
 
         <ol
           v-if="groupedChildren['3'] && groupedChildren['3'].length"
@@ -111,7 +113,7 @@
                         <component
                           :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details' : 'div'"
                           :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details details--5' : null"
-                          :open="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length < 3 ? true : false"
+                          :open="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? true : false"
                         >
 
                           <component
@@ -148,8 +150,9 @@
                               <component
                                 :is="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'details' : 'div'"
                                 :class="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'details details--6' : null"
-                                :open="groupedChildren['7'] && groupedChildren['6'].filter(child => child.to.startsWith(child6.to + `/`)).length < 3 ? true : false"
+                                :open="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? true : false"
                               >
+                                <!-- groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length < 3 ? true : false" -->
 
                                 <component
                                   :is="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'summary' : 'div'"
@@ -225,7 +228,7 @@
             </details>
           </li>
         </ol>
-      </section>
+      </nav>
       <!-- <ol class="!tw-list-none">
       <li
         v-for="child in children"
@@ -250,7 +253,7 @@
       </li>
     </ol> -->
     </div>
-  </nav>
+  </div>
 </template>
 
 <script>

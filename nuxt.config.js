@@ -135,7 +135,6 @@ export default {
 
   sitemap: {
     hostname: 'https://aagam.jainism.info',
-    i18n: true,
     gzip: true,
     exclude: [
       '/prakritdictionary',
@@ -143,8 +142,17 @@ export default {
     routes: async () => {
       let routes = [];
       const { $content } = require('@nuxt/content')
-      let postsEN = await $content('en', { deep: true }).without("body").sortBy("path").fetch();
-      let postsHI = await $content('hi', { deep: true }).without("body").sortBy("path").fetch();
+
+      let postsEN = await $content('en', { deep: true })
+        .without("body").where({ $and: [{ show: { $ne: false } }] })
+        .sortBy("path")
+        .fetch();
+
+      let postsHI = await $content('hi', { deep: true })
+        .without("body").where({ $and: [{ show: { $ne: false } }] })
+        .sortBy("path")
+        .fetch();
+
       for (const post of postsEN) {
         routes.push({
           url: `${post.to}/`,
@@ -178,23 +186,21 @@ export default {
     },
     filter({ routes }) {
       return routes.map((route) => {
-        route.url = route.url.endsWith(`/`) ? route.url : `${route.url}/` // Slash
-
-        if (!route.name) return route
-        const page = route.name.split('__')[0]
         return {
-          url: route.url,
-          links: route.links.map(linkObj => {
-            linkObj.url = linkObj.url.endsWith(`/`) ? linkObj.url : `${linkObj.url}/`
-            return linkObj
-          })
-            // https://github.com/nuxt-community/sitemap-module/issues/122#issuecomment-659377003
-            .concat([
-              {
-                lang: 'x-default',
-                url: page === 'index' ? '/' : `${page}/`
+          url: route.url.endsWith(`/`) ? route.url : `${route.url}/`, // Slash
+          changefreq: route.changefreq ? route.changefreq : 'daily',
+          lastmod: route.lastmod ? route.lastmod : new Date(),
+          links: route.links && route.links.length > 0
+            ? route.links
+            : ['en', 'hi', 'x-default'].map(lang => {
+              let page = route.name.split('__')[0] // https://github.com/nuxt-community/sitemap-module/issues/122#issuecomment-659377003
+              page = page === 'index' ? '' : `${page}/`
+              let url = lang === 'en' || lang === 'x-default' ? `/${page}` : `/${lang}/${page}`;
+              return {
+                lang: lang,
+                url: url
               }
-            ])
+            })
         }
       })
     }

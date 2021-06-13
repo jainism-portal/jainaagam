@@ -2,10 +2,9 @@
 title: प्रकीर्णक
 
 type: cat
+position: 5
 
-order:
-  cat: prakirnaka
-
+show: false
 children:
   type: aagam
   count: 10

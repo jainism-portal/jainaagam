@@ -1,14 +1,9 @@
 ---
 title: चूलिक
 
-type: aagam
+type: cat
+position: 6
 
-order:
-  cat: choolik
-  aagam: 
-    position: 1
-    depth: 1
-
-
+show: false
 ---
 

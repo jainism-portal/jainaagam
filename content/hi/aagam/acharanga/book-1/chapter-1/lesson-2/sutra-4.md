@@ -2,32 +2,15 @@
 title: हिंसा का परिणाम
 
 type: sutra
-
-order:
-  cat: anga
-  aagam: 
-    position: 1
-    depth: 1
-  book: 
-    position: 1
-    depth: 2
-  chapter:
-    position: 1
-    depth: 3
-  lesson: 
-    position: 2
-    depth: 4
-  sutra: 
-    position: 4
-    depth: 5
+position: 4
 
 parent:
   type: lesson
 
 ---
 
-## Meaning
-साधक के ऊपर कहे हुए ...
-(Pending)
+<sutra-meaning>
 
-## Explanation
+साधक के ऊपर कहे हुए ...
+
+</sutra-meaning>

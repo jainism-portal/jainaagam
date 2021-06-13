@@ -1,15 +1,10 @@
 ---
-title: Dukhi Praani
+title:
 
 type: sutra
 position: 1
 
+
+parent:
+  type: lesson
 ---
-
-## Sutra
-
-## Glossary
-
-## Meaning
-
-## Explanation

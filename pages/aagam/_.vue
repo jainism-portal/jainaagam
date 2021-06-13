@@ -311,6 +311,9 @@ export default {
     }
   },
   methods: {
+    addSlash(text) {
+      return text.endsWith(`/`) ? text : `${text}/`;
+    },
     translateSlug(text) {
       return text
         .replace(/toc/, this.$t("contents.toc"))
@@ -327,18 +330,14 @@ export default {
       ? `/en${this.$route.path}`
       : this.$route.path;
 
-    const ROUTE_PATH_WITH_SLASH = ROUTE_PATH.endsWith(`/`)
-      ? ROUTE_PATH
-      : `${ROUTE_PATH}/`;
+    const ROUTE_PATH_WITH_SLASH = this.addSlash(ROUTE_PATH);
 
     // CURRENT POST
     this.posts = await this.$content(this.$i18n.locale, {
       deep: true
     })
       .where({
-        path: ROUTE_PATH.endsWith(`/`)
-          ? ROUTE_PATH.slice(0, ROUTE_PATH.length - 1)
-          : ROUTE_PATH
+        path: ROUTE_PATH_WITH_SLASH.slice(0, ROUTE_PATH_WITH_SLASH.length - 1)
         // path: {
         //   $regex: [this.$route.path.slice(0, this.$route.path.length - 1) + "$","gim"]
         // }
@@ -416,6 +415,12 @@ export default {
     }
   },
   head() {
+    let website = `https://aagam.jainism.info`;
+
+    let defaultAlt = this.$route.path.startsWith("/hi")
+      ? `${website}${this.$route.path.slice(3)}`
+      : `${website}${this.$route.path}`;
+
     // if (this.post && this.$route) {
     return {
       title: this.seoTitle,
@@ -435,6 +440,32 @@ export default {
         //   name: `og:description`,
         //   content: this.seoDescription
         // }
+      ],
+      link: [
+        {
+          rel: "alternate",
+          href: this.addSlash(defaultAlt),
+          hreflang: "en"
+        },
+        {
+          rel: "alternate",
+          href: this.addSlash(defaultAlt),
+          hreflang: "x-default"
+        },
+        {
+          rel: "alternate",
+          href: this.addSlash(
+            this.$route.path.startsWith("/hi")
+              ? `${website}${this.$route.path}`
+              : `${website}/hi${this.$route.path}`
+          ),
+          hreflang: "hi"
+        },
+        {
+          rel: "canonical",
+          href: this.addSlash(`${website}${this.$route.path}`),
+          hreflang: this.$i18n.locale
+        }
       ]
     };
     // }

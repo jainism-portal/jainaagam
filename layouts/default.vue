@@ -22,13 +22,13 @@ export default {
     const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true });
     let template;
     if (this.$i18n.locale === "en") {
-      template = `Jain Aagam books online`;
+      template = `Jain Aagam literature books`;
     }
     if (this.$i18n.locale === "hi") {
-      template = `जैन आगम साहित्य ऑनलाइन`;
+      template = `जैन आगम साहित्य पुस्तके`;
     }
     return {
-      title: "Jain Aagam",
+      title: this.$t("basic.jain_aagam"),
       titleTemplate: `%s | ${template}`,
       htmlAttrs: i18nHead.htmlAttrs,
       meta: [
@@ -97,9 +97,8 @@ export default {
             "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap",
           media: "print",
           onload: "this.media='all'"
-        },
-        ,
-        ...i18nHead.link
+        }
+        // ...i18nHead.link // Commented because it doesn't add slash
       ]
     };
   }

@@ -235,7 +235,7 @@ export default {
     customVariables: ['~/assets/css/themes/vuetify-variables.sass'],
     optionsPath: '~/plugins/vuetify.js',
     defaultAssets: false,
-    treeShake: process.env.NODE_ENV === 'production'
+    treeShake: true // process.env.NODE_ENV === 'production'
   },
 
   hooks: {

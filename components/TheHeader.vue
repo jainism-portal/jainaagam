@@ -43,10 +43,7 @@
               :class="`hover:tw-bg-${social.color}-50`"
               :title="social.linkTitle"
             >
-              <v-icon
-                :role="social.iconRole"
-                :class="`!tw-text-${social.color}-600`"
-              >mdi {{social.icon}}</v-icon>
+              <v-icon :class="`!tw-text-${social.color}-600`">mdi {{social.icon}}</v-icon>
             </a>
           </div>
         </footer>
@@ -68,7 +65,6 @@
         </v-img>
       </template>
       <v-icon
-        role="menu"
         @click.stop="toggleMenu = !toggleMenu"
         class="!tw-text-gray-500 tw-mx-2 tw-transform hover:tw-scale-125 tw-transition-transform"
       >mdi mdi-menu</v-icon>

@@ -23,7 +23,8 @@ export default {
 
   // Create only modern build
   // Ref: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-modern
-  modern: process.env.NODE_ENV === 'production', // not needed in dev mode as it as it slows down the compile time very much
+  // https://github.com/nuxt/nuxt.js/issues/4552#issuecomment-761786540
+  // modern: process.env.NODE_ENV === 'production', // not needed in dev mode as it as it slows down the compile time very much
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -235,7 +236,7 @@ export default {
     customVariables: ['~/assets/css/themes/vuetify-variables.sass'],
     optionsPath: '~/plugins/vuetify.js',
     defaultAssets: false,
-    treeShake: true // process.env.NODE_ENV === 'production'
+    treeShake: process.env.NODE_ENV === 'production'
   },
 
   hooks: {
@@ -291,6 +292,18 @@ export default {
       font: ({ isDev }) => isDev ? '[path][name].[ext]' : 'fonts/[name].[contenthash:7].[ext]',
       video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[name].[contenthash:7].[ext]'
     },
+    // https://github.com/nuxt/nuxt.js/issues/4552#issuecomment-761786540
+    babel: {
+      presets({ isClient }, preset) {
+        if (isClient) {
+          // https://babeljs.io/docs/en/babel-preset-env
+          preset[1].targets = {
+            chrome: '58'
+          }
+        }
+        return [preset]
+      }
+    }
   },
 
   generate: {

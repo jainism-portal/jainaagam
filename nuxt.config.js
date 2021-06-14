@@ -24,7 +24,7 @@ export default {
   // Create only modern build
   // Ref: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-modern
   // https://github.com/nuxt/nuxt.js/issues/4552#issuecomment-761786540
-  // modern: process.env.NODE_ENV === 'production', // not needed in dev mode as it as it slows down the compile time very much
+  // modern: "client",
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -293,19 +293,36 @@ export default {
       video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[name].[contenthash:7].[ext]'
     },
     // https://github.com/nuxt/nuxt.js/issues/4552#issuecomment-761786540
+    // https://philipwalton.com/articles/deploying-es2015-code-in-production-today/
+    // https://web.dev/codelab-serve-modern-code/
+    // babel: {
+    //   presets({ isClient }, preset) {
+    //     if (isClient) {
+    //       // https://babeljs.io/docs/en/babel-preset-env
+    //       preset[1].targets = {
+    //         chrome: '58'
+    //       }
+    //     }
+    //     return [preset]
+    //   }
+    // },
     babel: {
       presets({ isClient }, preset) {
         if (isClient) {
-          // https://babeljs.io/docs/en/babel-preset-env
           preset[1].targets = {
-            chrome: '58'
+            browsers: [
+              'Chrome >= 60',
+              'Safari >= 10.1',
+              'iOS >= 10.3',
+              'Firefox >= 54',
+              'Edge >= 15',
+            ]
           }
         }
         return [preset]
       }
-    }
+    },
   },
-
   generate: {
     exclude: [//
     ],

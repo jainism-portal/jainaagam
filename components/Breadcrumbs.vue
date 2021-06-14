@@ -6,21 +6,19 @@
       class="tw-text-linkblue tw-capitalize"
     >
       <template v-slot:divider>
-        <v-icon class="!tw-text-gray-300">mdi-arrow-right</v-icon>
+        <v-icon class="!tw-text-gray-300">{{mdiArrowRight}}</v-icon>
       </template>
     </v-breadcrumbs>
   </nav>
 </template>
 
 <script>
+import { mdiArrowRight } from "@mdi/js";
+
 export default {
   props: { pathMatch: String, path: String, post: { type: Object } },
   data() {
-    return {
-      urls: [],
-      titles: [],
-      breadcrumbs: []
-    };
+    return { mdiArrowRight, urls: [], titles: [], breadcrumbs: [] };
   },
   async fetch() {
     // "/hi/aagam/acharanga/book-1/chapter-1/lesson-1/sutra-1/"

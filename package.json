@@ -7,9 +7,9 @@
     "dev:host": "nuxt --hostname '0.0.0.0'",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate --modern",
     "onlydeploy": "firebase deploy --only hosting:jainism",
-    "deploy": "npm run generate && firebase deploy --only hosting:jainism"
+    "deploy": "npm run generate && npm run onlydeploy"
   },
   "dependencies": {
     "@nuxt/content": "^1.14.0",

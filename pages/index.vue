@@ -52,8 +52,8 @@
                 rel="noopener noreferrer"
                 title="Jain Aagam Github repository"
               >
-                <v-icon class="!tw-text-gray-600">mdi mdi-star</v-icon> <span class="tw-text-linkblue hover:tw-underline"> {{$t("basic.jain_aagam")}} Github</span>
-                <v-icon small>mdi mdi-open-in-new</v-icon>
+                <v-icon class="!tw-text-gray-600">{{mdiStar}}</v-icon> <span class="tw-text-linkblue hover:tw-underline"> {{$t("basic.jain_aagam")}} Github</span>
+                <v-icon small>{{mdiOpenInNew}}</v-icon>
               </a>
             </p>
             <p class="tw-mt-3">{{$t("wip.para3")}} </p>
@@ -65,8 +65,16 @@
 </template>
 
 <script>
+import { mdiStar, mdiOpenInNew } from "@mdi/js";
+
 export default {
   name: "HomePage",
+  data() {
+    return {
+      mdiStar,
+      mdiOpenInNew
+    };
+  },
   methods: {
     addSlash(text) {
       return text.endsWith(`/`) ? text : `${text}/`;

@@ -42,7 +42,7 @@ export default {
       { hid: "og:type", property: "og:type", content: "website" },
     ],
     link: [
-      { rel: "preconnect", href: "https://www.google-analytics.com" },
+      // { rel: "preconnect", href: "https://www.google-analytics.com" },
       {
         rel: "icon",
         type: "image/x-icon",
@@ -53,12 +53,6 @@ export default {
         href: "https://fonts.gstatic.com",
         crossorigin: ""
       },
-      {
-        rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css",
-        media: "print",
-        onload: "this.media='all'"
-      }
     ]
   },
 

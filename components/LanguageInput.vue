@@ -12,12 +12,20 @@
       :to="switchLocalePath(locale.code)"
       class="tw-inline-block tw-p-1"
     >
-      <v-icon class="!tw-text-gray-600">mdi mdi-translate</v-icon> Read in {{locale.name }}
+      <v-icon class="!tw-text-gray-600">{{mdiTranslate}}</v-icon> Read in {{locale.name }}
     </nuxt-link>
   </div>
 </template>
+
 <script>
+import { mdiTranslate } from "@mdi/js";
+
 export default {
+  data() {
+    return {
+      mdiTranslate
+    };
+  },
   computed: {
     availableLocales() {
       // return this.$i18n.locales;

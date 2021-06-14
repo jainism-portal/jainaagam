@@ -13,6 +13,8 @@
 
 // }
 
+import { mdiOpenInNew } from "@mdi/js"; // For remark-external-links
+
 export default {
   ignore: [
     'prakritdictionary',
@@ -212,6 +214,32 @@ export default {
       remarkPlugins: [
         ['remark-breaks'],
         ['remark-autolink-headings', { behavior: 'append' }],
+        ['remark-external-links', {
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          content: {
+            type: "element",
+            tagName: "svg",
+            properties: {
+              'aria-hidden': "true",
+              className: ["tw-w-4", "tw-h-4", "tw-ml-1", "tw-fill-current"],
+              role: "img",
+              viewBox: "0 0 24 24",
+              xmlns: "http://www.w3.org/2000/svg",
+            },
+            children: [
+              {
+                type: "element",
+                tagName: "path",
+                properties: { d: mdiOpenInNew }
+              }
+            ]
+          },
+          contentProperties: {
+            'aria-hidden': "true",
+            className: ["tw-inline-flex", "tw-justify-center", "tw-items-center", "tw-align-middle", "tw-text-gray-600"]
+          },
+        }],
         // ['remark-directive'],
         // ['~/plugins/remark/directive-custom.js'],
         ['@silvenon/remark-smartypants', { dashes: 'oldschool' }],
@@ -289,17 +317,6 @@ export default {
     // https://github.com/nuxt/nuxt.js/issues/4552#issuecomment-761786540
     // https://philipwalton.com/articles/deploying-es2015-code-in-production-today/
     // https://web.dev/codelab-serve-modern-code/
-    // babel: {
-    //   presets({ isClient }, preset) {
-    //     if (isClient) {
-    //       // https://babeljs.io/docs/en/babel-preset-env
-    //       preset[1].targets = {
-    //         chrome: '58'
-    //       }
-    //     }
-    //     return [preset]
-    //   }
-    // },
     babel: {
       presets({ isClient }, preset) {
         if (isClient) {

@@ -1,14 +1,24 @@
 <template>
-  <nav class="">
-    <v-breadcrumbs
-      :large="$vuetify.breakpoint.mdAndUp ? true : false"
-      :items="breadcrumbs"
-      class="tw-text-linkblue tw-capitalize"
-    >
-      <template v-slot:divider>
-        <v-icon class="!tw-text-gray-300">{{mdiArrowRight}}</v-icon>
-      </template>
-    </v-breadcrumbs>
+  <nav class="tw-py-3">
+    <ol class="tw-flex tw-flex-wrap !tw-pl-4 tw-items-center">
+      <li
+        v-for="(breadcrumb,i) in breadcrumbs"
+        :key="breadcrumb.text"
+        class="tw-capitalize tw-text-sm md:tw-text-base tw-font-light"
+        :class="i < breadcrumbs.length-1 ? 'tw-text-linkblue' : 'tw-text-gray-400'"
+      >
+        <nuxt-link
+          :to="breadcrumb.to"
+          :exact="breadcrumb.exact"
+          class="tw-mx-1"
+          :class="{'hover:tw-underline' : i < breadcrumbs.length-1}"
+        >{{breadcrumb.text}}</nuxt-link>
+        <v-icon
+          class="!tw-text-gray-200"
+          v-if="i < breadcrumbs.length-1"
+        >{{mdiArrowRight}}</v-icon>
+      </li>
+    </ol>
   </nav>
 </template>
 
@@ -16,7 +26,7 @@
 import { mdiArrowRight } from "@mdi/js";
 
 export default {
-  props: { pathMatch: String, path: String, post: { type: Object } },
+  props: { path: String },
   data() {
     return { mdiArrowRight, urls: [], titles: [], breadcrumbs: [] };
   },

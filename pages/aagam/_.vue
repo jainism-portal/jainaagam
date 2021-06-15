@@ -249,6 +249,8 @@ import Sutra from "~/components/templates/Sutra.vue";
 import SutraMeaning from "~/components/templates/SutraMeaning.vue";
 import SutraExplanation from "~/components/templates/SutraExplanation.vue";
 
+import startCase from "lodash.startcase";
+
 export default {
   name: "AagamDynamicPage",
   components: {
@@ -288,10 +290,7 @@ export default {
   computed: {
     seoTitle() {
       if (this.$route?.params?.pathMatch) {
-        let changeCase = require("change-case");
-        let pathContents = `${changeCase.sentenceCase(
-          this.$route.params.pathMatch
-        )}`;
+        let pathContents = `${startCase(this.$route.params.pathMatch)}`;
 
         pathContents = this.translateSlug(pathContents);
 

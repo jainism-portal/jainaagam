@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "jainism",
+    "site": "jainaagam",
     "public": "dist",
     "ignore": [
       "firebase.json",

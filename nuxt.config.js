@@ -44,7 +44,6 @@ export default {
       { hid: "og:type", property: "og:type", content: "website" },
     ],
     link: [
-      // { rel: "preconnect", href: "https://www.google-analytics.com" },
       {
         rel: "icon",
         type: "image/x-icon",
@@ -55,6 +54,10 @@ export default {
         href: "https://fonts.gstatic.com",
         crossorigin: ""
       },
+      {
+        rel: "preconnect",
+        href: "https://www.google-analytics.com",
+      },
     ]
   },
 
@@ -63,6 +66,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/ga.js', mode: 'client' }, // Google Analytics, only on Browser, not on server
     '~/plugins/vue-scrollactive.js',
     { src: '~/plugins/vue-dragscroll.js', ssr: false },
     '~/plugins/vue-tooltip.js',

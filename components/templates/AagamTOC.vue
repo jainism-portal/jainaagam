@@ -41,7 +41,7 @@
 
         <ol
           v-if="groupedChildren['3'] && groupedChildren['3'].length"
-          class="tw-mt-6"
+          class="tw-mt-6 !tw-pl-4"
         >
           <li
             v-for="child3 in groupedChildren['3']"
@@ -70,7 +70,7 @@
 
               </summary>
               <ol
-                v-if="groupedChildren['4'] && groupedChildren['4'].length"
+                v-if="groupedChildren['4'] && groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length"
                 class="ol ol--4"
               >
                 <li
@@ -101,7 +101,7 @@
                     </summary>
 
                     <ol
-                      v-if="groupedChildren['5'] && groupedChildren['5'].length"
+                      v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length"
                       class="ol ol--5"
                     >
                       <li
@@ -113,7 +113,6 @@
                         <component
                           :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details' : 'div'"
                           :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details details--5' : null"
-                          :open="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? true : false"
                         >
 
                           <component
@@ -137,7 +136,7 @@
                             </span>
                           </component>
                           <ol
-                            v-if="groupedChildren['6'] && groupedChildren['6'].length"
+                            v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length"
                             class="ol ol--6"
                           >
                             <li
@@ -150,10 +149,7 @@
                               <component
                                 :is="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'details' : 'div'"
                                 :class="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'details details--6' : null"
-                                :open="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? true : false"
                               >
-                                <!-- groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length < 3 ? true : false" -->
-
                                 <component
                                   :is="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'summary' : 'div'"
                                   :class="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'summary summary--6 tw-group' : null"
@@ -174,7 +170,7 @@
                                   </span>
                                 </component>
                                 <ol
-                                  v-if="groupedChildren['7'] && groupedChildren['7'].length"
+                                  v-if="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length"
                                   class="ol ol--7"
                                 >
                                   <li
@@ -194,12 +190,12 @@
                                       </nuxt-link>
                                     </div>
                                     <ol
-                                      v-if="groupedChildren['8']"
+                                      v-if="groupedChildren['8'] && groupedChildren['8'].filter(child => child.to.startsWith(child7.to + `/`)).length"
                                       class="ol ol--8"
                                     >
                                       <li
                                         v-for="child8 in groupedChildren['8'].filter(child => {
-                                  return child.to.startsWith(child7.to + '/')})"
+                                        return child.to.startsWith(child7.to + '/')})"
                                         :key="child8.to"
                                       >
                                         <div class="">

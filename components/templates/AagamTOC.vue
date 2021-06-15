@@ -257,7 +257,8 @@
 </template>
 
 <script>
-import _ from "lodash";
+import groupBy from "lodash.groupby";
+import sortBy from "lodash.sortby";
 
 export default {
   name: "AagamTableOfContents",
@@ -320,31 +321,31 @@ export default {
           .replace(/sutra/, this.$t("contents.sutra")));
       });
 
-      this.groupedChildren = _.groupBy(this.children, child => {
+      this.groupedChildren = groupBy(this.children, child => {
         return child.to.match(/\//g || []).length;
       });
 
-      this.groupedChildren["3"] = _.sortBy(
+      this.groupedChildren["3"] = sortBy(
         this.groupedChildren["3"],
         ["position"],
         ["asc"]
       );
-      this.groupedChildren["4"] = _.sortBy(
+      this.groupedChildren["4"] = sortBy(
         this.groupedChildren["4"],
         ["position"],
         ["asc"]
       );
-      this.groupedChildren["5"] = _.sortBy(
+      this.groupedChildren["5"] = sortBy(
         this.groupedChildren["5"],
         ["position"],
         ["asc"]
       );
-      this.groupedChildren["6"] = _.sortBy(
+      this.groupedChildren["6"] = sortBy(
         this.groupedChildren["6"],
         ["position"],
         ["asc"]
       );
-      this.groupedChildren["7"] = _.sortBy(
+      this.groupedChildren["7"] = sortBy(
         this.groupedChildren["7"],
         ["position"],
         ["asc"]

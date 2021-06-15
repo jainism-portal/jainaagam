@@ -53,6 +53,7 @@ jobs:
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
+          projectId: jainism-app
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 

@@ -2,7 +2,7 @@
 
 Jain Aagam are **Jainism's supreme religious scriptures** that deal with metaphysics, liberation of soul, and spiritual advice on how to lead a non-violent life. 💛
 
-Of course, this is a very basic defintion and does not fully capture the essence of the meticulous and exhaustive scriptures compiled over 2000 years ago by the ancient Indian monks.
+Of course, this is a very basic definition and does not fully capture the essence of the meticulous and exhaustive scriptures compiled over 2000 years ago by the ancient Indian monks.
 
 ## 1. What is Jain Aagam project?
 
@@ -52,7 +52,7 @@ All the content of the website is saved in as you guessed, `/content` folder. �
 
 ## Who is behind this project / Who are we? 
 
-I (CA Manas Madrecha) first conceptualised this project in 2019 and started with a simple Wordpress website. It gained popularity but had to be taken down due to a malicious attack on some Wordpress plugin. Fortunately, by 2021, I was a little conversant with Javascript and web development and decided to move the project on self-created web app.
+I (CA Manas Madrecha) first conceptualised this project in 2019 and started with a simple WordPress website. It gained popularity but had to be taken down due to a malicious attack on some WordPress plugin. Fortunately, by 2021, I was a little conversant with JavaScript and web development and decided to move the project on self-created web app.
 
 Currently, we are not backed by any Jain organisation, because this project was started as a hobby of mine to embark on a personal spiritual journey and document the process. I am a general Jainism enthusiast and I would love to connect with you if you too are interested in Jainism and its deep metaphysics.
 
@@ -62,7 +62,7 @@ Currently, we are not backed by any Jain organisation, because this project was 
 
 1. This project is created using **Nuxt.js** which is based on **Vue.js**.
 2. For styling purpose 🎨, we use **Tailwind CSS**.
-3. For storing the code 📁, we use **Github** (you are here BTW)
+3. For storing the code 📁, we use **GitHub** (you are here BTW)
 4. For deployment 🚀, we use **Firebase**.
 
 ### Development

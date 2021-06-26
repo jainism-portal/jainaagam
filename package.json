@@ -17,7 +17,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
-    "nuxt-i18n": "^6.21.1",
+    "nuxt-i18n": "^6.27.2",
     "vue-gtag": "^1.16.1"
   },
   "devDependencies": {

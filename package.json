@@ -9,7 +9,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate --modern",
     "onlydeploy": "firebase deploy --only hosting:jainaagam",
-    "deploy": "npm run generate && npm run onlydeploy"
+    "deploy": "npm run generate && npm run onlydeploy",
+    "preview": "npm run generate && firebase hosting:channel:deploy preview"
   },
   "dependencies": {
     "@nuxt/content": "^1.14.0",

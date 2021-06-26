@@ -35,16 +35,16 @@ children:
 
 <div class="flex-grandchild">
 
-1. [आचारांग (आयारांग)](/hi/aagam/acharanga/)
-2. [सूत्रकृतांग](/hi/aagam/sutrakritanga/)
-3. [स्थानांग](/hi/aagam/sthananga/)
-4. [समवायांग](/hi/aagam/samavayanga/)
+1. [आचारांग (आयारांग)](/hi/acharanga)
+2. [सूत्रकृतांग](/hi/sutrakritanga)
+3. [स्थानांग](/hi/sthananga)
+4. [समवायांग](/hi/samavayanga)
 5. भगवती-(व्याख्या-प्रज्ञप्ति)
 6. ज्ञातधर्मकथा
 7. उपासक-दशः
 8. अनोत्तर
-9. [अनोत्तर-उपपातिका](/hi/aagam/anuttarovavai/)
-10. [प्रश्न-व्याकरण](/hi/aagam/prashnavyakaran/)
+9. [अनोत्तर-उपपातिका](/hi/anuttarovavai)
+10. [प्रश्न-व्याकरण](/hi/prashnavyakaran)
 11. abc
 12. 12th lost forever - so not counted in 45 aagam
 
@@ -54,17 +54,16 @@ children:
 
 <div class="flex-grandchild">
 
-1. औपपातिक
-2. राजप्रश्नीय
-3. जीवाभिगम
-4. प्रज्ञापना
-5. सूर्य प्रज्ञप्ति
-6. जंबू प्रज्ञप्ति
-7. चंद्र प्रज्ञप्ति
-8. नर्कावलिका
+1. औपपातिक (uvavavai)
+2. राजप्रश्नीय (rajpaseniya)
+3. जीवाभिगम (jeevabhigam)
+4. प्रज्ञापना (pannavanna)
+5. सूर्य प्रज्ञप्ति (surya-pragyapti)
+6. जंबू प्रज्ञप्ति (jambu-pragyapti)
+7. चंद्र प्रज्ञप्ति (chandra-pragyapti)
+8. नर्कावलिका (niryavalika)
 
 </div>
-
 
 ### छेड (6)
 
@@ -112,7 +111,7 @@ Kalpa Sūtra
 
 <div class="flex-grandchild">
 
-1. [नंदी](/hi/aagam/nandi/)
+1. [नंदी](/hi/nandi)
 2. अनुयोगद्वार
 
 </div>

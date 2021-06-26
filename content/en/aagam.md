@@ -20,8 +20,8 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 
 ### Limb (Anga) (11)
 
-1. [Code of Conduct (_Ācāranga_)](/aagam/acharanga)
-2. [Heretical systems and views (_Sūtrakṛtāṅga_)](/aagam/sutrakritanga)
+1. [Code of Conduct (_Ācāranga_)](/acharanga)
+2. [Heretical systems and views (_Sūtrakṛtāṅga_)](/sutrakritanga)
 3. Places (_Sthānāṅga_)
 4. Rising numerical groups (_Samavāyāṅga_)
 5. Exposition of explanations / The Holy One (_Vyākhyā-prajñapti_ or _Bhagavatī_)
@@ -29,17 +29,17 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 7. Ten chapters (_Upāsaka-daśāḥ_)
 8. Ten chapters on those who put an end to rebirth (_Antakṛd-daśāḥ_)
 9. Ten chapters on those who were reborn in the uppermost heavens (_Anuttaropapātika-daśāḥ_)
-10. [Questions and Explanations (_prashnavyakaran_)](/aagam/prashnavyakaran)
+10. [Questions and Explanations (_prashnavyakaran_)](/prashnavyakaran)
 11. Bad or good results of deeds performed (_Vipākaśruta_)
 12. lost
    
-<!-- 3. [स्थानांग](/aagam/sthananga)
-1. [समवायांग](/aagam/samavayanga)
+<!-- 3. [स्थानांग](/sthananga)
+1. [समवायांग](/samavayanga)
 2. [भगवती-(व्याख्या-प्रज्ञप्ति)]
 3. [ज्ञातधर्मकथा]
 4. [उपासक-दशः]
 5. [अनोत्तर]
-6.  [[अनोत्तर-उपपातिका](/aagam/anuttarovavai)]
+6.  [[अनोत्तर-उपपातिका](/anuttarovavai)]
 7.  
 8.  [12th lost forever - so not counted in 45 aagam -->
 

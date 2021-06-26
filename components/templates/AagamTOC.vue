@@ -278,7 +278,7 @@ export default {
       .without(["body"])
       .where({
         // "/en/aagam/acharanga" or "/hi/aagam/acharanga"
-        path: `/${this.$i18n.locale}/aagam/${this.AagamName}`
+        path: `/${this.$i18n.locale}/${this.AagamName}`
 
         // path: ROUTE_PATH.endsWith(`/`)
         // ? ROUTE_PATH.slice(0, -5) // 4 denotes "toc/"

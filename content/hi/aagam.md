@@ -25,20 +25,16 @@ children:
 
 ---
 
-## परिचय
+### 45 जैन आगमों की सूची
 
-जैन आगम जैन दर्शन के सर्वोच्च ग्रंथ हैं। वे लगभग 2000-2500 वर्ष पूर्व संकलित किए गए थे।
-
-## 45 जैन आगमों की सूची
-
-### आचारांग (11)
+#### आचारांग (11)
 
 <div class="flex-grandchild">
 
 1. [आचारांग (आयारांग)](/hi/acharanga)
 2. [सूत्रकृतांग](/hi/sutrakritanga)
 3. [स्थानांग](/hi/sthananga)
-4. [समवायांग](/hi/samavayanga)
+4. समवायांग
 5. भगवती-(व्याख्या-प्रज्ञप्ति)
 6. ज्ञातधर्मकथा
 7. उपासक-दशः
@@ -50,7 +46,7 @@ children:
 
 </div>
 
-### उपांग (12)
+#### उपांग (12)
 
 <div class="flex-grandchild">
 
@@ -65,7 +61,7 @@ children:
 
 </div>
 
-### छेड (6)
+#### छेड (6)
 
 <div class="flex-grandchild">
 
@@ -79,7 +75,7 @@ Kalpa Sūtra
 
 </div>
 
-### मूल (4)
+#### मूल (4)
 
 <div class="flex-grandchild">
 
@@ -90,7 +86,7 @@ Kalpa Sūtra
 
 </div>
 
-### प्रकीर्णक (10)
+#### प्रकीर्णक (10)
 
 <div class="flex-grandchild">
 
@@ -107,7 +103,7 @@ Kalpa Sūtra
 
 </div>
 
-### चूलिक (2)
+#### चूलिक (2)
 
 <div class="flex-grandchild">
 

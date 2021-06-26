@@ -12,13 +12,9 @@ children:
 
 ---
 
-## Introduction
+### List of 45 Jain Aagam
 
-Jain Aagam are the supreme religious scriptures of Jainism. They were compiled around 2000-2500 years ago. 
-
-## List of 45 Jain Aagam
-
-### Limb (Anga) (11)
+#### Limb (Anga) (11)
 
 1. [Code of Conduct (_Ācāranga_)](/acharanga)
 2. [Heretical systems and views (_Sūtrakṛtāṅga_)](/sutrakritanga)
@@ -43,7 +39,7 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 7.  
 8.  [12th lost forever - so not counted in 45 aagam -->
 
-### Sub-Limb (Upanga) (12)
+#### Sub-Limb (Upanga) (12)
 
 <div class="flex-grandchild">
 
@@ -62,7 +58,7 @@ Jain Aagam are the supreme religious scriptures of Jainism. They were compiled a
 
 </div>
 
-### Chhed (6)
+#### Chhed (6)
 
 <div class="flex-grandchild">
 
@@ -76,7 +72,7 @@ Kalpa Sūtra
 
 </div>
 
-### Mool (4)
+#### Mool (4)
 
 <div class="flex-grandchild">
 
@@ -87,7 +83,7 @@ Kalpa Sūtra
 
 </div>
 
-### Miscellaneous (10)
+#### Miscellaneous (10)
 
 <div class="flex-grandchild">
 
@@ -105,11 +101,11 @@ Kalpa Sūtra
 </div>
 
 
-### Chulika (2)
+#### Chulika (2)
 
 <div class="flex-grandchild">
 
-1. नंदी
-2. अनुयोगद्वार
+1. Nandi
+2. Anuyogdwaar
 
 </div>

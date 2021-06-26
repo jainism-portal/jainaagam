@@ -140,7 +140,7 @@
                 Contribute by translating Jain Aagam</a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can <a
                 href="mailto:madrechamanas@gmail.com"
                 class="!tw-text-linkblue hover:tw-underline"
-              >email Manas Madrecha</a>. Thank you. Jai Jindendra. 🙏🏻</p>
+              >email CA Manas Madrecha</a>. Thank you. Jai Jinendra. 🙏🏻</p>
           </section>
         </div>
         <footer class="nuxt-content tw-m-4 tw-border-t tw-border-gray-600">

@@ -356,17 +356,8 @@ export default {
 
     // SUTRA ORIGINAL TO BE SHOWN ONLY ON SUTRA PAGE
     if (new RegExp(/sutra-[0-9]+\/$/i).test(this.ROUTE_PATH_WITH_SLASH)) {
-      console.log(this.ROUTE_PATH_WITH_SLASH);
       const locale = this.ROUTE_PATH_WITH_SLASH.split("/")[1]; // 0 is empty string; so 1 is locale
-      console.log(locale);
       const localeCharactersCount = locale.length; // usually it will be 2, e.g. en, hi, gu
-      console.log(localeCharactersCount);
-
-      console.log(
-        `/original${this.ROUTE_PATH_WITH_SLASH.slice(
-          1 + localeCharactersCount
-        ).slice(0, -1)}`
-      );
 
       this.sutrasOriginals = await this.$content("original", {
         deep: true
@@ -484,7 +475,8 @@ export default {
       ]
     };
     // }
-  }
+  },
+  transition: "slide"
 };
 </script>
 
@@ -522,4 +514,15 @@ export default {
 .custom-first-letter-capitalize
   &::first-letter
     @apply tw-uppercase
+</style>
+
+<style lang="sass" scoped>
+.slide-enter-active
+  @apply tw-transition-all tw-duration-700
+// .slide-leave-active
+  // @apply tw-transition-all tw-duration-500
+.slide-enter
+  @apply tw-transform-gpu tw-transition-all tw-duration-700 tw--translate-x-full
+.slide-leave-to
+  @apply tw-transform-gpu tw-transition-all tw-duration-700 tw-translate-x-full
 </style>

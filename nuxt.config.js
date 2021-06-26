@@ -68,8 +68,6 @@ export default {
   plugins: [
     { src: '~/plugins/ga.js', mode: 'client' }, // Google Analytics, only on Browser, not on server
     '~/plugins/vue-scrollactive.js',
-    { src: '~/plugins/vue-dragscroll.js', ssr: false },
-    '~/plugins/vue-tooltip.js',
     '~/plugins/directives',
     '~/plugins/vue-google-charts.js', // https://github.com/devstark-com/vue-google-charts
   ],
@@ -81,7 +79,6 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
-    'vue-scrollto/nuxt', // https://github.com/rigor789/vue-scrollTo
     '@nuxtjs/vuetify', // https://vuetifyjs.com/en/getting-started/installation/#nuxt-install
     "@nuxtjs/svg"
 

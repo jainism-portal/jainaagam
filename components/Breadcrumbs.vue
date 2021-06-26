@@ -31,14 +31,18 @@ export default {
     return { mdiArrowRight, urls: [], titles: [], breadcrumbs: [] };
   },
   async fetch() {
-    // "/hi/aagam/acharanga/book-1/chapter-1/lesson-1/sutra-1/"
+    // "/hi/acharanga/book-1/chapter-1/lesson-1/sutra-1/"
 
     this.titles = this.path.split("/");
-    this.titles.shift(); // first item is empty string, so remove
-    if (this.$i18n.locale !== "en") {
-      this.titles.shift(); // second item is locale for non-English paths, so remove
-    }
-    this.titles.pop(); // last item is trailing slash, so remove
+
+    // first item is empty string, so remove
+    this.titles.shift();
+
+    // second item is locale for non-English paths, so remove
+    if (this.$i18n.locale !== "en") this.titles.shift();
+
+    // last item is trailing slash, so remove
+    this.titles.pop();
 
     this.urls = [...this.titles]; // Create new array of URLs
 
@@ -68,7 +72,6 @@ export default {
       //       .replace(/part/, this.$t("contents.part"))
       //       .replace(/sutra/, this.$t("contents.sutra"));
       //   });
-      this.titles.splice(0, 1, "आगम");
     }
     ////////////////////
 
@@ -86,7 +89,7 @@ export default {
     this.breadcrumbs.unshift([
       { text: "🏠", to: this.localePath(`/`), exact: true }
     ]);
-    this.breadcrumbs = this.breadcrumbs.flat(2); // or Infinity // https://www.samanthaming.com/tidbits/71-how-to-flatten-array-using-array-flat/#infinitely-nested-arrays
+    this.breadcrumbs = this.breadcrumbs.flat(2); // or Infinity
   }
 };
 </script>

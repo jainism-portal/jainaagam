@@ -62,7 +62,7 @@
         </h1>
         <div class="tw-flex tw-justify-center tw-items-center">
           <nuxt-link
-            :to="localePath(`/aagam/${AagamName}/toc`)"
+            :to="localePath(`/${AagamName}/toc`)"
             class="tw-inline-block tw-text-center tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-purple-700 tw-border tw-border-purple-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
           >View
             <span class="tw-capitalize">{{AagamName}} </span>
@@ -268,6 +268,10 @@ export default {
       sutrasOriginals: [],
       sutraOriginal: null,
 
+      // PATH
+      ROUTE_PATH: "",
+      ROUTE_PATH_WITH_SLASH: "",
+
       // CHILDREN
       children: null,
 
@@ -325,43 +329,55 @@ export default {
     }
   },
   async fetch() {
-    const ROUTE_PATH = this.$route.path.startsWith(`/aagam`)
-      ? `/en${this.$route.path}`
-      : this.$route.path;
+    this.ROUTE_PATH = this.$route.path.startsWith(`/hi`)
+      ? this.$route.path
+      : `/en${this.$route.path}`;
 
-    const ROUTE_PATH_WITH_SLASH = this.addSlash(ROUTE_PATH);
+    this.ROUTE_PATH_WITH_SLASH = this.addSlash(this.ROUTE_PATH);
 
     // CURRENT POST
     this.posts = await this.$content(this.$i18n.locale, {
       deep: true
     })
       .where({
-        path: ROUTE_PATH_WITH_SLASH.slice(0, ROUTE_PATH_WITH_SLASH.length - 1)
+        path: this.ROUTE_PATH_WITH_SLASH.slice(
+          0,
+          this.ROUTE_PATH_WITH_SLASH.length - 1
+        )
         // path: {
         //   $regex: [this.$route.path.slice(0, this.$route.path.length - 1) + "$","gim"]
         // }
       })
       .sortBy("position")
-      .sortBy("slug")
+      .sortBy("path")
       .fetch();
 
     this.post = this.posts[0];
 
     // SUTRA ORIGINAL TO BE SHOWN ONLY ON SUTRA PAGE
-    if (new RegExp(/sutra-[0-9]+\/$/i).test(ROUTE_PATH_WITH_SLASH)) {
-      const locale = ROUTE_PATH_WITH_SLASH.split("/")[1]; // 0 is empty string; so 1 is locale
+    if (new RegExp(/sutra-[0-9]+\/$/i).test(this.ROUTE_PATH_WITH_SLASH)) {
+      console.log(this.ROUTE_PATH_WITH_SLASH);
+      const locale = this.ROUTE_PATH_WITH_SLASH.split("/")[1]; // 0 is empty string; so 1 is locale
+      console.log(locale);
       const localeCharactersCount = locale.length; // usually it will be 2, e.g. en, hi, gu
+      console.log(localeCharactersCount);
 
-      this.sutrasOriginals = await this.$content("aagam", {
+      console.log(
+        `/original${this.ROUTE_PATH_WITH_SLASH.slice(
+          1 + localeCharactersCount
+        ).slice(0, -1)}`
+      );
+
+      this.sutrasOriginals = await this.$content("original", {
         deep: true
       })
         .where({
           $and: [
             { type: "sutra" },
             {
-              path: ROUTE_PATH_WITH_SLASH.slice(
+              path: `/original${this.ROUTE_PATH_WITH_SLASH.slice(
                 1 + localeCharactersCount
-              ).slice(0, -1) // remove the trailing slash
+              ).slice(0, -1)}` // remove the trailing slash
             }
           ]
         })

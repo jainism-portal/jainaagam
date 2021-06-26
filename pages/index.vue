@@ -38,6 +38,13 @@
         </div>
       </div>
     </section>
+    <section
+      v-if="post"
+      class="tw-my-4 tw-mx-4"
+    >
+      <h1 class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2">{{post.title}}</h1>
+      <NuxtContent :document="post"></NuxtContent>
+    </section>
     <section class="tw-mb-6 tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-yellow-50">
       <div class="tw-max-w-screen-lg tw-mx-auto">
         <div class="tw-mx-4 tw-border-t tw-border-b tw-border-yellow-300 tw-px-2 tw-py-8 md:tw-px-4">
@@ -72,13 +79,56 @@ export default {
   data() {
     return {
       mdiStar,
-      mdiOpenInNew
+      mdiOpenInNew,
+      posts: [],
+      post: null
     };
   },
   methods: {
     addSlash(text) {
       return text.endsWith(`/`) ? text : `${text}/`;
     }
+  },
+  // computed: {
+  //   seoTitle() {
+  //     if (this.post && this.post.seo) {
+  //       return this.post.seo.title;
+  //     } else return this.post.title;
+  //   },
+  //   seoDescription() {
+  //     if (this.post && this.post.seo) {
+  //       return this.post.seo.description;
+  //     } else return this.post.description;
+  //   }
+  // },
+  async fetch() {
+    // <Breadcrumbs
+    //   v-if="$route.path"
+    //   :path="$route.path.endsWith(`/`) ? $route.path : `${$route.path}/`"
+    // >
+    // </Breadcrumbs>
+    this.posts = await this.$content(this.$i18n.locale)
+      .where({
+        slug: "aagam"
+      })
+      .fetch();
+
+    this.post = this.posts[0];
+
+    // const ROUTE_PATH = this.$route.path.startsWith(`/aagam`)
+    //   ? `/en${this.$route.path}`
+    //   : this.$route.path;
+
+    // const ROUTE_PATH_WITH_SLASH = this.addSlash(ROUTE_PATH);
+
+    // this.posts = await this.$content(this.$i18n.locale, { deep: true })
+    //   // .where({ type: "aagam_index" })
+    //   .where({
+    //     path: ROUTE_PATH_WITH_SLASH.slice(0, ROUTE_PATH_WITH_SLASH.length - 1)
+    //   })
+    //   .fetch();
+
+    // this.post = this.posts[0];
   },
   head() {
     let website = `https://aagam.jainism.info`;
@@ -124,5 +174,5 @@ export default {
 
 @media (max-width: 640px)
   .custom-min-height
-    min-height: calc( 70vh )
+    min-height: 70vh
 </style>

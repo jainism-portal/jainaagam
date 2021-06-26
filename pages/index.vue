@@ -28,17 +28,18 @@
             </p>
           </header>
           <div class="tw-mt-6 tw-flex tw-justify-center tw-items-center ">
-            <nuxt-link
-              :to="localePath(`/aagam`)"
+            <button
+              @click="$vuetify.goTo('#aagam-list', {offset: 0})"
               class="tw-inline-block tw-text-xl md:tw-text-2xl tw-py-4 tw-px-4 md:tw-px-6 tw-shadow-lg !tw-text-linkblue tw-border tw-border-blue-200 tw-bg-gradient-to-br tw-from-white tw-via-white tw-to-blue-50 hover:tw-border-blue-600 hover:tw-bg-gradient-to-tl hover:tw-scale-105 md:hover:tw-scale-110 focus:tw-scale-100 hover:tw-shadow-xl tw-transform-gpu tw-transition-all tw-rounded tw-duration-150 tw-ease-in-out"
             >
               Read {{ $t("basic.jain_aagam") }} books online
-            </nuxt-link>
+            </button>
           </div>
         </div>
       </div>
     </section>
     <section
+      id="aagam-list"
       v-if="post"
       class="tw-my-4 tw-mx-4"
     >
@@ -89,24 +90,7 @@ export default {
       return text.endsWith(`/`) ? text : `${text}/`;
     }
   },
-  // computed: {
-  //   seoTitle() {
-  //     if (this.post && this.post.seo) {
-  //       return this.post.seo.title;
-  //     } else return this.post.title;
-  //   },
-  //   seoDescription() {
-  //     if (this.post && this.post.seo) {
-  //       return this.post.seo.description;
-  //     } else return this.post.description;
-  //   }
-  // },
   async fetch() {
-    // <Breadcrumbs
-    //   v-if="$route.path"
-    //   :path="$route.path.endsWith(`/`) ? $route.path : `${$route.path}/`"
-    // >
-    // </Breadcrumbs>
     this.posts = await this.$content(this.$i18n.locale)
       .where({
         slug: "aagam"
@@ -114,21 +98,6 @@ export default {
       .fetch();
 
     this.post = this.posts[0];
-
-    // const ROUTE_PATH = this.$route.path.startsWith(`/aagam`)
-    //   ? `/en${this.$route.path}`
-    //   : this.$route.path;
-
-    // const ROUTE_PATH_WITH_SLASH = this.addSlash(ROUTE_PATH);
-
-    // this.posts = await this.$content(this.$i18n.locale, { deep: true })
-    //   // .where({ type: "aagam_index" })
-    //   .where({
-    //     path: ROUTE_PATH_WITH_SLASH.slice(0, ROUTE_PATH_WITH_SLASH.length - 1)
-    //   })
-    //   .fetch();
-
-    // this.post = this.posts[0];
   },
   head() {
     let website = `https://aagam.jainism.info`;
@@ -175,4 +144,8 @@ export default {
 @media (max-width: 640px)
   .custom-min-height
     min-height: 70vh
+</style>
+
+<style lang="sass" src="~/assets/css/nuxtcontent.sass" scoped>
+
 </style>

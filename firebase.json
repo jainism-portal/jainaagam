@@ -7,6 +7,28 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/aagam",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/hi/aagam",
+        "destination": "/hi/",
+        "type": 301
+      },
+      {
+        "source": "/aagam/:post*",
+        "destination": "/:post",
+        "type": 301
+      },
+      {
+        "source": "/hi/aagam/:post*",
+        "destination": "/hi/:post",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "**/*.@(jpg|jpeg|gif|png|ico|webp)",

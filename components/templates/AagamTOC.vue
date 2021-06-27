@@ -40,172 +40,171 @@
         </header>
 
         <ol
-          v-if="groupedChildren['3'] && groupedChildren['3'].length"
+          v-if="groupedChildren['2'] && groupedChildren['2'].length"
           class="tw-mt-6 !tw-pl-4"
         >
           <li
-            v-for="child3 in groupedChildren['3']"
-            :key="child3.to"
-            class="list-item list-item--3"
+            v-for="child2 in groupedChildren['2']"
+            :key="child2.to"
+            class="list-item list-item--2"
           >
             <details
               open
-              class="details details--3"
+              class="details details--2"
             >
-              <summary class="summary summary--3 tw-group">
+              <summary class="summary summary--2 tw-group">
                 <nuxt-link
-                  :to="localePath(child3.to)"
+                  :to="localePath(child2.to)"
                   class="link"
-                > {{$i18n.locale === 'hi' ? child3.slugHi : child3.slug}}<span
-                    v-if="child3.title"
+                > {{$i18n.locale === 'hi' ? child2.slugHi : child2.slug}}<span
+                    v-if="child2.title"
                     class="post-title"
-                  >({{child3.title}})</span>
+                  >({{child2.title}})</span>
                 </nuxt-link>
                 <span
                   class="contents-count"
-                  v-if="groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length"
-                >
-                  {{groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length}} contents
+                  v-if="groupedChildren['3'].filter(child => child.to.startsWith(child2.to + `/`)).length"
+                > {{groupedChildren['3'].filter(child => child.to.startsWith(child2.to + `/`)).length}} contents
                 </span>
 
               </summary>
               <ol
-                v-if="groupedChildren['4'] && groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length"
-                class="ol ol--4"
+                v-if="groupedChildren['3'] && groupedChildren['3'].filter(child => child.to.startsWith(child2.to + `/`)).length"
+                class="ol ol--3"
               >
                 <li
-                  v-for="child4 in groupedChildren['4'].filter(child => {
-                return child.to.startsWith(child3.to + `/`);
+                  v-for="child3 in groupedChildren['3'].filter(child => {
+                return child.to.startsWith(child2.to + `/`);
                 })"
-                  :key="child4.to"
-                  class="list-item list-item--4"
+                  :key="child3.to"
+                  class="list-item list-item--3"
                 >
-                  <details class="details details--4">
+                  <details class="details details--3">
 
-                    <summary class="summary summary--4 tw-group">
+                    <summary class="summary summary--3 tw-group">
 
                       <nuxt-link
-                        :to="localePath(child4.to)"
+                        :to="localePath(child3.to)"
                         class="link"
-                      > {{$i18n.locale === 'hi' ? child4.slugHi : child4.slug}} <span
-                          v-if="child4.title"
+                      > {{$i18n.locale === 'hi' ? child3.slugHi : child3.slug}} <span
+                          v-if="child3.title"
                           class="post-title"
-                        >({{child4.title}})</span>
+                        >({{child3.title}})</span>
                       </nuxt-link>
                       <span
                         class="contents-count"
-                        v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length"
+                        v-if="groupedChildren['4'] && groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length"
                       >
-                        {{groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length}} contents
+                        {{groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length}} contents
                       </span>
                     </summary>
 
                     <ol
-                      v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length"
-                      class="ol ol--5"
+                      v-if="groupedChildren['4'] && groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length"
+                      class="ol ol--4"
                     >
                       <li
-                        v-for="child5 in groupedChildren['5'].filter(child => {
-                      return child.to.startsWith(child4.to + '/')})"
-                        :key="child5.to"
-                        :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'list-item list-item--5' : 'list-item-without-details-tag'"
+                        v-for="child4 in groupedChildren['4'].filter(child => {
+                      return child.to.startsWith(child3.to + '/')})"
+                        :key="child4.to"
+                        :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'list-item list-item--4' : 'list-item-without-details-tag'"
                       >
                         <component
-                          :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details' : 'div'"
-                          :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details details--5' : null"
+                          :is="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'details' : 'div'"
+                          :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'details details--4' : null"
                         >
 
                           <component
-                            :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'summary' : 'div'"
-                            :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'summary summary--5 tw-group' : null"
+                            :is="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'summary' : 'div'"
+                            :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'summary summary--4 tw-group' : null"
                           >
                             <nuxt-link
-                              :to="localePath(child5.to)"
+                              :to="localePath(child4.to)"
                               class="link"
-                            > {{$i18n.locale === 'hi' ? child5.slugHi : child5.slug}} <span
-                                v-if="child5.title"
+                            > {{$i18n.locale === 'hi' ? child4.slugHi : child4.slug}} <span
+                                v-if="child4.title"
                                 class="post-title"
-                              >({{child5.title}})</span>
+                              >({{child4.title}})</span>
 
                             </nuxt-link>
                             <span
                               class="contents-count"
-                              v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length"
+                              v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length"
                             >
-                              {{groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length}} contents
+                              {{groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length}} contents
                             </span>
                           </component>
                           <ol
-                            v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length"
-                            class="ol ol--6"
+                            v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length"
+                            class="ol ol--5"
                           >
                             <li
-                              v-for="child6 in groupedChildren['6'].filter(child => {
-                            return child.to.startsWith(child5.to + '/')})"
-                              :key="child6.to"
-                              :class="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'list-item list-item--6' : 'list-item-without-details-tag'"
+                              v-for="child5 in groupedChildren['5'].filter(child => {
+                            return child.to.startsWith(child4.to + '/')})"
+                              :key="child5.to"
+                              :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'list-item list-item--5' : 'list-item-without-details-tag'"
                             >
 
                               <component
-                                :is="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'details' : 'div'"
-                                :class="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'details details--6' : null"
+                                :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details' : 'div'"
+                                :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details details--5' : null"
                               >
                                 <component
-                                  :is="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'summary' : 'div'"
-                                  :class="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length > 0 ? 'summary summary--6 tw-group' : null"
+                                  :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'summary' : 'div'"
+                                  :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'summary summary--5 tw-group' : null"
                                 >
                                   <nuxt-link
-                                    :to="localePath(child6.to)"
+                                    :to="localePath(child5.to)"
                                     class="link"
-                                  > {{$i18n.locale === 'hi' ? child6.slugHi : child6.slug}} <span
-                                      v-if="child6.title"
+                                  > {{$i18n.locale === 'hi' ? child5.slugHi : child5.slug}} <span
+                                      v-if="child5.title"
                                       class="post-title"
-                                    >({{child6.title}})</span>
+                                    >({{child5.title}})</span>
                                   </nuxt-link>
                                   <span
                                     class="contents-count"
-                                    v-if="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length"
+                                    v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length"
                                   >
-                                    {{groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length}} contents
+                                    {{groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length}} contents
                                   </span>
                                 </component>
                                 <ol
-                                  v-if="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length"
-                                  class="ol ol--7"
+                                  v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length"
+                                  class="ol ol--6"
                                 >
                                   <li
-                                    v-for="child7 in groupedChildren['7'].filter(child => {
-                                  return child.to.startsWith(child6.to + '/')})"
-                                    :key="child7.to"
+                                    v-for="child6 in groupedChildren['6'].filter(child => {
+                                  return child.to.startsWith(child5.to + '/')})"
+                                    :key="child6.to"
                                   >
 
                                     <div class="">
                                       <nuxt-link
-                                        :to="localePath(child7.to)"
+                                        :to="localePath(child6.to)"
                                         class="link"
-                                      > {{$i18n.locale === 'hi' ? child7.slugHi : child7.slug}} <span
-                                          v-if="child7.title"
+                                      > {{$i18n.locale === 'hi' ? child6.slugHi : child6.slug}} <span
+                                          v-if="child6.title"
                                           class="post-title"
-                                        >({{child7.title}})</span>
+                                        >({{child6.title}})</span>
                                       </nuxt-link>
                                     </div>
                                     <ol
-                                      v-if="groupedChildren['8'] && groupedChildren['8'].filter(child => child.to.startsWith(child7.to + `/`)).length"
-                                      class="ol ol--8"
+                                      v-if="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length"
+                                      class="ol ol--7"
                                     >
                                       <li
-                                        v-for="child8 in groupedChildren['8'].filter(child => {
-                                        return child.to.startsWith(child7.to + '/')})"
-                                        :key="child8.to"
+                                        v-for="child7 in groupedChildren['7'].filter(child => {
+                                        return child.to.startsWith(child6.to + '/')})"
+                                        :key="child7.to"
                                       >
                                         <div class="">
                                           <nuxt-link
-                                            :to="localePath(child8.to)"
+                                            :to="localePath(child7.to)"
                                             class="link"
-                                          > {{$i18n.locale === 'hi' ? child8.slugHi : child8.slug}} <span
-                                              v-if="child8.title"
+                                          > {{$i18n.locale === 'hi' ? child7.slugHi : child7.slug}} <span
+                                              v-if="child7.title"
                                               class="post-title"
-                                            >({{child8.title}})</span>
+                                            >({{child7.title}})</span>
                                           </nuxt-link>
                                         </div>
                                       </li>
@@ -321,6 +320,11 @@ export default {
         return child.to.match(/\//g || []).length;
       });
 
+      this.groupedChildren["2"] = sortBy(
+        this.groupedChildren["2"],
+        ["position"],
+        ["asc"]
+      );
       this.groupedChildren["3"] = sortBy(
         this.groupedChildren["3"],
         ["position"],
@@ -343,6 +347,11 @@ export default {
       );
       this.groupedChildren["7"] = sortBy(
         this.groupedChildren["7"],
+        ["position"],
+        ["asc"]
+      );
+      this.groupedChildren["8"] = sortBy(
+        this.groupedChildren["8"],
         ["position"],
         ["asc"]
       );
@@ -422,13 +431,13 @@ export default {
   @apply tw-my-3
   @apply tw-rounded tw-border
   @apply tw-bg-gradient-to-bl tw-from-white tw-via-white
-  &--3
+  &--2
     @apply tw-border-pink-300 tw-to-pink-50
-  &--4
+  &--3
     @apply tw-border-blue-300 tw-to-blue-50
-  &--5
+  &--4
     @apply tw-border-green-300 tw-to-green-50
-  &--6
+  &--5
     @apply tw-border-purple-300 tw-to-purple-50
 
 .list-item-without-details-tag
@@ -441,16 +450,16 @@ export default {
     @apply tw-border-b
 
 .details
-  &--3
+  &--2
     ::marker
       @apply tw-text-pink-600
-  &--4
+  &--3
     ::marker
       @apply tw-text-blue-700
-  &--5
+  &--4
     ::marker
       @apply tw-text-green-600
-  &--6
+  &--5
     ::marker
       @apply tw-text-purple-600
 
@@ -458,13 +467,13 @@ export default {
   @apply tw-pl-2 md:tw-pl-4
   @apply tw-py-2 tw-cursor-pointer hover:tw-shadow-md tw-rounded
   @apply tw-bg-gradient-to-r tw-from-white tw-via-white hover:tw-bg-gradient-to-b
-  &--3
+  &--2
     @apply tw-to-pink-50 tw-text-pink-800
-  &--4
+  &--3
     @apply tw-to-blue-50 tw-text-blue-800
-  &--5
+  &--4
     @apply tw-to-green-50 tw-text-green-800
-  &--6
+  &--5
     @apply tw-to-purple-50 tw-text-purple-800
 
 </style>

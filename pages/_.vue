@@ -243,6 +243,7 @@
 <script>
 import Breadcrumbs from "~/components/Breadcrumbs.vue";
 import AagamTOC from "~/components/templates/AagamTOC.vue";
+import AagamOriginal from "~/components/templates/AagamOriginal.vue";
 
 import Sutra from "~/components/templates/Sutra.vue";
 
@@ -256,6 +257,7 @@ export default {
   components: {
     Breadcrumbs,
     "aagam-toc": AagamTOC,
+    AagamOriginal,
     Sutra,
     SutraMeaning,
     SutraExplanation

@@ -92,15 +92,13 @@ export default {
         {
           rel: "preload",
           as: "style",
-          // href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
           href:
-            "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+            "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
         },
         {
           rel: "stylesheet",
-          // href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap",
           href:
-            "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap",
+            "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap",
           media: "print",
           onload: "this.media='all'"
         }
@@ -110,3 +108,17 @@ export default {
   }
 };
 </script>
+
+<style lang="sass">
+::selection
+  @apply tw-bg-yellow-100 tw-text-black
+body
+  .a11y-hide
+    clip-path: inset(100%)
+    clip: rect(1px, 1px, 1px, 1px)
+    height: 1px
+    width: 1px
+    @apply tw-overflow-hidden tw-absolute tw-whitespace-nowrap
+  .custom-min-height
+    min-height: calc(100vh - 3.5rem)
+</style>

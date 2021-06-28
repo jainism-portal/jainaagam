@@ -1,5 +1,5 @@
 ---
-title: वैतालीय
+title: बीअ अज्झयणं - वेयालीयं
 position: 2
 type: chapter
 

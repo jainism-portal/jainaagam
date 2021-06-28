@@ -1,5 +1,5 @@
 ---
-title: पहला उद्देशक
+title: पढमो उद्देसो
 position: 1
 type: lesson
 

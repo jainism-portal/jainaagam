@@ -4,7 +4,7 @@
       <li
         v-for="(breadcrumb,i) in breadcrumbs"
         :key="breadcrumb.text"
-        class="tw-capitalize tw-text-sm md:tw-text-base tw-font-light"
+        class="tw-capitalize tw-text-sm md:tw-text-base"
         :class="i < breadcrumbs.length-1 ? 'tw-text-linkblue' : 'tw-text-gray-400'"
       >
         <nuxt-link

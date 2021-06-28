@@ -119,7 +119,7 @@
             class="nuxt-content"
           >
             <h2 class="">{{$t("pages.sutra.main.sutra.heading")}}</h2>
-            <sutra :sutraOriginal="sutraOriginal"></sutra>
+            <SutraOriginal :sutraOriginal="sutraOriginal"></SutraOriginal>
           </section>
           <nuxt-content
             v-if="post"
@@ -241,26 +241,37 @@
 </template>
 
 <script>
-import Breadcrumbs from "~/components/Breadcrumbs.vue";
-import AagamTOC from "~/components/templates/AagamTOC.vue";
-import AagamOriginal from "~/components/templates/AagamOriginal.vue";
+import AppTip from "~/components/atoms/AppTip.vue";
 
-import Sutra from "~/components/templates/Sutra.vue";
+import SutraMeaning from "~/components/atoms/sutra/SutraMeaning.vue";
+import SutraExplanation from "~/components/atoms/sutra/SutraExplanation.vue";
 
-import SutraMeaning from "~/components/templates/SutraMeaning.vue";
-import SutraExplanation from "~/components/templates/SutraExplanation.vue";
+import Breadcrumbs from "~/components/organisms/post/Breadcrumbs.vue";
+import PrevNext from "~/components/organisms/post/PrevNext.vue";
+
+import AagamOriginal from "~/components/templates/post/AagamOriginal.vue";
+import AagamTOC from "~/components/templates/post/AagamTOC.vue";
+import SutraOriginal from "~/components/templates/post/SutraOriginal.vue";
+import Incomplete from "~/components/templates/Incomplete.vue";
 
 import startCase from "lodash.startcase";
 
 export default {
   name: "AagamDynamicPage",
   components: {
+    // Atoms
+    AppTip,
+    SutraMeaning,
+    SutraExplanation,
+    // Molecules
+    // Organisms
     Breadcrumbs,
+    PrevNext,
+    // Templates
     "aagam-toc": AagamTOC,
     AagamOriginal,
-    Sutra,
-    SutraMeaning,
-    SutraExplanation
+    SutraOriginal,
+    Incomplete
   },
   data() {
     return {

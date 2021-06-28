@@ -14,7 +14,7 @@
     <v-tabs-slider class="tw-bg-gradient-to-br tw-from-white tw-to-yellow-400"></v-tabs-slider>
     <v-tab-item
       lang="pka-Deva"
-      class="tw-mt-3 tw-text-gray-600"
+      class="tw-mt-3 tw-text-gray-600 tw-overflow-y-auto tw-max-h-[40vh]"
       eager
     >
       <nuxt-content
@@ -31,7 +31,7 @@
     </v-tab>
     <v-tab-item
       lang="pkr-Latn"
-      class="tw-mt-6 tw-text-gray-600"
+      class="tw-mt-6 tw-text-gray-600 tw-overflow-y-auto tw-max-h-[40vh]"
       eager
     >
       <nuxt-content

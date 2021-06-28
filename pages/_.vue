@@ -114,11 +114,6 @@
             </component>
           </section>
 
-          <nuxt-content
-            v-if="post"
-            :document="post"
-            class="tw-mt-3"
-          ></nuxt-content>
           <section
             v-if="sutraOriginal"
             class="nuxt-content"
@@ -126,6 +121,11 @@
             <h2 class="">{{$t("pages.sutra.main.sutra.heading")}}</h2>
             <sutra :sutraOriginal="sutraOriginal"></sutra>
           </section>
+          <nuxt-content
+            v-if="post"
+            :document="post"
+            class="tw-mt-3"
+          ></nuxt-content>
           <section
             v-if="post.body.children.length == 0"
             class="nuxt-content tw-mt-3"

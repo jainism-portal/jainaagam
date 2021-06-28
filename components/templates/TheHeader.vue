@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import LanguageInput from "~/components/LanguageInput";
+import LanguageInput from "~/components/molecules/LanguageInput.vue";
 
 import {
   mdiOpenInNew,

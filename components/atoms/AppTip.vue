@@ -11,11 +11,11 @@
 
 <script>
 export default {
-  name: "tip",
+  name: "AppTip",
   props: {
     color: { type: String },
     colour: { type: String },
-    title: String,
+    title: String
   },
   data() {
     return {};
@@ -49,7 +49,7 @@ export default {
         console.error(errorMsg);
       }
       // }
-    },
-  },
+    }
+  }
 };
 </script>

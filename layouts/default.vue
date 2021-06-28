@@ -1,22 +1,28 @@
 <template>
   <v-app class="tw-text-base md:tw-text-xl">
     <!-- <ScrollIndicator class="tw-top-0"></ScrollIndicator> -->
-    <the-header></the-header>
+    <TheHeader></TheHeader>
     <v-main class="!tw-min-h-screen">
       <Nuxt
         keep-alive
         :keep-alive-props="{ max: 10 }"
       ></Nuxt>
     </v-main>
-    <the-footer></the-footer>
+    <TheFooter></TheFooter>
     <GoTop></GoTop>
   </v-app>
 </template>
 
 <script>
+import TheHeader from "~/components/templates/TheHeader.vue";
+import TheFooter from "~/components/templates/TheFooter.vue";
+import GoTop from "~/components/molecules/GoTop.vue";
+
 export default {
-  data() {
-    return {};
+  components: {
+    TheHeader,
+    TheFooter,
+    GoTop
   },
   head() {
     const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true });

@@ -1,5 +1,5 @@
 ---
-title: दूसरा उद्देशक
+title: बीओ उद्देसो
 position: 2
 type: lesson
 

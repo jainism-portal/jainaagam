@@ -1,0 +1,12 @@
+---
+title:
+
+type: aagam
+position: 1.2
+
+cat: anga
+
+children:
+  type: book
+  count: 2
+---

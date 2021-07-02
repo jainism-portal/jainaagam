@@ -1,0 +1,10 @@
+---
+title: पृथ्वीकाय की हिंसा का त्याग
+
+type: sutra
+position: 6
+
+parent:
+  type: lesson
+
+---

@@ -1,0 +1,3 @@
+---
+title: Prakrit sutra complete
+---

@@ -1,5 +1,5 @@
 <template>
-  <v-app class="tw-text-base md:tw-text-xl">
+  <v-app class="tw-text-lg md:tw-text-xl tw-text-gray-700">
     <!-- <ScrollIndicator class="tw-top-0"></ScrollIndicator> -->
     <TheHeader></TheHeader>
     <v-main class="!tw-min-h-screen">
@@ -121,4 +121,7 @@ body
     @apply tw-overflow-hidden tw-absolute tw-whitespace-nowrap
   .custom-min-height
     min-height: calc(100vh - 3.5rem)
+  .custom-first-letter-capitalize
+    &::first-letter
+      @apply tw-uppercase
 </style>

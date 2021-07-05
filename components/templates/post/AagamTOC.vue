@@ -45,7 +45,7 @@
         >
           <li
             v-for="child2 in groupedChildren['2']"
-            :key="child2.to"
+            :key="child2.paddedDepth"
             class="list-item list-item--2"
           >
             <details
@@ -54,29 +54,29 @@
             >
               <summary class="summary summary--2 tw-group">
                 <nuxt-link
-                  :to="localePath(child2.to)"
+                  :to="child2.dirWithoutAagam"
                   class="link"
-                > {{$i18n.locale === 'hi' ? child2.slugHi : child2.slug}}<span
+                > {{child2.slugurl}}<span
                     v-if="child2.title"
                     class="post-title"
                   >({{child2.title}})</span>
                 </nuxt-link>
                 <span
                   class="contents-count"
-                  v-if="groupedChildren['3'].filter(child => child.to.startsWith(child2.to + `/`)).length"
-                > {{groupedChildren['3'].filter(child => child.to.startsWith(child2.to + `/`)).length}} contents
+                  v-if="groupedChildren['3'].filter(child => child.dirWithoutAagam.startsWith(child2.dirWithoutAagam + `/`)).length"
+                > {{groupedChildren['3'].filter(child => child.dirWithoutAagam.startsWith(child2.dirWithoutAagam + `/`)).length}} contents
                 </span>
 
               </summary>
               <ol
-                v-if="groupedChildren['3'] && groupedChildren['3'].filter(child => child.to.startsWith(child2.to + `/`)).length"
+                v-if="groupedChildren['3'] && groupedChildren['3'].filter(child => child.dirWithoutAagam.startsWith(child2.dirWithoutAagam + `/`)).length"
                 class="ol ol--3"
               >
                 <li
                   v-for="child3 in groupedChildren['3'].filter(child => {
-                return child.to.startsWith(child2.to + `/`);
+                return child.dirWithoutAagam.startsWith(child2.dirWithoutAagam + `/`);
                 })"
-                  :key="child3.to"
+                  :key="child3.paddedDepth"
                   class="list-item list-item--3"
                 >
                   <details class="details details--3">
@@ -84,44 +84,44 @@
                     <summary class="summary summary--3 tw-group">
 
                       <nuxt-link
-                        :to="localePath(child3.to)"
+                        :to="child3.dirWithoutAagam"
                         class="link"
-                      > {{$i18n.locale === 'hi' ? child3.slugHi : child3.slug}} <span
+                      > {{child3.slugurl}} <span
                           v-if="child3.title"
                           class="post-title"
                         >({{child3.title}})</span>
                       </nuxt-link>
                       <span
                         class="contents-count"
-                        v-if="groupedChildren['4'] && groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length"
+                        v-if="groupedChildren['4'] && groupedChildren['4'].filter(child => child.dirWithoutAagam.startsWith(child3.dirWithoutAagam + `/`)).length"
                       >
-                        {{groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length}} contents
+                        {{groupedChildren['4'].filter(child => child.dirWithoutAagam.startsWith(child3.dirWithoutAagam + `/`)).length}} contents
                       </span>
                     </summary>
 
                     <ol
-                      v-if="groupedChildren['4'] && groupedChildren['4'].filter(child => child.to.startsWith(child3.to + `/`)).length"
+                      v-if="groupedChildren['4'] && groupedChildren['4'].filter(child => child.dirWithoutAagam.startsWith(child3.dirWithoutAagam + `/`)).length"
                       class="ol ol--4"
                     >
                       <li
                         v-for="child4 in groupedChildren['4'].filter(child => {
-                      return child.to.startsWith(child3.to + '/')})"
-                        :key="child4.to"
-                        :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'list-item list-item--4' : 'list-item-without-details-tag'"
+                      return child.dirWithoutAagam.startsWith(child3.dirWithoutAagam + '/')})"
+                        :key="child4.paddedDepth"
+                        :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + `/`)).length > 0 ? 'list-item list-item--4' : 'list-item-without-details-tag'"
                       >
                         <component
-                          :is="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'details' : 'div'"
-                          :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'details details--4' : null"
+                          :is="groupedChildren['5'] && groupedChildren['5'].filter(child => child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + `/`)).length > 0 ? 'details' : 'div'"
+                          :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + `/`)).length > 0 ? 'details details--4' : null"
                         >
 
                           <component
-                            :is="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'summary' : 'div'"
-                            :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length > 0 ? 'summary summary--4 tw-group' : null"
+                            :is="groupedChildren['5'] && groupedChildren['5'].filter(child => child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + `/`)).length > 0 ? 'summary' : 'div'"
+                            :class="groupedChildren['5'] && groupedChildren['5'].filter(child => child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + `/`)).length > 0 ? 'summary summary--4 tw-group' : null"
                           >
                             <nuxt-link
-                              :to="localePath(child4.to)"
+                              :to="child4.dirWithoutAagam"
                               class="link"
-                            > {{$i18n.locale === 'hi' ? child4.slugHi : child4.slug}} <span
+                            > {{child4.slugurl}} <span
                                 v-if="child4.title"
                                 class="post-title"
                               >({{child4.title}})</span>
@@ -129,79 +129,79 @@
                             </nuxt-link>
                             <span
                               class="contents-count"
-                              v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length"
+                              v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + `/`)).length"
                             >
-                              {{groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length}} contents
+                              {{groupedChildren['5'].filter(child => child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + `/`)).length}} contents
                             </span>
                           </component>
                           <ol
-                            v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.to.startsWith(child4.to + `/`)).length"
+                            v-if="groupedChildren['5'] && groupedChildren['5'].filter(child => child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + `/`)).length"
                             class="ol ol--5"
                           >
                             <li
                               v-for="child5 in groupedChildren['5'].filter(child => {
-                            return child.to.startsWith(child4.to + '/')})"
-                              :key="child5.to"
-                              :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'list-item list-item--5' : 'list-item-without-details-tag'"
+                            return child.dirWithoutAagam.startsWith(child4.dirWithoutAagam + '/')})"
+                              :key="child5.paddedDepth"
+                              :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + `/`)).length > 0 ? 'list-item list-item--5' : 'list-item-without-details-tag'"
                             >
 
                               <component
-                                :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details' : 'div'"
-                                :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'details details--5' : null"
+                                :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + `/`)).length > 0 ? 'details' : 'div'"
+                                :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + `/`)).length > 0 ? 'details details--5' : null"
                               >
                                 <component
-                                  :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'summary' : 'div'"
-                                  :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length > 0 ? 'summary summary--5 tw-group' : null"
+                                  :is="groupedChildren['6'] && groupedChildren['6'].filter(child => child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + `/`)).length > 0 ? 'summary' : 'div'"
+                                  :class="groupedChildren['6'] && groupedChildren['6'].filter(child => child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + `/`)).length > 0 ? 'summary summary--5 tw-group' : null"
                                 >
                                   <nuxt-link
-                                    :to="localePath(child5.to)"
+                                    :to="child5.dirWithoutAagam"
                                     class="link"
-                                  > {{$i18n.locale === 'hi' ? child5.slugHi : child5.slug}} <span
+                                  > {{child5.slugurl}} <span
                                       v-if="child5.title"
                                       class="post-title"
                                     >({{child5.title}})</span>
                                   </nuxt-link>
                                   <span
                                     class="contents-count"
-                                    v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length"
+                                    v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + `/`)).length"
                                   >
-                                    {{groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length}} contents
+                                    {{groupedChildren['6'].filter(child => child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + `/`)).length}} contents
                                   </span>
                                 </component>
                                 <ol
-                                  v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.to.startsWith(child5.to + `/`)).length"
+                                  v-if="groupedChildren['6'] && groupedChildren['6'].filter(child => child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + `/`)).length"
                                   class="ol ol--6"
                                 >
                                   <li
                                     v-for="child6 in groupedChildren['6'].filter(child => {
-                                  return child.to.startsWith(child5.to + '/')})"
-                                    :key="child6.to"
+                                  return child.dirWithoutAagam.startsWith(child5.dirWithoutAagam + '/')})"
+                                    :key="child6.paddedDepth"
                                   >
 
                                     <div class="">
                                       <nuxt-link
-                                        :to="localePath(child6.to)"
+                                        :to="child6.dirWithoutAagam"
                                         class="link"
-                                      > {{$i18n.locale === 'hi' ? child6.slugHi : child6.slug}} <span
+                                      > {{child6.slugurl}} <span
                                           v-if="child6.title"
                                           class="post-title"
                                         >({{child6.title}})</span>
                                       </nuxt-link>
                                     </div>
                                     <ol
-                                      v-if="groupedChildren['7'] && groupedChildren['7'].filter(child => child.to.startsWith(child6.to + `/`)).length"
+                                      v-if="groupedChildren['7'] && groupedChildren['7'].filter(child => child.dirWithoutAagam.startsWith(child6.dirWithoutAagam + `/`)).length"
                                       class="ol ol--7"
                                     >
                                       <li
                                         v-for="child7 in groupedChildren['7'].filter(child => {
-                                        return child.to.startsWith(child6.to + '/')})"
-                                        :key="child7.to"
+                                        return child.dirWithoutAagam.startsWith(child6.dirWithoutAagam + '/')})"
+                                        :key="child7.paddedDepth"
                                       >
                                         <div class="">
                                           <nuxt-link
-                                            :to="localePath(child7.to)"
+                                            :to="child7.dirWithoutAagam"
                                             class="link"
-                                          > {{$i18n.locale === 'hi' ? child7.slugHi : child7.slug}} <span
+                                          > {{child7.slugurl}} <span
                                               v-if="child7.title"
                                               class="post-title"
                                             >({{child7.title}})</span>
@@ -241,9 +241,9 @@
         : null"
       >
         <nuxt-link
-          :to="localePath(child.to)"
+          :to="child.to"
           class="link"
-        > {$i18n.locale === 'hi' ? {child.slugHi : childxx.slug}}
+        > {{child.slugurl}}
         </nuxt-link>
       </li>
     </ol> -->
@@ -253,114 +253,60 @@
 
 <script>
 import groupBy from "lodash.groupby";
-import sortBy from "lodash.sortby";
 
 export default {
   name: "AagamTableOfContents",
   props: {},
   data() {
     return {
-      post: null,
-      posts: [],
-      children: null,
-      groupedChildren: null
+      children: [],
+      groupedChildren: {}
     };
   },
   async fetch() {
-    // const ROUTE_PATH = this.$route.path.startsWith(`/aagam`)
-    //   ? `/en${this.$route.path}`
-    //   : this.$route.path;
-
-    this.posts = await this.$content(this.$i18n.locale, {
+    this.children = await this.$content(`aagam/${this.AagamName}`, {
       deep: true
     })
-      .without(["body"])
+      .only([
+        "paddedDepth",
+        "slug",
+        "show",
+        "dirWithoutAagam",
+        "slugurl",
+        "title"
+      ])
       .where({
-        // "/en/aagam/acharanga" or "/hi/aagam/acharanga"
-        path: `/${this.$i18n.locale}/${this.AagamName}`
-
-        // path: ROUTE_PATH.endsWith(`/`)
-        // ? ROUTE_PATH.slice(0, -5) // 4 denotes "toc/"
-        // : ROUTE_PATH.slice(0, -4) // 3 denotes "toc"
-
-        // With the above query, we could use the component only on "toc" pages. But now with new query with AagamName, we can use the component in any aagam file.
+        $and: [
+          { paddedDepth: { $len: { $gt: 0 } } },
+          { slug: "meta" },
+          // { type: { $ne: "toc" } },
+          { show: { $ne: false } }
+        ]
       })
+      .sortBy("paddedDepth", "asc")
       .fetch();
 
-    this.post = this.posts[0];
+    // https://stackoverflow.com/questions/50566693/intl-collator-for-js-objects
+    // let collator = new Intl.Collator(undefined, {
+    //   numeric: true,
+    //   sensitivity: "base"
+    // });
 
-    if (this.post) {
-      this.children = await this.$content(this.$i18n.locale, {
-        deep: true
-      })
-        .only(["dir", "path", "to", "slug", "position", "title"])
-        .where({
-          $and: [
-            { path: { $regex: ["^" + this.post.path + "/" + "[a-z]+"] } },
-            { show: { $ne: false } },
-            { type: { $ne: "toc" } }
-          ]
-        })
-        .sortBy("path")
-        .fetch();
-
-      this.children.forEach(child => {
-        return (child.slugHi = child.slug
-          .replace(/toc/, this.$t("contents.toc"))
-          .replace(/appendix/, this.$t("contents.appendix"))
-          .replace(/book/, this.$t("contents.book"))
-          .replace(/chapter/, this.$t("contents.chapter"))
-          .replace(/episode/, this.$t("contents.episode"))
-          .replace(/lesson/, this.$t("contents.lesson"))
-          .replace(/part/, this.$t("contents.part"))
-          .replace(/sutra/, this.$t("contents.sutra")));
-      });
-
+    // if (this.children) {
+    //   this.children = this.children.sort((a, b) => {
+    //     return collator.compare(a.depth, b.depth);
+    //   });
+    // }
+    if (this.children) {
       this.groupedChildren = groupBy(this.children, child => {
-        return child.to.match(/\//g || []).length;
+        return child.dirWithoutAagam.match(/\//g || []).length;
       });
-
-      this.groupedChildren["2"] = sortBy(
-        this.groupedChildren["2"],
-        ["position"],
-        ["asc"]
-      );
-      this.groupedChildren["3"] = sortBy(
-        this.groupedChildren["3"],
-        ["position"],
-        ["asc"]
-      );
-      this.groupedChildren["4"] = sortBy(
-        this.groupedChildren["4"],
-        ["position"],
-        ["asc"]
-      );
-      this.groupedChildren["5"] = sortBy(
-        this.groupedChildren["5"],
-        ["position"],
-        ["asc"]
-      );
-      this.groupedChildren["6"] = sortBy(
-        this.groupedChildren["6"],
-        ["position"],
-        ["asc"]
-      );
-      this.groupedChildren["7"] = sortBy(
-        this.groupedChildren["7"],
-        ["position"],
-        ["asc"]
-      );
-      this.groupedChildren["8"] = sortBy(
-        this.groupedChildren["8"],
-        ["position"],
-        ["asc"]
-      );
     }
   },
   computed: {
     AagamName() {
       if (this.$route?.params?.pathMatch) {
-        // Add a Trailing Slash because, for e.g., on http://localhost:3000/en/aagam/acharanga/ page, the pathMatch is "acharanga" (not "acharanga/")
+        // Add a Trailing Slash because, for e.g., on http://localhost:3000/acharanga/ page, the pathMatch is "acharanga" (not "acharanga/")
         const pathMatch = this.$route.params.pathMatch.endsWith("/")
           ? this.$route.params.pathMatch
           : `${this.$route.params.pathMatch}/`;

@@ -9,10 +9,10 @@
       <div class="tw-h-full tw-flex tw-flex-col md:tw-flex-none">
         <div class="md:tw-hidden tw-h-[10%] tw-mt-3 tw-pb-2 tw-border-b tw-border-gray-300 tw-flex tw-justify-center tw-items-center">
           <nuxt-link
-            :to="localePath('/')"
+            :to="'/'"
             class="tw-inline-block tw-text-xl !tw-text-pink-600"
           >
-            ꣽ {{$t("basic.jain_aagam")}}
+            ꣽ Jain Aagam
           </nuxt-link>
         </div>
 
@@ -31,7 +31,7 @@
             <v-icon class="!tw-text-gray-600">{{mdiStar}}</v-icon> <span class="tw-text-linkblue hover:tw-underline"> Star us on Github</span>
             <v-icon small>{{mdiOpenInNew}}</v-icon>
           </a>
-          <p class="tw-p-1">&copy; {{ $t("author.default") }}</p>
+          <p class="tw-p-1">&copy; CA Manas Madrecha</p>
           <div class="tw-flex tw-flex-wrap">
             <a
               v-for="social in socials"
@@ -71,17 +71,15 @@
 
       <div class="tw-w-full tw-flex tw-justify-between tw-items-center">
         <nuxt-link
-          :to="localePath('/')"
+          :to="'/'"
           class="tw-inline-block tw-mx-2 tw-p-2 !tw-text-pink-700 tw-font-semibold tw-text-xl md:tw-text-2xl tw-transform hover:tw--skew-x-6 tw-transition-transform"
-        >{{$t("basic.jain_aagam")}}</nuxt-link>
+        >Jain Aagam</nuxt-link>
       </div>
     </v-app-bar>
   </div>
 </template>
 
 <script>
-import LanguageInput from "~/components/molecules/LanguageInput.vue";
-
 import {
   mdiOpenInNew,
   mdiMenu,
@@ -92,7 +90,6 @@ import {
 } from "@mdi/js";
 
 export default {
-  components: { LanguageInput },
   data() {
     return {
       mdiOpenInNew,

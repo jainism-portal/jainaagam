@@ -88,48 +88,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    'nuxt-i18n',
     '@nuxtjs/sitemap'
   ],
-
-  i18n: {
-    baseUrl: 'https://aagam.jainism.info',
-    locales: [{
-      code: 'en',
-      iso: 'en',
-      name: 'English',
-      file: 'en.js'
-    }, {
-      code: 'hi',
-      iso: 'hi',
-      name: 'हिन्दी',
-      file: 'hi.js'
-    }],
-    defaultLocale: 'en',
-    strategy: 'prefix_except_default',
-    // noPrefixDefaultLocale: true,
-    lazy: true,
-    langDir: 'i18n/',
-    detectBrowserLanguage: {
-      alwaysRedirect: false,
-      fallbackLocale: 'en',
-      onlyOnRoot: true,
-      useCookie: true,
-      cookieCrossOrigin: false,
-      cookieDomain: null,
-      cookieKey: 'i18n_redirected',
-      cookieSecure: false
-    },
-    seo: false,
-    vueI18nLoader: true,
-    vueI18n: {
-      fallbackLocale: 'en',
-      messages: {
-        en: require('./i18n/en.js').default,
-        hi: require('./i18n/hi.js'),
-      },
-    }
-  },
 
   sitemap: {
     hostname: 'https://aagam.jainism.info',

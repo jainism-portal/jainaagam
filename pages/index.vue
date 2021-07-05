@@ -1,18 +1,3 @@
-<i18n lang="yaml">
-  en:
-    wip:
-      h2: What is Jain Aagam project?
-      para1: Jain Aagam project is an Open Source project by CA Manas Madrecha based in Mumbai to consolidate all the 45 Jain Aagam with their millions of aphormisms (sutra), along with meaning and explanation.
-      para2: You are more than welcome to contribute to this voluminous Jain Aagam venture on Github 
-      para3: Currently, there are Jain websites that serve only PDFs of Jain Aagam, but there is no website that provides searchable and indexable contents of Jain Aagam, that too in multiple languages. We aim to be the first. 
-  hi:
-    wip:
-      h2: जैन आगम परियोजना क्या है?
-      para1: जैन आगम परियोजना CA मानस मादरेचा (मुंबई में स्थित) द्वारा एक ओपन-सोर्स प्रोजेक्ट है, जिसमें सभी 45 जैन आगमों को उनके लाखों सूत्र के साथ अर्थ और स्पष्टीकरण सहित समेकित किया जाएगा।
-      para2: Github पर इस विशाल जैन आगम उद्यम में योगदान करने के लिए आपका स्वागत है।
-      para3: वर्तमान में, ऐसी जैन वेबसाइटें हैं जो केवल जैन आगम की PDF प्रस्तुत करती हैं, लेकिन ऐसी कोई वेबसाइट नहीं है जो जैन आगम की खोज योग्य और अनुक्रमित सामग्री प्रदान करती है, वह भी कई भाषाओं में। हम पहले बनने का लक्ष्य रखते हैं।
-</i18n>
-
 <template>
   <div>
     <section class="tw-mb-6 custom-min-height tw-flex tw-justify-center tw-items-center tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-pink-50">
@@ -50,24 +35,90 @@
 
     <section class="tw-mb-6 tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-yellow-50">
       <div class="tw-max-w-screen-lg tw-mx-auto">
-        <div class="tw-mx-4 tw-border-t tw-border-b tw-border-yellow-300 tw-px-2 tw-py-8 md:tw-px-4">
-          <h2 class="tw-text-2xl tw-text-pink-900">{{$t("wip.h2")}}</h2>
-          <div class="tw-text-lg tw-mt-3">
-            <p class="tw-mt-3">{{$t("wip.para1")}}</p>
-            <p class="tw-mt-3">{{$t("wip.para2")}}</p>
-            <p class="tw-mt-3">
-              <a
-                href="https://github.com/jainism-portal/jainaagam"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Jain Aagam Github repository"
-              >
-                <v-icon class="!tw-text-gray-600">{{mdiStar}}</v-icon> <span class="tw-text-linkblue hover:tw-underline"> {{$t("basic.jain_aagam")}} Github</span>
-                <v-icon small>{{mdiOpenInNew}}</v-icon>
-              </a>
-            </p>
-            <p class="tw-mt-3">{{$t("wip.para3")}} </p>
-          </div>
+        <div class="tw-px-2 tw-py-8 md:tw-px-4">
+          <h2 class="tw-my-3 md:tw-my-6 tw-text-3xl md:tw-text-4xl tw-text-pink-900">What is Jain Aagam project?</h2>
+          <v-tabs
+            show-arrows
+            :slider-size="1"
+          >
+            <v-tab
+              data-tab
+              active-class="tw-bg-gradient-to-t tw-from-white tw-via-white tw-to-yellow-50 !tw-text-yellow-900"
+            >
+              <span class="tw-capitalize tw-text-lg">English</span>
+            </v-tab>
+            <v-tab
+              data-tab
+              active-class="tw-bg-gradient-to-t tw-from-white tw-via-white tw-to-yellow-50 !tw-text-yellow-900"
+            >
+              <span class="tw-capitalize tw-text-lg">Hindi</span>
+            </v-tab>
+            <v-tabs-slider class="tw-bg-gradient-to-br tw-from-white tw-to-yellow-400"></v-tabs-slider>
+            <v-tab-item
+              lang="en"
+              class="tw-mt-3 tw-text-gray-600 tw-px-4 tw-py-2"
+              eager
+            >
+              <div class="tw-text-lg tw-mt-3">
+                <p class="tw-mt-3">Jain Aagam project is an Open Source project by <a
+                    href="https://manas.madrecha.com"
+                    target="_blank"
+                    rel="noopener"
+                    class="!tw-text-linkblue hover:tw-underline"
+                  >CA Manas Madrecha</a>
+                  <v-icon small>{{mdiOpenInNew}}</v-icon>
+                  based in Mumbai to consolidate all the 45 Jain Aagam with their millions of aphormisms (sutra), along with meaning and explanation.
+                </p>
+
+                <p class="tw-mt-3">You are more than welcome to contribute to this voluminous Jain Aagam venture on Github </p>
+                <p class="tw-mt-3">
+                  <a
+                    href="https://github.com/jainism-portal/jainaagam"
+                    target="_blank"
+                    rel="noopener"
+                    title="Jain Aagam Github repository"
+                  >
+                    <v-icon class="!tw-text-gray-600">{{mdiStar}}</v-icon> <span class="tw-text-linkblue hover:tw-underline"> Jain Aagam Github</span>
+                    <v-icon small>{{mdiOpenInNew}}</v-icon>
+                  </a>
+                </p>
+                <p class="tw-mt-3">Currently, there are Jain websites that serve only PDFs of Jain Aagam, but there is no website that provides searchable and indexable contents of Jain Aagam, that too in multiple languages. We aim to be the first.</p>
+              </div>
+
+            </v-tab-item>
+            <v-tab-item
+              lang="hi"
+              class="tw-mt-3 tw-text-gray-600 tw-px-4 tw-py-2"
+              eager
+            >
+              <div class="tw-text-lg tw-mt-3">
+                <p class="tw-mt-3">जैन आगम परियोजना <a
+                    href="https://manas.madrecha.com"
+                    target="_blank"
+                    rel="noopener"
+                    class="!tw-text-linkblue hover:tw-underline"
+                  >CA मानस मादरेचा</a>
+                  <v-icon small>{{mdiOpenInNew}}</v-icon> (मुंबई में स्थित) द्वारा एक ओपन-सोर्स प्रोजेक्ट है, जिसमें सभी 45 जैन आगमों को उनके लाखों सूत्र के साथ अर्थ और स्पष्टीकरण सहित समेकित किया जाएगा।
+                </p>
+                <p class="tw-mt-3">Github पर इस विशाल जैन आगम उद्यम में योगदान करने के लिए आपका स्वागत है।</p>
+
+                <p class="tw-mt-3">
+                  <a
+                    href="https://github.com/jainism-portal/jainaagam"
+                    target="_blank"
+                    rel="noopener"
+                    title="Jain Aagam Github repository"
+                  >
+                    <v-icon class="!tw-text-gray-600">{{mdiStar}}</v-icon> <span class="tw-text-linkblue hover:tw-underline">जैन आगम Github</span>
+                    <v-icon small>{{mdiOpenInNew}}</v-icon>
+                  </a>
+                </p>
+                <p class="tw-mt-3">वर्तमान में, ऐसी जैन वेबसाइटें हैं जो केवल जैन आगम की PDF प्रस्तुत करती हैं, लेकिन ऐसी कोई वेबसाइट नहीं है जो जैन आगम की खोज योग्य और अनुक्रमित सामग्री प्रदान करती है, वह भी कई भाषाओं में। हम पहले बनने का लक्ष्य रखते हैं।</p>
+              </div>
+
+            </v-tab-item>
+          </v-tabs>
+
         </div>
       </div>
     </section>
@@ -85,9 +136,7 @@ export default {
   data() {
     return {
       mdiStar,
-      mdiOpenInNew,
-      posts: [],
-      post: null
+      mdiOpenInNew
     };
   },
 

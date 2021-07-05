@@ -8,38 +8,36 @@
       data-tab
       active-class="tw-bg-gradient-to-t tw-from-white tw-via-white tw-to-yellow-50 !tw-text-yellow-900"
     >
-      <!-- <span>{{$t("pages.sutra.main.sutra.tabs.name")}}</span> -->
-      <span class="tw-capitalize">{{$t("pages.sutra.main.sutra.tabs.original")}}</span>
-    </v-tab>
-    <v-tabs-slider class="tw-bg-gradient-to-br tw-from-white tw-to-yellow-400"></v-tabs-slider>
-    <v-tab-item
-      lang="pka-Deva"
-      class="tw-mt-3 tw-text-gray-600 tw-overflow-y-auto tw-max-h-[40vh]"
-      eager
-    >
-      <nuxt-content
-        :document="sutraOriginal"
-        class="tw-border tw-px-2 md:tw-px-4"
-      ></nuxt-content>
-    </v-tab-item>
-    <v-tab
-      data-tab
-      active-class="tw-bg-gradient-to-t tw-from-white tw-via-white tw-to-yellow-50 !tw-text-yellow-900"
-    >
-      <!-- <span>{{$t("pages.sutra.main.sutra.tabs.name")}}</span> -->
-      <span class="tw-capitalize">{{$t("pages.sutra.main.sutra.tabs.transliteration")}}</span>
-    </v-tab>
-    <v-tab-item
-      lang="pkr-Latn"
-      class="tw-mt-6 tw-text-gray-600 tw-overflow-y-auto tw-max-h-[40vh]"
-      eager
-    >
-      <nuxt-content
-        :document="sutraLatn"
-        class="tw-border tw-px-2 md:tw-px-4"
-      ></nuxt-content>
-    </v-tab-item>
-  </v-tabs>
+        <span class="tw-capitalize">Original</span>
+      </v-tab>
+      <v-tabs-slider class="tw-bg-gradient-to-br tw-from-white tw-to-yellow-400"></v-tabs-slider>
+      <v-tab-item
+        lang="pka-Deva"
+        class="tw-mt-3 tw-text-gray-600 tw-overflow-y-auto tw-max-h-[40vh]"
+        eager
+      >
+        <nuxt-content
+          :document="sutraOriginal"
+          class="tw-border tw-px-2 md:tw-px-4"
+        ></nuxt-content>
+      </v-tab-item>
+      <v-tab
+        data-tab
+        active-class="tw-bg-gradient-to-t tw-from-white tw-via-white tw-to-yellow-50 !tw-text-yellow-900"
+      >
+        <span class="tw-capitalize">Transliteration</span>
+      </v-tab>
+      <v-tab-item
+        lang="pkr-Latn"
+        class="tw-mt-6 tw-text-gray-600 tw-overflow-y-auto tw-max-h-[40vh]"
+        eager
+      >
+        <nuxt-content
+          :document="sutraLatn"
+          class="tw-border tw-px-2 md:tw-px-4"
+        ></nuxt-content>
+      </v-tab-item>
+    </v-tabs>
 </template>
 
 <script>

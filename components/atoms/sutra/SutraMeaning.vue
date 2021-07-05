@@ -3,7 +3,7 @@
     class="nuxt-content"
     v-if="$scopedSlots.default"
   >
-    <h2 class="tw-capitalize">{{$t("basic.jain_aagam")}} {{$t("pages.sutra.main.meaning")}}</h2>
+    <h2 class="tw-capitalize">Jain Sutra meaning</h2>
     <div>
       <slot></slot>
     </div>

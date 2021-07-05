@@ -24,19 +24,17 @@ export default {
     TheFooter,
     GoTop
   },
+    methods: {
+    addSlash(text) {
+      return text.endsWith(`/`) ? text : `${text}/`;
+    }
+  },
   head() {
-    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true });
-    let template;
-    if (this.$i18n.locale === "en") {
-      template = `Jain Aagam literature books`;
-    }
-    if (this.$i18n.locale === "hi") {
-      template = `जैन आगम साहित्य पुस्तके`;
-    }
+    let website = `https://aagam.jainism.info`;
+
     return {
-      title: this.$t("basic.jain_aagam"),
-      titleTemplate: `%s | ${template}`,
-      htmlAttrs: i18nHead.htmlAttrs,
+      title: "Jain Aagam",
+      titleTemplate: `%s | Jain Aagam literature books`,
       meta: [
         { hid: "robots", name: "robots", content: "index, follow" },
         { hid: `author`, name: `author`, content: `Manas Madrecha` }, // TODO: fetch contributors from Github
@@ -84,8 +82,7 @@ export default {
           hid: "twitter:image",
           name: "twitter:image",
           content: "https://avatars.githubusercontent.com/u/81185535"
-        },
-        ...i18nHead.meta
+        }
       ],
       link: [
         // https://csswizardry.com/2020/05/the-fastest-google-fonts/
@@ -101,8 +98,11 @@ export default {
             "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap",
           media: "print",
           onload: "this.media='all'"
+        },
+        {
+          rel: "canonical",
+          href: this.addSlash(`${website}${this.$route.path}`)
         }
-        // ...i18nHead.link // Commented because it doesn't add slash
       ]
     };
   }

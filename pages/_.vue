@@ -454,12 +454,6 @@ export default {
 </style>
 
 <style lang="sass" scoped>
-.custom-first-letter-capitalize
-  &::first-letter
-    @apply tw-uppercase
-</style>
-
-<style lang="sass" scoped>
 .slide-enter-active
   @apply tw-transition-all tw-duration-700
 // .slide-leave-active

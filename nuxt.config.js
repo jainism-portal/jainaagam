@@ -15,6 +15,8 @@
 
 import { mdiOpenInNew } from "@mdi/js"; // For remark-external-links
 
+import appLanguages from "./app/langs";
+
 export default {
   ignore: [
     'prakritdictionary',
@@ -244,15 +246,74 @@ export default {
         const { time } = require('reading-time')(document.text)
         document.readingTime = time;
 
-        const { dir, path, slug } = document
+        document.slugurl = document.dir.slice(1 + document.dir.lastIndexOf('/'))
+        document.dirWithoutAagam = document.dir.slice(6)  // 6 is "/aagam"
+        document.pathWithoutAagam = document.path.slice(6)  // 6 is "/aagam"
 
-        const regexp = new RegExp(`^/(en|hi|gu)`, 'gi')
-        const _dir = dir.replace(regexp, '')
-        const _slug = slug.replace(/^index/, '')
-        document.to = `${_dir}/${_slug}`
+        document.pathWithSlash = document.path.endsWith(`/`)
+          ? document.path
+          : `${document.path}/`;
 
-        // dir = dir.endsWith('/') ? dir : dir + '/';
-        // path = path.endsWith('/') ? path : path + '/';
+        // if (document.type === 'releases') {
+        //   let releases = []
+        //   fetch(
+        //     "https://api.github.com/repos/madrecha/marwaridictionary/releases"
+        //   )
+        //     .then(res => res.json())
+        //     .then(
+        //       res =>
+        //       (releases = res
+        //         .filter(r => !r.draft)
+        //         .map(release => {
+        //           return {
+        //             url: release.html_url,
+        //             name: release.name,
+        //             tagName: release.tag_name,
+        //             createdAt: release.created_at,
+        //             publishedAt: release.published_at,
+        //             body: release.body
+        //           };
+        //         }))
+        //     );
+        //   document.text
+
+        // }
+
+        if (document.slug === 'meta') {
+          document.langPosition = 0
+        }
+
+        if (document.slug !== 'meta') {
+          if (document.slug === 'original') {
+            document.langPosition = 1
+          } else {
+
+            const langs = appLanguages
+
+            const langIndex = langs.indexOf(document.slug)
+            const isLangSlugCorrect = langIndex === -1 ? false : true
+
+            document.langPosition = document.slug === 'en' ? 2 : isLangSlugCorrect ? langIndex + 3 : 999
+
+          }
+        }
+
+        if (document.slug === 'meta' || document.slug === 'original') {
+          let depths = [], depthsWithEqualLength = [], paddedDepths = [];
+
+          depths = document.pathWithSlash.match(/\d+(?=\/)/g) || []
+
+          if (depths.length) {
+            document.depth = depths.join('.')
+
+            for (let i = 0; i < 6; i++) {
+              depthsWithEqualLength.push(typeof depths[i] === "undefined" ? "0" : depths[i]);
+            }
+
+            paddedDepths = depthsWithEqualLength.map(dep => dep.toString().padStart(6, "0"))
+            document.paddedDepth = paddedDepths.join('.')
+          }
+        }
 
       }
       if (document.sutra) {

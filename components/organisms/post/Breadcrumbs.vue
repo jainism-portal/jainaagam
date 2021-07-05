@@ -5,7 +5,7 @@
         v-for="(breadcrumb,i) in breadcrumbs"
         :key="breadcrumb.text"
         class="tw-capitalize tw-text-sm md:tw-text-base"
-        :class="i < breadcrumbs.length-1 ? 'tw-text-linkblue' : 'tw-text-gray-400'"
+        :class="i < breadcrumbs.length - 1 ? 'tw-text-linkblue' : 'tw-text-gray-400'"
       >
         <nuxt-link
           :to="breadcrumb.to"
@@ -39,7 +39,7 @@ export default {
     this.titles.shift();
 
     // second item is locale for non-English paths, so remove
-    if (this.$i18n.locale !== "en") this.titles.shift();
+    // if (this.$i18n.locale !== "en") this.titles.shift();
 
     // last item is trailing slash, so remove
     this.titles.pop();
@@ -58,37 +58,18 @@ export default {
       }
     });
 
-    ///////////////////
-    // TODO
-    if (this.$i18n.locale === "hi") {
-      //   this.titles.map(title => {
-      //     title
-      //       .replace(/toc/, this.$t("contents.toc"))
-      //       .replace(/appendix/, this.$t("contents.appendix"))
-      //       .replace(/book/, this.$t("contents.book"))
-      //       .replace(/chapter/, this.$t("contents.chapter"))
-      //       .replace(/episode/, this.$t("contents.episode"))
-      //       .replace(/lesson/, this.$t("contents.lesson"))
-      //       .replace(/part/, this.$t("contents.part"))
-      //       .replace(/sutra/, this.$t("contents.sutra"));
-      //   });
-    }
-    ////////////////////
-
-    // Now let's merge the two Arrays titles and urls into specific Array of Objects format required by Vuetify
+    // Now let's merge the two Arrays titles and urls into specific Array of Objects format
 
     this.titles.forEach((item, i) => {
       this.breadcrumbs[i] = [
         {
           text: this.titles[i].replace(/-/g, " "),
-          to: this.localePath(this.urls[i]),
+          to: this.urls[i],
           exact: true
         }
       ];
     });
-    this.breadcrumbs.unshift([
-      { text: "🏠", to: this.localePath(`/`), exact: true }
-    ]);
+    this.breadcrumbs.unshift([{ text: "🏠", to: `/`, exact: true }]);
     this.breadcrumbs = this.breadcrumbs.flat(2); // or Infinity
   }
 };

@@ -33,36 +33,16 @@
               class="tw-fixed tw-z-40 tw-bottom-4 md:tw-bottom-auto md:tw-top-14 tw-right-2 tw-rounded-2xl tw-text-2xl tw-w-10 tw-h-10 md:tw-w-12 md:tw-h-12 tw-font-2xl tw-bg-gradient-to-bl tw-from-white tw-to-blue-200 tw-shadow-md focus:tw-outline-none focus:tw-ring focus:tw-ring-blue-300"
               @click.stop="showToc = !showToc"
             >{{ showToc ? "❌" : "🧾" }}</button> -->
-      <article :class="showToc ? 'md:tw-w-[70%]' : 'tw-w-full'">
-        <h1
-          v-if="
-          !post ||
-          (!post && !sutraOriginal)
-        "
-          class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
-        >
+      <article>
+        <h1 class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2">
           {{seoTitle}}
-
         </h1>
-        <h1
-          v-if="post"
-          class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
+        <div
+          class="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-4"
+          v-if="AagamName"
         >
-          {{seoTitle}}
-          <span v-if="post.title">
-            - {{ post.title }}</span>
-        </h1>
-        <h1
-          v-if="!post && sutraOriginal"
-          class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2"
-        >
-          {{seoTitle}}
-          <span v-if="sutraOriginal.title">
-            - {{ sutraOriginal.title }}</span>
-        </h1>
-        <div class="tw-flex tw-justify-center tw-items-center">
           <nuxt-link
-            :to="localePath(`/${AagamName}/toc`)"
+            :to="`/${AagamName}/toc`"
             class="tw-inline-block tw-text-center tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-purple-700 tw-border tw-border-purple-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
           >View
             <span class="tw-capitalize">{{AagamName}} </span>
@@ -70,106 +50,42 @@
             <span>Table of Contents</span>
           </nuxt-link>
         </div>
-
-        <div
-          v-if="
-          !post ||
-          (!post && !sutraOriginal)"
-          class="tw-border-t tw-border-gray-500 tw-m-4"
+        <PostChooseLang
+          v-if="langPosts && !(routePathWithSlash.endsWith(`/toc/`)) && !(routePathWithSlash.endsWith(`/original/`))"
+          :langPosts="langPosts"
+          class="tw-my-4"
         >
-          <Incomplete
-            :post="post"
-            :sutraOg="sutraOriginal"
-          ></Incomplete>
-        </div>
+        </PostChooseLang>
 
-        <div
-          v-else
-          class="tw-my-4 tw-mx-4"
-        >
+        <div class="tw-my-4 tw-mx-4">
+          <PostChildren
+            :AagamName="AagamName"
+            :metaPost="metaPost"
+            v-if="AagamName && metaPost"
+          ></PostChildren>
 
-          <section v-if="children && children.length > 0">
-            <header class="nuxt-content ">
-              <h2 class="tw-cursor-pointer">{{$t("pages.all.children.heading")}}</h2>
-            </header>
-            <component :is="  children.length > 10 ? 'details' : 'div'">
-              <summary
-                v-if="children.length > 10"
-                class="tw-my-3 md:tw-my-6 tw-pl-2 md:tw-pl-4 tw-py-2 tw-cursor-pointer hover:tw-shadow-md tw-rounded hover:tw-bg-gradient-to-b hover:tw-from-white hover:tw-to-pink-50 tw-text-pink-800"
-              >{{$t("pages.all.children.summary")}}</summary>
-              <ol class="tw-list-decimal tw-list-inside">
-                <li
-                  v-for="child in children"
-                  :key="child.path"
-                >
-                  <nuxt-link
-                    :to="localePath(child.to)"
-                    class="custom-first-letter-capitalize tw-inline-block tw-p-1 !tw-text-linkblue hover:tw-underline"
-                  >
-                    {{child.title ? translateSlug(child.slug).replace(/-/g, " ") + ' 👉🏻 ' + child.title : translateSlug(child.slug).replace(/-/g, " ")}}
-                  </nuxt-link>
-                  <!-- <ReadingTime class="tw-text-sm" :post="child" :showWords="true"   :showTime="false"></ReadingTime> -->
-                </li>
-              </ol>
-            </component>
-          </section>
+          <!-- <ReadingTime class="tw-text-sm" :post="child" :showWords="true"   :showTime="false"></ReadingTime> -->
 
-          <section
-            v-if="sutraOriginal"
-            class="nuxt-content"
-          >
-            <h2 class="">{{$t("pages.sutra.main.sutra.heading")}}</h2>
-            <SutraOriginal :sutraOriginal="sutraOriginal"></SutraOriginal>
-          </section>
+          <SutraOriginal
+            :sutraOriginal="sutraOriginal"
+            v-if="sutraOriginals.length"
+          ></SutraOriginal>
           <nuxt-content
             v-if="post"
             :document="post"
-            class="tw-mt-3"
+            class="tw-my-3"
           ></nuxt-content>
-          <section
-            v-if="post.body.children.length == 0"
-            class="nuxt-content tw-mt-3"
-          >
-            <h2>Contribute</h2>
-            <p class="tw-bg-yellow-50 tw-p-3">😊 The page for this <span class="tw-capitalize tw-font-medium">{{post.type ? post.type : `post`}}</span> is yet to be added. You may check its <b>Contents</b>. </p>
-            <p>This is an Open source project, so you too can easily <a
-                :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
-                target="_blank"
-                class="!tw-text-linkblue hover:tw-underline"
-              >
-                Contribute by translating Jain Aagam</a>. Your contributions will help the international Jain community to better access Jain Aagam in multiple languages. For more details, you can <a
-                href="mailto:madrechamanas@gmail.com"
-                class="!tw-text-linkblue hover:tw-underline"
-              >email CA Manas Madrecha</a>. Thank you. Jai Jinendra. 🙏🏻</p>
-          </section>
         </div>
-        <footer class="nuxt-content tw-m-4 tw-border-t tw-border-gray-600">
-          <div class="tw-text-linkblue tw-mt-3 tw-flex tw-flex-col md:tw-flex-row tw-justify-around">
-            <nuxt-link
-              :to="localePath(prevs.to)"
-              v-if="prevs"
-              class="tw-mx-2 tw-text-center tw-capitalize"
-            >Prev 👈🏻 {{prevs.slug}}</nuxt-link>
-            <nuxt-link
-              :to="localePath(nexts.to)"
-              v-if="nexts"
-              class="tw-mx-2 tw-text-center tw-capitalize"
-            >Next 👉🏻 {{nexts.slug}}</nuxt-link>
-          </div>
-
-          <div class="tw-text-center tw-bg-green-50 tw-mt-3 tw-p-3">
-            <a
-              :href="`https://github.com/madrecha/jainaagam/tree/main/content${post.path.endsWith(`/`) ? post.path.slice(0, -1) : post.path}${post.extension}`"
-              target="_blank"
-              class="!tw-text-linkblue tw-block tw-text-sm"
-              v-if="post"
-            >
-              Contribute/Edit on GitHub
-            </a>
-            <div class="tw-text-sm tw-text-gray-500">
-              Post footer. Author. Comments. Related. Share.
-            </div>
-          </div>
+        <footer class="tw-my-6 tw-p-6">
+          <PostGitEdit
+            v-if="metaPost"
+            :metaPostDir="metaPost.dir"
+          ></PostGitEdit>
+          <PostPrevNext
+            :filePathWithoutLocale="filePathWithoutLocale"
+            :AagamName="AagamName"
+            v-if="AagamName && filePathWithoutLocale"
+          ></PostPrevNext>
         </footer>
       </article>
       <!-- <aside :class="showToc ? 'tw-w-[30%]' : 'md:tw-w-0'">
@@ -241,20 +157,25 @@
 </template>
 
 <script>
+import _startcase from "lodash.startcase";
+
+import appLanguages from "~/app/langs.js";
+
 import AppTip from "~/components/atoms/AppTip.vue";
 
 import SutraMeaning from "~/components/atoms/sutra/SutraMeaning.vue";
 import SutraExplanation from "~/components/atoms/sutra/SutraExplanation.vue";
 
 import Breadcrumbs from "~/components/organisms/post/Breadcrumbs.vue";
-import PrevNext from "~/components/organisms/post/PrevNext.vue";
+import PostPrevNext from "~/components/organisms/post/PostPrevNext.vue";
+import PostGitEdit from "~/components/organisms/post/PostGitEdit.vue";
+import PostChildren from "~/components/organisms/post/PostChildren.vue";
+import PostChooseLang from "~/components/organisms/post/PostChooseLang.vue";
 
 import AagamOriginal from "~/components/templates/post/AagamOriginal.vue";
 import AagamTOC from "~/components/templates/post/AagamTOC.vue";
 import SutraOriginal from "~/components/templates/post/SutraOriginal.vue";
 import Incomplete from "~/components/templates/Incomplete.vue";
-
-import startCase from "lodash.startcase";
 
 export default {
   name: "AagamDynamicPage",
@@ -266,7 +187,10 @@ export default {
     // Molecules
     // Organisms
     Breadcrumbs,
-    PrevNext,
+    PostPrevNext,
+    PostGitEdit,
+    PostChildren,
+    PostChooseLang,
     // Templates
     "aagam-toc": AagamTOC,
     AagamOriginal,
@@ -276,120 +200,204 @@ export default {
   data() {
     return {
       // POSTS
+      allPostsOfDir: [], // meta, en, hi, ... , and original
+      metaPost: {}, // langPosition = 0
+      nonMetaPosts: [],
+      originalPost: {}, // langPosition = 1
+      langPosts: [], // langPosition = 2, 3, etc.
       posts: [],
-      post: null,
-      sutrasOriginals: [],
-      sutraOriginal: null,
+      post: {},
+      sutraOriginals: [],
+      sutraOriginal: {},
+      currentLangPost: {},
 
-      // PATH
-      ROUTE_PATH: "",
-      ROUTE_PATH_WITH_SLASH: "",
-
-      // CHILDREN
-      children: null,
-
-      // SIBLINGS
-      prevs: null,
-      nexts: null,
-
-      // Reading Time
-      totalTime: null,
-      childrenReadingTimeTotal: null,
-      childrenReadingWordsTotal: null,
-
-      // Table of Contents active
-      showToc: false,
-      navtocheight: "",
-      showFixedTOC: true,
-      headings: []
+      // HEAD META
+      alternates: [],
+      langs: ["en", "x-default"]
     };
   },
   computed: {
-    seoTitle() {
-      if (this.$route?.params?.pathMatch) {
-        let pathContents = `${startCase(this.$route.params.pathMatch)}`;
-
-        pathContents = this.translateSlug(pathContents);
-
-        return `${this.$t("basic.jain_aagam")} - ${pathContents}`;
+    appLangs() {
+      let langs = appLanguages.map(appLang => {
+        let langName = new Intl.DisplayNames(["en"], { type: "language" }).of(
+          appLang
+        );
+        if (langName === "mwr") langName = "Marwari";
+        return { langCode: appLang, langName: langName };
+      });
+      return langs;
+    },
+    routePathWithSlash() {
+      if (this.$route) {
+        return this.$route.path.endsWith(`/`)
+          ? this.$route.path
+          : `${this.$route.path}/`;
       }
+    },
+    seoTitle() {
+      let title = "",
+        path = "",
+        actualTitle = "";
+      path = this.routePathWithSlash
+        .replace(new RegExp("^" + `/${this.AagamName}`, "i"), "")
+        .replace(/\/toc\/$/, "Table of Contents");
+
+      for (const appLang of this.appLangs) {
+        path = path.replace(
+          new RegExp(`/${appLang.langCode}/`, "i"),
+          `${appLang.langName}/`
+        );
+      }
+
+      path = _startcase(path);
+
+      if (this.currentLangPost && this.currentLangPost.title) {
+        actualTitle = this.currentLangPost.title;
+      }
+
+      if (actualTitle) {
+        title = _startcase(this.AagamName) + " - " + actualTitle + " - " + path;
+      } else title = _startcase(this.AagamName) + " - " + path;
+
+      return `Jain Aagam ${title}`;
     },
     AagamName() {
-      if (this.$route?.params?.pathMatch) {
-        // Add a Trailing Slash because, for e.g., on http://localhost:3000/en/aagam/acharanga/ page, the pathMatch is "acharanga" (not "acharanga/")
-        const pathMatch = this.$route.params.pathMatch.endsWith("/")
-          ? this.$route.params.pathMatch
-          : `${this.$route.params.pathMatch}/`;
-        const indexOfFirstSlash = pathMatch.indexOf(`/`);
-        // Return only the "acharanga" part of the string.
-        return pathMatch.slice(0, indexOfFirstSlash);
-      }
-    }
-  },
-  methods: {
-    addSlash(text) {
-      return text.endsWith(`/`) ? text : `${text}/`;
+      let path = this.routePathWithSlash.slice(1); // remove the first slash
+      return path.slice(0, path.indexOf("/"));
     },
-    translateSlug(text) {
-      return text
-        .replace(/toc/, this.$t("contents.toc"))
-        .replace(/appendix/, this.$t("contents.appendix"))
-        .replace(/book/, this.$t("contents.book"))
-        .replace(/chapter/, this.$t("contents.chapter"))
-        .replace(/episode/, this.$t("contents.episode"))
-        .replace(/lesson/, this.$t("contents.lesson"))
-        .replace(/sutra/, this.$t("contents.sutra"));
+    filePath() {
+      return /\/(hi|hi-Latn|gu|gu-Latn|mr|as|bn|kn|mwr|ml|ne|pa|or|sa|si|sd|ta|te|ur|da|de|it|nl|ru)\/$/i.test(
+        this.routePathWithSlash
+      )
+        ? this.routePathWithSlash.slice(0, -1)
+        : `${this.routePathWithSlash}en`;
+    },
+    currentPageLang() {
+      const a = this.filePath.lastIndexOf(`/`);
+      return this.filePath.slice(a + 1);
+    },
+    filePathWithoutLocale() {
+      let a =
+        this.filePath.endsWith(`/toc`) || this.filePath.endsWith(`/original`)
+          ? this.filePath
+          : this.filePath.slice(0, this.filePath.length - 3); // 3 denotes "/<lang>", e.g. /en, /hi
+      return (a = a.endsWith("/") ? a.slice(0, -1) : a); // if lang itself is 3-letter (e.g. /mwr), then remove the trailing slash
     }
   },
   async fetch() {
-    this.ROUTE_PATH = this.$route.path.startsWith(`/hi`)
-      ? this.$route.path
-      : `/en${this.$route.path}`;
-
-    this.ROUTE_PATH_WITH_SLASH = this.addSlash(this.ROUTE_PATH);
-
-    // CURRENT POST
-    this.posts = await this.$content(this.$i18n.locale, {
+    // ALL POSTS
+    this.allPostsOfDir = await this.$content(`aagam/${this.AagamName}`, {
       deep: true
     })
       .where({
-        path: this.ROUTE_PATH_WITH_SLASH.slice(
-          0,
-          this.ROUTE_PATH_WITH_SLASH.length - 1
-        )
-        // path: {
-        //   $regex: [this.$route.path.slice(0, this.$route.path.length - 1) + "$","gim"]
-        // }
+        $and: [
+          { dir: `/aagam${this.filePathWithoutLocale}` },
+          { show: { $ne: false } }
+        ]
       })
-      .sortBy("position")
-      .sortBy("path")
+      .without(["body", "toc"])
+      .sortBy("langPosition", "asc")
       .fetch();
 
-    this.post = this.posts[0];
+    if (this.allPostsOfDir) {
+      // [this.metaPost, ...this.nonMetaPosts] = this.allPostsOfDir;
+      this.metaPost = this.allPostsOfDir.filter(post => post.slug === "meta");
+      this.metaPost = this.metaPost ? this.metaPost[0] : {};
+
+      this.nonMetaPosts = this.allPostsOfDir.filter(
+        post => post.slug !== "meta"
+      );
+    }
+
+    if (this.nonMetaPosts) {
+      this.originalPost = this.nonMetaPosts.filter(
+        post => post.slug === "original"
+      );
+      this.originalPost = this.originalPost ? this.originalPost[0] : {};
+
+      this.langPosts = this.nonMetaPosts.filter(
+        post => post.slug !== "original"
+      );
+      if (this.langPosts) {
+        this.currentLangPost = this.langPosts.filter(
+          post => post.slug === this.currentPageLang
+        );
+        this.currentLangPost = this.currentLangPost
+          ? this.currentLangPost[0]
+          : {};
+      }
+    }
+
+    // META POST
+    // this.metaPosts = await this.$content(`aagam/${this.AagamName}`, {deep: true})
+    //   .where({
+    //     $and: [
+    //       { pathWithSlash: `/aagam${this.filePathWithoutLocale}/meta/` }
+    //     ]
+    //   })
+    //   .without(["body"])
+    //   .fetch();
+
+    // CURRENT POST
+    if (this.currentLangPost) {
+      this.posts = await this.$content(`aagam/${this.AagamName}`, {
+        deep: true
+      })
+        .only(["body", "path", "show"])
+        .where({
+          $and: [
+            // { path: `/aagam${this.filePath}` },
+            { path: this.currentLangPost.path },
+            { show: { $ne: false } }
+          ]
+          // path: {
+          //   $regex: [this.$route.path.slice(0, this.$route.path.length - 1) + "$","gim"]
+          // }
+        })
+        .fetch();
+
+      this.post = this.posts ? this.posts[0] : {};
+    }
 
     // SUTRA ORIGINAL TO BE SHOWN ONLY ON SUTRA PAGE
-    if (new RegExp(/sutra-[0-9]+\/$/i).test(this.ROUTE_PATH_WITH_SLASH)) {
-      const locale = this.ROUTE_PATH_WITH_SLASH.split("/")[1]; // 0 is empty string; so 1 is locale
-      const localeCharactersCount = locale.length; // usually it will be 2, e.g. en, hi, gu
-
-      this.sutrasOriginals = await this.$content("original", {
+    if (
+      this.originalPost &&
+      new RegExp(/sutra-\d+/).test(this.originalPost.path)
+    ) {
+      this.sutraOriginals = await this.$content(`aagam/${this.AagamName}`, {
         deep: true
       })
         .where({
           $and: [
-            { type: "sutra" },
-            {
-              path: `/original${this.ROUTE_PATH_WITH_SLASH.slice(
-                1 + localeCharactersCount
-              ).slice(0, -1)}` // remove the trailing slash
-            }
+            { dir: this.originalPost.dir },
+            { slug: `original` },
+            { show: { $ne: false } }
           ]
         })
-        .sortBy("position")
-        .sortBy("slug")
+        // .where({$and: [
+        //  {path: `/original${this.filePath_WITH_SLASH.slice(1 + localeCharactersCount).slice(0, -1)}` // remove the trailing slash}
+        // ]})
         .fetch();
 
-      this.sutraOriginal = this.sutrasOriginals[0];
+      this.sutraOriginal = this.sutraOriginals ? this.sutraOriginals[0] : {};
+    }
+
+    // TABLE OF CONTENTS
+    // if (this.post) {
+    //   if (this.post.tocLevel === 4) {
+    //     return (this.headings = this.post.toc);
+    //   } else {
+    //     this.headings = this.post.toc.filter(heading => {
+    //       return (
+    //         heading.depth === 1 || heading.depth === 2 || heading.depth === 3
+    //       );
+    //     });
+    //   }
+    // }
+  },
+  methods: {
+    addTrailingSlash(text) {
+      return text.endsWith(`/`) ? text : `${text}/`;
     }
 
     // CHILDREN

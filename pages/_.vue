@@ -176,14 +176,19 @@ export default {
       }
 
       path = _startcase(path);
+      console.log(path, path.length, typeof path);
 
       if (this.currentLangPost && this.currentLangPost.title) {
         actualTitle = this.currentLangPost.title;
       }
 
       if (actualTitle) {
-        title = _startcase(this.AagamName) + " - " + actualTitle + " - " + path;
-      } else title = _startcase(this.AagamName) + " - " + path;
+        title = _startcase(this.AagamName) + " - " + actualTitle;
+      } else title = _startcase(this.AagamName);
+
+      if (path !== "") {
+        title = title + " - " + path;
+      } else title = title;
 
       return `Jain Aagam ${title}`;
     },

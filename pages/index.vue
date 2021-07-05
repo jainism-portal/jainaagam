@@ -36,16 +36,18 @@
             </button>
           </div>
         </div>
+    </section>
+
+    <section id="aagam-list">
+      <h2 class="tw-my-3 md:tw-my-6 tw-text-center tw-px-2 md:tw-px-4 tw-py-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-br tw-from-white tw-to-blue-50">List of 45 Jain Aagam</h2>
+      <div class=" tw-mx-2">
+        <p class="tw-text-base tw-text-center tw-text-gray-500">Currently, Acharanga and Sutrakritanga sutra are being actively worked upon.</p>
+        <div class="tw-overflow-x-auto">
+          <AagamTable></AagamTable>
+        </div>
       </div>
     </section>
-    <section
-      id="aagam-list"
-      v-if="post"
-      class="tw-my-4 tw-mx-4"
-    >
-      <h1 class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2">{{post.title}}</h1>
-      <NuxtContent :document="post"></NuxtContent>
-    </section>
+
     <section class="tw-mb-6 tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-yellow-50">
       <div class="tw-max-w-screen-lg tw-mx-auto">
         <div class="tw-mx-4 tw-border-t tw-border-b tw-border-yellow-300 tw-px-2 tw-py-8 md:tw-px-4">
@@ -75,8 +77,11 @@
 <script>
 import { mdiStar, mdiOpenInNew } from "@mdi/js";
 
+import AagamTable from "~/components/templates/home/AagamTable.vue";
+
 export default {
   name: "HomePage",
+  components: { AagamTable },
   data() {
     return {
       mdiStar,
@@ -85,54 +90,9 @@ export default {
       post: null
     };
   },
-  methods: {
-    addSlash(text) {
-      return text.endsWith(`/`) ? text : `${text}/`;
-    }
-  },
-  async fetch() {
-    this.posts = await this.$content(this.$i18n.locale)
-      .where({
-        slug: "aagam"
-      })
-      .fetch();
 
-    this.post = this.posts[0];
-  },
   head() {
-    let website = `https://aagam.jainism.info`;
-
-    let defaultAlt = this.$route.path.startsWith("/hi")
-      ? `${website}${this.$route.path.slice(3)}`
-      : `${website}${this.$route.path}`;
-    return {
-      link: [
-        {
-          rel: "alternate",
-          href: this.addSlash(defaultAlt),
-          hreflang: "en"
-        },
-        {
-          rel: "alternate",
-          href: this.addSlash(defaultAlt),
-          hreflang: "x-default"
-        },
-        {
-          rel: "alternate",
-          href: this.addSlash(
-            this.$route.path.startsWith("/hi")
-              ? `${website}${this.$route.path}`
-              : `${website}/hi${this.$route.path}`
-          ),
-          hreflang: "hi"
-        },
-        {
-          rel: "canonical",
-          href: this.addSlash(`${website}${this.$route.path}`),
-          hreflang: this.$i18n.locale
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>

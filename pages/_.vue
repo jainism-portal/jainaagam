@@ -411,33 +411,6 @@ export default {
 .active-scroll
   @apply tw-text-lg tw-text-gray-900 hover:tw-shadow-md hover:tw-bg-white tw-bg-white tw-font-bold
 
-.toc_aside
-  /* @apply tw-top-32 tw-bottom-16; */
-  /* @apply tw-transition-transform; */
-  transform: translateX(calc(100%))
-  transition-property: transform
-  transition-duration: 500ms
-
-.toc_aside-open
-  transform: translateX(0%)
-
-.toc_aside-button
-  /* @apply tw-fixed tw-top-2 */
-  transform: translate(86%, 60px)
-  /* transform: translate(80%) */
-  transition-property: transform
-  transition-duration: 500ms
-
-.toc_aside-button-open
-  transform: translate(-12%, 80px)
-  /* transform: translateX(-10%) */
-
-</style>
-
-<style lang="sass" src="~/assets/css/all.sass" scoped>
-</style>
-
-<style lang="sass" scoped>
 // .slide-enter-active
 //   @apply tw-transition-all tw-duration-700
 // .slide-enter
@@ -445,6 +418,9 @@ export default {
 // .slide-leave-to
 //   @apply tw-transform-gpu tw-transition-all tw-duration-700 tw-translate-x-full
 
-  // .slide-leave-active
-  // @apply tw-transition-all tw-duration-500
+// .slide-leave-active
+// @apply tw-transition-all tw-duration-500
+</style>
+
+<style lang="sass" src="~/assets/css/all.sass" scoped>
 </style>

@@ -15,7 +15,7 @@
       },
       {
         "source": "/hi/aagam",
-        "destination": "/hi/",
+        "destination": "/",
         "type": 301
       },
       {
@@ -24,8 +24,8 @@
         "type": 301
       },
       {
-        "source": "/hi/aagam/:post*",
-        "destination": "/hi/:post",
+        "source": "/hi/:post*",
+        "destination": "/:post/hi",
         "type": 301
       }
     ],

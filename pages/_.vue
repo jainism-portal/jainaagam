@@ -5,23 +5,6 @@
       class="tw-my-48 tw-text-xl tw-text-blue-800 tw-bg-pink-50 tw-p-4 tw-text-center tw-font-medium"
     >
       Fetching... 💖 Wait for a few seconds 😊
-
-    </div>
-    <div
-      v-else-if="$fetchState.error"
-      class="nuxt-content tw-my-48 tw-text-xl tw-p-4"
-    >
-      <!-- (post === null && sutraOriginal === null) || -->
-      <h1 class="tw-text-3xl tw-bg-pink-50 tw-text-center tw-text-blue-900 tw-font-medium tw-p-4">404 error. Page not found.</h1>
-      <ol class="tw-mt-3">
-        <li>Check URL again</li>
-        <li>This page is not yet available in {{$i18n.localeProperties.name}} language. Choose different language. OR</li>
-        <li>Go <nuxt-link
-            :to="localePath(`/`)"
-            class="tw-text-linkblue hover:tw-underline"
-          >Home</nuxt-link> to navigate to the Aagam of your choice.
-        </li>
-      </ol>
     </div>
     <div v-else>
       <Breadcrumbs
@@ -53,13 +36,13 @@
           </nuxt-link>
         </div>
         <PostChooseLang
-          v-if="langPosts && !(routePathWithSlash.endsWith(`/toc/`)) && !(routePathWithSlash.endsWith(`/original/`))"
+          v-if="langPosts && langPosts.length && !(routePathWithSlash.endsWith(`/toc/`)) && !(routePathWithSlash.endsWith(`/original/`))"
           :langPosts="langPosts"
           class="tw-my-4"
         >
         </PostChooseLang>
 
-        <div class="tw-my-4 tw-mx-4">
+        <div class=" tw-my-4 tw-mx-4">
           <PostChildren
             :AagamName="AagamName"
             :metaPost="metaPost"
@@ -67,6 +50,11 @@
           ></PostChildren>
 
           <!-- <ReadingTime class="tw-text-sm" :post="child" :showWords="true"   :showTime="false"></ReadingTime> -->
+
+          <!-- <Incomplete
+            v-if="!currentLangPost"
+            class="tw-my-3 md:tw-my-6"
+          ></Incomplete> -->
 
           <SutraOriginal
             :sutraOriginal="sutraOriginal"

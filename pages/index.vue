@@ -1,26 +1,26 @@
 <template>
   <div>
-    <section class="tw-mb-6 custom-min-height tw-flex tw-justify-center tw-items-center tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-pink-50">
-      <div class="tw-max-w-screen-lg tw-mx-auto">
+    <section class="tw-py-6 custom-min-height tw-flex tw-justify-center tw-items-center tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-pink-50">
+      <div class="tw-max-w-screen-xl tw-mx-auto">
         <div class="tw-mx-4">
-          <header class="tw-text-center tw-flex tw-flex-col tw-justify-evenly tw-gap-2">
-
-            <p class="tw-inline-block tw-text-5xl md:tw-text-7xl tw-text-yellow-700">ꣽ</p>
-
-            <h1 class="tw-mt-3 md:tw-mt-6 tw-text-5xl md:tw-text-7xl tw-font-medium tw-text-pink-700">{{$t("basic.jain_aagam")}}
+          <div class="tw-text-center tw-flex tw-flex-col tw-justify-evenly tw-gap-2">
+            <div class="tw-group tw-relative">
+              <span class="tw-inline-block tw-max-w-max tw-text-5xl md:tw-text-7xl tw-text-yellow-700">ꣽ</span>
+              <span class="tw-absolute tw-top-0 tw-scale-0 group-hover:tw-scale-100 tw-transform-gpu tw-transition-all tw-text-yellow-600">Jain Om</span>
+            </div>
+            <h1 class="tw-mt-3 md:tw-mt-6 tw-py-2 tw-text-5xl md:tw-text-8xl tw-font-medium tw-text-transparent tw-bg-clip-text tw-bg-gradient-to-br tw-from-pink-500 tw-to-pink-800">Jain Aagam
             </h1>
-            <p class="tw-mt-3 md:tw-mt-6 tw-text-xl md:tw-text-2xl tw-max-w-screen-md tw-mx-auto tw-leading-relaxed tw-text-gray-600 ">{{$t("pages.home.header.description")}}
+            <p class="tw-mt-3 md:tw-mt-6 tw-text-xl md:tw-text-2xl tw-max-w-screen-md tw-mx-auto tw-leading-relaxed tw-text-gray-600 ">Jain Aagam are Jainism's supreme religious scriptures that deal with metaphysics, liberation of soul, and spiritual advice on how to lead a non-violent life.
             </p>
-          </header>
-          <div class="tw-mt-6 tw-flex tw-justify-center tw-items-center ">
-            <button
-              @click="$vuetify.goTo('#aagam-list', {offset: 0})"
-              class="tw-inline-block tw-text-xl md:tw-text-2xl tw-py-4 tw-px-4 md:tw-px-6 tw-shadow-lg !tw-text-linkblue tw-border tw-border-blue-200 tw-bg-gradient-to-br tw-from-white tw-via-white tw-to-blue-50 hover:tw-border-blue-600 hover:tw-bg-gradient-to-tl hover:tw-scale-105 md:hover:tw-scale-110 focus:tw-scale-100 hover:tw-shadow-xl tw-transform-gpu tw-transition-all tw-rounded tw-duration-150 tw-ease-in-out"
-            >
-              Read {{ $t("basic.jain_aagam") }} books online
-            </button>
           </div>
+          <button
+            @click="$vuetify.goTo('#aagam-list', {offset: 0})"
+            class="tw-mt-3 md:tw-mt-6 tw-block tw-mx-auto tw-text-xl md:tw-text-2xl tw-p-4 md:tw-px-6 tw-shadow-lg !tw-text-linkblue tw-rounded-xl tw-border tw-border-blue-200 tw-bg-gradient-to-br tw-from-white tw-via-white tw-to-blue-50 hover:tw-border-blue-600 hover:tw-bg-gradient-to-tl hover:tw-scale-110 active:tw-scale-100 hover:tw-shadow-xl tw-transform-gpu tw-transition-all focus:tw-outline-none"
+          >
+            Read Jain Aagam books online
+          </button>
         </div>
+      </div>
     </section>
 
     <section id="aagam-list">
@@ -153,8 +153,4 @@ export default {
 @media (max-width: 640px)
   .custom-min-height
     min-height: 70vh
-</style>
-
-<style lang="sass" src="~/assets/css/nuxtcontent.sass" scoped>
-
 </style>

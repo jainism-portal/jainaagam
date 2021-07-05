@@ -6,8 +6,15 @@
     >
       Fetching... 💖 Wait for a few seconds 😊
     </div>
-    <article v-else>
-      <h1 class="tw-my-3 md:tw-my-6 tw-text-4xl tw-text-center">Releases</h1>
+    <article
+      v-else
+      class="tw-mx-4"
+    >
+      <h1 class="tw-my-3 md:tw-my-6 tw-text-5xl tw-text-pink-800 tw-text-center">Releases</h1>
+      <div class=" tw-text-center tw-text-gray-500 tw-text-base">
+        <p class="tw-my-3">A list of changes mades on website and to know what's new.</p>
+        <p class="tw-my-3">Please note that this list is not up-to-date. To view all the changes, just visit our Jain Aagam repository on Github.</p>
+      </div>
       <div v-if="post">
         <section
           v-for="release in post.$releases"
@@ -41,6 +48,11 @@ export default {
       const options = { year: "numeric", month: "short", day: "numeric" };
       return new Date(date).toLocaleDateString("en", options);
     }
+  },
+  head() {
+    return {
+      title: `Jain Aagam releases`
+    };
   }
 };
 </script>

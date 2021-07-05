@@ -17,7 +17,17 @@
         </div>
 
         <div class="tw-h-[70%] md:tw-h-full tw-p-3 tw-text-gray-600 tw-overflow-y-auto">
-          <language-input></language-input>
+          <ol>
+            <li
+              v-for="menu in menus"
+              :key="menu.text"
+            >
+              <nuxt-link :to="menu.link">
+                {{menu.text}}
+
+              </nuxt-link>
+            </li>
+          </ol>
         </div>
 
         <footer class="tw-h-auto tw-p-2 tw-border-t tw-border-gray-300">
@@ -97,6 +107,10 @@ export default {
       mdiStar,
       toggleMenu: this.$vuetify.breakpoint.mdAndUp,
       toggleSearch: false,
+      menus: [
+        // { text: `About`, link: `/about` },
+        { text: `Releases`, link: `/releases` }
+      ],
       socials: [
         {
           link: `https://github.com/ManasMadrecha`,

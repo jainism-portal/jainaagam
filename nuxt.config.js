@@ -70,7 +70,6 @@ export default {
   plugins: [
     { src: '~/plugins/ga.js', mode: 'client' }, // Google Analytics, only on Browser, not on server
     '~/plugins/vue-scrollactive.js',
-    '~/plugins/directives',
     '~/plugins/vue-google-charts.js', // https://github.com/devstark-com/vue-google-charts
   ],
 
@@ -245,11 +244,11 @@ export default {
             className: ["tw-inline-flex", "tw-justify-center", "tw-items-center", "tw-align-middle", "tw-text-gray-600"]
           },
         }],
+        ['~/plugins/remark/git-releases.js'],
         // ['remark-directive'],
         // ['~/plugins/remark/directive-custom.js'],
         ['@silvenon/remark-smartypants', { dashes: 'oldschool' }],
         // ['remark-textr', { plugins: [textrCustom] }],
-        // ['~/plugins/remark/contributors.js'],
       ],
       prism: {
         theme: '~/assets/css/themes/prism-ghcolors.css'
@@ -295,30 +294,23 @@ export default {
           ? document.path
           : `${document.path}/`;
 
-        // if (document.type === 'releases') {
-        //   let releases = []
-        //   fetch(
-        //     "https://api.github.com/repos/madrecha/marwaridictionary/releases"
-        //   )
-        //     .then(res => res.json())
-        //     .then(
-        //       res =>
-        //       (releases = res
-        //         .filter(r => !r.draft)
-        //         .map(release => {
-        //           return {
-        //             url: release.html_url,
-        //             name: release.name,
-        //             tagName: release.tag_name,
-        //             createdAt: release.created_at,
-        //             publishedAt: release.published_at,
-        //             body: release.body
-        //           };
-        //         }))
-        //     );
-        //   document.text
+        // For individual release files (which is not what I want)
 
+        // if (document.$releaseBody) {
+        //   document.$releaseBody = {
+        //     body: await database.markdown.generateBody(document.$releaseBody),
+        //   };
         // }
+
+        // This is for a single releases file.
+        if (document.$releases) {
+          document.$releases.map(async release => {
+            release.body = {
+              body: await database.markdown.generateBody(release.body),
+            };
+            return release
+          })
+        }
 
         if (document.slug === 'meta') {
           document.langPosition = 0

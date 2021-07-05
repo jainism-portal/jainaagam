@@ -337,100 +337,84 @@ export default {
     addTrailingSlash(text) {
       return text.endsWith(`/`) ? text : `${text}/`;
     }
-
-    // CHILDREN
-    if (this.post) {
-      this.children = await this.$content(`${this.$i18n.locale}`, {
-        deep: true
-      })
-        .without(["body", "toc"])
-        .where({
-          $and: [{ dir: this.post.path }, { show: { $ne: false } }]
-        })
-        .sortBy("position", "asc")
-        .sortBy("slug", "asc")
-        .fetch();
-    }
-
-    // SIBLINGS ( PREV-NEXT )
-    if (this.post) {
-      [this.prevs, this.nexts] = await this.$content(`${this.$i18n.locale}`, {
-        deep: true
-      })
-        .without(["body", "toc"])
-        .where({ $and: [{ dir: this.post.dir }, { show: { $ne: false } }] })
-        // .where({ index: !true })
-        .sortBy("position", "asc")
-        .sortBy("slug", "asc")
-        .surround(this.post.path)
-        .fetch();
-    }
-
-    // TABLE OF CONTENTS
-    if (this.post) {
-      if (this.post.tocLevel === 4) {
-        return (this.headings = this.post.toc);
-      } else {
-        this.headings = this.post.toc.filter(heading => {
-          return (
-            heading.depth === 1 || heading.depth === 2 || heading.depth === 3
-          );
-        });
-      }
-    }
   },
   head() {
     let website = `https://aagam.jainism.info`;
 
-    let defaultAlt = this.$route.path.startsWith("/hi")
-      ? `${website}${this.$route.path.slice(3)}`
-      : `${website}${this.$route.path}`;
+    this.routePathWithSlash;
 
-    // if (this.post && this.$route) {
-    return {
-      title: this.seoTitle,
-      meta: [
-        // {
-        //   hid: `description`,
-        //   name: `description`,
-        //   content: this.seoDescription
-        // },
-        {
-          hid: "og:title",
-          property: "og:title",
-          content: this.seoTitle
+    if (this.metaPost) {
+      if (this.langPosts) {
+        let langPosts = this.langPosts.filter(post => post.slug !== "en");
+
+        for (const langPost of langPosts) {
+          this.langs.push(langPost.slug);
         }
-        // {
-        //   hid: `og:description`,
-        //   name: `og:description`,
-        //   content: this.seoDescription
-        // }
-      ],
-      link: [
-        {
+      }
+
+      this.langs = [...new Set(this.langs)];
+
+      for (const lang of this.langs) {
+        const path =
+          lang === "en" || lang === "x-default"
+            ? `${this.metaPost.dirWithoutAagam}/`
+            : `${this.metaPost.dirWithoutAagam}/${lang}/`;
+
+        this.alternates.push({
           rel: "alternate",
-          href: this.addSlash(defaultAlt),
-          hreflang: "en"
-        },
-        {
+          href: website + path,
+          hreflang: lang
+        });
+      }
+
+      // https://stackoverflow.com/a/56757215
+      this.alternates = this.alternates.filter(
+        (v, i, a) => a.findIndex(t => t.hreflang === v.hreflang) === i
+      );
+    } else {
+      for (const lang of this.langs) {
+        const path = `${this.routePathWithSlash}/`;
+
+        this.alternates.push({
           rel: "alternate",
-          href: this.addSlash(defaultAlt),
-          hreflang: "x-default"
+          href: website + path,
+          hreflang: lang
+        });
+      }
+    }
+
+    if (
+      this.alternates &&
+      this.alternates.length &&
+      this.seoTitle &&
+      this.currentPageLang
+    ) {
+      return {
+        title: this.seoTitle,
+        htmlAttrs: {
+          lang: this.currentPageLang
         },
-        {
-          rel: "alternate",
-          href: this.addSlash(
-            this.$route.path.startsWith("/hi")
-              ? `${website}${this.$route.path}`
-              : `${website}/hi${this.$route.path}`
-          ),
-          hreflang: "hi"
-        },
-        {
-          rel: "canonical",
-          href: this.addSlash(`${website}${this.$route.path}`),
-          hreflang: this.$i18n.locale
-        }
+        meta: [
+          {
+            hid: "og:title",
+            property: "og:title",
+            content: this.seoTitle
+          }
+          // {
+          //   hid: `description`,
+          //   name: `description`,
+          //   content: this.seoDescription
+          // },
+          // {
+          //   hid: `og:description`,
+          //   name: `og:description`,
+          //   content: this.seoDescription
+          // }
+        ],
+        link: [...this.alternates]
+      };
+    }
+  }
       ]
     };
     // }

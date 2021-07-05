@@ -403,11 +403,7 @@ export default {
       };
     }
   }
-      ]
-    };
-    // }
-  },
-  transition: "slide"
+  // transition: "slide"
 };
 </script>
 
@@ -442,12 +438,13 @@ export default {
 </style>
 
 <style lang="sass" scoped>
-.slide-enter-active
-  @apply tw-transition-all tw-duration-700
-// .slide-leave-active
+// .slide-enter-active
+//   @apply tw-transition-all tw-duration-700
+// .slide-enter
+//   @apply tw-transform-gpu tw-transition-all tw-duration-700 tw--translate-x-full
+// .slide-leave-to
+//   @apply tw-transform-gpu tw-transition-all tw-duration-700 tw-translate-x-full
+
+  // .slide-leave-active
   // @apply tw-transition-all tw-duration-500
-.slide-enter
-  @apply tw-transform-gpu tw-transition-all tw-duration-700 tw--translate-x-full
-.slide-leave-to
-  @apply tw-transform-gpu tw-transition-all tw-duration-700 tw-translate-x-full
 </style>

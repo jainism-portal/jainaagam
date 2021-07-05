@@ -5,7 +5,7 @@ start:
 end: ॥ सत्थपरिण्णाए तइओ उद्देसओ समत्तो ॥ 
 ---
 
-
+<!-- 
 ## 1 
 
 ### en
@@ -54,4 +54,4 @@ Knowing them, a wise man should not act sinfully towards water, nor cause others
 He who knows these causes of sin relating to water, is called a reward-knowing sage. Thus I say. (8)
 
 Third Lesson concludes.
-
+ -->

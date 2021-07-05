@@ -1,7 +1,8 @@
 ---
 title: Time
-position: 1
+
 type: chapter
+position: 1
 
 parent:
   type: book

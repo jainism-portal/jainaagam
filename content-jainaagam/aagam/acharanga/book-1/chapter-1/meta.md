@@ -1,5 +1,5 @@
 ---
-title: सत्थपरिण्णा
+title: Shastra Parigya
 
 type: chapter
 position: 1

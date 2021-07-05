@@ -1,8 +1,8 @@
 ---
-title: Jain Aagam in English with meaning
+title: List of 45 Jain Aagam
 
 seo:
-  title: Jain Aagam in English with meaning
+  title: List of Jain Aagam
   description: All 45 Jain Aagam explained with English meaning and translation. Read Jainism supreme scriptures and religious literature for free.
 
 type: aagam_index
@@ -30,9 +30,7 @@ Paiṇṇaga (10) viz., Causaraṇa, Āurapaccākkhāṇa, Bhattapariṇṇā, T
 
 -->
 
-### List of 45 Jain Aagam
-
-#### Limb (Anga) (11)
+### Anga (Limb) (11)
 
 1. [Code of Conduct (_Ācāranga_)](/acharanga)
 2. [Heretical systems and views (_Sūtrakṛtāṅga_)](/sutrakritanga)
@@ -43,21 +41,11 @@ Paiṇṇaga (10) viz., Causaraṇa, Āurapaccākkhāṇa, Bhattapariṇṇā, T
 7. Ten chapters (_Upāsaka-daśāḥ_)
 8. Ten chapters on those who put an end to rebirth (_Antakṛd-daśāḥ_)
 9. Ten chapters on those who were reborn in the uppermost heavens (_Anuttaropapātika-daśāḥ_)
-10. [Questions and Explanations (_prashnavyakaran_)](/prashnavyakaran)
+10. Questions and Explanations (_prashnavyakaran_)
 11. Bad or good results of deeds performed (_Vipākaśruta_)
-12. lost
-   
-<!-- 3. [स्थानांग](/sthananga)
-1. [समवायांग](/samavayanga)
-2. [भगवती-(व्याख्या-प्रज्ञप्ति)]
-3. [ज्ञातधर्मकथा]
-4. [उपासक-दशः]
-5. [अनोत्तर]
-6.  [[अनोत्तर-उपपातिका](/anuttarovavai)]
-7.  
-8.  [12th lost forever - so not counted in 45 aagam -->
+12. 12th lost forever - so not counted in 45 aagam
 
-#### Sub-Limb (Upanga) (12)
+### Sub-Limb (Upanga) (12)
 
 <div class="flex-grandchild">
 
@@ -76,7 +64,7 @@ Paiṇṇaga (10) viz., Causaraṇa, Āurapaccākkhāṇa, Bhattapariṇṇā, T
 
 </div>
 
-#### Chhed (6)
+### Chhed (6)
 
 <div class="flex-grandchild">
 
@@ -90,7 +78,7 @@ Kalpa Sūtra
 
 </div>
 
-#### Mool (4)
+### Mool (4)
 
 <div class="flex-grandchild">
 
@@ -101,7 +89,7 @@ Kalpa Sūtra
 
 </div>
 
-#### Miscellaneous (10)
+### Miscellaneous (10)
 
 <div class="flex-grandchild">
 
@@ -119,7 +107,7 @@ Kalpa Sūtra
 </div>
 
 
-#### Chulika (2)
+### Chulika (2)
 
 <div class="flex-grandchild">
 

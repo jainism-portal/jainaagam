@@ -1,5 +1,5 @@
 ---
-title: Acharanga
+title:
 
 type: aagam
 position: 1.01

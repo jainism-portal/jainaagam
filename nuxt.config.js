@@ -100,45 +100,96 @@ export default {
       '/prakritdictionary',
     ],
     routes: async () => {
-      let routes = [];
       const { $content } = require('@nuxt/content')
 
-      let postsEN = await $content('en', { deep: true })
-        .without("body").where({ $and: [{ show: { $ne: false } }] })
-        .sortBy("path")
+      let metaPosts = [], langPosts = [], allPosts = [], routes = [];
+
+      metaPosts = await $content("aagam", { deep: true })
+        .without("body")
+        .where({
+          $and: [
+            { slug: "meta" },
+            {
+              dirWithoutAagam: {
+                $regex: `^` + `/acharanga` + `|` + `/sutrakritanga`
+              } // in future, update this as and when new aagam are added
+            },
+            { show: { $ne: false } }
+          ]
+        })
+        .sortBy("paddedDepth", "asc")
+        .sortBy("path", "asc")
         .fetch();
 
-      let postsHI = await $content('hi', { deep: true })
-        .without("body").where({ $and: [{ show: { $ne: false } }] })
-        .sortBy("path")
-        .fetch();
-
-      for (const post of postsEN) {
-        routes.push({
-          url: `${post.to}/`,
-          changefreq: 'daily',
-          lastmod: post.updatedAt,
-          // https://github.com/nuxt-community/sitemap-module/issues/122
-          links: ['en', 'hi', 'x-default'].map(lang => {
-            let url = lang === 'en' || lang === 'x-default' ? `${post.to}/` : `/${lang}${post.to}/`
-            return {
-              lang: lang,
-              url: url
-            }
+      for (const metaPost of metaPosts) {
+        let langPostsOfDir = await $content("aagam", { deep: true })
+          .without(["body", "toc"])
+          .where({
+            $and: [
+              { dir: metaPost.dir },
+              { slug: { $ne: "original" } },
+              { slug: { $ne: "en" } },
+              { slug: { $ne: "meta" } },
+              { show: { $ne: false } }
+            ]
           })
-        });
+          .sortBy("langPosition")
+          .fetch();
+
+        langPosts.push(langPostsOfDir);
       }
-      for (const post of postsHI) {
+      langPosts = langPosts.flat();
+
+      metaPosts.map(metaPost => {
+        metaPost.langs = [];
+
+        for (const langPost of langPosts) {
+          if (langPost.dir === metaPost.dir) {
+            metaPost.langs.push(langPost.slug);
+            metaPost.langs = [...new Set(metaPost.langs)];
+            metaPost.langs = metaPost.langs.filter(
+              lang => !lang.startsWith("sutra")
+            );
+          }
+        }
+        metaPost.langs.push("en", "x-default");
+        return metaPost;
+      });
+
+      langPosts.map(langPost => {
+        langPost.langs = [];
+
+        for (const metaPost of metaPosts) {
+          if (metaPost.dir === langPost.dir) {
+            langPost.langs.push(metaPost.langs);
+          }
+        }
+        langPost.langs = langPost.langs.flat();
+        return langPost;
+      });
+
+      allPosts = [...metaPosts, ...langPosts];
+
+      for (const post of allPosts) {
+        post.langs = post.langs ? post.langs : [];
+
         routes.push({
-          url: `/hi/${post.to}/`,
-          changefreq: 'daily',
+          url:
+            post.slug === "meta"
+              ? `${post.dirWithoutAagam}/`
+              : `${post.pathWithoutAagam}/`,
+          changefreq: "daily",
           lastmod: post.updatedAt,
-          links: ['en', 'hi', 'x-default'].map(lang => {
-            let url = lang === 'en' || lang === 'x-default' ? `${post.to}/` : `/${lang}${post.to}/`
+          links: post.langs.map(lang => {
+            let url =
+              lang === "en" || lang === "x-default"
+                ? `${post.dirWithoutAagam}/`
+                : `${post.dirWithoutAagam}/${lang}/`;
+
             return {
               lang: lang,
               url: url
-            }
+            };
           })
         });
       }
@@ -150,17 +201,7 @@ export default {
           url: route.url.endsWith(`/`) ? route.url : `${route.url}/`, // Slash
           changefreq: route.changefreq ? route.changefreq : 'daily',
           lastmod: route.lastmod ? route.lastmod : new Date(),
-          links: route.links && route.links.length > 0
-            ? route.links
-            : ['en', 'hi', 'x-default'].map(lang => {
-              let page = route.name.split('__')[0] // https://github.com/nuxt-community/sitemap-module/issues/122#issuecomment-659377003
-              page = page === 'index' ? '' : `${page}/`
-              let url = lang === 'en' || lang === 'x-default' ? `/${page}` : `/${lang}/${page}`;
-              return {
-                lang: lang,
-                url: url
-              }
-            })
+          links: route.links
         }
       })
     }
@@ -358,7 +399,8 @@ export default {
     },
   },
   generate: {
-    exclude: [//
+    exclude: [
+      'sitemap-test'
     ],
     // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-generate#fallback
     fallback: '404.html',

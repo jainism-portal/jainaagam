@@ -44,10 +44,12 @@
           <nuxt-link
             :to="`/${AagamName}/toc`"
             class="tw-inline-block tw-text-center tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-purple-700 tw-border tw-border-purple-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
-          >View
-            <span class="tw-capitalize">{{AagamName}} </span>
-            Aagam's
-            <span>Table of Contents</span>
+          ><span class="tw-capitalize">{{AagamName}}</span> Aagam's Table of Contents
+          </nuxt-link>
+          <nuxt-link
+            :to="`/${AagamName}/original`"
+            class="tw-inline-block tw-text-center tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-yellow-700 tw-border tw-border-yellow-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
+          >Original <span class="tw-capitalize">{{AagamName}}</span> Aagam in Prakrit
           </nuxt-link>
         </div>
         <PostChooseLang

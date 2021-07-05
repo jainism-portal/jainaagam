@@ -24,7 +24,7 @@ export default {
     TheFooter,
     GoTop
   },
-    methods: {
+  methods: {
     addSlash(text) {
       return text.endsWith(`/`) ? text : `${text}/`;
     }
@@ -124,4 +124,11 @@ body
   .custom-first-letter-capitalize
     &::first-letter
       @apply tw-uppercase
+</style>
+
+<style lang="sass" scoped>
+.page-enter-active, .page-leave-active
+  @apply tw-transition-all tw-duration-300 tw-opacity-100
+.page-enter, .page-leave-to
+  @apply tw-opacity-0
 </style>

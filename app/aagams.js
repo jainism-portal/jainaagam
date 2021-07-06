@@ -193,6 +193,38 @@ export const aagams = [
     original: "नर्कावलिका"
   },
   {
+    cat: "upanga",
+    position: 2.9,
+    name: "Kalpāvataṃsikāḥ",
+    link: null,
+    trans: "Stories on characters reborn in the kalpa heavens",
+    original: "Kappāvaḍaṃsiāo"
+  },
+  {
+    cat: "upanga",
+    position: '2.10',
+    name: "Pushpikaaha",
+    link: "pushpikaaha",
+    trans: "Flowers",
+    original: "Pupphiāo"
+  },
+  {
+    cat: "upanga",
+    position: 2.11,
+    name: "Pushpa Choolika",
+    link: "pushpa-choolika",
+    trans: "The nun Pushpachoola",
+    original: "Puppha-cūliāo"
+  },
+  {
+    cat: "upanga",
+    position: 2.12,
+    name: "Vṛṣṇi-dashaah",
+    link: null,
+    trans: "Stories on characters from the legendary dynasty Andhaka - Vṛṣṇi",
+    original: "Vaṇhi - dasāo"
+  },
+  {
     cat: "chhed",
     position: 3.1,
     name: "Achara-dashah",

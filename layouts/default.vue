@@ -1,5 +1,5 @@
 <template>
-  <v-app class="tw-text-lg md:tw-text-xl tw-text-gray-700">
+  <v-app>
     <!-- <ScrollIndicator class="tw-top-0"></ScrollIndicator> -->
     <TheHeader></TheHeader>
     <v-main class="!tw-min-h-screen">
@@ -9,7 +9,7 @@
       ></Nuxt>
     </v-main>
     <TheFooter></TheFooter>
-    <GoTop></GoTop>
+    <GoTop v-if="showGoTop"></GoTop>
   </v-app>
 </template>
 
@@ -24,10 +24,24 @@ export default {
     TheFooter,
     GoTop
   },
+  data() {
+    return {
+      showGoTop: false
+    };
+  },
   methods: {
     addSlash(text) {
       return text.endsWith(`/`) ? text : `${text}/`;
+    },
+    showGoTopMethod() {
+      this.showGoTop = window.pageYOffset > 800;
     }
+  },
+  mounted() {
+    window.addEventListener("scroll", this.showGoTopMethod);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.showGoTopMethod);
   },
   head() {
     let website = `https://aagam.jainism.info`;
@@ -108,23 +122,6 @@ export default {
   }
 };
 </script>
-
-<style lang="sass">
-::selection
-  @apply tw-bg-yellow-100 tw-text-black
-body
-  .a11y-hide
-    clip-path: inset(100%)
-    clip: rect(1px, 1px, 1px, 1px)
-    height: 1px
-    width: 1px
-    @apply tw-overflow-hidden tw-absolute tw-whitespace-nowrap
-  .custom-min-height
-    min-height: calc(100vh - 3.5rem)
-  .custom-first-letter-capitalize
-    &::first-letter
-      @apply tw-uppercase
-</style>
 
 <style lang="sass" scoped>
 .page-enter-active, .page-leave-active

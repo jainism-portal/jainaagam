@@ -19,11 +19,5 @@ $tooltip-transition-enter-duration: 75ms !default
 
 @import '~vuetify/src/styles/styles.sass'
 
-.v-application p
-  margin-bottom: unset
-
-.v-application a
-  color: unset
-
 @each $name, $value in $utilities
   $utilities: map-merge($utilities, ($name: false))

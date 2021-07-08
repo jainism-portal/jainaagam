@@ -6,67 +6,64 @@
     >
       Fetching... 💖 Wait for a few seconds 😊
     </div>
-    <div v-else>
+    <article
+      v-else
+      lang="en"
+    >
       <Breadcrumbs
         v-if="$route.path"
         :path="$route.path.endsWith(`/`) ? $route.path : `${$route.path}/`"
       >
       </Breadcrumbs>
-      <!-- <button
-              class="tw-fixed tw-z-40 tw-bottom-4 md:tw-bottom-auto md:tw-top-14 tw-right-2 tw-rounded-2xl tw-text-2xl tw-w-10 tw-h-10 md:tw-w-12 md:tw-h-12 tw-font-2xl tw-bg-gradient-to-bl tw-from-white tw-to-blue-200 tw-shadow-md focus:tw-outline-none focus:tw-ring focus:tw-ring-blue-300"
-              @click.stop="showToc = !showToc"
-            >{{ showToc ? "❌" : "🧾" }}</button> -->
-      <article>
-        <h1 class="tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-relaxed tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2">
-          {{seoTitle}}
-        </h1>
-        <div
-          class="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-4"
-          v-if="AagamName"
-        >
-          <nuxt-link
-            :to="`/${AagamName}/toc`"
-            class="tw-inline-block tw-text-center tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-purple-700 tw-border tw-border-purple-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
-          ><span class="tw-capitalize">{{AagamName}}</span> Aagam's Table of Contents
-          </nuxt-link>
-          <nuxt-link
-            :to="`/${AagamName}/original`"
-            class="tw-inline-block tw-text-center tw-text-base tw-mt-2 tw-px-3 tw-py-2 !tw-text-yellow-700 tw-border tw-border-yellow-200 tw-transform-gpu hover:tw-scale-110 tw-transition-all tw-rounded"
-          >Original <span class="tw-capitalize">{{AagamName}}</span> Aagam in Prakrit
-          </nuxt-link>
-        </div>
-        <PostChooseLang
-          v-if="langPosts && langPosts.length && !(routePathWithSlash.endsWith(`/toc/`)) && !(routePathWithSlash.endsWith(`/original/`))"
-          :langPosts="langPosts"
-          class="tw-my-4"
-        >
-        </PostChooseLang>
+      <h1 class="nuxt-content-h1">
+        {{seoTitle}}
+      </h1>
+      <div
+        class="tw-my-3 tw-px-2 tw-flex tw-flex-col md:tw-flex-row tw-justify-center tw-items-center tw-gap-2 md:tw-gap-4 tw-capitalize tw-text-center tw-text-base tw-font-medium"
+        v-if="AagamName"
+      >
+        <nuxt-link
+          :to="`/${AagamName}/toc`"
+          class="tw-text-purple-600 hover:tw-text-purple-800 md:tw-px-2 md:tw-py-2 md:tw-border tw-border-gray-100 md:tw-border-purple-300 md:hover:tw-border-purple-700 tw-rounded md:hover:tw-bg-gradient-to-br md:hover:tw-from-white md:hover:tw-to-purple-50"
+        >{{AagamName}} Table of Contents
+        </nuxt-link>
+        <nuxt-link
+          :to="`/${AagamName}/original`"
+          class="tw-text-yellow-600 hover:tw-text-yellow-800 md:tw-px-2 md:tw-py-2 md:tw-border tw-border-gray-100 md:tw-border-yellow-300 md:hover:tw-border-yellow-700 tw-rounded md:hover:tw-bg-gradient-to-br md:hover:tw-from-white md:hover:tw-to-yellow-50"
+        >Original {{AagamName}} Aagam in Prakrit
+        </nuxt-link>
+      </div>
+      <PostChooseLang
+        :langPosts="langPosts"
+        v-if="langPosts && langPosts.length && !(routePathWithSlash.endsWith(`/toc/`)) && !(routePathWithSlash.endsWith(`/original/`))"
+      >
+      </PostChooseLang>
 
-        <div class=" tw-my-4 tw-mx-4">
-          <PostChildren
-            :AagamName="AagamName"
-            :metaPost="metaPost"
-            v-if="AagamName && metaPost"
-          ></PostChildren>
+      <div class="tw-mb-4 tw-container tw-mx-auto tw-px-4">
+        <PostChildren
+          :AagamName="AagamName"
+          :metaPost="metaPost"
+          v-if="AagamName && metaPost"
+        ></PostChildren>
 
-          <!-- <ReadingTime class="tw-text-sm" :post="child" :showWords="true"   :showTime="false"></ReadingTime> -->
+        <!-- <ReadingTime class="tw-text-sm" :post="child" :showWords="true"   :showTime="false"></ReadingTime> -->
 
-          <!-- <Incomplete
+        <!-- <Incomplete
             v-if="!currentLangPost"
             class="tw-my-3 md:tw-my-6"
           ></Incomplete> -->
 
-          <SutraOriginal
-            :sutraOriginal="sutraOriginal"
-            v-if="sutraOriginals.length"
-          ></SutraOriginal>
-          <nuxt-content
-            v-if="post"
-            :document="post"
-            class="tw-my-3"
-          ></nuxt-content>
-        </div>
-        <footer class="tw-my-6 tw-p-6">
+        <SutraOriginal
+          :sutraOriginal="sutraOriginal"
+          v-if="sutraOriginals.length"
+        ></SutraOriginal>
+        <nuxt-content
+          v-if="post"
+          :document="post"
+          class="tw-my-3"
+          :lang="currentPageLang"
+        ></nuxt-content>
+        <footer>
           <PostGitEdit
             v-if="metaPost"
             :metaPostDir="metaPost.dir"
@@ -77,8 +74,8 @@
             v-if="AagamName && filePathWithoutLocale"
           ></PostPrevNext>
         </footer>
-      </article>
-    </div>
+      </div>
+    </article>
   </div>
 </template>
 
@@ -91,6 +88,7 @@ import AppTip from "~/components/atoms/AppTip.vue";
 
 import SutraMeaning from "~/components/atoms/sutra/SutraMeaning.vue";
 import SutraExplanation from "~/components/atoms/sutra/SutraExplanation.vue";
+import SutraGlossary from "~/components/atoms/sutra/SutraGlossary.vue";
 
 import Breadcrumbs from "~/components/organisms/post/Breadcrumbs.vue";
 import PostPrevNext from "~/components/organisms/post/PostPrevNext.vue";
@@ -110,6 +108,7 @@ export default {
     AppTip,
     SutraMeaning,
     SutraExplanation,
+    SutraGlossary,
     // Molecules
     // Organisms
     Breadcrumbs,
@@ -176,8 +175,6 @@ export default {
       }
 
       path = _startcase(path);
-      console.log(path, path.length, typeof path);
-
       if (this.currentLangPost && this.currentLangPost.title) {
         actualTitle = this.currentLangPost.title;
       }
@@ -408,7 +405,6 @@ export default {
       };
     }
   }
-  // transition: "slide"
 };
 </script>
 
@@ -427,5 +423,8 @@ export default {
 // @apply tw-transition-all tw-duration-500
 </style>
 
-<style lang="sass" src="~/assets/css/all.sass" scoped>
+<style lang="sass" scoped>
+// To override vuetify para
+p
+  @apply tw-my-3 md:tw-my-6
 </style>

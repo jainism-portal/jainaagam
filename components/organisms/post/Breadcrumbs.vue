@@ -1,22 +1,22 @@
 <template>
-  <nav class="tw-py-3">
+  <nav>
     <ol class="tw-flex tw-flex-wrap !tw-pl-4 tw-items-center">
       <li
         v-for="(breadcrumb,i) in breadcrumbs"
         :key="breadcrumb.text"
-        class="tw-capitalize tw-text-sm md:tw-text-base"
-        :class="i < breadcrumbs.length - 1 ? 'tw-text-linkblue' : 'tw-text-gray-400'"
+        class="tw-capitalize"
       >
         <nuxt-link
           :to="breadcrumb.to"
           :exact="breadcrumb.exact"
-          class="tw-mx-1"
-          :class="{'hover:tw-underline' : i < breadcrumbs.length-1}"
+          class="tw-mx-1 tw-border-gray-200 tw-text-sm md:tw-text-lg"
+          :class="{'tw-text-gray-400 tw-border-none' : i === breadcrumbs.length-1}"
         >{{breadcrumb.text}}</nuxt-link>
-        <v-icon
-          class="!tw-text-gray-200"
+        <span
+          class="tw-text-gray-400 tw-text-sm md:tw-text-lg"
           v-if="i < breadcrumbs.length-1"
-        >{{mdiArrowRight}}</v-icon>
+        >⇒&nbsp;
+        </span>
       </li>
     </ol>
   </nav>

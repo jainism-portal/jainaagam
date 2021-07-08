@@ -47,7 +47,7 @@ Paiṇṇaga (10) viz., Causaraṇa, Āurapaccākkhāṇa, Bhattapariṇṇā, T
 
 ### Sub-Limb (Upanga) (12)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. Aupapatika
 2. Rājapraśnīya
@@ -66,7 +66,7 @@ Paiṇṇaga (10) viz., Causaraṇa, Āurapaccākkhāṇa, Bhattapariṇṇā, T
 
 ### Chhed (6)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. Ācāradaśāh
 2. Brhatkalpa
@@ -80,7 +80,7 @@ Kalpa Sūtra
 
 ### Mool (4)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. Daśavaikālika
 2. Uttaradhyayana
@@ -91,7 +91,7 @@ Kalpa Sūtra
 
 ### Miscellaneous (10)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. Catuhśarana
 2. Āturapratyākhyanā
@@ -109,7 +109,7 @@ Kalpa Sūtra
 
 ### Chulika (2)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. Nandi
 2. Anuyogdwaar

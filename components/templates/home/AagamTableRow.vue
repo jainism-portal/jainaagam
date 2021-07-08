@@ -1,27 +1,26 @@
 <template>
-  <tr class="hover:tw-bg-gray-50">
-    <td class="tw-p-1 md:tw-p-2 tw-border">
+  <tr class="tw-text-sm md:tw-text-xl">
+    <td class="tw-border">
       {{aagam.position}}
     </td>
-    <td class="tw-p-1 md:tw-p-2 tw-border">
+    <td class="tw-border">
       <component
         :is="aagam.isLink ? 'nuxt-link' : 'span'"
         :to="aagam.isLink ? aagam.link : null"
-        :class="aagam.isLink ? `!tw-text-linkblue tw-underline` : ``"
       >
         {{aagam.name}}
       </component>
       <span
-        class="tw-inline-block tw-text-sm"
+        class="tw-inline-block tw-text-xs md:tw-text-sm"
         v-if="aagam.sub"
       >({{aagam.sub}})</span>
     </td>
-    <td class="tw-p-1 md:tw-p-2 tw-border">{{aagam.trans}}</td>
-    <td class="tw-p-1 md:tw-p-2 tw-border">
+    <td class="tw-border">{{aagam.trans}}</td>
+    <td class="tw-border">
       <component
         :is="aagam.isLink ? 'nuxt-link' : 'span'"
         :to="aagam.isLink ? `${aagam.link}/original` : null"
-        :class="aagam.isLink ? `!tw-text-linkblue tw-underline` : ``"
+        lang="pka"
       >
         {{aagam.original}}
       </component>

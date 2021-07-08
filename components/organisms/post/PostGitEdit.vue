@@ -3,7 +3,7 @@
     :href="link"
     target="_blank"
     rel="noopener noreferer"
-    class="tw-text-gray-300 tw-text-base hover:tw-underline"
+    class="tw-my-3 md:tw-my-6 tw-text-gray-600 tw-text-base"
   >
     Edit this page on Github <v-icon small>{{mdiOpenInNew}}</v-icon>
     <!-- <p>
@@ -30,6 +30,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

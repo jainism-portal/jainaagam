@@ -4,12 +4,16 @@
 
 </sutra-meaning>
 
+<sutra-glossary>
+
+1. सूरं = शूर 
+2. पस्सइ = पश्यति
+
+</sutra-glossary>
+
 <sutra-explanation>
 
 यहाँ से तीसरे अध्याय और उसके पहले उद्देशक की शुरुआत होती है। 
-
-सूरं = शूर 
-पस्सइ = पश्यति
 
 </sutra-explanation>
 

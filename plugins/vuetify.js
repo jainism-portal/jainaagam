@@ -17,9 +17,9 @@ export default {
     //   anchor: '#fff',
     // }
   },
-  // icons: {
-  //   iconfont: 'mdi'
-  // },
+  icons: {
+    iconfont: 'mdiSvg'
+  },
   // font: {
   //   family: "'Open Sans', sans-serif"
   // }

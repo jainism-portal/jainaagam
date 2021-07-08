@@ -13,35 +13,28 @@
     >
       <nav v-if="children">
         <header>
-          <h2 class="tw-capitalize tw-text-xl md:tw-text-2xl tw-text-center tw-p-2 tw-text-pink-900">{{AagamName}} Sutra contents</h2>
+          <h2 class="first-letter:tw-uppercase tw-text-center">{{AagamName}} Sutra contents</h2>
 
           <p class="tw-text-center">{{children.length}} contents</p>
-          <div class="tw-mt-3 tw-flex tw-flex-wrap tw-justify-center tw-gap-4">
-            <v-btn
+          <div class="tw-my-3 tw-flex tw-flex-wrap tw-justify-center tw-gap-2 md:tw-gap-4">
+            <button
+              v-ripple
               @click="closeAll"
-              class="!tw-bg-blue-50"
-            >Close All</v-btn>
-            <v-tooltip
-              bottom
-              open-on-focus
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  v-bind="attrs"
-                  v-on="on"
-                  @click="openAll"
-                  class="!tw-bg-pink-50"
-                >Open All
-                </v-btn>
-              </template>
-              <span>Careful: Opening all {{children.length}} contents may be huge</span>
-            </v-tooltip>
+              class="tw-to-blue-100 tw-text-blue-900"
+            >Close All</button>
+            <button
+              v-ripple
+              @click="openAll"
+              class="tw-to-pink-100 tw-relative tw-group tw-text-pink-800"
+            >Open All
+              <div class="tw-absolute tw-top-10 max-w-[40vw] tw-overflow-x-auto tw-transition-all tw-scale-0 group-hover:tw-scale-100 tw-border tw-p-2 tw-bg-gradient-to-br tw-from-yellow-50 tw-to-yellow-100 tw-lowercase first-letter:tw-uppercase tw-rounded tw-text-xs md:tw-text-base tw-break-all">You are opening all {{children.length}}!</div>
+            </button>
           </div>
         </header>
 
         <ol
           v-if="groupedChildren['2'] && groupedChildren['2'].length"
-          class="tw-mt-6 !tw-pl-4"
+          class="!tw-pl-0 md:!tw-pl-4 !tw-list-none"
         >
           <li
             v-for="child2 in groupedChildren['2']"
@@ -353,73 +346,51 @@ export default {
 
 <style lang="sass" scoped>
 
-/////////////////////// 
-// The Text portion
+/// The Text portion
 
 .link
-  @apply tw-break-words
-  @apply hover:tw-text-linkblue hover:tw-underline
-  // @apply tw-text-blue-800 #{!important}
+  @apply tw-inline tw-break-words tw-border-gray-100 hover:tw-border-linkpink tw-text-current hover:tw-text-linkpink
 
 .post-title
-  @apply tw-text-sm md:tw-text-base
+  @apply tw-text-xs md:tw-text-sm
 
 .contents-count
-  @apply tw-text-sm tw-inline-block tw-mr-auto tw-text-gray-400 group-hover:tw-text-gray-700
+  @apply tw-text-xs md:tw-text-sm tw-inline-block tw-mr-auto tw-text-gray-400 group-hover:tw-text-gray-700
 
-/////////////////////// 
-// The HTML portion
+/// The HTML portion
 
 .ol
-  @apply tw-pr-1 tw-pb-2 tw-pl-2 md:tw-pl-6
-
-.list-item
-  @apply tw-my-3
-  @apply tw-rounded tw-border
-  @apply tw-bg-gradient-to-bl tw-from-white tw-via-white
-  &--2
-    @apply tw-border-pink-300 tw-to-pink-50
-  &--3
-    @apply tw-border-blue-300 tw-to-blue-50
-  &--4
-    @apply tw-border-green-300 tw-to-green-50
-  &--5
-    @apply tw-border-purple-300 tw-to-purple-50
+  @apply tw-pl-2 tw-pr-1 tw-pt-2 md:tw-pl-4 md:tw-pt-0
+  @apply tw-list-none tw-my-0
 
 .list-item-without-details-tag
-  @apply tw-px-1
-  &:first-child
-    @apply tw-py-2
-  &:not(:first-child)
-    @apply tw-py-1 md:tw-py-2
-  &:not(:last-child)
-    @apply tw-border-b
+  @apply tw-px-1 tw-py-1 md:tw-py-2 first:tw-py-2 tw-border-b last:tw-border-b-0
 
 .details
+  @apply tw-my-3
+  @apply tw-bg-gradient-to-br tw-from-white tw-via-white
   &--2
-    ::marker
-      @apply tw-text-pink-600
+    @apply tw-to-pink-50 tw-border-pink-300
   &--3
-    ::marker
-      @apply tw-text-blue-700
+    @apply tw-to-blue-50 tw-border-blue-300
   &--4
-    ::marker
-      @apply tw-text-green-600
+    @apply tw-to-green-50 tw-border-green-300
   &--5
-    ::marker
-      @apply tw-text-purple-600
+    @apply tw-to-purple-50 tw-border-purple-300
 
 .summary
-  @apply tw-pl-2 md:tw-pl-4
-  @apply tw-py-2 tw-cursor-pointer hover:tw-shadow-md tw-rounded
-  @apply tw-bg-gradient-to-r tw-from-white tw-via-white hover:tw-bg-gradient-to-b
+  @apply tw-bg-gradient-to-r tw-shadow-md
   &--2
-    @apply tw-to-pink-50 tw-text-pink-800
+    @apply tw-to-pink-50 tw-text-pink-800 marker:tw-text-pink-600
   &--3
-    @apply tw-to-blue-50 tw-text-blue-800
+    @apply tw-to-blue-50 tw-text-blue-800 marker:tw-text-blue-700
   &--4
-    @apply tw-to-green-50 tw-text-green-800
+    @apply tw-to-green-50 tw-text-green-800 marker:tw-text-green-600
   &--5
-    @apply tw-to-purple-50 tw-text-purple-800
+    @apply tw-to-purple-50 tw-text-purple-800 marker:tw-text-purple-600
+
+.details[open]
+  .summary
+    @apply tw-border-none
 
 </style>

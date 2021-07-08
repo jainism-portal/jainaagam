@@ -2,14 +2,14 @@
   <section v-if="children && children.length">
     <header
       @click="toggleContents = !toggleContents"
-      class="tw-group tw-cursor-pointer tw-my-3 md:tw-my-6 tw-text-pink-800 tw-text-xl md:tw-text-3xl tw-bg-gradient-to-r tw-from-white tw-to-red-50 tw-rounded-md tw-py-1 tw-flex tw-flex-wrap tw-justify-between tw-items-center"
+      class="tw-my-3 md:tw-my-6 tw-py-2 tw-border-b tw-border-gray-300 tw-cursor-pointer tw-flex tw-flex-wrap tw-justify-between tw-items-center"
     >
-      <h2>Jain Aagam contents</h2>
+      <h2 class="nuxt-content-h2 tw-border-none tw-my-0">Contents</h2>
       <v-icon class="tw-mx-4 !tw-text-pink-800">{{!toggleContents ? mdiChevronDown : mdiChevronUp}}</v-icon>
     </header>
     <ol
       class="!tw-pl-0"
-      :class="toggleContents ? `tw-flex tw-flex-wrap tw-gap-4 tw-justify-start tw-items-end` : `tw-hidden`"
+      :class="toggleContents ? `tw-flex tw-flex-wrap tw-justify-start tw-items-end tw-gap-2 md:tw-gap-4` : `tw-hidden`"
     >
       <li
         v-for="child in children"
@@ -17,7 +17,7 @@
       >
         <nuxt-link
           :to="child.dirWithoutAagam"
-          class="custom-first-letter-capitalize tw-inline-block tw-m-1 tw-p-1.5 !tw-text-linkblue tw-border tw-border-gray-200 tw-rounded hover:tw-bg-blue-50"
+          class="tw-inline md:tw-inline-block first-letter:tw-uppercase tw-p-1.5 md:tw-border tw-border-gray-200 tw-rounded hover:tw-border-pink-200 md:hover:tw-bg-gradient-to-br md:hover:tw-from-white md:hover:tw-to-pink-50"
         >
           {{child.title ? `${child.slugurl.replace(/-/g, " ").replace(/^toc$/, 'Table of Contents')} → ${child.title}` : child.slugurl.replace(/-/g, " ").replace(/^toc$/, 'Table of Contents')}}
         </nuxt-link>
@@ -83,4 +83,3 @@ export default {
   }
 };
 </script>
-

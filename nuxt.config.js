@@ -64,7 +64,9 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    '~/assets/css/tailwind.sass'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -262,7 +264,7 @@ export default {
     customVariables: ['~/assets/css/themes/vuetify-variables.sass'],
     optionsPath: '~/plugins/vuetify.js',
     defaultAssets: false,
-    treeShake: process.env.NODE_ENV === 'production'
+    treeShake: true // process.env.NODE_ENV === 'production'
   },
 
   hooks: {

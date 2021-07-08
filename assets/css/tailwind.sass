@@ -1,0 +1,222 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+@import "tailwindcss/base"
+@import "tailwindcss/components"
+@import "tailwindcss/utilities"
+
+// .v-application p
+//   margin-bottom: unset
+
+::-webkit-scrollbar
+  @apply tw-w-4 tw-h-2
+::-webkit-scrollbar-track
+  @apply tw-rounded-l-lg tw-bg-gradient-to-br tw-from-gray-50 tw-to-gray-200
+::-webkit-scrollbar-thumb
+  @apply tw-bg-gradient-to-br tw-from-blue-100 tw-to-blue-300
+  @apply hover:tw-from-blue-200 hover:tw-to-blue-400
+
+@layer base
+  // :lang(en)
+  //   @apply tw-font-medium
+  // :lang(hi)
+  //   @apply tw-font-normal
+
+  body
+    @apply selection:tw-bg-yellow-100 selection:tw-text-black
+    @apply tw-text-lg md:tw-text-xl tw-text-gray-800
+
+  h2, h3, h4, h5, h6, details, figure, img, picture, p, ol, ul, blockquote, table, hr
+    @apply tw-my-3 md:tw-my-6
+
+  a
+    @apply tw-inline-block tw-text-linkblue tw-border-b tw-border-gray-500 hover:tw-text-linkpink hover:tw-border-linkpink tw-transform-gpu
+    @apply tw-transition-all tw-scale-100 active:tw-scale-95
+
+  b, strong
+    @apply tw-font-semibold
+
+  button
+    @apply tw-cursor-pointer tw-scale-100 active:tw-scale-95 hover:tw-scale-105 tw-px-2 tw-py-1 md:tw-py-2 tw-transition-all tw-border tw-border-gray-300 tw-bg-gradient-to-br tw-from-white tw-to-blue-50 hover:tw-bg-gradient-to-tl tw-rounded tw-shadow
+
+  blockquote
+    @extend .tip
+
+    cite
+      @apply tw-text-gray-500 tw-italic
+
+  figure
+    img, picture, blockquote
+      @apply tw-my-0
+    figcaption
+      @apply tw-mt-3 tw-italic
+    blockquote
+      ~ figcaption
+        @apply tw-text-yellow-700 tw-mt-2
+        &::before
+          content: "~ "
+
+  details
+    @apply tw-bg-white
+
+  summary
+    @apply marker:tw-text-yellow-800 marker:tw-text-base md:marker:tw-text-lg
+    @apply tw-px-2 md:tw-px-4 tw-py-2 tw-cursor-pointer tw-shadow tw-rounded
+    @apply tw-transition-colors tw-bg-gradient-to-bl tw-from-white tw-via-white tw-to-yellow-50 hover:tw-bg-gradient-to-t
+
+  details[open]
+    // @apply tw-mb-3 md:tw-mb-6
+    @apply tw-px-2 md:tw-px-4 tw-pb-2
+    @apply tw-border tw-rounded
+    > summary
+      @apply tw-bg-gradient-to-t
+      @apply tw--mx-2 md:tw--mx-4
+
+  hr
+    @apply tw-border-2 tw-bg-gray-300
+
+  p, li
+    @apply md:tw-leading-relaxed
+
+  table
+    @apply tw-border-collapse
+
+  td, th
+    @apply tw-p-1 md:tw-p-2
+
+  .nuxt-content
+    @apply tw-text-gray-900
+
+    h2, h3, h4, h5, h6
+      @apply tw-font-medium tw-py-1 tw-border-b tw-border-gray-300
+
+    h2
+      @apply tw-text-pink-800 tw-text-2xl md:tw-text-4xl
+
+    h3
+      @apply tw-text-indigo-900 tw-text-2xl md:tw-text-3xl
+
+    h4
+      @apply tw-text-green-800
+
+    h4, h5, h6
+      @apply tw-text-xl md:tw-text-2xl
+
+    a
+      @apply tw-inline
+
+    ul
+      @apply tw-list-disc
+
+    ol
+      @apply tw-list-decimal
+
+    li
+      @apply tw-my-1.5
+
+    ol, ul
+      @apply tw-pl-6 tw-list-inside marker:tw-text-pink-800
+      li
+        ol, ul
+          @apply first:tw-my-0
+          li
+            ul
+              list-style-type: circle
+
+    img
+      @apply tw-max-w-full tw-h-auto tw-rounded
+
+    table
+      @apply tw-border tw-border-gray-300
+
+    tr
+      @apply hover:tw-bg-gray-50
+
+    th, td
+      @apply tw-border
+
+    th
+      @apply tw-bg-gray-50 tw-border-gray-600
+
+    td
+      @apply tw-border-gray-300
+
+
+    u
+      @apply tw-no-underline tw-border-b-2 tw-border-gray-600
+
+@layer components
+  .a11y-hide
+    clip-path: inset(100%)
+    clip: rect(1px, 1px, 1px, 1px)
+    height: 1px
+    width: 1px
+    @apply tw-overflow-hidden tw-absolute tw-whitespace-nowrap
+
+  .nuxt-content
+    &-h1
+      @apply tw-text-center tw-px-2 md:tw-px-4 tw-text-2xl md:tw-text-4xl tw-text-indigo-900 tw-leading-tight md:tw-leading-normal tw-bg-gradient-to-r tw-from-white tw-to-blue-50 tw-p-2
+    &-h2
+      @apply tw-font-medium tw-py-1 tw-border-b tw-border-gray-300
+      @apply tw-text-pink-800 tw-text-2xl md:tw-text-4xl
+
+  .flex-child
+    > *
+      @apply tw-flex tw-flex-wrap tw-gap-2 md:tw-gap-4
+
+  .tip
+    @apply tw-border-l-2 tw-px-4 tw-py-2 tw-bg-gradient-to-br tw-from-white tw-via-white tw-rounded-r
+    @apply tw-to-blue-50 tw-border-blue-500
+    > *
+      @apply first:tw-mt-0 last:tw-mb-0
+    ol, ul
+      @apply marker:tw-text-blue-800
+
+    &-green
+      @extend .tip
+      @apply tw-to-green-50 tw-border-green-500
+      ol, ul
+        @apply marker:tw-text-green-800
+
+    &-red
+      @extend .tip
+      @apply tw-to-red-50 tw-border-red-500
+      ol, ul
+        @apply marker:tw-text-red-800
+
+    &-yellow
+      @extend .tip
+      @apply tw-to-yellow-50 tw-border-yellow-300
+      ol, ul
+        @apply marker:tw-text-yellow-800
+
+    &-pink
+      @extend .tip
+      @apply tw-to-pink-50 tw-border-pink-500
+      ol, ul
+        @apply marker:tw-text-pink-800
+
+    &-purple
+      @extend .tip
+      @apply tw-to-purple-50 tw-border-purple-500
+      ol, ul
+        @apply marker:tw-text-purple-800
+
+    &-indigo
+      @extend .tip
+      @apply tw-to-indigo-50 tw-border-indigo-500
+      ol, ul
+        @apply marker:tw-text-indigo-800
+
+// @layer base {
+// h2 {
+//   @apply tw-tracking-wide tw-border-b tw-border-pink-300;
+// }
+// h3 {
+//   @apply tw-tracking-wide tw-border-b tw-border-blue-300;
+// }
+// blockquote {
+//   @apply tw-px-2 tw-border tw-border-gray-500 tw-rounded-md tw-text-gray-700;
+// }
+// }

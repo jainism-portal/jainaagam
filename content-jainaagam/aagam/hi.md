@@ -29,7 +29,7 @@ children:
 
 #### आचारांग (11)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. [आचारांग (आयारांग)](/hi/acharanga)
 2. [सूत्रकृतांग](/hi/sutrakritanga)
@@ -48,7 +48,7 @@ children:
 
 #### उपांग (12)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. औपपातिक (uvavavai)
 2. राजप्रश्नीय (rajpaseniya)
@@ -63,7 +63,7 @@ children:
 
 #### छेड (6)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. Ācāradaśāh
 2. Brhatkalpa
@@ -77,7 +77,7 @@ Kalpa Sūtra
 
 #### मूल (4)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. Daśavaikālika
 2. Uttaradhyayana
@@ -88,7 +88,7 @@ Kalpa Sūtra
 
 #### प्रकीर्णक (10)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. Catuhśarana
 2. Āturapratyākhyanā
@@ -105,7 +105,7 @@ Kalpa Sūtra
 
 #### चूलिक (2)
 
-<div class="flex-grandchild">
+<div class="flex-child">
 
 1. [नंदी](/hi/nandi)
 2. अनुयोगद्वार

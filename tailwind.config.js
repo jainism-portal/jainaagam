@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       colors: {
         'linkblue': '#2952a3', // hsl(220, 60%, 40%)
+        'linkpink': '#9D174D', // pink-800
         'facebook': '#3b5999',
         'twitter': '#55acee',
         'linkedin': '#0077B5',

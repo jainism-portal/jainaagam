@@ -3,7 +3,10 @@
     <h2 class="nuxt-content-h2">Aagam Sutra</h2>
     <div class="tw-my-3 md:tw-my-6 tw-flex tw-flex-col md:tw-flex-row tw-flex-wrap tw-justify-around tw-items-stretch tw-gap-2">
       <div class="md:tw-w-[calc(50%-0.5rem)]">
-        <details class="tw-w-full tw-my-0">
+        <details
+          class="tw-w-full tw-my-0"
+          open
+        >
           <summary>
             <h3 class="tw-my-0 tw-inline">Original</h3>
           </summary>

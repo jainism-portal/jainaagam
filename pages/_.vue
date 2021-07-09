@@ -73,6 +73,20 @@
             :AagamName="AagamName"
             v-if="AagamName && filePathWithoutLocale"
           ></PostPrevNext>
+
+          <div
+            @click="showComments = !showComments"
+            class="tw-my-3 md:tw-my-6 tw-py-2 tw-border-b tw-border-gray-300 tw-cursor-pointer tw-flex tw-flex-wrap tw-justify-between tw-items-center"
+          >
+            <div class="tw-flex tw-justify-start tw-items-center tw-gap-2 md:tw-gap-4">
+              <v-icon class="!tw-text-pink-900"> {{mdiCommentProcessingOutline}} </v-icon>
+              <h2 class="nuxt-content-h2 tw-my-0 tw-border-none">{{!showComments ? `Show` : `Hide`}} Comments</h2>
+            </div>
+            <v-icon class="!tw-text-pink-900"> {{showComments === true ? mdiChevronUp : mdiChevronDown}} </v-icon>
+          </div>
+          <div v-if="showComments">
+            <Disqus class="tw-mt-3"></Disqus>
+          </div>
         </footer>
       </div>
     </article>
@@ -83,6 +97,12 @@
 import _startcase from "lodash.startcase";
 
 import appLanguages from "~/app/langs.js";
+
+import {
+  mdiCommentProcessingOutline,
+  mdiChevronUp,
+  mdiChevronDown
+} from "@mdi/js";
 
 import AppTip from "~/components/atoms/AppTip.vue";
 
@@ -124,6 +144,10 @@ export default {
   },
   data() {
     return {
+      // ICONS
+      mdiCommentProcessingOutline,
+      mdiChevronUp,
+      mdiChevronDown,
       // POSTS
       allPostsOfDir: [], // meta, en, hi, ... , and original
       metaPost: {}, // langPosition = 0
@@ -135,6 +159,9 @@ export default {
       sutraOriginals: [],
       sutraOriginal: {},
       currentLangPost: {},
+
+      //
+      showComments: false,
 
       // HEAD META
       alternates: [],

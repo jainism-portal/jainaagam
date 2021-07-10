@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@mdi/js": "^5.9.55",
-    "@nuxt/image": "^0.4.14",
+    "@nuxt/image": "^0.5.0",
     "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^4.2.1",
     "@nuxtjs/vuetify": "^1.11.3",
